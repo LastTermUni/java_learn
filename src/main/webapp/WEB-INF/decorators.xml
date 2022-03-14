@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--folder chứa admin.jsp, client.jsp-->
+<decorators defaultdir="/decorators">
+
+    <excludes>
+
+    </excludes>
+
+<!--    &lt;!&ndash; apply Sitemesh default template &ndash;&gt;-->
+<!--    <decorator name="client" page="client.jsp">-->
+<!--        <pattern>/*</pattern>-->
+<!--    </decorator>-->
+
+    <!-- apply Sitemesh default template -->
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin*</pattern>
+    </decorator>
+</decorators>
