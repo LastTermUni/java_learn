@@ -1,0 +1,95 @@
+@use '../abstracts/mixins' as *;
+.single-service-2 {
+    padding: 0px 68px;
+    position: relative;
+
+    @media #{$xs}{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @include mq(sm) {
+        padding: 0;
+    }
+    @include mq(md) {
+        padding: 0;
+    }
+    @include mq(lg) {
+        padding: 0;
+    }
+    @include mq(xl) {
+        padding: 0px 38px;
+    }
+    & .thumb {
+        margin-bottom: 45px;
+    }
+    & .content {
+        & h5 {
+            font-size: 14px;
+            line-height: 1;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+            @include mq(sm) {
+                font-size: 13px;
+            }
+            & a {
+                text-decoration: none;
+                color: #222222;
+                &:hover {
+                    color: #f67174;
+                }
+            }
+        }
+        & p {
+            color: #666666;
+            line-height: 24px;
+            @include mq(sm) {
+                font-size: 13px;
+            }
+        }
+    }
+    & .shape-line {
+        position: absolute;
+        right: -121px;
+        top: 36px;
+        &.pos-top {
+            top: 0;
+        }
+    }
+}
+.service-wrapper {
+    border-bottom: 1px solid #ebebeb;
+}
+.service-shapes {
+    & .shape-wrapper {
+        &.wrap1 {
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 141px;
+            @include mq(lg) {
+                top: 88px;
+            }
+        }
+        &.wrap2 {
+            z-index: -1;
+            position: absolute;
+            top: 92px;
+            right: 0;
+        }
+        &.wrap3 {
+            z-index: -1;
+            position: absolute;
+            top: -8px;
+            left: 42.65%;
+            transform: translateX(-50%);
+        }
+        &.wrap4 {
+            z-index: -1;
+            position: absolute;
+            right: 427px;
+            bottom: -52px;
+        }
+    }
+}

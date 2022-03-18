@@ -1,0 +1,243 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/declaration.scss' as *;
+// cart btn
+
+:is(.cart-btn) {
+    & a {
+        font-size: 13px;
+        text-transform: uppercase;
+        line-height: 1;
+        text-decoration: none;
+        display: block;
+        font-weight: var(--fw-sbold);
+        text-align: center;
+        padding: 18px 0;
+    }
+    &:is(.p-abs) {
+        left: 0;
+        @include transition(.3s);
+        right: 0;
+        bottom: -60px;
+    }
+    &:is(.cart-btn-1) {
+        @include cart-btn;
+    }
+    &:is(.cart-btn-2) {
+        @include cart-btn(--clr-common-white,--clr-common-black,--clr-common-white,--clr-theme-sub-2);
+    }
+    &:is(.cart-btn3) {
+        @include cart-btn(--clr-common-white,--clr-common-black,--clr-common-white,--clr-theme-3);
+    }
+    &:is(.cart-btn-4) {
+        @include cart-btn(--clr-common-white,--clr-common-black,--clr-common-white,--clr-theme-sub-2);
+    }
+}
+:is(.discount) {
+    line-height: 1;
+    font-size: 13px;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 2px;
+    &:is(.discount-1) {
+        @include discount;
+    }
+    &:is(.discount-2) {
+        @include discount(--clr-common-white,--clr-theme-1-sub);
+    }
+    &:is(.discount-3) {
+        @include discount(--clr-common-white,--clr-theme-sub-2);
+    }
+    &:is(.discount-4) {
+        @include discount(--clr-common-white,--clr-theme-3);
+    }
+    &:is(.p-abs) {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    &:is(.discount-6){
+        background: #d4a533;
+    }
+    @include mq(xs) {
+        padding: 7px 11px;
+    }
+
+}
+// puik btn
+.p-btn {
+    & a,& button {
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 600;
+        font-weight: 600;
+        border: 2px solid transparent;
+        display: inline-block;
+        @include transition(.3s);
+        padding: 16px 75px;
+        @include mq(md) {
+            padding: 13px 55px;
+        }
+        @include mq(sm) {
+            padding: 14px 60px;
+        }
+        @include mq(xs) {
+            padding: 10px 40px;
+        }
+    }
+    &:is(.p-btn-1) {
+        & a {
+            @include p-btn;
+        }
+    }
+    &:is(.p-btn-2) {
+        & a {
+            padding: 16px 47px;
+            @include p-btn(--clr-common-white,--clr-common-transparent,--clr-common-black,--clr-common-black,--clr-common-white);
+            @include mq(md) {
+                padding: 9px 29px;
+            }
+            @include mq(xs) {
+                padding: 5px 13px;
+            }
+        }
+    }
+    &:is(.p-btn-3) {
+        & a {
+            padding: 16px 52px;
+            @include p-btn(--clr-common-black,--clr-border-1,--clr-common-transparent,--clr-common-white,--clr-common-black,--clr-common-transparent);
+            @include mq(md) {
+                padding: 10px 40px;
+            }
+            @include mq(xs) {
+                padding: 8px 41px;
+            }
+        }
+    }
+    &:is(.p-btn-4) {
+        & a,& button {
+            padding: 16px 47px;
+            @include p-btn(--clr-common-white,--clr-common-transparent,--clr-common-black,--clr-common-black,--clr-common-white);
+        }
+    }
+    &:is(.p-btn-5) {
+        & a {
+            padding: 16px 88px;
+            @include p-btn(--clr-common-white,--clr-common-transparent,--clr-common-black,--clr-common-white,--clr-theme-sub-2,--clr-common-transparent);
+            @include mq(xl) {
+                padding: 12px 70px;
+            }
+            @include mq(md) {
+                padding: 9px 29px;
+            }
+            @include mq(xs) {
+                padding: 5px 13px;
+            }
+        }
+    }
+}
+
+:is(.subscribe-btn) {
+    background: #222222;
+    color: #fff;
+    border: 0;
+    border: 2px solid transparent;
+    padding: 18px 102px;
+    line-height: 1;
+    font-weight: 600;
+    @include transition(.3s);
+    text-transform: uppercase;
+    &:hover {
+        background-color: transparent;
+        color: #222;
+        border-color: #222;
+    }
+    &:is(.subscribe-btn-1) {
+        @include subscribe-btn;
+    }
+    &:is(.subscribe-btn-2) {
+        @include subscribe-btn(--clr-common-white,--clr-theme-sub-2,--clr-theme-sub-2,--clr-theme-sub-2,--clr-common-transparent,--clr-theme-sub-2);
+    }
+    @include mq(xs) {
+        padding: 11px 55px;
+    }
+    &.subscribe-btn-3 {
+        background-color: var(--clr-theme-3);
+        &:hover {
+            background-color: var(--clr-common-white);
+            color: var(--clr-theme-1)
+        }
+    }
+}
+
+// s btn
+
+.s-btn{
+    display: inline-block;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    padding: 0 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--clr-common-black);
+    border: 1px solid var(--clr-common-black);
+    text-transform: uppercase;
+    &:hover{
+        color: var(--clr-common-white);
+        background: var(--clr-common-black);
+    }
+    &-2{
+        color: var(--clr-common-white);
+        background: var(--clr-common-black);
+        &:hover{
+            background: var(--clr-common-white);
+            color: var(--clr-common-black);
+        }
+    }
+    &-3{
+        padding: 0 85px;
+        color: #fff;
+        background: #d4a533;
+        border-color: #d4a533;
+
+        &:hover{
+            color: var(--clr-common-black);
+            background: #fff;
+            border-color: #fff;
+        }
+    }
+    &-4{
+        background: #f6f6f6;
+        color: #222;
+        border-color: #e1e1e1;
+        text-transform: capitalize;
+        padding: 0 54px;
+    }
+    &-5{
+        height: 40px;
+        line-height: 38px;
+        padding: 0 30px;
+        background: #222;
+        color: #fff;
+        text-transform: capitalize;
+        &:hover{
+            background: #fff;
+            color: #222;
+        }
+    }
+    &-big{
+        height: 55px;
+        line-height: 53px;
+        padding: 0 155px;
+        &-2{
+            padding: 0 95px;
+
+            @media #{$xs}{
+                padding-left: 55px;
+                padding-right: 55px;
+            }
+        }
+    }
+}
+
+

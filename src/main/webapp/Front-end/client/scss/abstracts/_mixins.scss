@@ -1,0 +1,328 @@
+
+@function _rgba($color, $opacity: 1) {
+    @return unquote("rgba(#{red($color)}, #{green($color)}, #{blue($color)}, #{$opacity})");
+}
+@mixin transition($time) {
+    -webkit-transition: all $time linear 0s;
+    -moz-transition: all $time linear 0s;
+    -ms-transition: all $time linear 0s;
+    -o-transition: all $time linear 0s;
+    transition: all $time linear 0s;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
+
+
+//border
+@mixin border-radius($man) {
+    -webkit-border-radius: $man;
+    -moz-border-radius: $man;
+    border-radius: $man;
+    }
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+		@content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin mq($value) {
+    @if $value=='xxl' {
+        @media (min-width: 1400px) and (max-width: 1700px) {
+            @content;
+        }
+    }
+    @if $value=='xl' {
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            @content;
+        }
+    }
+    @if $value=='lg' {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        } 
+    }
+    @if $value=='md' {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }
+    @if $value=='xs' {
+        @media (max-width: 575px) {
+            @content;
+        }
+    }
+    @if $value=='sm' {
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+            @content;
+        }
+    }
+}
+
+@mixin cmq($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin cmmq($min) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin cmaq($max) {
+    @media (max-width: $max) {
+        @content;
+    }
+}
+
+// Responsive Variables
+$xxxl: 'only screen and (min-width: 1601px) and (max-width: 1800px)';
+$xxl: 'only screen and (min-width: 1400px) and (max-width: 1600px)';
+$xl: 'only screen and (min-width: 1200px) and (max-width: 1399px)';
+$lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md:'only screen and (min-width: 768px) and (max-width: 991px)';
+$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$xs:'(max-width: 575px)';
+
+
+@mixin sub_menu($color: --clr-common-white,$hover-color: --clr-theme-1) {
+    & ul {
+        & li {
+            & a {
+                color: var($color);
+                &::before {
+                    background-color: var($hover-color);
+                }
+            }
+            &:hover > a {
+                color: var($hover-color);
+                &::before {
+                    width: 100%;
+                }
+            }
+            & .sub-menu {
+                border-color: var($color);
+            }
+        }
+    }
+}
+
+
+@mixin dot_style {
+	& .slick-dots {
+        & li {
+            & button {
+                border: 0;
+                font-size: 0;
+                padding: 0;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                border: 1px solid transparent;
+            } 
+            &.slick-active {
+                & button {
+                    width: 10px;
+                    height: 10px;
+                    background: transparent;
+                    border-color: var(--clr-common-black);
+                }
+            } 
+        }
+    }
+}
+@mixin dot_style_1($color) {
+    & .slick-dots {
+        & button {
+            background: var($color);
+        }
+    }
+}
+@mixin dot_pos_right {
+    & li {
+        display: block;
+    }
+    & .slick-dots {
+        position: absolute;
+        right: 60px;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+@mixin dot_pos_bottom_left {
+    & li {
+        display: block;
+    }
+    & .slick-dots {
+        position: absolute;
+        left: 260px;
+        text-align: center;
+        bottom: 60px;
+    }
+}
+@mixin dot_pos_bottom_center {
+    & li {
+        display: block;
+    }
+    & .slick-dots {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+        text-align: center;
+        bottom: -23px;
+    }
+}
+@mixin dot_pos_bottom_left_2 {
+    & ul {
+        transform: rotate(90deg);
+    }
+    & li {
+        display: block;
+    }
+    & .slick-dots {
+        position: absolute;
+        left: 260px;
+        text-align: center;
+        bottom: 60px;
+        @include mq(md) {
+            left: 91px;
+            bottom: 0;
+        }
+    }
+}
+@mixin scroll-link($color: --clr-common-black,$bg-color: --clr-common-white,$hover-color: --clr-common-white,$hover-bg: --clr-theme-1) {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: var($bg-color);
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    color: var($color);
+    font-size: 16px;
+    &:hover {
+        background-color: var($hover-bg);
+        color: var($hover-color);
+    }
+    @include mq(xs) {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+}
+@mixin cart-btn($color: --clr-common-white,$bg-color: --clr-common-black,$hover-color: --clr-common-white,$hover-bg: --clr-theme-1) {
+    background: var($bg-color);
+    color: var($color);
+    &:hover {
+        background-color: var($hover-bg);
+        color: var($hover-color);
+    }
+}
+@mixin discount($color: --clr-common-white,$bg-color: --clr-theme-1) {
+    color: var($color);
+    background: var($bg-color);
+}
+@mixin product-action ($color: --clr-common-black, $border-color: --clr-border-1, $bg-color: --clr-common-white, $hover-color: --clr-common-white, $hover-border-color: --clr-theme-1, $hover-bg-color: --clr-theme-1){
+    border-color: var($border-color);
+    color: var($color);
+    background: var($bg-color);
+    &:hover {
+        border-color: var($hover-border-color);
+        color: var($hover-color);
+        background-color: var($hover-bg-color);
+    }
+}
+@mixin margin($position,$unit) {
+    margin-#{$position} : $unit + px;
+}
+@mixin padding($position,$unit) {
+    padding-#{$position} : $unit + px;
+}
+@mixin p-btn($color: --clr-common-black,$border-color: --clr-common-black,$bg-color: --clr-common-transparent,$hover-color: --clr-common-white,$hover-bg: --clr-common-black, $hover-border: --clr-common-black) {
+    border-color: var($border-color);
+    color: var($color);
+    background-color: var($bg-color);
+    &:hover {
+        border-color: var($hover-border);
+        color: var($hover-color);
+        background-color: var($hover-bg);
+    }
+}
+@mixin single-banner($color: --clr-theme-1) {
+    & span {
+        color: var($color);
+    }
+    & h4 {
+        &:hover {
+            & a {
+                color: var($color);
+            }
+        }
+    }
+}
+@mixin tag-btn($color: --clr-theme-1,$bg-color: --clr-common-transparent,$border-color: --clr-theme-1,$hover-color: --clr-common-white,$hover-bg: --clr-theme-1) {
+    color: var($color);
+    border-color: var($border-color);
+    background-color: var($bg-color);
+    &:hover {
+        background-color: var($hover-bg);
+        color: var($hover-color);
+    }
+}
+@mixin subscribe-btn($color: --clr-common-white,$bg-color: --clr-common-black,$border-color: --clr-common-black,$hover-color: --clr-common-black,$hover-bg: --clr-common-white,$border-color-hover: --clr-common-black) {
+        color: var($color);
+        background-color: var($bg-color);
+        color: var($color);
+        border-color: var($border-color);
+        &:hover {
+            color: var($hover-color);
+            background-color: var($hover-bg);
+            border-color: var($border-color-hover);
+        }
+}
+@mixin link-style {
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    &:hover {
+        padding-left: 12px;
+    }
+    @include footer-link;
+}
+@mixin footer-link($color: --clr-soft-gray-2,$hover-color: --clr-heading-primary) {
+    color: var($color);
+    &:hover {
+        color: var($hover-color);
+    }
+}
+@mixin s-subtitle($color: --clr-common-white,$bg-color: --clr-theme-sub-2,$shadow: --clr-shadow-1) {
+    color: var($color);
+    background: var($bg-color);
+    box-shadow: 0px 10px 10px 0px var($shadow);
+}
+@mixin has-underline ($color: --clr-common-black, $hover-color: --clr-theme-sub-2,$bg-color: --clr-theme-sub-2){
+    color: var(--clr-common-black);
+    &:hover {
+        color: var(--clr-theme-sub-2);
+        &:after {
+            background-color: var(--clr-theme-sub-2);
+        }
+    }
+}

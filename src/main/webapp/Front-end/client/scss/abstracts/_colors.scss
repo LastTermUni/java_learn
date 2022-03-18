@@ -1,0 +1,56 @@
+$colors: (
+    common: (
+        white: #fff,
+        black: #222,
+        black-2: #444444,
+        black-3: #333333,
+        gray:#777,
+        body-text-color: #899399,
+        orange: #ffae00,
+        hr-border-color:#eceff8,
+        transparent: transparent,
+    ),
+    heading: (
+        primary: #222222,
+    ),
+    soft: (
+        gray:#e9e4d6,
+        gray-2: #666666,
+        gray-3: #999999,
+        gray-4: #f4f4f4,
+        gray-5: #e1e1e1,
+        gray-6: #f7f7f7,
+        gray-7: #555555,
+        gray-8: #cbcbcb,
+        gray-9: #dee6ea,
+        gray-10: #e8e8e8,
+        gray-11: #888888,
+        gray-12: #f9f9f9,
+        white: #dfdbce,
+        white-2: #eaeaea,
+        black-1: #272727,
+    ),
+    theme: (
+        1: #f57e60,
+        1-sub: #7da468,
+        2: #f6edea,
+        sub-2: #d4a533,
+        sub-2-2: #f6f2ea,
+        sub-2-3: #eaf2f6,
+        3: #f67174,
+        green: #77a464,
+    ),
+    border: (
+        1: #ebebeb,
+        2: #f2f2f2,
+    ),
+    shadow: (
+        1: #d4a5334d,
+    )
+);
+
+
+
+$e-blue : #01bad4;
+$e-red : #f61a1a;
+$e-yellow: #ff8506;

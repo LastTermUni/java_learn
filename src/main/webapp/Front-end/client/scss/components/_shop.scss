@@ -1,0 +1,252 @@
+@use '../abstracts/mixins' as *;
+
+.shop-top-left {
+    & > span {
+        font-size: 14px;
+        color: #666666;
+        display: inline-block;
+        @include mq(md) {
+            margin-right: 8px;
+        }
+    }
+    &-2{
+        @media #{$sm, $xs}{
+            margin-bottom: 15px;
+        }
+    }
+    &-3{
+        & > span{
+            @media #{$xs}{
+                margin-top: 15px;
+                display: block;
+            }
+        }
+    }
+    &-4{
+
+    }
+}
+
+.shop-top-right{
+    & .select-default{
+        & .list{
+            width: 100%;
+        }
+    }
+    &-4{
+        & .select-default{
+            & .nice-select{
+                padding-right: 15px;
+            }
+        }
+    }
+}
+
+
+.tab-btn-group {
+    & button {
+        padding: 0;
+        line-height: 1;
+        background: transparent;
+        color: #acacac;
+        border: 0;
+        font-size: 16px;
+        vertical-align: middle;
+        margin-right: 10px;
+        &.active {
+            color: #222;
+        }
+    }
+}
+.show-total-result {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 0;
+    @include mq(xs) {
+        margin-bottom: 15px;
+    }
+    &-4{
+        margin-bottom: 0;
+        @media #{$xs}{
+            margin-bottom: 15px;
+        }
+    }
+    &-5{
+        margin-bottom: 0;
+        @media #{$xs}{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    }
+}
+.select-default {
+    & .nice-select {
+        border: 0;
+        float: none;
+        height: 23px;
+        line-height: 23px;
+        padding: 0;
+        max-width: 168px;
+        margin-left: auto;
+        @include mq(md) {
+            margin-left: auto;
+        }
+        @include mq(xs) {
+            margin-right: auto;
+            margin-left: inherit;
+        }
+        &::after {
+            right: 0;
+            color: #666;
+        }
+        & span {
+            color: #666;
+            font-size: 14px;
+        }
+    }
+    &-2{
+        & .nice-select{
+            @media #{$sm, $xs}{
+                margin-left: inherit !important;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    &-3{
+        & .nice-select{
+            @media #{$md, $sm, $xs}{
+                margin-top: 15px;
+                margin-bottom: 30px;
+                margin-left: 0;
+            }
+        }
+    }
+    &-4{
+        & .nice-select{
+            @media #{$md}{
+                margin: 0;
+                margin-left: auto;
+            }
+        }
+    }
+
+}
+
+
+
+.product-thumb-list {
+    max-width: 260px;
+
+    @media #{$sm, $xs}{
+        max-width: inherit;
+        margin-right: 0;
+    }
+}
+.puik-list-product-wrap {
+    display: flex;
+    align-items: center;
+}
+.puik-product-list-content {
+    margin-left: -15px;
+    padding-right: 30px;
+
+    @media #{$sm, $xs}{
+        margin-left: 0;
+        margin-top: 25px;
+    }
+    & p {
+        color: #666666;
+        line-height: 30px;
+        margin-bottom: 22px;
+    }
+    & .pro-title {
+        margin-bottom: 6px;
+        padding-bottom: 0;
+    }
+    & .rating {
+        margin-bottom: 15px;
+    }
+}
+
+.puik-cart-btn {
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    background-color: #f6f6f6;
+    height: 43px;
+    line-height: 41px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+    text-transform: uppercase;
+    padding: 0 55px;
+    &:hover {
+        background-color: var(--clr-common-black);
+        color: var(--clr-common-white);
+        border-color: transparent;
+    }
+}
+.puik-proudct-btn-boxed {
+    display: inline-block;
+    border-radius: 2px;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    vertical-align: middle;
+    font-size: 15px;
+    &:hover {
+        background-color: var(--clr-common-black);
+        color: var(--clr-common-white);
+        border-color: transparent;
+    }
+}
+.puik-shop-product-actions {
+    & a {
+        margin-right: 6px;
+        @media #{$xs}{
+            margin-bottom: 6px;
+        }
+    }
+}
+.shop-sidebar-area {
+    @include mq(md) {
+        padding-right: 0;
+        margin-top: 50px;
+    }
+    @include mq(sm) {
+        padding-right: 0;
+        margin-top: 50px;
+    }
+    @include mq(xs) {
+        padding-right: 0;
+        margin-top: 50px;
+    }
+}
+.shop-top-area {
+    @include mq(xs) {
+        margin-bottom: 30px;
+    }
+}
+
+.single-product-6-wrapper{
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+}
+
+.single-product-6{
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #f6f6f6;
+
+    & .product-content{
+        padding-left: 35px;
+    }
+}
+.slider-range{
+    @media #{$sm, $md}{
+        width: 50%;
+    }
+}

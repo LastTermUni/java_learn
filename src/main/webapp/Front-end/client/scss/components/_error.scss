@@ -1,0 +1,85 @@
+@use '../abstracts/mixins' as *;
+
+/*----------------------------------------*/
+/*  ERROR CSS START
+/*----------------------------------------*/
+
+.error{
+    &__pt-300{
+        padding-top: 300px;
+        @media #{$xxl, $xl}{
+            padding-top: 200px;
+        }
+        @media #{$lg}{
+            padding-top: 160px;
+        }
+        @media #{$md, $sm, $xs}{
+            padding-top: 125px;
+        }
+    }
+    &__pb-315{
+        padding-bottom: 315px;
+        @media #{$xxl, $xl}{
+            padding-bottom: 215px;
+        }
+        @media #{$lg}{
+           padding-bottom: 185px;
+        }
+        @media #{$md, $sm, $xs}{
+           padding-bottom: 140px;
+        }
+    }
+    &__content{
+        & > span{
+            font-size: 16px;
+            color: #222;
+        }
+        & p{
+            margin-bottom: 55px;
+            font-size: 16px;
+            color: #222;
+        }
+        & .highlight{
+            color: #f57e60;
+        }
+
+        & .s-btn-big{
+            @media #{$xs}{
+                padding-left: 55px;
+                padding-right: 55px;
+            }
+        }
+    }
+    &__number{
+        & h1{
+            font-size: 160px;
+            color: #222222;
+            line-height: 1;
+            margin-bottom: 15px;
+            @media #{$sm}{
+                font-size: 200px;
+            }
+            @media #{$xs}{
+                font-size: 100px;
+            }
+        }
+    }
+    &__search{
+        & input{
+            width: 100%;
+            height: 50px;
+            padding: 0 15px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #393939;
+            margin-bottom: 50px;
+            outline: none;
+            &::placeholder{
+                color: #8c8c8c;
+            }
+            &:focus{
+                border-color: #f57e60;
+            }
+        }
+    }
+}

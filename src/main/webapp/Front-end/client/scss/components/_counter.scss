@@ -1,0 +1,20 @@
+@use '../abstracts/mixins' as *;
+
+// conter css start
+
+.counter{
+    &__item{
+        & h2{
+            font-size: 36px;
+            font-weight: 400;
+            color: #f57e60;
+            margin-bottom: 0;
+        }
+        & p{
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+
+        }
+    }
+}

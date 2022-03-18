@@ -1,0 +1,247 @@
+@use '../abstracts/mixins' as *;
+
+// widget css
+.single-widget-category {
+    &:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    & input {
+        display: none;
+    }
+    & label {
+        color: #666666;
+        display: inline-block;
+        position: relative;
+        @include transition(.3s);
+        padding-left: 35px;
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 1px solid #d8d8d8;
+            border-radius: 50%;
+        }
+        &::after {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Font awesome 5 pro';
+            color: var(--clr-theme-1);
+            font-size: 12px;
+            content: "\f00c";
+            opacity: 0;
+            visibility: hidden;
+            @include transition(.3s);
+            font-weight: 200;
+        }
+    }
+    & input:checked + label {
+        color: var(--clr-theme-1);
+        &::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    & label {
+        & span {
+            color: #bab9b9;
+        }
+    }
+}
+.widget-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+.single-widget {
+    border-bottom: 1px solid #ebebeb;
+}
+.title-price-space {
+    margin-bottom: 33px;
+}
+.scroll-box-default {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.single-widget-category {
+    .color-black-bg {
+    &::before {
+        background-color: #222;
+        border-color: transparent;
+    }
+    }
+    .color-green-bg {
+        &::before {
+            background-color: #309232;
+            border-color: transparent;
+        }
+    }
+    .color-blue-bg {
+        &::before {
+            background-color: #2237d6;
+            border-color: transparent;
+        }
+    }
+    .color-red-bg {
+        &::before {
+            background-color: #e21515;
+            border-color: transparent;
+        }
+    }
+    .color-gray-bg {
+        &::before {
+            background-color: #777;
+            border-color: transparent;
+        }
+    }
+    .color-black-bg {
+        &::before {
+            background-color: #222;
+            border-color: transparent;
+        }
+    }
+    .color-white-bg {
+        &::before {
+            background-color: #ffffff;
+            border-color: #ddd;
+        }
+    }
+}
+.widget-color-box {
+    & input:checked + label {
+        &::after {
+            color: var(--clr-common-white);
+        }
+    }
+    & input.white-input:checked + label {
+        &::after {
+            color: var(--clr-theme-1);
+        }
+    }
+}
+.scroll-box-default {
+    &::-webkit-scrollbar {
+        width: 4px;
+        border-radius: 2px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #ebebeb;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ebebeb;
+        border-radius: 2px;
+        border: 3px solid #b7b7b7;
+    }
+}
+.tagcloud {
+    & a {
+        background: var(--clr-common-white);
+        border: 1px solid #ebebeb;
+        display: inline-block;
+        color: #a3a3a3;
+        text-decoration: none;
+        height: 26px;
+        padding: 0 20px;
+        font-size: 12px;
+        margin-right: 7px;
+        margin-bottom: 7px;
+        line-height: 26px;
+        @include mq(lg) {
+            padding: 0 10px;
+        }
+        &:hover {
+            color: var(--clr-common-white);
+            background-color: #222;
+            border-color: transparent;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*range slider css start*/
+#slider-range {
+  position: relative;
+}
+
+.ui-widget.ui-widget-content {
+  border: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.004);
+}
+
+.ui-slider-horizontal {
+  height: 3px;
+}
+
+.ui-widget-content {
+  background: #ebebeb;
+}
+
+.ui-widget-header {
+  background: #222;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ui-slider .ui-slider-handle {
+    height: 17px;
+    width: 3px;
+    background: #222222;
+    margin-left: 0;
+    border-radius: 0;
+}
+
+
+.slider-range p {
+    color: #666666;
+    margin-bottom: 0;
+}
+
+.slider-range p label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b6b6b;
+}
+.slider-range p input {
+    color: #222222;
+    font-weight: 700;
+    font-size: 14px;
+}
+.slider-range p label {
+    margin-right: 3px;
+}
+.slider-range input {
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0;
+  color: #6b6b6b;
+  border: none;
+  outline: none;
+  background: none;
+  width: 100px;
+}

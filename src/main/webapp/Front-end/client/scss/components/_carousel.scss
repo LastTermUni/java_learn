@@ -1,0 +1,41 @@
+@use '../abstracts/mixins' as *;
+.owl-dots {
+    display: flex;
+    justify-content: center;
+    & .owl-dot {
+        & span {
+            width: 6px;
+            height: 6px;
+            background: var(--clr-soft-gray-10);
+            display: inline-block;
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: .2s ease-in-out;
+        }
+        &.active {
+            & span {
+                width: 10px;
+                height: 10px;
+                border: 1px solid var(--clr-common-black);
+                background-color: transparent;
+                @include transform(translateY(2px));
+            }
+        }
+    }
+}
+
+.lookbook-slider{
+    & .owl-dots{
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        & .owl-dot{
+            & span{
+                background-color: rgba($color: #fff, $alpha: .2);
+                border-width: 2px;
+                border-color: #fff;
+            }
+        }
+    }
+}

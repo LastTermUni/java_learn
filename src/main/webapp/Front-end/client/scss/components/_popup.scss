@@ -1,0 +1,117 @@
+.subscribe-popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: var(--clr-common-white);
+    @at-root {
+        .popup-title {
+            font-size: 60px;
+            color: var(--clr-common-black);
+            margin-bottom: 0;
+            padding-bottom: 19px;
+            font-weight: 400;
+        }
+        .popup-desc {
+            color:var(--clr-common-black);
+            margin-bottom: 0;
+            padding-bottom: 38px;
+            font-size: 14px;
+            color: #555;
+        }
+    }
+}
+.comming-countdown {
+    & .countdown-inner {
+        & ul {
+            & li {
+                display: inline-block;
+                padding-right: 15px;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #999999;
+                & span {
+                    font-size: 36px;
+                    color: var(--clr-common-black);
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+}
+.subscribe-thumb {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.subscribe-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.s-popup-padding {
+    padding-top: 295px;
+    padding-bottom: 282px;
+}
+.subscribe-thumb {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.subscribe-form-2 {
+    & input {
+        width: 400px;
+        height: 50px;
+        float: left;
+        color: var(--clr-soft-gray-3);
+        padding-left: 27px;
+        border: 1px solid var(--clr-border-1);
+        font-size: 14px;
+        &::placeholder{
+            color: #999999;
+        }
+        &:focus{
+            border-color: var(--clr-common-black);
+        }
+    }
+    & button {
+        height: 50px;
+        background-color: var(--clr-common-black);
+        line-height: 50px;
+        font-size: 13px;
+        text-transform: uppercase;
+        padding-top: 0;
+        padding: 0 60px;
+        color: var(--clr-common-white);
+        padding-bottom: 0;
+        margin-left: 10px;
+        font-weight: var(--fw-sbold);
+
+        &:hover{
+            background-color: #f57d5f;
+        }
+    }
+}
+.popup-social {
+    & a {
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 36px;
+        margin-right: 10px;
+        color: var(--clr-soft-gray-8);
+        border: 1px solid var(--clr-border-2);
+        &:hover {
+            background-color: var(--clr-common-black);
+            border-color: var(--clr-common-black);
+            color: var(--clr-common-white);
+        }
+    }
+}

@@ -1,0 +1,314 @@
+@use '../abstracts/mixins' as *;
+// about css start
+.about{
+    &__title{
+        font-size: 80px;
+        color: #222;
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 20px;
+        @media #{$xs}{
+            font-size: 50px;
+        }
+        &-pre{
+            font-size: 16px;
+            color: #666666;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        &-area{
+            & p{
+                font-size: 16px;
+                color: #666666;
+                padding: 0 80px;
+
+                @media #{$xxl}{
+                    padding: 0 70px;
+                }
+                @media #{$md, $sm, $xs}{
+                    padding: 0;
+                }
+            }
+        }
+    }
+    &__history{
+        &-title{
+            font-size: 36px;
+            padding-left: 125px;
+            margin-bottom: 40px;
+
+            @media #{$sm}{
+                font-size: 28px;
+            }
+
+            @media #{$xs}{
+                font-size: 20px;
+                padding-left: 0;
+            }
+            & span{
+                font-weight: 400;
+            }
+            &-pre{
+                font-size: 14px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: var(--clr-theme-1);
+                position: relative;
+                padding-left: 125px;
+                margin-bottom: 13px;
+                display: inline-block;
+                @media #{$xs}{
+                    padding-left: 0;
+                }
+                &::after{
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 50%;
+                    width: 100px;
+                    height: 2px;
+                    transform: translateY(-50%);
+                    background: var(--clr-theme-1);
+                    @media #{$xs}{
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-wrapper{
+            & p{
+                font-size: 14px;
+                color: #555555;
+                &.about__history-text{
+                    font-size: 16px;
+                    color: #222;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+    &__gallery{
+        &-review{
+            padding: 155px 200px;
+
+            @media #{$xxl}{
+                padding-top: 150px;
+                padding-bottom: 150px;
+            }
+
+            @media #{$xl}{
+                padding: 108px 115px;
+            }
+
+            @media #{$lg}{
+                padding: 65px 45px;
+            }
+
+            @media #{$md}{
+                padding: 70px 55px;
+            }
+
+            @media #{$sm}{
+                padding: 70px 75px;
+            }
+
+            @media #{$xs}{
+                padding: 50px 20px;
+            }
+            & h3{
+                font-size: 18px;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            & span{
+                font-size: 12px;
+                font-weight: 500;
+                color: #555555;
+                letter-spacing: 12px;
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+            & p{
+                color: #b0b0b0;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    &__offer{
+        @media #{$xs}{
+            padding-top: 100px;
+            padding-bottom: 70px;
+        }
+        &-content{
+            & h3{
+                font-size: 40px;
+                font-weight: 400;
+                color: #fff;
+                margin-bottom: 40px;
+                @media #{$xs}{
+                    font-size: 20px;
+                }
+            }
+            & p{
+                font-size: 14px;
+                color: #fff;
+                padding: 0 100px;
+
+                @media #{$xl, $md}{
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+                @media #{$sm}{
+                    padding-right: 90px;
+                    padding-left: 90px;
+                }
+
+                @media #{$xs}{
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    &__me{
+        &-thumb{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+        }
+        &-wrapper{
+            padding-left: 150px;
+            padding-right: 145px;
+            padding-top: 270px;
+            padding-bottom: 260px;
+
+            @media #{$xxl}{
+                padding-left: 70px;
+                padding-right: 115px;
+                padding-top: 190px;
+                padding-bottom: 200px;
+            }
+            @media #{$xl}{
+                padding-left: 30px;
+                padding-right: 45px;
+                padding-top: 200px;
+                padding-bottom: 200px;
+            }
+            @media #{$lg}{
+                padding-left: 50px;
+                padding-right: 45px;
+                padding-top: 130px;
+                padding-bottom: 225px;
+            }
+            @media #{$md}{
+                padding-left: 25px;
+                padding-right: 95px;
+                padding-top: 115px;
+                padding-bottom: 110px;
+            }
+            @media #{$sm}{
+                padding-left: 25px;
+                padding-right: 35px;
+                padding-top: 130px;
+                padding-bottom: 110px;
+            }
+            @media #{$xs}{
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 145px;
+                padding-bottom: 130px;
+            }
+
+        }
+        &-title{
+            font-size: 80px;
+            font-weight: 500;
+            margin-bottom: 30px;
+
+            @media #{$xs}{
+                font-size: 55px;
+            }
+            &-pre{
+                font-size: 14px;
+                color: #555555;
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+            &-area{
+
+            }
+        }
+        &-content{
+            & p{
+                font-size: 14px;
+                color: #555555;
+                margin-bottom: 20px;
+            }
+        }
+        &-contact{
+            & ul{
+                & li{
+                    font-size: 14px;
+                    color: #222222;
+                    margin-bottom: 2px;
+                    & a{
+                        &:hover{
+                            color: var(--clr-theme-1);
+                        }
+                    }
+                }
+            }
+        }
+        &-social{
+            & ul{
+                & li{
+                    display: inline-block;
+                    margin-right: 5px;
+                    @media #{$lg, $xs}{
+                        margin-bottom: 10px;
+                    }
+                    & a{
+                        color: #fff;
+                        background-color: #222;
+                        display: inline-block;
+                        height: 40px;
+                        line-height: 40px;
+                        padding: 0 30px;
+                        min-width: 120px;
+                        font-size: 14px;
+                        text-align: center;
+                        &.fb{
+                            background-color: #3c5b9b;
+                            &:hover{
+                                background-color: #222;
+                            }
+                        }
+                        &.tw{
+                            background-color: #40c1df;
+                            &:hover{
+                                background-color: #222;
+                            }
+                        }
+                        &.gp{
+                            background-color: #ed3c32;
+                            &:hover{
+                                background-color: #222;
+                            }
+                        }
+                        &.dri{
+                            background-color: #d03384;
+                            &:hover{
+                                background-color: #222;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
