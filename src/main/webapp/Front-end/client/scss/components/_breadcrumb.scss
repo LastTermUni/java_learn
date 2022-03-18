@@ -1,0 +1,145 @@
+@use '../abstracts/mixins' as *;
+.breadcrumb-title {
+    & h2 {
+        font-size: 80px;
+        line-height: 1;
+        margin-bottom: 0;
+        @include mq(md) {
+            font-size: 45px;
+        }
+        @include mq(sm) {
+            font-size: 65px;
+        }
+        @include mq(xs) {
+            font-size: 65px;
+        }
+    }
+}
+.pt-255 {
+    padding-top: 255px;
+}
+.pb-265 {
+    padding-bottom: 265px;
+}
+.breadcrumb-area {
+    position: relative;
+    @include mq(md) {
+        padding-top: 70px;
+        padding-bottom: 100px;
+    }
+    @include mq(sm) {
+        padding-top: 130px;
+        padding-bottom: 180px;
+    }
+    @include mq(xs) {
+        padding-top: 130px;
+        padding-bottom: 180px;
+    }
+}
+.breadcrumb-list {
+    position: absolute;
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+    @include mq(md) {
+        bottom: 20px;
+    }
+    @include mq(xs) {
+        left: 0;
+        transform: translateX(0);
+        right: 0;
+        text-align: center;
+    }
+    & a, & span {
+        font-size: 13px;
+        line-height: 13.99px;
+        text-decoration: none;
+        color: #999999;
+        position: relative;
+        margin: 0 3.5px;
+        display: inline-block;
+    }
+    & a:hover {
+        color: var(--clr-theme-1);
+    }
+    & a::after {
+        content: "/";
+        color: #999999;
+        transform: translateX(5px);
+        display: inline-block;
+    }
+    & span {
+        color: #222222;
+    }
+}
+
+.breadcrumb-list-2{
+    padding: 30px 0;
+    & .breadcrumb{
+        margin-bottom: 0;
+    }
+    & .breadcrumb-item{
+        font-size: 13px;
+        line-height: 13.99px;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        margin: 0 3.5px;
+        color: #999999;
+        &.active,
+        &:hover{
+            color: #222;
+        }
+
+        
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: #999999;
+    }
+}
+
+.breadcrumb-area-2{
+    @media #{$lg}{
+        padding-top: 200px;
+        padding-bottom: 200px;
+    }
+    @media #{$md}{
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+    @media #{$sm}{
+        padding-top: 140px;
+        padding-bottom: 120px;
+    }
+    @media #{$xs}{
+        padding-top: 140px;
+        padding-bottom: 120px;
+    }
+}
+
+.breadcrumb-wrapper-2{
+    
+    & h3{
+        font-size: 80px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+        @media #{$xs}{
+           font-size: 60px;
+        }
+    }
+    & .breadcrumb{
+        &-item{
+            font-size: 13px;
+            color: #999999;
+            text-transform: capitalize;
+            &.active{
+                color: #222;
+            }
+        }
+    }
+}
+
+.breadcrumb-area-3{
+   
+}

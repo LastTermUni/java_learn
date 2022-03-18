@@ -1,0 +1,162 @@
+@use '../abstracts/mixins' as *;
+
+// contact css start
+
+.contact{
+    &__map{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &__title{
+        & > span{
+            font-size: 14px;
+            font-weight: 700;
+            color: #f57e60;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+        & h3{
+            font-size: 36px;
+            @media #{$xs}{
+                font-size: 28px;
+            }
+            & span{
+                font-weight: 400;
+            }
+        }
+        & p{
+            padding: 0 90px;
+            color: #555555;
+
+            @media #{$xl}{
+                padding: 0 25px;
+            }
+            @media #{$lg}{
+                padding: 0 45px;
+            }
+            @media #{$md}{
+                padding: 0 50px;
+            }
+            @media #{$sm}{
+                padding: 0 15px;
+            }
+            @media #{$xs}{
+                padding: 0;
+            }
+        }
+    }
+    &__area{}
+    &__form{
+        position: relative;
+        z-index: 1;
+        padding: 95px 100px 100px;
+
+        @media #{$lg, $md, $sm}{
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        @media #{$xs}{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        &-title{
+            & h3{
+                font-size: 24px;
+                color: #fff;
+                font-weight: 400;
+            }
+            & p{
+                font-size: 14px;
+                color: #999999;
+                margin-bottom: 20px;
+            }
+        }
+        &-input{
+            & input,
+            & textarea{
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                padding: 0 20px;
+                color: #fff;
+                border: 1px solid #393939;
+                margin-bottom: 10px;
+                font-size: 14px;
+                background-color: #282828;
+                &::placeholder,
+                &::-moz-placeholder{
+                    color: #666666;
+                }
+                &:focus{
+                    border-color: #f57e60;
+                }
+            }
+            & textarea{
+                height: 150px;
+                resize: none;
+                line-height: 1.2;
+                padding: 20px;
+            }
+        }
+        &-btn{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+            text-align: center;
+            background-color: #f57e60;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            &:hover{
+                background-color: #fff;
+                color: #f57e60;
+            }
+        }
+    }
+    &__address{
+        &-item{
+            margin-bottom: 30px;
+        }
+        &-flag{
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ebebeb;
+            & .contact-flag{
+                
+            }
+            & .contact-flag-content{
+                & p{
+                    font-size: 12px;
+                    margin-bottom: 0;
+                    color: #999999;
+                    line-height: 1;
+                }
+                & h5{
+                    font-size: 14px;
+                    margin-bottom: 0;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        &-content{
+            padding-top: 30px;
+            & ul{
+                & li{
+                    color: #555555;
+                    font-size: 14px;
+                    & a{
+                        &:hover{
+                            color: #f57e60;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

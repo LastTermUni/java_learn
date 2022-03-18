@@ -1,0 +1,547 @@
+/*----------------------------------------*/
+/*  01. Theme default CSS
+/*----------------------------------------*/
+@use './variables' as var;
+@use './mixins' as mix;
+
+/* 1. Theme default css */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
+
+@font-face {
+    font-family: 'shutter_stonestandar';
+    src: url(../fonts/shutter-stone-standar.ttf);
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'tuesdaynight';
+    src: url(../fonts/TuesdayNight-Regular.otf);
+    font-weight: 400;
+    font-style: normal;
+
+}
+.row {
+	--bs-gutter-x: 30px;
+	margin-right: calc(var(--bs-gutter-x)/ -3);
+	margin-left: calc(var(--bs-gutter-x)/ -3);
+
+	&.g-0,
+	&.gx-0{
+		--bs-gutter-x: 0;
+	}
+	&.g-1,
+	&.gx-1 {
+		--bs-gutter-x: 0.25rem;
+	}
+	&.g-2,
+	&.gx-2 {
+		--bs-gutter-x: 0.5rem;
+	}
+	&:is(.row-2) {
+		--bs-gutter-x: 20px;
+	}
+	&:is(.row-3) {
+		--bs-gutter-x: 4px;
+	}
+}
+ body {
+	font-family: var.$archivo;
+	font-weight: var(--fw-regular);
+    font-style: normal;
+    color: var(-clr-common-body-text-color);
+
+	@media #{mix.$xxl}{
+		overflow-x: hidden;
+	}
+}
+.container {
+	max-width: 1430px;
+	@include mix.mq(xl) {
+		max-width: 1220px;
+	}
+	@include mix.mq(lg) {
+		max-width: 990px;
+	}
+	&:is(.container-2) {
+		max-width: 1200px;
+		@include mix.mq(xl) {
+			max-width: 1100px;
+		}
+		@include mix.mq(lg) {
+			max-width: 895px;
+		}
+		@include mix.mq(md) {
+			max-width: 795px;
+		}
+	}
+}
+.img,img {
+	max-width: 100%;
+	@include mix.transition(.3s);
+}
+
+.w-img{
+	& img{
+		width: 100%;
+	}
+}
+
+
+.m-img{
+	& img{
+		max-width: 100%;
+	}
+}
+
+ul, li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+.fix {
+	overflow: hidden
+}
+a,
+button,
+.button,
+i,
+span,
+input,
+textarea,
+*::after,
+*::before {
+	@include mix.transition(.3s);
+}
+
+button{
+	outline: 0;
+	border: 0;
+}
+
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+a:focus,
+a:hover
+{
+	color: inherit;
+	text-decoration: none;
+}
+a,
+button {
+	color: inherit;
+	outline: medium none;
+}
+button:focus,input:focus,input:focus,textarea,textarea:focus{outline: 0}
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var.$archivo;
+	color: var(--clr-heading-heading-color);
+	margin-top: 0px;
+	font-weight: var(--fw-sbold);
+	text-transform: normal;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+}
+h1 {
+	font-size: 40px;
+	font-weight: var(--fw-medium);
+}
+h2 {
+	font-size: 35px;
+}
+h3 {
+	font-size: 28px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 26px;
+	color: var(--clr-common-body-text-color);
+	margin-bottom: 15px;
+}
+hr {
+	border-bottom: 1px solid var(--clr-common-hr-border-color);
+	border-top: 0 none;
+	margin: 30px 0;
+	padding: 0;
+}
+label {
+	color: var(--clr-soft-soft-black-soft);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: var(--fw-regular);
+}
+*::-moz-selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::-moz-selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+/*--
+    - Input Placeholder
+-----------------------------------------*/
+input {
+	@include mix.placeholder {
+		color: var(--clr-common-black);
+		font-size: 14px;
+		opacity: 1;
+	}
+}
+
+
+/*--
+    - Common Classes
+-----------------------------------------*/
+.fix {
+    overflow:hidden
+}
+.clear{
+    clear: both;
+}
+/*--
+    - Slider height
+-----------------------------------------*/
+.slider-height {
+	min-height: 1080px;
+	@include mix.mq(xl) {
+		min-height: 690px;
+	}
+	@include mix.mq(lg) {
+		min-height: 592px;
+	}
+	@include mix.mq(md) {
+		min-height: 475px;
+	}
+	@include mix.mq(sm) {
+		min-height: 380px;
+	}
+	@include mix.mq(xs) {
+		min-height: 145px;
+	}
+}
+/*--
+    - Position
+-----------------------------------------*/
+.p-rel {
+	position: relative;
+}
+.p-abs {
+	position: absolute;
+}
+/*--
+    - Section title
+-----------------------------------------*/
+.p-subtitle {
+	color: var(--clr-theme-1);
+	font-size: 14px;
+	text-transform: uppercase;
+	margin-bottom: 9px;
+	display: block;
+	font-weight: var(--fw-sbold);
+	text-transform: uppercase;
+	&:is(.p-subtitle-2) {
+		color: var(--clr-theme-sub-2);
+	}
+	&-3 {
+		color: var(--clr-theme-3);
+	}
+}
+.p-title {
+	font-weight: var(--fw-bold);
+	font-size: 30px;
+	text-transform: uppercase;
+	@include mix.mq(xs) {
+		font-size: 22px;
+		padding-bottom: 5px;
+	}
+} 
+.p-desc {
+	font-size: 14px;
+	margin-bottom: 0;
+	color: var(--clr-soft-gray-2);
+	@include mix.mq(xs) {
+		font-size: 12px;
+	}
+	&:is(.p-desc-2) {
+		color: var(--clr-soft-gray-11);
+	}
+}
+.s2-title-sub {
+	font-family: "tuesdaynight";
+    font-size: 48px;
+    color: #cecece;
+    line-height: 24.02px;
+	display: block;
+	@include mix.mq(sm) {
+		font-size: 42px;
+		margin-bottom: 40px;
+	}
+	@include mix.mq(md) {
+		margin-bottom: 25px;
+	}
+	@include mix.mq(lg) {
+		margin-bottom: 25px;
+		line-height: 1;
+	}
+}
+.s2-title-main {
+	font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+	margin-bottom: 15px;
+}
+.section-title-2 {
+	& p {
+		color: #666666;
+		line-height: 30px;
+		margin-bottom: 0;
+		& br {
+			@include mix.mq(xs) {
+				display: none;
+			}
+			@include mix.mq(md) {
+				display: none;
+			}
+		}
+	}
+}
+
+.section-title-s-p{
+	padding: 0 73px;
+	@media #{mix.$sm, mix.$xs}{
+		padding: 0;
+	}
+}
+
+// spacing
+.pb-47 {
+	padding-bottom: 47px;
+}
+.pb-93 {
+	padding-bottom: 93px;
+}
+.pb-28 {
+	padding-bottom: 28px;
+}
+.mb-4-px {
+	margin-bottom: 4px;
+}
+
+.pt-7	{
+	padding-top: 7px;
+}
+
+.pb-245{
+	padding-bottom: 245px;
+}
+
+.mb-8{
+	margin-bottom: 8px;
+}
+
+.rating {
+	& i {
+		font-size: 14px;
+		color: var(--clr-soft-gray-3);
+		font-weight: 500;
+		&.active {
+			color: var(--clr-common-orange);
+		}
+	}
+}
+// background
+.black-bg {
+	background-color: var(--clr-common-black) !important;
+}
+.black-bg-2{
+	background-color: #27272b;
+}
+
+.black-bg-3 {
+	background-color: #252525;
+}
+.gray-bg {
+	background-color: var(--clr-soft-gray-4);
+}
+.gray-bg-2 {
+	background-color: var(--clr-soft-gray-6);
+}
+.gray-bg-3 {
+	background-color: var(--clr-soft-gray-12);
+}
+
+.gray-bg-4{
+	background-color: #f6f6f6;
+}
+
+.gray-bg-5{
+	background-color: #fafafa;
+}
+
+.gray-bg-6{
+	background-color: #e9f1f5;
+}
+
+.theme-bg {
+	background-color: var(--clr-theme-1);
+}
+
+.theme-bg-2 {
+	background-color: var(--clr-theme-2);
+}
+.theme-bg-3 {
+	background-color: var(--clr-theme-sub-2-2);
+}
+.theme-bg-4 {
+	background-color: var(--clr-theme-sub-2-3);
+}
+
+.cream-bg{
+	background-color: #f6f1e7;
+}
+
+.cream-bg-2{
+	background-color: #f6f2ea;
+}
+
+
+.light-green-bg{
+	background-color: #f0f6ea;
+}
+
+.light-green-bg-2{
+	background-color: #d9edde;
+}
+
+.light-pink-bg{
+	background-color: #f6edea;
+}
+
+.light-pink-bg-2{
+	background-color: #f3e6e5;
+}
+
+.wow {
+	animation-duration: 2s;
+	animation-fill-mode: backwards;
+}
+// border
+.border-bottom-gray {
+	border-bottom: 1px solid var(--clr-soft-gray-5);
+}
+// color
+.white-text {
+	color: var(--clr-common-white);
+}
+
+// alignment
+.center-text {
+	text-align: center;
+}
+
+.mt-3-px {
+	margin-top: 3px;
+}
+.row-5-px {
+	--bs-gutter-x: 5px;
+}
+// spacing
+.pb-220 {
+	padding-bottom: 220px;
+}
+
+.pt-240{
+	padding-top: 240px;
+}
+
+.pt-215{
+	padding-top: 215px;
+}
+
+
+
+.footer-border-top {
+	border-top: 1px solid #333333;
+}
+
+.include-bg{
+	background-size: cover;
+	background-position: center center;
+}
+
+.hr-border{
+	border-bottom: 1px solid #e5e5e5;
+}
+
+
+.box-plr-45{
+	padding-left: 45px;
+	padding-right: 45px;
+
+	@media #{mix.$xxl, mix.$xl}{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    @media #{mix.$lg}{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+	@media #{mix.$md, mix.$sm, mix.$xs}{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

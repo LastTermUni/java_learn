@@ -1,0 +1,13 @@
+@use '../abstracts/mixins' as *;
+.top-selling-area {
+    @include mq(sm) {
+        padding-bottom: 75px;
+    }
+    @include mq(xs) {
+        padding-bottom: 45px;
+    }
+}
+
+.top-selling-padding{
+    
+}

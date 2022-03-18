@@ -1,0 +1,257 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+.banner-area {
+    @include mq(sm) {
+        padding-bottom: 75px;
+    }
+    @include mq(xs) {
+        padding-bottom: 45px;
+    }
+}
+.single-banner {
+    position: relative;
+    padding: 120px 85px;
+    @include padding(top,117);
+    @media #{$xxl}{
+        padding-left: 30px;
+    }
+
+    &::after{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($color: #fff, $alpha: .5);
+        z-index: 1;
+        display: none;
+
+        @media #{$xs, $sm, $md}{
+            display: block;
+        }
+    }
+
+    & .thumb {
+        & img {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    @at-root {
+        .banner-content {
+            position: relative;
+            z-index: 9;
+
+            @media #{$xxl}{
+                width: 53%;
+            }
+            @media #{$xl}{
+                width: 50%;
+            }
+            @media #{$lg}{
+                width: 56%;
+            }
+            & span {
+                font-size: 14px;
+                text-transform: uppercase;
+                display: block;
+                padding-bottom: 19px;
+                font-weight: var(--fw-sbold);
+                @include mq(md) {
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                }
+                @include mq(xs) {
+                    padding-bottom: 0;
+                    font-size: 13px;
+                }
+            }
+            &:is(.banner-content-1) {
+                @include single-banner(--clr-theme-1);
+            }
+            &:is(.banner-content-2) {
+                @include single-banner(--clr-theme-sub-2);
+
+                @media #{$xl}{
+                    width: 57%;
+                }
+            }
+            & h4 {
+                font-size: 24px;
+                @include margin(bottom,0);
+                @include padding(bottom,16);
+                font-weight: var(--fw-sbold);
+                & a {
+                    text-decoration: none;
+                }
+                @include mq(md) {
+                    padding-bottom: 5px;
+                }
+                @media #{$sm}{
+                    padding-bottom: 10px;
+                }
+                @include mq(xs) {
+                    font-size: 19px;
+                    padding-bottom: 2px;
+                }
+            }
+            & p {
+                line-height: 1.868;
+                color:var(--clr-common-black);
+                margin-bottom: 0;
+                font-size: 16px;
+                @include padding(bottom, 50);
+                @include mq(md) {
+                    padding-bottom: 15px;
+                }
+                @include mq(xs) {
+                    line-height: 1.3;
+                    font-size: 15px;
+                    padding-bottom: 7px;
+                }
+            }
+        }
+    }
+    @include mq(xl) {
+        padding: 40px;
+        padding-top: 40px;
+    }
+    @include mq(lg) {
+        padding: 25px;
+        padding-top: 25px;
+    }
+    @include mq(md) {
+        padding: 25px;
+        padding-top: 25px;
+    }
+    @include mq(sm) {
+        padding: 45px;
+        padding-top: 45px;
+    }
+    @include mq(xs) {
+        padding:20px 10px;
+        padding-top: 20px;
+    }
+    &:is(.single-banner-2) {
+        padding-left: 95px;
+        @media #{$xl}{
+            padding-left: 20px;
+        }
+        @include mq(lg) {
+            padding-left: 39px;
+        }
+        @include mq(md) {
+            padding-left: 16px;
+        }
+        @include mq(xs) {
+            padding: 40px 10px;
+            padding-top: 40px;
+        }
+
+        @media #{$sm}{
+            padding-left: 35px;
+        }
+    }
+}
+
+.banner-content-3{
+    & span, 
+    & h4,
+    & p{
+        padding-bottom: 0;
+    }
+    & span{
+        margin-bottom: 7px;
+    }
+    & h4{
+        margin-bottom: 10px;
+    }
+    & p{
+        margin-bottom: 15px;
+    }
+}
+
+.banner-item-6{
+    &:hover{
+        & .banner-thumb-6{
+            transform: scale(1.08);
+        }
+    }
+}
+
+.banner-title-6{
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.banner-content-6{
+    position: relative;
+    z-index: 1;
+    padding: 110px 0;
+    width: 34%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media #{$xxl}{
+        width: 47%;
+    }
+    @media #{$xl}{
+        width: 57%;
+    }
+    @media #{$lg}{
+        width: 67%;
+    }
+    @media #{$md}{
+        width: 87%;
+    }
+    @media #{$sm}{
+        width: 58%;
+    }
+    @media #{$xs}{
+        width: 90%;
+    }
+
+    & .link-btn{
+        font-size: 14px;
+        color: #fff;
+        position: relative;
+
+        &::after{
+            position: absolute;
+            content: '';
+            bottom: -3px;
+            left: auto;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            @include transition(.3s);
+        }
+        &:hover{
+            &::after{
+                left: 0;
+                right: auto;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.banner-thumb-6{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include transition(.3s);
+}

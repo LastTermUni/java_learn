@@ -1,0 +1,38 @@
+@use '../abstracts/mixins' as *;
+
+// testimonial css start
+
+.testimonial{
+    &__slider{
+        & .owl-dots{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+        }
+    }
+    &__item{}
+    &__quote{
+        & img{
+            width: inherit !important;
+            display: inline-block !important;
+        }
+    }
+    &__text{
+        & p{
+            color: #222;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+    }
+    &__avater{
+        & h4{
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        & span{
+            font-size: 16px;
+            color: #999999;
+        }
+    }
+}

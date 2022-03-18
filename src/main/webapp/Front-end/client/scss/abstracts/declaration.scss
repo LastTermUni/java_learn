@@ -1,0 +1,35 @@
+@use 'colors' as *;
+@use 'type-scale' as *;
+@use '../abstracts/mixins' as *;
+:root {
+    /**
+    @color declaration
+    */
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{$shade}: #{$value};
+        }
+    }
+    @each $scaleType, $fweight,$fsize,$family in $type-scale {
+        @if $scaleType == fweight {
+            @each $weight_name, $value in $fweight {
+                --fw-#{$weight_name}: #{$value};
+            }
+        }
+        @if $scaleType ==  fsize{
+            @each $font_size, $value in $fsize {
+                --fz-#{$font_size}: #{$value};
+            }
+        }
+    }
+    /**
+    @font declaration
+    */
+}
+
+
+.latest-deal-area {
+    @include mq(sm) {
+        padding-bottom: 70px;
+    }
+}

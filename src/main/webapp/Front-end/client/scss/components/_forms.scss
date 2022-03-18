@@ -1,0 +1,32 @@
+@use '../abstracts/mixins' as *;
+.subscribe-form {
+    & input {
+        width: 100%;
+        border: 0;
+        line-height: 1;
+        text-align: center;
+        border-bottom: 2px solid var(--clr-soft-gray-5);
+        padding: 20px;
+        padding-bottom: 18px;
+        background-color: transparent;
+        margin-bottom: 30px;
+        @include placeholder {
+            font-size: 13px;
+            color: var(--clr-soft-gray-3);
+        }
+    }
+    &:is(.gray-form) {
+        & input {
+            border-color: var(--clr-common-black-2);
+            @include placeholder {
+                color: var(--clr-soft-gray-2);
+            }
+        }
+    }
+}
+.subscribe-area  {
+    margin-bottom: -1px;
+    @include mq(xs) {
+        padding: 45px 0;
+    }
+}

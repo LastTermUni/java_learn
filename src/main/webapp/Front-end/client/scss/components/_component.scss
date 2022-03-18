@@ -1,0 +1,9 @@
+.tag {
+    font-size: 14px;
+    text-decoration: none;
+    padding-bottom: 11px;
+    display: inline-block;
+    &:is(.tag-4) {
+        color: #d5a734;
+    }
+}

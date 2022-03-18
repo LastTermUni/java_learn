@@ -1,0 +1,11 @@
+// Font Family
+/* latin */
+@font-face {
+    font-family: 'Monoment Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Monoment Regular'), url('../fonts/monumentextended-regular-webfont.woff2') format('woff2');
+}
+$archivo: 'Archivo', sans-serif;
+$monoment: 'Monoment Regular', sans-serif;
+$shutter: 'shutter_stonestandar',sans-serif;

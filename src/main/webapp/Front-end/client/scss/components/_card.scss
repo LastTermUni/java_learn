@@ -1,0 +1,53 @@
+@use '../abstracts/mixins' as *;
+
+// card css start
+
+.card{
+    &__pr-30{
+        padding-right: 30px;
+        @media #{$md, $sm, $xs}{
+            padding-right: 0;
+            margin-bottom: 25px;
+        }
+    }
+    &__pl-40{
+        padding-left: 40px;
+
+        @media #{$md, $sm, $xs}{
+            padding-left: 0;
+            margin-top: 25px;
+        }
+    }
+    &__img{
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background: #f7f7f7;
+        border-top-right-radius: 130px;
+        border-bottom-left-radius: 130px;
+        & img{
+            box-shadow: 0px 25px 25px 0px rgba(203, 203, 203, 0.6);
+            border-radius: 10px;
+        }
+    }
+    &__content{
+        & span{
+            font-size: 20px;
+            display: inline-block;
+            margin-bottom: 13px;
+        }
+        & h3{
+            font-size: 30px;
+            margin-bottom: 30px;
+
+            @media #{$xs}{
+                font-size: 24px;
+            }
+        }
+        & p{
+            font-size: 14px;    
+            line-height: 30px;
+            color: #555555;
+            margin-bottom: 0;
+        }
+    }
+}
