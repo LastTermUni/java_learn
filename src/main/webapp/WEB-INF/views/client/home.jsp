@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="slider-scroll-6 p-abs d-none d-sm-block">
-            <a href="#category-area"><i class="fal fa-angle-double-down"></i> <span>Scroll Down</span></a>
+            <a href="#category-area"><i class="fal fa-angle-double-down"></i> <span></span></a>
         </div>
     </section>
     <!-- slider area end -->
@@ -88,6 +88,7 @@
     <div id="category-area" class="category__area category__br-tp gray-bg-5">
         <div class="container-fluid">
             <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
+<%--                4 loại (máy ảnh, phụ kiện,...) hoặc 4 nhãn hiệu nổi nhất--%>
                 <div class="col">
                     <div class="category__item category__br-right fix">
                         <div class="category__thumb">
@@ -190,344 +191,51 @@
                 <div class="col-xxl-12">
                     <div class="section-title top-selling-title text-center pb-47">
                         <span class="p-subtitle p-subtitle-2">Explore The Lookbook</span>
-                        <h3 class="p-title pb-15 mb-0">Top Selling Products</h3>
-                        <p class="p-desc">Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis eget maecenas.</p>
+                        <h3 class="p-title pb-15 mb-0">Những sản phẩm mới nhất</h3>
+<%--                        <p class="p-desc"></p>--%>
                     </div>
                 </div>
             </div>
             <div class="single-product-6-wrapper">
                 <div class="row pb-20 gx-0">
+<%--                    show sản phẩm ở đây--%>
                     <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".1s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-17.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-24.jpg'/>" alt="#">
+                            <div class="product-thumb" >
+                                <a href="product-detail">
+                                    <img src="<c:url value='/Front-end/client/img/products/product-17.jpg'/>" alt="#">
+                                    <img src="<c:url value='/Front-end/client/img/products/product-24.jpg'/>" alt="#">
+                                </a>
                                 <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
+                                    <a href="#">Thêm vào giỏ</a>
                                 </div>
-                                <span class="discount discount-3 p-abs">-20%</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
+<%--                                <span class="discount discount-2 p-abs">new</span>--%>
+<%--                                <span class="discount discount-3 p-abs">-20%</span>--%>
+<%--                                <div class="product-action product-action-1 p-abs">--%>
+<%--                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">--%>
+<%--                                        <i class="fal fa-eye"></i>--%>
+<%--                                        <i class="fal fa-eye"></i>--%>
+<%--                                    </a>--%>
+<%--                                    <a href="#" class="icon-box icon-box-1">--%>
+<%--                                        <i class="fal fa-heart"></i>--%>
+<%--                                        <i class="fal fa-heart"></i>--%>
+<%--                                    </a>--%>
+<%--                                    <a href="#" class="icon-box icon-box-1">--%>
+<%--                                        <i class="fal fa-layer-group"></i>--%>
+<%--                                        <i class="fal fa-layer-group"></i>--%>
+<%--                                    </a>--%>
+<%--                                </div>--%>
                             </div>
                             <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Simple Stylish Women Backpack</a></h4>
+                                <h4 class="pro-title pro-title-1"><a href="product-detail">Simple Stylish Women Backpack</a></h4>
                                 <div class="pro-price">
-                                    <span>£1.296.00</span>
-                                    <del>£96.00</del>
+                                    <span>3.000.000 VNĐ</span>
+                                    <del>3.500.000 VNĐ</del>
                                 </div>
                                 <div class="rating">
                                     <i class="fal fa-star active"></i>
                                     <i class="fal fa-star active"></i>
                                     <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-18.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-23.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <span class="discount discount-3 p-abs">-23%</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Loose Oversized Shirt </a></h4>
-                                <div class="pro-price">
-                                    <span>£188.00</span>
-                                    <del>£66.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-19.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-22.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Cotton Jersey Loose </a></h4>
-                                <div class="pro-price">
-                                    <span>£122.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".9s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-20.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-21.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <span class="discount discount-2 p-abs">New</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                                <div class="countdown">
-                                    <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
-                                        <ul class="text-center">
-                                            <li><span data-days="">401</span> Day</li>
-                                            <li><span data-hours="">1</span> hrs</li>
-                                            <li><span data-minutes="">29</span> min</li>
-                                            <li><span data-seconds="">40</span> sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Voluptatem quaerat nesciunt</a></h4>
-                                <div class="pro-price">
-                                    <span>£223.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".1s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-21.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-16.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <span class="discount discount-2 p-abs">New</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Quod laboriosam, recusandae</a></h4>
-                                <div class="pro-price">
-                                    <span>£223.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".3s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-22.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-14.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">At corporis quas in </a></h4>
-                                <div class="pro-price">
-                                    <span>£223.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-23.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-15.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <span class="discount discount-2 p-abs">32%</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                                <div class="countdown">
-                                    <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
-                                        <ul class="text-center">
-                                            <li><span data-days="">401</span> Day</li>
-                                            <li><span data-hours="">1</span> hrs</li>
-                                            <li><span data-minutes="">29</span> min</li>
-                                            <li><span data-seconds="">40</span> sec</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">furniture in the world</a></h4>
-                                <div class="pro-price">
-                                    <span>£223.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".9s">
-                            <div class="product-thumb">
-                                <img src="<c:url value='/Front-end/client/img/products/product-24.jpg'/>" alt="#">
-                                <img src="<c:url value='/Front-end/client/img/products/product-13.jpg'/>" alt="#">
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
-                                </div>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">Folores facere molestias</a></h4>
-                                <div class="pro-price">
-                                    <span>£223.00</span>
-                                    <del>£64.00</del>
-                                </div>
-                                <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
                                     <i class="fal fa-star"></i>
                                     <i class="fal fa-star"></i>
                                 </div>
@@ -535,12 +243,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="row">
                 <div class="col-xxl-12">
-                    <div class="btn-area mt-30 text-center wow fadeInUp" data-wow-delay="1.2s">
+                    <div class="btn-area mt-30 text-center wow fadeInUp mb-20" data-wow-delay="1.2s">
                         <div class="p-btn p-btn-1">
-                            <a href="shop.html">SHOW ALL PRODUCTS</a>
+                            <a href="product">Hiển thị tất cả sản phẩm </a>
                         </div>
                     </div>
                 </div>
@@ -621,24 +328,25 @@
                                 <div class="cart-btn cart-btn-2 p-abs">
                                     <a href="#">Add to cart</a>
                                 </div>
-                                <span class="discount discount-2 p-abs">New</span>
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-2">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-2">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
-                                </div>
+<%--                                <span class="discount discount-2 p-abs">New</span>--%>
+<%--                                <span class="discount discount-3 p-abs">-23%</span>--%>
+<%--                                <div class="product-action product-action-1 p-abs">--%>
+<%--                                    <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">--%>
+<%--                                        <i class="fal fa-eye"></i>--%>
+<%--                                        <i class="fal fa-eye"></i>--%>
+<%--                                    </a>--%>
+<%--                                    <a href="#" class="icon-box icon-box-2">--%>
+<%--                                        <i class="fal fa-heart"></i>--%>
+<%--                                        <i class="fal fa-heart"></i>--%>
+<%--                                    </a>--%>
+<%--                                    <a href="#" class="icon-box icon-box-2">--%>
+<%--                                        <i class="fal fa-layer-group"></i>--%>
+<%--                                        <i class="fal fa-layer-group"></i>--%>
+<%--                                    </a>--%>
+<%--                                </div>--%>
                             </div>
                             <div class="product-content">
-                                <h4 class="pro-title pro-title-2"><a href="product-details.html">Simple Stylish Women Backpack</a></h4>
+                                <h4 class="pro-title pro-title-2"><a href="product-detail">Simple Stylish Women Backpack</a></h4>
                                 <div class="pro-price">
                                     <span>£1.296.00</span>
                                 </div>
@@ -656,7 +364,7 @@
                                 <img src="<c:url value='/Front-end/client/img/products/product-13.jpg'/>" alt="#">
                                 <img src="<c:url value='/Front-end/client/img/products/product-18.jpg'/>" alt="#">
                                 <div class="cart-btn cart-btn-2 p-abs">
-                                    <a href="#">Add to cart</a>
+                                    <a href="#">Thêm vào giỏ</a>
                                 </div>
                                 <span class="discount discount-2 p-abs">New</span>
                                 <div class="product-action product-action-1 p-abs">
@@ -844,304 +552,142 @@
     <!-- border -->
     <div class="hr-border"></div>
 
-    <!-- blog area start -->
-    <div class="blog-area pt-95 pb-100 gray-bg-4">
-        <div class="container">
-            <div class="row mb-45">
-                <div class="col-xxl-12">
-                    <div class="section-title text-center">
-                        <span class="p-subtitle p-subtitle-2">Explore The Blog</span>
-                        <h3 class="p-title pb-15 mb-0">Latest Blog Posts</h3>
-                        <p class="p-desc">Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis
-                            eget maecenas.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-active-6 owl-carousel">
-                <div class="col-xxl-12">
-                    <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
-                        <div class="blog-thumb  p-rel">
-                            <a href="blog-details.html"><img src="<c:url value='/Front-end/client/img/blog/6/blog-1.jpg'/>" alt="#"></a>
-                        </div>
-                        <div class="blog-content blog-content-2 blog-content-6">
-                            <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">SHOPPING</a>
-                            <h5 class="blog-title blog-title-5 blog-title-6">
-                                <a href="blog-details.html">Bringing LED lighting Into Your Home Shouldn't be Complicated.</a>
-                            </h5>
-                            <div class="border-bottom-gray">
-                                <p>Claritas est etiam processus A Capitalize on low
-                                    hanging fruit to identify a ballpark value added
-                                    activity to beta test...
-                                </p>
-                            </div>
-                            <div class="blog-meta blog-meta-5 pt-15">
-                                Post date
-                                <a href="#"><span>20 Sep 2020</span></a> / By
-                                <a  href="#"><span>Admin.</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-12">
-                    <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
-                        <div class="blog-thumb  p-rel">
-                            <a href="blog-details.html"><img src="<c:url value='/Front-end/client/img/blog/6/blog-2.jpg'/>" alt="#"></a>
-                        </div>
-                        <div class="blog-content blog-content-2 blog-content-6">
-                            <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">Fashion</a>
-                            <h5 class="blog-title blog-title-5 blog-title-6">
-                                <a href="blog-details.html">The Next 10 Things You Should Do For Education Success</a>
-                            </h5>
-                            <div class="border-bottom-gray">
-                                <p>Claritas est etiam processus A Capitalize on low
-                                    hanging fruit to identify a ballpark value added
-                                    activity to beta test...</p>
-                            </div>
-                            <div class="blog-meta blog-meta-5 pt-15">
-                                Post date
-                                <a href="#"><span>20 Sep 2020</span></a> / By
-                                <a  href="#"><span>Admin.</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-12">
-                    <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
-                        <div class="blog-thumb  p-rel">
-                            <a href="blog-details.html"><img src="<c:url value='/Front-end/client/img/blog/6/blog-4.jpg'/>" alt="#"></a>
-                        </div>
-                        <div class="blog-content blog-content-2 blog-content-6">
-                            <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">Fashion</a>
-                            <h5 class="blog-title blog-title-5 blog-title-6">
-                                <a href="blog-details.html">Don't Waste Time! 10 Facts Until You Reach Your Education</a>
-                            </h5>
-                            <div class="border-bottom-gray">
-                                <p>Claritas est etiam processus A Capitalize on low
-                                    hanging fruit to identify a ballpark value added
-                                    activity to beta test...</p>
-                            </div>
-                            <div class="blog-meta blog-meta-5 pt-15">
-                                Post date
-                                <a href="#"><span>20 Sep 2020</span></a> / By
-                                <a  href="#"><span>Admin.</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- blog area end -->
 
-    <!-- banner area start -->
-    <div class="banner-area-s">
-        <div class="container-fluid p-0">
-            <div class="row gx-0">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                    <div class="banner-item-6 fix p-rel">
-                        <div class="banner-thumb-6" data-background="<c:url value='/Front-end/client/img/banner/banner-5.jpg'/>"></div>
-                        <div class="banner-content-6 text-center">
-                            <h3 class="banner-title-6">IN STORES & ONLINE NOW CHRISTMAS SALE bargains to be had!</h3>
-                            <a href="shop.html" class="link-btn">Discover Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                    <div class="banner-item-6 fix p-rel">
-                        <div class="banner-thumb-6" data-background="<c:url value='/Front-end/client/img/banner/banner-6.jpg'/>"></div>
-                        <div class="banner-content-6 text-center">
-                            <h3 class="banner-title-6">S/S 21 LOOKBOOK <br>  Puik your stylish travel companion</h3>
-                            <a href="shop.html" class="link-btn">Discover Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner area end -->
 
-    <!-- subscribe area start -->
-    <div class="subscribe-area subscribe-area-2 black-bg gray-bg-2 pt-95 pb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="section-title text-center">
-                        <span class="p-subtitle p-subtitle-2">OUR NEWSLETTER</span>
-                        <h3 class="p-title pb-15 mb-0">join our newsletter</h3>
-                        <p class="p-desc  pb-15">Subscribe to the Puik Store mailing list to receive updates on new
-                            arrivals, special offers<br>
-                            and other discount information.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xxl-8 col-xl-8">
-                    <div class="subscribe-form text-center">
-                        <form action="#">
-                            <input type="text" placeholder="Your email address...">
-                            <button type="submit" class="subscribe-btn subscribe-btn-2">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- subscribe area end -->
+<%--    <!-- product modal area start -->--%>
+<%--    <div class="product__modal-area modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModal" aria-hidden="true">--%>
+<%--        <div class="modal-dialog modal-dialog-centered" role="document">--%>
+<%--            <div class="modal-content">--%>
+<%--                <div class="product__modal-inner position-relative">--%>
+<%--                    <div class="product__modal-close">--%>
+<%--                        <button data-bs-dismiss="modal" aria-label="Close">--%>
+<%--                            <i class="ti-close"></i>--%>
+<%--                        </button>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__modal-left">--%>
+<%--                        <div class="tab-content mb-10" id="productModalThumb">--%>
+<%--                            <div class="tab-pane fade show active" id="pro-1" role="tabpanel" aria-labelledby="pro-1-tab">--%>
+<%--                                <div class="product__modal-thumb w-img">--%>
+<%--                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-1.jpg'/>" alt="">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="tab-pane fade" id="pro-2" role="tabpanel" aria-labelledby="pro-2-tab">--%>
+<%--                                <div class="product__modal-thumb w-img">--%>
+<%--                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-2.jpg'/>" alt="">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="tab-pane fade" id="pro-3" role="tabpanel" aria-labelledby="pro-3-tab">--%>
+<%--                                <div class="product__modal-thumb w-img">--%>
+<%--                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-3.jpg'/>" alt="">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="tab-pane fade" id="pro-4" role="tabpanel" aria-labelledby="pro-4-tab">--%>
+<%--                                <div class="product__modal-thumb w-img">--%>
+<%--                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-4.jpg'/>" alt="">--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-nav">--%>
+<%--                            <ul class="nav nav-tabs" id="productModalNav" role="tablist">--%>
+<%--                                <li class="nav-item" role="presentation">--%>
+<%--                                    <button class="nav-link active" id="pro-1-tab" data-bs-toggle="tab" data-bs-target="#pro-1" type="button" role="tab" aria-controls="pro-1" aria-selected="true">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-1.jpg'/>" alt="">--%>
+<%--                                    </button>--%>
+<%--                                </li>--%>
+<%--                                <li class="nav-item" role="presentation">--%>
+<%--                                    <button class="nav-link" id="pro-2-tab" data-bs-toggle="tab" data-bs-target="#pro-2" type="button" role="tab" aria-controls="pro-2" aria-selected="false">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-2.jpg'/>" alt="">--%>
+<%--                                    </button>--%>
+<%--                                </li>--%>
+<%--                                <li class="nav-item" role="presentation">--%>
+<%--                                    <button class="nav-link" id="pro-3-tab" data-bs-toggle="tab" data-bs-target="#pro-3" type="button" role="tab" aria-controls="pro-3" aria-selected="false">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-3.jpg'/>" alt="">--%>
+<%--                                    </button>--%>
+<%--                                </li>--%>
+<%--                                <li class="nav-item" role="presentation">--%>
+<%--                                    <button class="nav-link" id="pro-4-tab" data-bs-toggle="tab" data-bs-target="#pro-4" type="button" role="tab" aria-controls="pro-4" aria-selected="false">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-4.jpg'/>" alt="">--%>
+<%--                                    </button>--%>
+<%--                                </li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__modal-right">--%>
+<%--                        <h3 class="product__modal-title">--%>
+<%--                            <a href="product-details.html">Living Room Lighting</a>--%>
+<%--                        </h3>--%>
+<%--                        <div class="product__modal-rating d-flex align-items-center">--%>
+<%--                            <ul class="mr-10">--%>
+<%--                                <li>--%>
+<%--                                    <a href="#"><i class="ti-star"></i></a>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <a href="#"><i class="ti-star"></i></a>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <a href="#"><i class="ti-star"></i></a>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <a href="#"><i class="ti-star"></i></a>--%>
+<%--                                </li>--%>
+<%--                                <li>--%>
+<%--                                    <a href="#"><i class="ti-star"></i></a>--%>
+<%--                                </li>--%>
+<%--                            </ul>--%>
+<%--                            <div class="customer-review">--%>
+<%--                                <a href="#">(1 customer review)</a>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-price mb-10">--%>
+<%--                            <span class="price new-price">$700.00</span>--%>
 
-    <!-- product modal area start -->
-    <div class="product__modal-area modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="product__modal-inner position-relative">
-                    <div class="product__modal-close">
-                        <button data-bs-dismiss="modal" aria-label="Close">
-                            <i class="ti-close"></i>
-                        </button>
-                    </div>
-                    <div class="product__modal-left">
-                        <div class="tab-content mb-10" id="productModalThumb">
-                            <div class="tab-pane fade show active" id="pro-1" role="tabpanel" aria-labelledby="pro-1-tab">
-                                <div class="product__modal-thumb w-img">
-                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-1.jpg'/>" alt="">
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="pro-2" role="tabpanel" aria-labelledby="pro-2-tab">
-                                <div class="product__modal-thumb w-img">
-                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-2.jpg'/>" alt="">
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="pro-3" role="tabpanel" aria-labelledby="pro-3-tab">
-                                <div class="product__modal-thumb w-img">
-                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-3.jpg'/>" alt="">
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="pro-4" role="tabpanel" aria-labelledby="pro-4-tab">
-                                <div class="product__modal-thumb w-img">
-                                    <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-4.jpg'/>" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product__modal-nav">
-                            <ul class="nav nav-tabs" id="productModalNav" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pro-1-tab" data-bs-toggle="tab" data-bs-target="#pro-1" type="button" role="tab" aria-controls="pro-1" aria-selected="true">
-                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-1.jpg'/>" alt="">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pro-2-tab" data-bs-toggle="tab" data-bs-target="#pro-2" type="button" role="tab" aria-controls="pro-2" aria-selected="false">
-                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-2.jpg'/>" alt="">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pro-3-tab" data-bs-toggle="tab" data-bs-target="#pro-3" type="button" role="tab" aria-controls="pro-3" aria-selected="false">
-                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-3.jpg'/>" alt="">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pro-4-tab" data-bs-toggle="tab" data-bs-target="#pro-4" type="button" role="tab" aria-controls="pro-4" aria-selected="false">
-                                        <img src="<c:url value='/Front-end/client/img/products/modal/product-modal-sm-4.jpg'/>" alt="">
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product__modal-right">
-                        <h3 class="product__modal-title">
-                            <a href="product-details.html">Living Room Lighting</a>
-                        </h3>
-                        <div class="product__modal-rating d-flex align-items-center">
-                            <ul class="mr-10">
-                                <li>
-                                    <a href="#"><i class="ti-star"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti-star"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti-star"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti-star"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti-star"></i></a>
-                                </li>
-                            </ul>
-                            <div class="customer-review">
-                                <a href="#">(1 customer review)</a>
-                            </div>
-                        </div>
-                        <div class="product__modal-price mb-10">
-                            <span class="price new-price">$700.00</span>
-
-                            <span class="price old-price">$899.99</span>
-                        </div>
-                        <div class="product__modal-available">
-                            <p> Availability: <span>In Stock</span> </p>
-                        </div>
-                        <div class="product__modal-sku">
-                            <p> Sku: <span> 0026AG90-1</span> </p>
-                        </div>
-                        <div class="product__modal-des">
-                            <p>Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod legunt saepius.…</p>
-                        </div>
-                        <div class="product__modal-quantity mb-15">
-                            <h5>Quantity:</h5>
-                            <form action="#">
-                                <div class="pro-quan-area d-sm-flex align-items-center">
-                                    <div class="product-quantity mr-20 mb-25">
-                                        <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>
-                                    </div>
-                                    <div class="product__modal-cart mb-25">
-                                        <button class="product-modal-cart-btn " type="submit">Add to cart</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="product__modal-categories d-sm-flex align-items-center">
-                            <span>Categories: </span>
-                            <ul>
-                                <li><a href="#">Decor, </a></li>
-                                <li><a href="#">Lamp, </a></li>
-                                <li><a href="#">Lighting</a></li>
-                            </ul>
-                        </div>
-                        <div class="product__modal-categories d-sm-flex align-items-center">
-                            <span>Tags: </span>
-                            <ul>
-                                <li><a href="#">Furniture, </a></li>
-                                <li><a href="#">Lighting, </a></li>
-                                <li><a href="#">Living Room, </a></li>
-                                <li><a href="#">Table</a></li>
-                            </ul>
-                        </div>
-                        <div class="product__modal-share d-sm-flex align-items-center">
-                            <span>Share this product: </span>
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- product modal area start -->
+<%--                            <span class="price old-price">$899.99</span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-available">--%>
+<%--                            <p> Availability: <span>In Stock</span> </p>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-sku">--%>
+<%--                            <p> Sku: <span> 0026AG90-1</span> </p>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-des">--%>
+<%--                            <p>Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod legunt saepius.…</p>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-quantity mb-15">--%>
+<%--                            <h5>Quantity:</h5>--%>
+<%--                            <form action="#">--%>
+<%--                                <div class="pro-quan-area d-sm-flex align-items-center">--%>
+<%--                                    <div class="product-quantity mr-20 mb-25">--%>
+<%--                                        <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="product__modal-cart mb-25">--%>
+<%--                                        <button class="product-modal-cart-btn " type="submit">Add to cart</button>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </form>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-categories d-sm-flex align-items-center">--%>
+<%--                            <span>Categories: </span>--%>
+<%--                            <ul>--%>
+<%--                                <li><a href="#">Decor, </a></li>--%>
+<%--                                <li><a href="#">Lamp, </a></li>--%>
+<%--                                <li><a href="#">Lighting</a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                        <div class="product__modal-categories d-sm-flex align-items-center">--%>
+<%--                            <span>Tags: </span>--%>
+<%--                            <ul>--%>
+<%--                                <li><a href="#">Furniture, </a></li>--%>
+<%--                                <li><a href="#">Lighting, </a></li>--%>
+<%--                                <li><a href="#">Living Room, </a></li>--%>
+<%--                                <li><a href="#">Table</a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>  --%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <!-- product modal area start -->--%>
 
 </main>
 </body>

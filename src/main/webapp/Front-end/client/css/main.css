@@ -11148,6 +11148,9 @@ p.checkout-coupon input[type=text]:focus {
     display: block;
   }
 }
+::-webkit-input-placeholder {
+  opacity: 0.6;
+}
 /*-----------------------------------------------------------------------------------
 
     Template Name: Sample - Corporate Business Bootstrap4 HTML5 Template
