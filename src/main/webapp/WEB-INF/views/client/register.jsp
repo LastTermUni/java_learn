@@ -8,44 +8,24 @@
 <body>
 <main>
 
-    <!-- breadcrumb area start -->
-    <div class="breadcrumb-area-2 pt-240 pb-245 include-bg" data-background="<c:url value='/Front-end/client/img/page-title/page-title-1.jpg'/>>">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="breadcrumb-wrapper-2 text-center">
-                        <h3>register</h3>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">register</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb area end -->
-
     <!-- login area start -->
-    <section class="login-area pt-100 pb-100">
+    <section class="login-area pt-20 pb-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="basic-login">
-                        <h3 class="text-center mb-60">Signup From Here</h3>
+                        <h3 class="text-center mb-60">Đăng ký</h3>
                         <form action="#">
-                            <label for="name">Username <span>**</span></label>
-                            <input id="name" type="text" placeholder="Enter Username" />
-                            <label for="email-id">Email Address <span>**</span></label>
-                            <input id="email-id" type="text" placeholder="Email address..." />
-                            <label for="pass">Password <span>**</span></label>
-                            <input id="pass" type="password" placeholder="Enter password..." />
+                            <label for="name">Tên người dùng <span>*</span></label>
+                            <input id="name" type="text" placeholder="Tên người dùng ..." data-opacity="0.7"/>
+                            <label for="email-id">Email <span>*</span></label>
+                            <input id="email-id" type="text" placeholder="Địa chỉ email ..." />
+                            <label for="pass">Mật khẫu <span>*</span></label>
+                            <input id="pass" type="password" placeholder="Mật khẩu ..." />
                             <div class="mt-10"></div>
-                            <button class="s-btn s-btn-4 w-100">Register Now</button>
-                            <div class="or-divide"><span>or</span></div>
-                            <a href="login.html" class="s-btn s-btn-2 w-100">login Now</a>
+                            <button class="s-btn s-btn-4 w-100">Đăng ký</button>
+                            <div class="or-divide"><span>hoặc</span></div>
+                            <a href="login" class="s-btn s-btn-2 w-100">Đăng nhập</a>
                         </form>
                     </div>
                 </div>

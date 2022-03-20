@@ -113,14 +113,14 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
 <!-- preloader end -->
 <!-- header area start -->
 <header>
-    <div id="header-sticky" class="header-area header-sticky header-sticky-white">
-        <div class="header-main header-main-1 header-main-2 header-main-3 header-padding header-border  pl-50 pr-50">
-            <div class="container-fluid">
-                <div class="row align-items-center">
+    <div id="header-sticky" class="header-area header-sticky header-sticky-white" >
+        <div class="header-main header-main-1 header-main-2 header-main-3 header-padding header-border  pl-50 pr-50" style="height: inherit">
+            <div class="container-fluid" >
+                <div class="row align-items-center" >
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="index.html"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt="#"></a>
+                                <a href="home"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt="#"></a>
                             </div>
                         </div>
                     </div>
@@ -128,146 +128,46 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                             <nav id="mobile-menu">
                                 <ul>
-                                    <li><a href="index.html">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home Layout 1</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="index.html">Home Layout 1</a></li>
-                                                    <li><a href="index-2.html">Home Layout 2</a></li>
-                                                    <li><a href="index-3.html">Home Layout 3</a></li>
-                                                    <li><a href="index-4.html">Home Layout 4</a></li>
-                                                    <li><a href="index-5.html">Home Layout 5</a></li>
-                                                    <li><a href="index-6.html">Home Layout 6</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="index-2.html">Home Layout 2</a></li>
-                                            <li><a href="index-3.html">Home Layout 3</a></li>
-                                            <li><a href="index-4.html">Home Layout 4</a></li>
-                                            <li><a href="index-5.html">Home Layout 5</a></li>
-                                            <li><a href="index-6.html">Home Layout 6</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="home">Trang chủ</a>
                                     <li class="static">
-                                        <a href="shop.html">Shop <i class="icon-arrow-down"></i></a>
-                                        <ul class="mega-menu mega-menu-2-col">
-                                            <li class="has-dropdown">
-                                                <a href="shop.html">Shop Pages</a>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a href="shop.html">Left Sidebar</a></li>
-                                                    <li><a href="shop-filter-dropdown.html">Filter Dropdown</a></li>
-                                                    <li><a href="shop-filter-canvas.html">Filter Canvas</a></li>
-                                                    <li><a href="shop-list-v1.html">List Version 1</a></li>
-                                                    <li><a href="shop-list-v2.html">List Version 2</a></li>
-                                                    <li><a href="shop-masonary.html">Masonary Layout</a></li>
-                                                    <li><a href="shop-tab.html">Tab Layout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="shop.html">Features</a>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="shop.html">Filter Options</a></li>
-                                                    <li><a href="shop.html">Filters area</a></li>
-                                                    <li><a href="shop.html">Filters Sidebar</a></li>
-                                                    <li><a href="shop.html">Load More button</a></li>
-                                                    <li><a href="shop.html">infinit scrolling</a></li>
-                                                    <li><a href="shop.html">collections list</a></li>
-                                                    <li><a href="shop.html">hidden search</a></li>
-                                                    <li><a href="shop.html">Search Full screen</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="d-none d-lg-block">
-                                                <div class="menu-banner-wrapper p-rel">
-                                                    <a class="w-img" href="shop.html">
-                                                        <img src="<c:url value='/Front-end/client/img/banner/menu/banner-women.jpg'/>" alt="">
-                                                    </a>
-                                                    <a href="shop.html" class="menu-banner-btn">women</a>
-                                                </div>
-                                            </li>
-                                            <li class="d-none d-xl-block">
-                                                <div class="menu-banner-wrapper p-rel">
-                                                    <a class="w-img" href="shop.html">
-                                                        <img src="<c:url value='/Front-end/client/img/banner/menu/banner-men.jpg'/>" alt="">
-                                                    </a>
-                                                    <a href="shop.html" class="menu-banner-btn">men</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="static">
-                                        <a href="about-us.html">Pages</a>
+                                        <a href="product">Máy ảnh</a>
                                         <ul class="mega-menu mega-full mega-menu-3-col">
                                             <li class="has-dropdown">
-                                                <a href="product-details.html">Product Layout</a>
+                                                <a href="product">Sony</a>
                                                 <ul class="has-dropdown">
-                                                    <li><a href="product-details.html">Product Details Layout 1</a></li>
-                                                    <li><a href="product-details-v2.html">Product Details Layout 2</a></li>
-                                                    <li><a href="product-details.html">Product Details Layout 3</a></li>
-                                                    <li><a href="product-details-grid.html">Product Details Grid</a></li>
-                                                    <li><a href="product-details-grid.html">Product Details Scroll</a></li>
-                                                    <li><a href="product-details.html">Left Sidebar</a></li>
-                                                    <li><a href="product-details.html">Right Sidebar</a></li>
-                                                    <li><a href="product-details.html">Sidebar full height</a></li>
-                                                    <li><a href="product-details.html">Product tab acceordiaons</a></li>
-                                                    <li><a href="product-details.html">Product full width ATC</a></li>
-                                                    <li><a href="product-details.html">Product full width layout</a></li>
-                                                    <li><a href="product-details.html">Advance Product Type <span class="menu-tag red">Hot</span></a></li>
+                                                    <li><a href="product-detail"> Sony A ...</a></li>
+                                                    <li><a href="product-detail">Sony B ...</a></li>
                                                 </ul>
                                             </li>
                                             <li class="has-dropdown">
-                                                <a href="product-details.html">Other Pages</a>
+                                                <a href="product">Canon</a>
                                                 <ul class="has-dropdown">
-                                                    <li><a href="about-us.html">About Us</a></li>
-                                                    <li><a href="about-me.html">About Me</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="register.html">Register</a></li>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="team.html">Team</a></li>
-                                                    <li><a href="faq.html">Faq</a></li>
-                                                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                                                    <li><a href="error.html">404 Error</a></li>
-                                                    <li><a href="card.html">Gift Card</a></li>
+                                                    <li><a href="">Canon ...</a></li>
+
                                                 </ul>
                                             </li>
                                             <li class="has-dropdown">
-                                                <a href="product-details.html">Product Swatch</a>
+                                                <a href="product">Nikon</a>
                                                 <ul class="has-dropdown">
-                                                    <li><a href="product-details.html">Product Color Swatch</a></li>
-                                                    <li><a href="product-details.html">Product Gallery Swatch</a></li>
-                                                    <li><a href="product-details.html">Product Images Swatch</a></li>
-                                                    <li><a href="product-details.html">Swatch Color</a></li>
-                                                    <li><a href="product-details.html">Swatch Color Circle</a></li>
-                                                    <li><a href="product-details.html">Swatch Radio</a></li>
-                                                    <li><a href="product-details.html">Swatch Radio COlor</a></li>
-                                                    <li><a href="product-details.html">Swatch Rectangle</a></li>
-                                                    <li><a href="product-details.html">Swatch Rectangle Color</a></li>
-                                                    <li><a href="product-details.html">Swatch Simple <span class="menu-tag red">Hot</span></a></li>
-                                                    <li><a href="product-details.html">Swatch Simple Color <span class="menu-tag red">Hot</span></a></li>
+                                                    <li><a href="">Nikon ...</a></li>
+
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="blog.html">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog Main</a></li>
-                                            <li><a href="blog-2-col.html">Blog 2 Column</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
+                                    <li class="static">
+                                        <a href="product">Phụ kiện</a>
+                                        <ul class="mega-menu mega-full mega-menu-3-col">
+                                            <li class="has-dropdown">
+                                                <%-- từng hãng, mỗi hãng có máy ảnh, ống kính,  --%>
+                                                <ul class="has-dropdown">
+                                                    <li><a href="product">Đèn chụp flash</a></li>
+                                                    <li><a href="product">Thẻ nhớ máy ảnh</a></li>
+                                                    <li><a href="product">Sạc máy ảnh</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="about-us.html">About Us</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="about-me.html">About Me</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -275,10 +175,9 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                         <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                <a href="login.html" class="d-none d-xxl-inline-block">Login / Register</a>
+                                <a href="login" class="d-none d-xxl-inline-block">Đăng nhập / Đăng ký</a>
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
                                     <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
-                                    <a href="wishlist.html" class="d-none d-xl-inline-block"><i class="fal fa-heart"></i><span>2</span></a>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span>2</span></button>
                                 </div>
                             </div>
@@ -523,76 +422,31 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
 <footer class="footer-area footer-1 black-bg pb-0 gray-bg-2">
     <div class="container">
         <div class="footer-border-top pt-95 pb-40">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
                     <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay=".4s">
-                        <h5 class="f-widget-title white-color">Information</h5>
+                        <h5 class="f-widget-title white-color">Thông tin</h5>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Page 404</a></li>
-                            <li><a href="#">Sizing Guide</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
                     <div class="widget footer-ml--20 f-widget pb-30 wow fadeInUp" data-wow-delay=".6s">
-                        <h5 class="f-widget-title white-color">Our Service</h5>
+                        <h5 class="f-widget-title white-color">Chính sách</h5>
                         <ul>
-                            <li><a href="#">Shipping Policy</a></li>
-                            <li><a href="#">Help & Contact Us</a></li>
-                            <li><a href="#">Returns & Refunds</a></li>
-                            <li><a href="#">Online Stores</a></li>
-                            <li><a href="#">Payment Method</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                    <div class="widget footer-ml--30 f-widget pb-30  wow fadeInUp" data-wow-delay=".8s">
-                        <h5 class="f-widget-title white-color">Payment & Shipping</h5>
-                        <ul>
-                            <li><a href="#">Terms Of Use</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Shipping Guide</a></li>
-                            <li><a href="#">Locations We Ship To</a></li>
-                            <li><a href="#">Estimated Delivery Time</a></li>
+                            <li><a href="#">Chính sách giao hàng</a></li>
+                            <li><a href="#">Hình thức thanh toán</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 col-sm-6">
                     <div class="widget f-widget pb-30  wow fadeInUp" data-wow-delay=".8s">
-                        <h5 class="f-widget-title white-color">FOLLOW US</h5>
+                        <h5 class="f-widget-title white-color">Mạng xã hội</h5>
                         <ul><li>
                             <a href="#">Facebook</a>
                         </li>
-                            <li>
-                                <a href="#">Twitter</a>
-                            </li>
-                            <li>
-                                <a href="#">Instagram</a>
-                            </li>
-                            <li>
-                                <a href="#">Pinterest</a>
-                            </li>
-                            <li>
-                                <a href="#">Youtube</a>
-                            </li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-5 col-md-7 col-sm-8">
-                    <div class="widget footer-pl-30 f-widget pb-30 wow fadeInUp" data-wow-delay="1s">
-                        <h5 class="f-widget-title white-color">LOOKING FOR Puik?</h5>
-                        <address>
-                            <ul>
-                                <li>Have a question? You may find an answer in our FAQs.</li>
-                                <li>But you can also contact us:</li>
-                                <li>Call Us: S9 Heaven Stress, Beverly Hill, USA.</li>
-                                <li>Phone: +1 (800) 123 456 789</li>
-                                <li>Fax: +1 (800) 123 456 789</li>
-                            </ul>
-                        </address>
                     </div>
                 </div>
             </div>
@@ -604,15 +458,12 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                 <div class="row">
                     <div class="col-xxl-6 col-lg-6">
                         <p>
-                            Copyright © Puik Store all rights reserved. Powered by Theme_pure</p>
+                            © Camera Store | Đã đăng ký bản quyền. Phát triển bởi GOD Team</p>
                     </div>
                     <div class="col-xxl-6 col-lg-6">
                         <div class="copyright-actions text-lg-end">
-                            <a href="#">Privacy Policy</a>
-                            <a href="#">Terms Of Use</a>
-                            <a href="#">Help</a>
-                            <a href="#">FAQs</a>
-                            <a href="#">Contact Us</a>
+                            <a href="#">Điều khoản sử dụng</a>
+                            <a href="#">Chính sách bảo mật</a>
                         </div>
                     </div>
                 </div>
@@ -661,7 +512,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
     <div class="subscribe-thumb" data-background="img/popup/furniture/subscribe-bg.jpg'/>"></div>
 </div>
 <!-- popup area end -->
-<c:url value='/Front-end/client/css/preloader.css'/>
 <!-- JS here -->
 <script src="<c:url value='/Front-end/client/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/Front-end/client/js/waypoints.min.js'/>"></script>

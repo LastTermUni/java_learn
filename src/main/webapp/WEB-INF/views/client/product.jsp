@@ -9,15 +9,14 @@
 <main>
 
     <!-- breadcrumb area start -->
-    <div class="breadcrumb-area pt-255 pb-265 mb-120" data-background="<c:url value='/Front-end/client/img/banner/breadcrumb.jpg'/>">
+    <div class="breadcrumb-area pt-155 pb-165 mb-50" data-background="<c:url value='/Front-end/client/img/banner/breadcrumb.jpg'/>" style="background-size: cover; ">
         <div class="container">
             <div class="breadcrumb-title text-center">
                 <h2>Shop</h2>
             </div>
             <div class="breadcrumb-list">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <span>Shop Sidebar</span>
+                <a href="home">Trang chủ</a>
+                <span>Danh sách sản phẩm</span>
             </div>
         </div>
     </div>
@@ -30,16 +29,16 @@
                 <div class="col-xxl-3 col-xl-3 col-lg-4">
                     <div class="shop-sidebar-area pt-7 pr-60">
                         <div class="single-widget pb-50 mb-50">
-                            <h4 class="widget-title">Product Categories</h4>
+                            <h4 class="widget-title">Thương hiệu</h4>
                             <div class="widget-category-list">
                                 <form action="#">
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="cat-item-1" name="cat-item">
-                                        <label for="cat-item-1">Clothing & Apparel <span>(12)</span></label>
+                                        <label for="cat-item-1">Sony<span>(12)</span></label>
                                     </div>
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="cat-item-2" name="cat-item">
-                                        <label for="cat-item-2">Consumer Electrics <span>(60)</span></label>
+                                        <label for="cat-item-2">Nikon<span>(60)</span></label>
                                     </div>
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="cat-item-3" name="cat-item">
@@ -49,43 +48,12 @@
                                         <input type="checkbox" id="cat-item-4" name="cat-item">
                                         <label for="cat-item-4">Phones & Accessories <span>(28)</span></label>
                                     </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-5" name="cat-item">
-                                        <label for="cat-item-5">Babies & Moms <span>(21)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-7" name="cat-item">
-                                        <label for="cat-item-7">Books & Office <span>(62)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-8" name="cat-item">
-                                        <label for="cat-item-8">Sport & Outdoo <span>(22)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-9" name="cat-item">
-                                        <label for="cat-item-9">Chairs & Stools <span>(20)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-10" name="cat-item">
-                                        <label for="cat-item-10">Furniture & Acessories <span>(06)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-11" name="cat-item">
-                                        <label for="cat-item-11">Kitchen & Tableware <span>(30)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-12" name="cat-item">
-                                        <label for="cat-item-12">Lighting <span>(30)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="cat-item-13" name="cat-item">
-                                        <label for="cat-item-13">Armchairs & Chaises <span>(30)</span></label>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>
                         <div class="single-widget mb-50">
-                            <h4 class="widget-title title-price-space">Filter By Price</h4>
+                            <h4 class="widget-title title-price-space">Lọc theo giá</h4>
                             <form action="#">
                                 <div class="ui-price-slider mb-40">
                                     <div class="slider-range">
@@ -93,13 +61,13 @@
                                         <div class="row">
                                             <div class="col-9">
                                                 <p>
-                                                    <label for="amount">Price :</label>
+                                                    <label for="amount">Giá:</label>
                                                     <input type="text" id="amount" readonly>
                                                 </p>
                                             </div>
                                             <div class="col-3">
                                                 <div class="text-end">
-                                                    <a href="#" class="widget-title">Filter</a>
+                                                    <a href="#" class="widget-title">Lọc</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,85 +76,56 @@
                             </form>
                         </div>
                         <div class="single-widget pb-50 mb-50">
-                            <h4 class="widget-title">Filter By Choose Color</h4>
+                            <h4 class="widget-title">Lọc theo mục</h4>
                             <div class="widget-color-list widget-color-box scroll-box-default">
                                 <form action="#">
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="color-item-1" name="cat-item">
-                                        <label for="color-item-1" class="color-black-bg">Black <span>(12)</span></label>
+                                        <label for="color-item-1" class="color-black-bg">Máy ảnh <span>(12)</span></label>
                                     </div>
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="color-item-2" name="cat-item">
-                                        <label for="color-item-2" class="color-green-bg">Green <span>(02)</span></label>
+                                        <label for="color-item-2" class="color-green-bg">Ống kính<span>(02)</span></label>
                                     </div>
                                     <div class="single-widget-category">
                                         <input type="checkbox" id="color-item-3" name="cat-item">
-                                        <label for="color-item-3" class="color-blue-bg">Blue <span>(06)</span></label>
+                                        <label for="color-item-3" class="color-blue-bg">Đèn flash<span>(06)</span></label>
                                     </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="color-item-4" name="cat-item">
-                                        <label for="color-item-4" class="color-red-bg">Red <span>(08)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="color-item-5" name="cat-item">
-                                        <label for="color-item-5" class="color-gray-bg">Gray <span>(09)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="color-item-7" class="white-input" name="cat-item">
-                                        <label for="color-item-7" class="color-white-bg">White <span>(04)</span></label>
-                                    </div>
+
                                 </form>
                             </div>
                         </div>
-                        <div class="single-widget pb-50 mb-50">
-                            <h4 class="widget-title">Filter By Size</h4>
-                            <div class="widget-category-list scroll-box-default">
-                                <form action="#">
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-1" name="cat-item">
-                                        <label for="size-item-1">S <span>(02)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-2" name="cat-item">
-                                        <label for="size-item-2">M <span>(08)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-3" name="cat-item">
-                                        <label for="size-item-3">L <span>(19)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-4" name="cat-item">
-                                        <label for="size-item-4">XL <span>(21)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-5" name="cat-item">
-                                        <label for="size-item-5">XXL <span>(09)</span></label>
-                                    </div>
-                                    <div class="single-widget-category">
-                                        <input type="checkbox" id="size-item-6" name="cat-item">
-                                        <label for="size-item-6">XXXL <span>(06)</span></label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="single-widget pb-50 mb-50">
-                            <h4 class="widget-title">Product tags</h4>
-                            <div class="tagcloud">
-                                <a href="#">Lighting</a>
-                                <a href="#">Decor</a>
-                                <a href="#">Interior</a>
-                                <a href="#">Puik</a>
-                                <a href="#">Fashion</a>
-                                <a href="#">Sport</a>
-                                <a href="#">Bathroom</a>
-                                <a href="#">Chair</a>
-                                <a href="#">Accessories</a>
-                                <a href="#">Easy Chairs</a>
-                                <a href="#">Living room</a>
-                                <a href="#">Office</a>
-                                <a href="#">Bags</a>
-                            </div>
-                        </div>
+<%--                        <div class="single-widget pb-50 mb-50">--%>
+<%--                            <h4 class="widget-title">Filter By Size</h4>--%>
+<%--                            <div class="widget-category-list scroll-box-default">--%>
+<%--                                <form action="#">--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-1" name="cat-item">--%>
+<%--                                        <label for="size-item-1">S <span>(02)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-2" name="cat-item">--%>
+<%--                                        <label for="size-item-2">M <span>(08)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-3" name="cat-item">--%>
+<%--                                        <label for="size-item-3">L <span>(19)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-4" name="cat-item">--%>
+<%--                                        <label for="size-item-4">XL <span>(21)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-5" name="cat-item">--%>
+<%--                                        <label for="size-item-5">XXL <span>(09)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="single-widget-category">--%>
+<%--                                        <input type="checkbox" id="size-item-6" name="cat-item">--%>
+<%--                                        <label for="size-item-6">XXXL <span>(06)</span></label>--%>
+<%--                                    </div>--%>
+<%--                                </form>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>b
                     </div>
                 </div>
                 <div class="col-xxl-9 col-xl-9 col-lg-8 order-first order-lg-last">
@@ -194,7 +133,7 @@
                         <div class="row">
                             <div class="col-xxl-4 col-xl-2 col-md-3 col-sm-3">
                                 <div class="shop-top-left">
-                                    <span class="label mr-15">View:</span>
+                                    <span class="label mr-15">Kiểu xem:</span>
                                     <div class="nav d-inline-block tab-btn-group" id="nav-tab" role="tablist">
                                         <button class="active" data-bs-toggle="tab" data-bs-target="#tab1" type="button"><i class="fas fa-border-none"></i></button>
                                         <button data-bs-toggle="tab" data-bs-target="#tab2" type="button"><i class="fas fa-list"></i></button>
@@ -202,15 +141,15 @@
                                 </div>
                             </div>
                             <div class="col-xxl-4 col-xl-6 col-md-6 col-sm-6">
-                                <p class="show-total-result text-sm-center">Showing 1–12 of 24 results</p>
+<%--                                <p class="show-total-result text-sm-center">Showing 1–12 of 24 results</p>--%>
                             </div>
                             <div class="col-xl-4 col-xl-4 col-md-3 col-sm-3">
                                 <div class="text-sm-end">
                                     <div class="select-default">
                                         <select name="short" id="short" class="shorting-select">
-                                            <option value="">Default sorting</option>
-                                            <option value="">ASC</option>
-                                            <option value="">DEC</option>
+                                            <option value="">Mới nhất</option>
+                                            <option value="">Giá tăng dần</option>
+                                            <option value="">Giá giảm dần</option>
                                         </select>
                                     </div>
                                 </div>
@@ -885,8 +824,8 @@
                                                         insitam, est usus legentis in iis qui facit eorum [...]</p>
                                                     <div class="puik-shop-product-actions">
                                                         <a href="#" class="puik-cart-btn">Add to cart</a>
-                                                        <a href="#" class="puik-proudct-btn-boxed"><i class="fal fa-heart"></i></a>
-                                                        <a href="#" class="puik-proudct-btn-boxed"><i class="fal fa-layer-group"></i></a>
+                                                        <a href="#" class="puik-proudct-btn-boxed" style="padding: 12px;"><i class="fal fa-heart"></i></a>
+                                                        <a href="#" class="puik-proudct-btn-boxed" style="padding: 12px;"><i class="fal fa-layer-group"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1252,73 +1191,6 @@
         </div>
     </div>
     <!-- product modal area start -->
-
-    <!-- popup area start -->
-    <div class="subscribe-popup d-none">
-        <div class="subscribe-wrapper s-popup-padding h-100">
-            <div class="pl-75 pr-75">
-                <div class="row">
-                    <div class="col-xxl-6">
-                        <div class="subscribe-content">
-                            <div class="logo mb-65">
-                                <a href="index.html"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt=""></a>
-                            </div>
-                            <h4 class="popup-title">Comming Soon</h4>
-                            <p class="popup-desc">We’ll be here soon with our new<br>
-                                awesome site, subscribe to be notified.</p>
-                            <div class="comming-countdown  pb-45">
-                                <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
-                                    <ul>
-                                        <li><span data-days="">401</span> Day</li>
-                                        <li><span data-hours="">1</span> hrs</li>
-                                        <li><span data-minutes="">29</span> min</li>
-                                        <li><span data-seconds="">40</span> sec</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="subscribe-form-2">
-                                <input type="email" placeholder="Enter your email...">
-                                <button class="p-btn border-0">Subscribe</button>
-                            </div>
-                            <div class="popup-social">
-                                <a href="#"><i class="fal fa-facebook"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="subscribe-thumb" data-background="<c:url value='/Front-end/client/img/popup/fashion/subscribe-bg.jpg'/>"></div>
-    </div>
-    <!-- popup area end -->
-
-    <!-- subscribe area start -->
-    <div class="subscribe-area pb-100 pt-95 black-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="section-title text-center">
-                        <span class="p-subtitle p-subtitle-3">OUR NEWSLETTER</span>
-                        <h3 class="p-title pb-15 mb-0 white-text">join our newsletter</h3>
-                        <p class="p-desc p-desc-2 pb-15">Subscribe to the Puik Store mailing list to receive updates on new
-                            arrivals, special offers<br>
-                            and other discount information.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xxl-8 col-xl-8">
-                    <div class="subscribe-form  gray-form text-center">
-                        <form action="#">
-                            <input type="text" placeholder="Your email address...">
-                            <button type="submit" class="subscribe-btn subscribe-btn-3">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- subscribe area end -->
 
 </main>
 </body>
