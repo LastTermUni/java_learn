@@ -17,11 +17,11 @@
                     <div class="error__number">
                         <h1>404</h1>
                     </div>
-                    <span>That page can’t be found.</span>
+                    <span>Không thể tìm thấy trang này!</span>
 
-                    <p>Sorry for the inconvenience. Go to our homepage or check out our latest collections.</p>
+                    <p>Xin lỗi vì sự số này. Xin hãy rời khỏi trang này hoặc di chuyển đến trang khác...</p>
 
-                    <a href="index.html" class="s-btn s-btn-2 s-btn-big">Back to Home page</a>
+                    <a href="home" class="s-btn s-btn-2 s-btn-big">Back to Home page</a>
                 </div>
             </div>
         </div>
