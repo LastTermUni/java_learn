@@ -1,6 +1,6 @@
 "use strict";
-;(function (window, $, undefined) { ;(function () {
-    var VERSION = '2.2.3',
+;(function (window, $, undefined) { (function () {
+    let VERSION = '2.2.3',
         pluginName = 'datepicker',
         autoInitSelector = '.datepicker-here',
         $body, $datepickersContainer,
@@ -101,13 +101,13 @@
         },
         datepicker;
 
-    var Datepicker  = function (el, options) {
+    const Datepicker = function (el, options) {
         this.el = el;
         this.$el = $(el);
 
         this.opts = $.extend(true, {}, defaults, options, this.$el.data());
 
-        if ($body == undefined) {
+        if ($body === undefined) {
             $body = $('body');
         }
 
@@ -115,7 +115,7 @@
             this.opts.startDate = new Date();
         }
 
-        if (this.el.nodeName == 'INPUT') {
+        if (this.el.nodeName === 'INPUT') {
             this.elIsInput = true;
         }
 
@@ -271,7 +271,7 @@
             var $appendTarget,
                 $inline = $('<div class="datepicker-inline">');
 
-            if(this.el.nodeName == 'INPUT') {
+            if(this.el.nodeName === 'INPUT') {
                 if (!this.opts.inline) {
                     $appendTarget = $datepickersContainer;
                 } else {
@@ -1448,7 +1448,7 @@
 
     /**
      * Returns copy of date with hours and minutes equals to 0
-     * @param date {Date}
+     * @param date {{date: *, hours: number, fullDate: (string|*), month: number, fullHours: (string|number), year: number, minutes: number, fullMonth: (string|number), day: number, fullMinutes: (string|number)}}
      */
     datepicker.resetTime = function (date) {
         if (typeof date != 'object') return;

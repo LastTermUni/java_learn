@@ -13,9 +13,9 @@
     $('#disabled-days').datepicker({
         language: 'en',
         onRenderCell: function (date, cellType) {
-            if (cellType == 'day') {
+            if (cellType === 'day') {
                 var day = date.getDay(),
-                    isDisabled = disabledDays.indexOf(day) != -1;
+                    isDisabled = disabledDays.indexOf(day) !== -1;
                 return {
                     disabled: isDisabled
                 }

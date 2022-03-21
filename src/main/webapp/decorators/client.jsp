@@ -204,76 +204,41 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
             <div class="modal-content">
                 <div class="cartmini__wrapper">
                     <div class="cartmini__top d-flex align-items-center justify-content-between">
-                        <h4>Your Cart</h4>
+                        <h4>Giỏ hàng</h4>
                         <div class="cartminit__close">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
                         </div>
                     </div>
                     <div class="cartmini__list">
                         <ul>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Walnut Base</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $70.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="<c:url value='/Front-end/client/img/products/product-2.jpg'/>" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Simon Legald</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $95.99</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="<c:url value='/Front-end/client/img/products/product-3.jpg'/>" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Antique Chinese Armchairs</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $120.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
+<%--                            item trong gio hang--%>
+<%--                            <li class="cartmini__item p-rel d-flex align-items-start">--%>
+<%--                                <div class="cartmini__thumb mr-15">--%>
+<%--                                    <a href="product-details.html">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">--%>
+<%--                                    </a>--%>
+<%--                                </div>--%>
+<%--                                <div class="cartmini__content">--%>
+<%--                                    <h3 class="cartmini__title">--%>
+<%--                                        <a href="product-details.html">Form Armchair Walnut Base</a>--%>
+<%--                                    </h3>--%>
+<%--                                    <span class="cartmini__price">--%>
+<%--                                        <span class="price">1 × $70.00</span>--%>
+<%--                                    </span>--%>
+<%--                                </div>--%>
+<%--                                <a href="#" class="cartmini__remove">--%>
+<%--                                    <i class="fal fa-times"></i>--%>
+<%--                                </a>--%>
+<%--                            </li>--%>
                         </ul>
                     </div>
                     <div class="cartmini__total d-flex align-items-center justify-content-between">
-                        <h5>Total</h5>
+                        <h5>Tổng cộng:</h5>
                         <span>$180.00</span>
                     </div>
                     <div class="cartmini__bottom">
-                        <a href="cart.html" class="s-btn w-100 mb-20">view cart</a>
-                        <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
+                        <a href="cart" class="s-btn w-100 mb-20">Chi tiết giỏ hàng</a>
+                        <a href="checkout" class="s-btn s-btn-2 w-100">Thanh toán</a>
                     </div>
                 </div>
             </div>
@@ -318,7 +283,7 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                                 <svg viewBox="0 0 22 22">
                                     <path d="M12.41,11l5.29-5.29c0.39-0.39,0.39-1.02,0-1.41s-1.02-0.39-1.41,0L11,9.59L5.71,4.29c-0.39-0.39-1.02-0.39-1.41,0
                                     s-0.39,1.02,0,1.41L9.59,11l-5.29,5.29c-0.39,0.39-0.39,1.02,0,1.41C4.49,17.9,4.74,18,5,18s0.51-0.1,0.71-0.29L11,12.41l5.29,5.29
-                                    C16.49,17.9,16.74,18,17,18s0.51-0.1,0.71-0.29c0.39-0.39,0.39-1.02,0-1.41L12.41,11z"/>
+                                    C16.49,17.9,16.74,18,17,18s0.51-0.1,0.71-0.29c0.39-0.39,0.39-1.02,0-1.41L12.41,11z"></path>
                                 </svg>
                             </button>
                         </div>
@@ -328,7 +293,7 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                             <div class="mobile-menu"></div>
                         </div>
                         <div class="offcanvas__action mb-15">
-                            <a href="login.html">Login</a>
+                            <a href="login">Đăng nhập</a>
                         </div>
                         <div class="offcanvas__action mb-15 ">
                             <a href="wishlist.html" class="has-tag">
@@ -347,7 +312,7 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                             </a>
                         </div>
                         <div class="offcanvas__action mb-15 d-sm-block">
-                            <a href="cart.html" class="has-tag">
+                            <a href="cart" class="has-tag">
                                 <i class="far fa-shopping-bag"></i>
                                 <span class="tag">4</span>
                             </a>
@@ -356,18 +321,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                             <ul>
                                 <li>
                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -380,44 +333,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
 </section>
 <!-- sidebar area end -->
 <dec:body/>
-<!-- popup area start -->
-<div class="subscribe-popup d-none">
-    <div class="subscribe-wrapper s-popup-padding h-100">
-        <div class="pl-75 pr-75">
-            <div class="row">
-                <div class="col-xxl-6">
-                    <div class="subscribe-content">
-                        <div class="logo mb-65">
-                            <a href="index.html"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt=""></a>
-                        </div>
-                        <h4 class="popup-title">Comming Soon</h4>
-                        <p class="popup-desc">We’ll be here soon with our new<br>
-                            awesome site, subscribe to be notified.</p>
-                        <div class="comming-countdown  pb-45">
-                            <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
-                                <ul>
-                                    <li><span data-days="">401</span> Day</li>
-                                    <li><span data-hours="">1</span> hrs</li>
-                                    <li><span data-minutes="">29</span> min</li>
-                                    <li><span data-seconds="">40</span> sec</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="subscribe-form-2">
-                            <input type="email" placeholder="Enter your email...">
-                            <button class="p-btn border-0">Subscribe</button>
-                        </div>
-                        <div class="popup-social">
-                            <a href="#"><i class="fal fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscribe-thumb" data-background="img/popup/fashion/subscribe-bg.jpg'/>"></div>
-</div>
-<!-- popup area end -->
 
 <footer class="footer-area footer-1 black-bg pb-0 gray-bg-2">
     <div class="container">
@@ -474,44 +389,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
     <!-- /.copyright area end -->
 </footer>
 
-<!-- popup area start -->
-<div class="subscribe-popup d-none">
-    <div class="subscribe-wrapper s-popup-padding h-100">
-        <div class="pl-75 pr-75">
-            <div class="row">
-                <div class="col-xxl-6">
-                    <div class="subscribe-content">
-                        <div class="logo mb-65">
-                            <a href="index.html"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt=""></a>
-                        </div>
-                        <h4 class="popup-title">Comming Soon</h4>
-                        <p class="popup-desc">We’ll be here soon with our new<br>
-                            awesome site, subscribe to be notified.</p>
-                        <div class="comming-countdown  pb-45">
-                            <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
-                                <ul>
-                                    <li><span data-days="">401</span> Day</li>
-                                    <li><span data-hours="">1</span> hrs</li>
-                                    <li><span data-minutes="">29</span> min</li>
-                                    <li><span data-seconds="">40</span> sec</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="subscribe-form-2">
-                            <input type="email" placeholder="Enter your email...">
-                            <button class="p-btn border-0">Subscribe</button>
-                        </div>
-                        <div class="popup-social">
-                            <a href="#"><i class="fal fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="subscribe-thumb" data-background="img/popup/furniture/subscribe-bg.jpg'/>"></div>
-</div>
-<!-- popup area end -->
 <!-- JS here -->
 <script src="<c:url value='/Front-end/client/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/Front-end/client/js/waypoints.min.js'/>"></script>

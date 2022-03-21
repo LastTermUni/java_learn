@@ -3,22 +3,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Giỏ hàng</title>
 </head>
 <body>
 <main>
 
     <!-- breadcrumb area start -->
-    <div class="breadcrumb-area-3 pt-215 pb-20">
+    <div class="breadcrumb-area-3 pt-20 pb-20">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="breadcrumb-wrapper-2 text-center">
-                        <h3>Your Cart</h3>
+                        <h3>Giỏ hàng</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                <li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
                             </ol>
                         </nav>
                     </div>
@@ -29,7 +29,7 @@
     <!-- breadcrumb area end -->
 
     <!-- Cart Area Strat-->
-    <section class="cart-area pt-100 pb-100">
+    <section class="cart-area pt-20 pb-70">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,12 +38,12 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="product-thumbnail">Images</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="product-price">Unit Price</th>
-                                    <th class="product-quantity">Quantity</th>
-                                    <th class="product-subtotal">Total</th>
-                                    <th class="product-remove">Remove</th>
+                                    <th class="product-thumbnail">Hình ảnh</th>
+                                    <th class="cart-product-name">Tên</th>
+                                    <th class="product-price">Đơn giá</th>
+                                    <th class="product-quantity">Số lượng</th>
+                                    <th class="product-subtotal">Tổng</th>
+                                    <th class="product-remove">Loại bỏ</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -73,14 +73,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="coupon-all">
-                                    <div class="coupon">
-                                        <input id="coupon_code" class="input-text" name="coupon_code" value=""
-                                               placeholder="Coupon code" type="text">
-                                        <button class="s-btn s-btn-2" name="apply_coupon" type="submit">Apply
-                                            coupon</button>
-                                    </div>
+<%--                                    <div class="coupon">--%>
+<%--                                        <input id="coupon_code" class="input-text" name="coupon_code" value=""--%>
+<%--                                               placeholder="Coupon code" type="text">--%>
+<%--                                        <button class="s-btn s-btn-2" name="apply_coupon" type="submit">Apply--%>
+<%--                                            coupon</button>--%>
+<%--                                    </div>--%>
                                     <div class="coupon2">
-                                        <button class="s-btn s-btn-2" name="update_cart" type="submit">Update cart</button>
+                                        <button class="s-btn s-btn-2" name="update_cart" type="submit">Cập nhật </button>
                                     </div>
                                 </div>
                             </div>
@@ -90,10 +90,10 @@
                                 <div class="cart-page-total">
                                     <h2>Cart totals</h2>
                                     <ul class="mb-20">
-                                        <li>Subtotal <span>$250.00</span></li>
-                                        <li>Total <span>$250.00</span></li>
+<%--                                        <li>Subtotal <span>$250.00</span></li>--%>
+                                        <li>Tổng giá: <span>$250.00</span></li>
                                     </ul>
-                                    <a class="s-btn s-btn-2" href="checkout.html">Proceed to checkout</a>
+                                    <a class="s-btn s-btn-2" href="checkout.html">Thanh toán</a>
                                 </div>
                             </div>
                         </div>
