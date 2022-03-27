@@ -1,6 +1,6 @@
 package com.javalearn.camerastore.controller.admin;
 
-import com.javalearn.camerastore.model.Customer;
+import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +21,18 @@ public class CustomerController {
     @PostMapping("/customer")
     public Customer addcustomer(@RequestBody Customer customer){
         return customerService.saveCustomer(customer);
+    }
+
+    @PutMapping("/customer/{id}")
+    public Customer updateCustomer(@PathVariable int id ,@RequestBody Customer customer){
+        customer.setMaKH(id);
+        return customerService.updateCustomer(customer);
+    }
+
+    @DeleteMapping("/customer")
+    public void deleteCustomer(@RequestParam int id)
+    {
+        customerService.deleteCustomer(id);
     }
 
 }

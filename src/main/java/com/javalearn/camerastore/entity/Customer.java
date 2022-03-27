@@ -1,4 +1,4 @@
-package com.javalearn.camerastore.model;
+package com.javalearn.camerastore.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MaKH")
-    private int MaKH;
+    private long MaKH;
     @Column(name = "Username")
     private String Username;
     @Column(name = "Password")

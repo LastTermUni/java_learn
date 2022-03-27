@@ -35,11 +35,11 @@ public class AdminController {
         ModelAndView mav = new ModelAndView("admin/product-add");
         return mav;
     }
-    @RequestMapping(value = "/product-list", method = RequestMethod.GET)
-    public ModelAndView productList() {
-        ModelAndView mav = new ModelAndView("admin/product-list");
-        return mav;
-    }
+//    @RequestMapping(value = "/product-list", method = RequestMethod.GET)
+//    public ModelAndView productList() {
+//        ModelAndView mav = new ModelAndView("admin/product-list");
+//        return mav;
+//    }
     @RequestMapping(value = "/order-history", method = RequestMethod.GET)
     public ModelAndView orderHistory() {
         ModelAndView mav = new ModelAndView("admin/order-history");

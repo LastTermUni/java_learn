@@ -1,6 +1,6 @@
 package com.javalearn.camerastore.service.impl;
 
-import com.javalearn.camerastore.model.Customer;
+import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.repository.CustomerRepository;
 import com.javalearn.camerastore.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +22,15 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer saveCustomer(Customer customer) {
         return ecustomerRepository.save(customer);
+    }
+
+    @Override
+    public Customer updateCustomer(Customer customer) {
+        return ecustomerRepository.save(customer);
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        ecustomerRepository.deleteById(id);
     }
 }
