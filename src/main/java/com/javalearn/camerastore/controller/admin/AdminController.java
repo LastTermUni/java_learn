@@ -1,7 +1,12 @@
 package com.javalearn.camerastore.controller.admin;
 
+import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.AdminEntity;
+import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.AdminRepository;
+import com.javalearn.camerastore.repository.ProductRepository;
+import com.javalearn.camerastore.request.ProductRequest;
+import com.javalearn.camerastore.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
