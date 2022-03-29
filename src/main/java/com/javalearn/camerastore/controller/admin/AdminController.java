@@ -1,16 +1,14 @@
 package com.javalearn.camerastore.controller.admin;
 
-import com.javalearn.camerastore.convert.ConvertProduct;
-import com.javalearn.camerastore.entity.Category;
-import com.javalearn.camerastore.entity.Product;
-import com.javalearn.camerastore.repository.CategoryRepository;
-import com.javalearn.camerastore.repository.ProductRepository;
-import com.javalearn.camerastore.request.ProductRequest;
-import com.javalearn.camerastore.service.CategoryService;
+import com.javalearn.camerastore.entity.AdminEntity;
+import com.javalearn.camerastore.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -30,6 +28,9 @@ public class AdminController {
     ConvertProduct convertProduct;
 
 
+    @Autowired
+    private AdminRepository adminRepository;
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView homePage() {
         ModelAndView mav = new ModelAndView("admin/dashboard");
@@ -37,16 +38,9 @@ public class AdminController {
     }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
-        ModelAndView mav = new ModelAndView("admin/login");
-        return mav;
+            ModelAndView mav = new ModelAndView("admin/login");
+            return mav;
     }
-
-    @PostMapping("/login")
-    public String lgin(){
-        System.out.println("TEST");
-        return "redirect:dashboard";
-    }
-
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView register() {
         ModelAndView mav = new ModelAndView("admin/register");
@@ -95,8 +89,14 @@ public class AdminController {
         return mav;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
 
-
-
+        AdminEntity adminEntity = adminRepository.getUserByUsername(username);
+            if (adminEntity.getPassword().equals(password)) {
+                return "redirect:dashboard";
+            } else
+                return "redirect:login";
+        }
 
 }

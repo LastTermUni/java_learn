@@ -12,17 +12,17 @@
             <div class="login-card">
                 <div>
                    <div class="login-main">
-                        <form class="theme-form">
+                        <form th:action="@{/login}" method="post" class="theme-form">
                             <h4>Đăng nhập</h4>
                             <p>Hãy nhập email và mật khẩu</p>
                             <div class="form-group">
                                 <label class="col-form-label">Địa chỉ email</label>
-                                <input class="form-control" type="email" required="" placeholder="Email ...">
+                                <input class="form-control" type="text" id="username" name="username" placeholder="Email ...">
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label">Mật khẩu</label>
                                 <div class="form-input position-relative">
-                                    <input class="form-control" type="password" name="login[password]" required="" placeholder="*********">
+                                    <input class="form-control" type="password" id="password" name="password" required="" placeholder="*********">
                                     <div class="show-hide"><span class="show"></span></div>
                                 </div>
                             </div>
