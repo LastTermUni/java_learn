@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductRequest {
+    private long id;
     private String tensp;
     private String mota;
     private String hinh;

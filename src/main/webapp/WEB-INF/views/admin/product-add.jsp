@@ -25,7 +25,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Thêm sản phầm</h5>
+                        <h5>Thêm sản phẩm</h5>
                     </div>
                     <div class="card-body add-post">
                         <form class="row needs-validation" novalidate="">
@@ -35,9 +35,10 @@
                                     <input class="form-control" id="tensp" name="tensp" type="text" placeholder="Tên sản phẩm" required="">
 
                                 </div>
-                                <div class="mb-3">
-                                    <label for="category">Mã SP:</label>
-                                    <input class="form-control" id="category" name="category" type="text" placeholder="Loại sp" required="">
+                                <div class="mb-2">
+                                    <label for="category">Loại SP:</label>
+                                    <select name="category" id="category" class="form-control">
+                                    </select>
 
                                 </div>
                                 <div class="mb-3">
@@ -113,6 +114,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 $(document).ready(function () {
+    getCategory();
+
     $('body').on('click', '#add', function (){
         var names = $("#tensp").val();
         var gia = $("#gia").val();
@@ -125,9 +128,9 @@ $(document).ready(function () {
         // var image = $("#image").val();
         // upload(image, getname);
         // document.getElementById("singleFileUploads").submit();
-        save();
+        // save();
 
-        // upload(getname);
+        upload(hinh);
     });
 });
 
@@ -153,7 +156,8 @@ function save(){
         dataType: 'json',
         data: JSON.stringify(formData),
         success:function (res){
-            upload(hinh);
+            // upload(hinh);
+            window.location.href = "admin/product-list";
         }
 
     })
@@ -167,7 +171,7 @@ async function upload(name){
        method:'POST',
        body: formdata
     });
-
+    save();
     // $.ajax({
     //     url:'./upload',
     //     type:'POST',
@@ -183,6 +187,17 @@ async function upload(name){
     //
     // })
 
+}
+
+async function getCategory()
+{
+    $.get("./cateList", function (data){
+       $.each(data, function (i, category){
+          $("#category").append(
+              " <option value='" + category.id + "'>" + category.tenloai + "</option>"
+          );
+       });
+    });
 }
 
 function removeAccents(str) {

@@ -4,5 +4,5 @@ import com.javalearn.camerastore.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
-
+    Product findOneById(long id);
 }
