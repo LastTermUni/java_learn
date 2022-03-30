@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
@@ -33,7 +33,7 @@
             <svg viewBox="0 0 58 58" id="mustard" class="product">
                 <g>
                     <path style="fill:#ED7161;" d="M39.869,58H18.131C16.954,58,16,57.046,16,55.869V12.621C16,11.726,16.726,11,17.621,11h22.757
-C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
+                        C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                     <polygon style="fill:#D13834;" points="35,11 23,11 27.615,0 30.385,0 	"></polygon>
                     <rect x="16" y="16" style="fill:#D75A4A;" width="26" height="2"></rect>
                     <rect x="20" y="11" style="fill:#D75A4A;" width="2" height="6"></rect>
@@ -112,15 +112,19 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
 </div>
 <!-- preloader end -->
 <!-- header area start -->
+
 <header>
-    <div id="header-sticky" class="header-area header-sticky header-sticky-white" >
-        <div class="header-main header-main-1 header-main-2 header-main-3 header-padding header-border  pl-50 pr-50" style="height: inherit">
-            <div class="container-fluid" >
-                <div class="row align-items-center" >
+    <div id="header-sticky" class="header-area header-sticky header-sticky-white">
+        <div class="header-main header-main-1 header-main-2 header-main-3 header-padding header-border  pl-50 pr-50"
+             style="height: inherit">
+            <div class="container-fluid">
+                <div class="row align-items-center">
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="home"><img src="<c:url value='/Front-end/client/img/logo/logo-black.png'/>" alt="#"></a>
+                                <a href="home">
+<%--                                    <img src="<c:url value=''/>" alt="#"></a>--%>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -128,46 +132,25 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                             <nav id="mobile-menu">
                                 <ul>
-                                    <li><a href="home">Trang chủ</a>
+                                    <li><a href="home">Trang chủ</a></li>
                                     <li class="static">
-                                        <a href="product">Máy ảnh</a>
-                                        <ul class="mega-menu mega-full mega-menu-3-col">
-                                            <li class="has-dropdown">
-                                                <a href="product">Sony</a>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="product-detail"> Sony A ...</a></li>
-                                                    <li><a href="product-detail">Sony B ...</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="product">Canon</a>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="">Canon ...</a></li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="product">Nikon</a>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="">Nikon ...</a></li>
-
-                                                </ul>
-                                            </li>
+                                        <a href="product">Sản phẩm</a>
+                                        <ul class="mega-menu mega-full mega-menu-5-col">
+<%--                                            @foreach($category as $key => $cate)--%>
+<%--                                            <li class="has-dropdown">--%>
+<%--                                                <a href="{{URL('/san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a>--%>
+<%--                                                <ul class="has-dropdown">--%>
+<%--                                                    @foreach($brand as $key => $item)--%>
+<%--                                                    <li><a href="{{URL('/san-pham/'.$cate->category_id.'/'.$item->brand_id)}}">--%>
+<%--                                                        {{$item->brand_name}}</a></li>--%>
+<%--                                                    @endforeach--%>
+<%--                                                </ul>--%>
+<%--                                            </li>--%>
+<%--                                            @endforeach--%>
                                         </ul>
                                     </li>
-                                    <li class="static">
-                                        <a href="product">Phụ kiện</a>
-                                        <ul class="mega-menu mega-full mega-menu-3-col">
-                                            <li class="has-dropdown">
-                                                <%-- từng hãng, mỗi hãng có máy ảnh, ống kính,  --%>
-                                                <ul class="has-dropdown">
-                                                    <li><a href="product">Đèn chụp flash</a></li>
-                                                    <li><a href="product">Thẻ nhớ máy ảnh</a></li>
-                                                    <li><a href="product">Sạc máy ảnh</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+<%--                                    <li class="static"><a href="{{URL('/tin-tuc')}}">Tin tức</a></li>--%>
+<%--                                    <li class="static"><a href="{{URL('/lien-he')}}">Liên hệ</a></li>--%>
                                 </ul>
                             </nav>
                         </div>
@@ -177,12 +160,15 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
                                 <a href="login" class="d-none d-xxl-inline-block">Đăng nhập / Đăng ký</a>
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
-                                    <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span>2</span></button>
+                                    <a href="javascript:void(0)" class="search-toggle"><i
+                                            class="fal fa-search"></i></a>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i
+                                            class="fal fa-shopping-cart"></i><span>2</span></button>
                                 </div>
                             </div>
                             <div class="header-bar ml-20 d-lg-none">
-                                <button type="button" class="header-bar-btn header-bar-btn-black" data-bs-toggle="modal" data-bs-target="#offCanvasModal">
+                                <button type="button" class="header-bar-btn header-bar-btn-black"
+                                        data-bs-toggle="modal" data-bs-target="#offCanvasModal">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -195,7 +181,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
         </div>
     </div>
 </header>
-<!-- header area end -->
 
 <!-- cart mini area start -->
 <div class="cartmini__area">
@@ -211,25 +196,24 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
                     </div>
                     <div class="cartmini__list">
                         <ul>
-<%--                            item trong gio hang--%>
-<%--                            <li class="cartmini__item p-rel d-flex align-items-start">--%>
-<%--                                <div class="cartmini__thumb mr-15">--%>
-<%--                                    <a href="product-details.html">--%>
-<%--                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">--%>
-<%--                                    </a>--%>
-<%--                                </div>--%>
-<%--                                <div class="cartmini__content">--%>
-<%--                                    <h3 class="cartmini__title">--%>
-<%--                                        <a href="product-details.html">Form Armchair Walnut Base</a>--%>
-<%--                                    </h3>--%>
-<%--                                    <span class="cartmini__price">--%>
-<%--                                        <span class="price">1 × $70.00</span>--%>
-<%--                                    </span>--%>
-<%--                                </div>--%>
-<%--                                <a href="#" class="cartmini__remove">--%>
-<%--                                    <i class="fal fa-times"></i>--%>
-<%--                                </a>--%>
-<%--                            </li>--%>
+                            <li class="cartmini__item p-rel d-flex align-items-start">
+                                <div class="cartmini__thumb mr-15">
+                                    <a href="product-details.html">
+                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">
+                                    </a>
+                                </div>
+                                <div class="cartmini__content">
+                                    <h3 class="cartmini__title">
+                                        <a href="product-details.html">Form Armchair Walnut Base</a>
+                                    </h3>
+                                    <span class="cartmini__price">
+                                        <span class="price">1 × $70.00</span>
+                                    </span>
+                                </div>
+                                <a href="#" class="cartmini__remove">
+                                    <i class="fal fa-times"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="cartmini__total d-flex align-items-center justify-content-between">
@@ -388,7 +372,6 @@ C41.274,11,42,11.726,42,12.621v43.248C42,57.046,41.046,58,39.869,58z"></path>
     </div>
     <!-- /.copyright area end -->
 </footer>
-
 <!-- JS here -->
 <script src="<c:url value='/Front-end/client/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/Front-end/client/js/waypoints.min.js'/>"></script>

@@ -6137,10 +6137,10 @@ input:-ms-input-placeholder {
 
 a#scrollUp {
   position: fixed;
-  right: 0;
+  right: 15px;
   opacity: 1 !important;
   transform: rotate(-90deg);
-  bottom: 70px;
+  bottom: 20px;
   text-decoration: none;
   text-align: center;
   z-index: 99 !important;
@@ -11150,6 +11150,20 @@ p.checkout-coupon input[type=text]:focus {
 }
 ::-webkit-input-placeholder {
   opacity: 0.6;
+}
+.box-shadow-12{
+    border: 1px solid #c5c5c5a1 !important;
+    box-shadow: 6px 7px 29px 0px #a2a2a2c9 !important;
+    border-radius: 12px !important;
+    transition: transform .3s;
+    z-index: 10;
+
+}
+.box-shadow-12:hover{
+    transform: scale(1.06);
+}
+.border-none{
+    border:none;
 }
 /*-----------------------------------------------------------------------------------
 
