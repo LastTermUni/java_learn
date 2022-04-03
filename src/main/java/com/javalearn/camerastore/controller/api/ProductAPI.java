@@ -20,9 +20,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/admin")
-public class ProductController  {
+public class ProductAPI {
     @Autowired
     private ProductService productService;
 
@@ -36,7 +37,7 @@ public class ProductController  {
 
     static {
         try {
-            path = (ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+            path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
             if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
                 // Chạy bằng tomcat (đã packaged)
                 if (path.lastIndexOf("/target/") > 0) {
@@ -55,13 +56,13 @@ public class ProductController  {
         }
     }
 
-    public ProductController() throws URISyntaxException {
+    public ProductAPI() throws URISyntaxException {
     }
 
     @GetMapping("/cateList")
     public List<Category> getCate() throws URISyntaxException {
 
-//        String path = (ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
 //        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
 //            // Chạy bằng tomcat (đã packaged)
 //            if (path.lastIndexOf("/target/") > 0) {
@@ -84,7 +85,7 @@ public class ProductController  {
     @GetMapping("/cateLists")
     public List<Category> getCates() throws URISyntaxException {
 
-//        String path = (ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
 //        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
 //            // Chạy bằng tomcat (đã packaged)
 //            if (path.lastIndexOf("/target/") > 0) {
@@ -120,7 +121,7 @@ public class ProductController  {
     @PostMapping("/upload")
     public String upload(@RequestParam("file") MultipartFile file) throws URISyntaxException {
 
-//        String path = (ProductController.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
 //        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
 //            // Chạy bằng tomcat (đã packaged)
 //            if (path.lastIndexOf("/target/") > 0) {

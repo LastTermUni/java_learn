@@ -115,6 +115,12 @@
                                     <li><a href="./order-history">Lịch sử</a></li>
                                 </ul>
                             </li>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="menu"></i><span>Danh mục sản phẩm</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="./categories-list">Danh sách</a></li>
+                                    <li><a href="./category-add">Thêm danh mục</a></li>
+                                </ul>
+                            </li>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Users</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="user-profile.html">Users Profile</a></li>
@@ -122,6 +128,7 @@
                                     <li><a href="user-cards.html">Users Cards</a></li>
                                 </ul>
                             </li>
+
                             </ul>
                     </div>
                     <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

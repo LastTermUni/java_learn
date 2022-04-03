@@ -3,6 +3,7 @@ package com.javalearn.camerastore.service.impl;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.request.CategoryRequest;
+import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,11 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategory() {
         return categoryRepository.findAll();
     }
+
+    @Override
+    public Category saveCategory(Category category) {
+        return categoryRepository.save(category);
+    }
+
+
 }
