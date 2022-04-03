@@ -117,13 +117,13 @@
     <div id="header-sticky" class="header-area header-sticky header-sticky-white">
         <div class="header-main header-main-1 header-main-2 header-main-3 header-padding header-border  pl-50 pr-50"
              style="height: inherit">
-            <div class="container-fluid">
-                <div class="row align-items-center">
+            <div class="container-fluid" style="height: 85px">
+                <div class="row align-items-center align-content-center" style="height: 100%">
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
-                            <div class="logo pr-55 d-inline-block">
+                            <div class="logo pl-55 pr-55 d-inline-block " >
                                 <a href="home">
-<%--                                    <img src="<c:url value=''/>" alt="#"></a>--%>
+                                    <img height="50px " src="<c:url value='/Front-end/images/logo/CameraStore-black.png'/>" alt="#"/>
                                 </a>
                             </div>
                         </div>
@@ -136,17 +136,15 @@
                                     <li class="static">
                                         <a href="product">Sản phẩm</a>
                                         <ul class="mega-menu mega-full mega-menu-5-col">
-<%--                                            @foreach($category as $key => $cate)--%>
-<%--                                            <li class="has-dropdown">--%>
-<%--                                                <a href="{{URL('/san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a>--%>
-<%--                                                <ul class="has-dropdown">--%>
-<%--                                                    @foreach($brand as $key => $item)--%>
-<%--                                                    <li><a href="{{URL('/san-pham/'.$cate->category_id.'/'.$item->brand_id)}}">--%>
-<%--                                                        {{$item->brand_name}}</a></li>--%>
-<%--                                                    @endforeach--%>
-<%--                                                </ul>--%>
-<%--                                            </li>--%>
-<%--                                            @endforeach--%>
+                                                <li class="has-dropdown">
+                                                    <a href="product">Thương hiệu</a>
+                                                    <ul class="has-dropdown">
+                                                        <c:forEach items="${cates}" var="cate">
+                                                        <li><a href="product/${cate.slug}">
+                                                                ${cate.tenloai}</a></li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </li>
                                         </ul>
                                     </li>
 <%--                                    <li class="static"><a href="{{URL('/tin-tuc')}}">Tin tức</a></li>--%>
@@ -315,7 +313,6 @@
     </div>
 
 </section>
-<!-- sidebar area end -->
 <dec:body/>
 
 <footer class="footer-area footer-1 black-bg pb-0 gray-bg-2">
