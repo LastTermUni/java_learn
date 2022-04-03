@@ -157,7 +157,7 @@ function save(){
         data: JSON.stringify(formData),
         success:function (res){
             // upload(hinh);
-            window.location.href = "admin/product-list";
+            window.location.href = "./product-list";
         }
 
     })
