@@ -1,34 +1,24 @@
-package com.javalearn.camerastore.controller.admin;
+package com.javalearn.camerastore.controller.api;
 
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.CategoryService;
-import com.javalearn.camerastore.service.DiscountService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletContext;
-import javax.swing.text.View;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Base64;
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequestMapping("/admin")
@@ -144,7 +134,7 @@ public class ProductController  {
 //            // Chạy bằng IntellJ IDEA
 //            path = System.getProperty("user.dir");
 //        }
-        String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\uploads";
+        String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
 
 //        String url = path + "/uploads";
         System.out.println(url);
@@ -165,11 +155,11 @@ public class ProductController  {
     }
 
 
-    @RequestMapping(value = "/product-list", method = RequestMethod.GET)
-    public ModelAndView productList() {
-        ModelAndView mav = new ModelAndView("admin/product-list");
-        return mav;
-    }
+//    @RequestMapping(value = "/product-list", method = RequestMethod.GET)
+//    public ModelAndView productList() {
+//        ModelAndView mav = new ModelAndView("admin/product-list");
+//        return mav;
+//    }
 
 
 }

@@ -91,7 +91,7 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper">
             <div>
-                <div class="logo-wrapper"><a href="admin/dashboard"><img class="img-fluid for-light" src="<c:url value='/Front-end/admin/assets/images/logo/logo.png'/>" alt=""><img class="img-fluid for-dark" src="<c:url value='/Front-end/admin/assets/images/logo/logo_dark.png'/>" alt=""></a>
+                <div class="logo-wrapper"><a href="./dashboard"><img class="img-fluid for-light" src="<c:url value='/Front-end/admin/assets/images/logo/logo.png'/>" alt=""><img class="img-fluid for-dark" src="<c:url value='/Front-end/admin/assets/images/logo/logo_dark.png'/>" alt=""></a>
                     <div class="back-btn"><i class="fa fa-angle-left"></i></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
                 </div>
@@ -110,9 +110,9 @@
                             </li>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="shopping-bag"></i><span>Ecommerce</span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="product-list">Danh sách sản phẩm</a></li>
-                                    <li><a href="product-add">Thêm sản phẩm</a></li>
-                                    <li><a href="order-history">Lịch sử</a></li>
+                                    <li><a href="./product-list">Danh sách sản phẩm</a></li>
+                                    <li><a href="./product-add">Thêm sản phẩm</a></li>
+                                    <li><a href="./order-history">Lịch sử</a></li>
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Users</span></a>
