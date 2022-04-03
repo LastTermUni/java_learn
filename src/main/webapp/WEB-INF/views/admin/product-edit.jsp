@@ -52,10 +52,18 @@
                                 <div class="mb-2">
                                     <label for="category">Loại SP:</label>
                                     <select id="category" class="form-control">
-<%--                                        <c:forEach var="cate" items="${categories}">--%>
-<%--                                            <option value="${cate.id}">${cate.tenloai}</option>--%>
-<%--                                        </c:forEach>--%>
-<%--                                    </select>--%>
+                                        <c:set var="categoryid" value="${product.category}"/>
+                                        <c:forEach var="cate" items="${categories}">
+                                            <c:choose>
+                                                <c:when test="${cate.key == categoryid}">
+                                                    <option value="${cate.key}" selected>${cate.value}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${cate.key}">${cate.value}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </select>
 <%--                                    <form:select path="category" id="category">--%>
 <%--                                        <form:option value="" label="-- Chọn thương hiệu --"/>--%>
 <%--                                        <form:options items="${categories}"/>--%>

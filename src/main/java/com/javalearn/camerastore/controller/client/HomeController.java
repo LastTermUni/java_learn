@@ -31,15 +31,20 @@ public class HomeController {
         mav.addObject("cates",categoryService.getCategory());
         return mav;
     }
-
+//san pham
     @GetMapping(value = "product-detail")
     public ModelAndView productDetail() {
-        return new ModelAndView("client/product-detail");
+        ModelAndView mav = new ModelAndView("client/product-detail");
+        mav.addObject("cates",categoryService.getCategory());
+        return mav;
     }
 
     @RequestMapping(value = "product", method = RequestMethod.GET)
     public ModelAndView product() {
-        return new ModelAndView("client/product");
+        ModelAndView mav = new ModelAndView("client/product");
+        mav.addObject("products",productService.getProduct());
+        mav.addObject("cates",categoryService.getCategory());
+        return mav;
     }
 
     // giỏ hàng

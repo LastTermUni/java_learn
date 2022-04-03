@@ -2282,7 +2282,8 @@ input:-ms-input-placeholder {
   }
 }
 .basic-pagination ul li a {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   width: 45px;
   height: 45px;
   line-height: 42px;
@@ -2290,6 +2291,7 @@ input:-ms-input-placeholder {
   border: 2px solid var(--clr-border-1);
   font-size: 12px;
   font-weight: 500;
+  align-items: center;
 }
 .basic-pagination ul li a:hover, .basic-pagination ul li a.active {
   color: var(--clr-common-black);

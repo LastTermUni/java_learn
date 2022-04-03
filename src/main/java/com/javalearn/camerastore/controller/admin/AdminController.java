@@ -83,9 +83,9 @@ public class AdminController {
         ProductRequest productRequest = convertProduct.toRequest(product);
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
-        String[] flowers = new String[]{"Rose", "Lily", "Tulip", "Carnation", "Hyacinth"};
-        model.addAttribute("product", productRequest);
-//        model.addAttribute("categories", categoryService.findAll());
+        String[] flowers = new String[] { "Rose", "Lily", "Tulip", "Carnation", "Hyacinth" };
+        model.addAttribute("product",productRequest);
+        model.addAttribute("categories", categoryService.findAll());
         return "admin/product-edit";
     }
 

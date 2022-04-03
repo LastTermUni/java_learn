@@ -82,7 +82,7 @@
                          style="width: calc(23vw - 10px); background-color: #f6f6f6; padding: 3px; margin: 8px;">
                         <div class="single-product single-product-6" style="border:none" data-wow-delay=".2s">
                             <div class="product-thumb">
-                                <a href="">
+                                <a href="product-detail">
                                     <img src="<c:url value='/Front-end/images/product/sony1.png'/>" style="border-radius:10px " alt="">
                                 </a>
                                 <div class="cart-btn cart-btn-1 p-abs">
@@ -90,11 +90,11 @@
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="">
+                                <h4 class="pro-title pro-title-1"><a href="product-detail">
                                     ${pro.tensp}
                                 </a></h4>
                                 <div class="pro-price">
-                                    <span> VNĐ</span>
+                                    <span>${pro.gia} VNĐ</span>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="col-xxl-12">
                         <div class="btn-area mt-30 text-center wow fadeInUp mb-20" data-wow-delay=".3s">
                             <div class="p-btn p-btn-1">
-                                <a href="san-pham">Hiển thị tất cả sản phẩm </a>
+                                <a href="product">Hiển thị tất cả sản phẩm </a>
                             </div>
                         </div>
                     </div>
