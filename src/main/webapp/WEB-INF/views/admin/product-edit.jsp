@@ -37,10 +37,11 @@
                     </div>
                     <div class="card-body add-post">
                         <form class="row needs-validation" novalidate="" th:action="@{/admin/edit}" method="post" th:object="${product}">
-                            <input style="display: none" th:field="*{hinh}">
-                            <input style="display: none" th:field="*{id}">
-                            <input style="display: none" th:field="*{status}">
-                            <input style="display: none" th:field="*{slug}">
+                            <input id="hinh" name="hinh" style="display: none" value="${product.hinh}">
+                            <input id="id" name="id" style="display: none" value="${product.id}">
+                            <input id="status" name="status" style="display: none" value="${product.status}">
+                            <input id="slug" name="slug" style="display: none" value="${product.slug}">
+                            <input id="categoryID" name="categoryID" style="display: none" value="${product.category}">
 
                             <div class="col-sm-12">
                                 <div class="mb-3">
@@ -50,10 +51,15 @@
                                 </div>
                                 <div class="mb-2">
                                     <label for="category">Loại SP:</label>
-                                    <select name="category" id="category" class="form-control">
-<%--                                        <th:block th:each="cate : ${category}">--%>
+                                    <select id="category" class="form-control">
+<%--                                        <c:forEach var="cate" items="${categories}">--%>
 <%--                                            <option value="${cate.id}">${cate.tenloai}</option>--%>
-<%--                                        </th:block>--%>
+<%--                                        </c:forEach>--%>
+<%--                                    </select>--%>
+<%--                                    <form:select path="category" id="category">--%>
+<%--                                        <form:option value="" label="-- Chọn thương hiệu --"/>--%>
+<%--                                        <form:options items="${categories}"/>--%>
+<%--                                    </form:select>--%>
                                     </select>
 
                                 </div>
@@ -207,7 +213,7 @@
 
     async function getCategory()
     {
-        $.get("./cateList", function (data){
+        $.get("./cateLists", function (data){
             $.each(data, function (i, category){
                 $("#category").append(
                     " <option value='" + category.id + "'>" + category.tenloai + "</option>"

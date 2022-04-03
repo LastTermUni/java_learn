@@ -1,7 +1,9 @@
 package com.javalearn.camerastore.controller.admin;
 
+import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.AdminEntity;
+import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.AdminRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
@@ -31,6 +33,9 @@ public class AdminController {
 
     @Autowired
     ConvertProduct convertProduct;
+
+    @Autowired
+    ConvertCategory convertCategory;
 
 
     @Autowired
@@ -69,13 +74,12 @@ public class AdminController {
         ProductRequest productRequest = convertProduct.toRequest(product);
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
-//        List<String> list = new ArrayList<>();
-//        list.add("Tien");
-//        list.add("Tíe");
+        String[] flowers = new String[] { "Rose", "Lily", "Tulip", "Carnation", "Hyacinth" };
         model.addAttribute("product",productRequest);
-//        model.addAttribute("list", list);
+//        model.addAttribute("categories", categoryService.findAll());
         return "admin/product-edit";
     }
+
 
 
 //    @RequestMapping(value = "/product-list", method = RequestMethod.GET)

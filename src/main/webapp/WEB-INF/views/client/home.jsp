@@ -44,6 +44,7 @@
             <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
 <%--5 ô--%>
                 <div class="col">
+                <c:forEach var="category" items="${cates}">
                     <div class="category__item category__br-right fix">
                         <div class="category__thumb">
                             <a href="">
@@ -54,9 +55,10 @@
                             <div class="category__tag mb-10">
                                 <a href=""></a>
                             </div>
-                            <a href="" class="link-btn">Sản phẩm SONY</a>
+                            <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>
                         </div>
                     </div>
+                </c:forEach>
                 </div>
             </div>
         </div>
