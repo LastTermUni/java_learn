@@ -68,8 +68,6 @@
 <%--                                        <form:option value="" label="-- Chọn thương hiệu --"/>--%>
 <%--                                        <form:options items="${categories}"/>--%>
 <%--                                    </form:select>--%>
-                                    </select>
-
                                 </div>
                                 <div class="mb-3">
                                     <label for="discount">discount SP:</label>
