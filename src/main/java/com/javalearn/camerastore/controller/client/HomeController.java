@@ -56,6 +56,22 @@ public class HomeController {
         return mav;
     }
 
+
+//    @RequestMapping(value = "test")
+//    public String test(HttpServletRequest request)
+//    {
+//        HttpSession session = request.getSession();
+//        if(session.getAttribute("productsList") == null) {
+//            System.out.println("NULL");
+//
+//            return "redirect:home";
+//        }
+//        else {
+//            System.out.println("NOT NULL");
+//            return "redirect:product";
+//        }
+//    }
+
     @GetMapping(value = {"product" })
     public ModelAndView product(@RequestParam(required = false) String id_cate, @RequestParam(required = false) String id_brand,
                                 @RequestParam(required = false ) String page,
@@ -72,13 +88,20 @@ public class HomeController {
         }else {
             product = productService.getProduct();
         }
+
         PagedListHolder<Product> productList;
+        productList = new PagedListHolder<Product>();
         HttpSession session = request.getSession();
-        if(page == null|| page.equals("0")) {
-            productList = new PagedListHolder<Product>();
+        if(session.getAttribute("productsList") == null)
+        {
             productList.setSource(product);
-            productList.setPageSize(1);
+            productList.setPageSize(4);
+
             session.setAttribute("productsList", productList);
+        }
+        if(page == null|| page.equals("0")) {
+        productList.setPage(0);
+
         }else {
             int pageNum = Integer.parseInt(page);
             productList = (PagedListHolder<Product>) session.getAttribute("productsList");
