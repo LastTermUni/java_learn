@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Trang chủ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,6 +23,9 @@
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/nice-select.css'/>">
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/ui-range-slider.css'/>">
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/main.css'/>">
+    <title>
+        <dec:title/>
+    </title>
 </head>
 <body>
 <!-- preloader start -->
@@ -132,19 +134,22 @@
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                             <nav id="mobile-menu">
                                 <ul>
-                                    <li><a href="home">Trang chủ</a></li>
+                                    <li><a href="/home">Trang chủ</a></li>
                                     <li class="static">
-                                        <a href="product">Sản phẩm</a>
+                                        <a href="/product">Sản phẩm</a>
                                         <ul class="mega-menu mega-full mega-menu-5-col">
+<%--                                            <c:forEach items="${brands}" var="brand">--%>
                                                 <li class="has-dropdown">
-                                                    <a href="product">Thương hiệu</a>
+                                                    <a href="/product">Thương hiệu</a>
                                                     <ul class="has-dropdown">
                                                         <c:forEach items="${cates}" var="cate">
-                                                        <li><a href="product/${cate.slug}">
+                                                        <li><a role="button" onclick="toCateWBrand(${cate.id});">
                                                                 ${cate.tenloai}</a></li>
                                                         </c:forEach>
                                                     </ul>
                                                 </li>
+<%--                                            </c:forEach>--%>
+
                                         </ul>
                                     </li>
 <%--                                    <li class="static"><a href="{{URL('/tin-tuc')}}">Tin tức</a></li>--%>
@@ -236,9 +241,9 @@
     <div class="search__wrapper">
         <h4>Searching</h4>
         <div class="search__form">
-            <form action="#">
+            <form action="/search" method="POST">
                 <div class="search__input">
-                    <input type="text" placeholder="Search Products">
+                    <input type="text" name="searchTextf" placeholder="Tìm kiếm ...">
                     <button type="submit">
                         <i class="far fa-search"></i>
                     </button>
@@ -370,6 +375,14 @@
     <!-- /.copyright area end -->
 </footer>
 <!-- JS here -->
+<script>
+    function toCateWBrand(idCate){
+        let url = window.location.protocol +"//"+window.location.host+"/product";
+        let urls = new URL(url);
+        urls.searchParams.set("id_cate",idCate);
+        window.location.href = (urls);
+    }
+</script>
 <script src="<c:url value='/Front-end/client/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/Front-end/client/js/waypoints.min.js'/>"></script>
 <script src="<c:url value='/Front-end/client/js/bootstrap.bundle.min.js'/>"></script>

@@ -68,10 +68,11 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade  show active" id="tab1">
                                 <div class="row pb-20">
-                                    <c:forEach var="pro" items="${products}">
+                                    <c:set value="${products}" var="productPageList" scope="session"/>
+                                    <c:forEach var="pro" items="${productPageList}">
                                     <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp"
                                          style="width: calc(17vw - 10px); background-color: #f6f6f6;; padding: 3px; margin: 5px 5px 7px 4px;"
-                                         data-wow-delay=".1s">
+                                         data-wow-delay=".${pro.id}s">
                                         <div class="single-product" >
                                             <div class="product-thumb" style="border-radius: 10px">
                                                 <a href="product-detail/${pro.slug}">
@@ -103,28 +104,59 @@
                     </div>
                     <div class="shop-pagination m-auto" >
                         <div class="basic-pagination" style="display: flex;
-    justify-content: center;">
+                                                    justify-content: center;">
                             <nav>
                                 <ul style="display: flex; justify-content: center">
+                    <c:choose>
+                        <%-- Show Prev as link if not on first page --%>
+                        <c:when test="${paging.firstPage}">
+                            <li>
+                                <a>
+                                    <i class="far fa-angle-left"></i>
+                                </a>
+                            </li>
+
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <a onclick="nextPage(${paging.page });" >
+                                    <i class="far fa-angle-left"></i>
+                                </a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:forEach begin="1" end="${paging.pageCount}" step="1"  varStatus="tagStatus">
+                        <c:choose>
+                            <%-- In PagedListHolder page count starts from 0 --%>
+                            <c:when test="${(paging.page + 1) == tagStatus.index}">
+                                <li >
+                                    <a class="active">${tagStatus.index}</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
                                     <li>
-                                        <a href="shop.html">
-                                            <i class="far fa-angle-left"></i>
-                                        </a>
+                                        <a onclick="nextPage(${tagStatus.index});">${tagStatus.index}</a>
                                     </li>
-                                    <li>
-                                        <a href="shop.html">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html" class="active">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">
-                                            <i class="far fa-angle-right"></i>
-                                        </a>
-                                    </li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <c:choose>
+                        <%-- Show Next as link if not on last page --%>
+                        <c:when test="${paging.lastPage}">
+                            <li>
+                                <a>
+                                    <i class="far fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <a  onclick="nextPage(${paging.page + 2 });" >
+                                    <i class="far fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
                                 </ul>
                             </nav>
                         </div>
@@ -133,7 +165,13 @@
             </div>
         </div>
     </div>
-
+    <script>
+       function nextPage(page){
+           let urlParams = new URL(window.location.href);
+           urlParams.searchParams.set('page', page);
+            window.location.href=(urlParams);
+        }
+    </script>
 </main>
 </body>
 </html>

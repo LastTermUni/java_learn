@@ -77,12 +77,13 @@
             </div>
             <div class="single-product-6-wrapper border-none">
                 <div class="row pb-20 justify-content-center">
+
                     <c:forEach var="pro" items="${products}">
-                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp"
+                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp" data-wow-delay=".${pro.id}s"
                          style="width: calc(23vw - 10px); background-color: #f6f6f6; padding: 3px; margin: 8px;">
-                        <div class="single-product single-product-6" style="border:none" data-wow-delay=".2s">
+                        <div class="single-product single-product-6" style="border:none" >
                             <div class="product-thumb">
-                                <a href="product-detail">
+                                <a href="/product-detail/${pro.slug}">
                                     <img src="<c:url value='/Front-end/images/product/sony1.png'/>" style="border-radius:10px " alt="">
                                 </a>
                                 <div class="cart-btn cart-btn-1 p-abs">
@@ -90,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-detail">
+                                <h4 class="pro-title pro-title-1"><a href="/product-detail/${slug}">
                                     ${pro.tensp}
                                 </a></h4>
                                 <div class="pro-price">
@@ -105,7 +106,7 @@
                     <div class="col-xxl-12">
                         <div class="btn-area mt-30 text-center wow fadeInUp mb-20" data-wow-delay=".3s">
                             <div class="p-btn p-btn-1">
-                                <a href="product">Hiển thị tất cả sản phẩm </a>
+                                <a href="/product">Hiển thị tất cả sản phẩm </a>
                             </div>
                         </div>
                     </div>
