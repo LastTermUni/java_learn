@@ -80,11 +80,11 @@ public class HomeController {
         List<Product> product;
 
         if(!Objects.equals(id_cate, null) &&!Objects.equals(id_brand, null)) {
-            product = productRepository.findAllByCategory_IdAndDiscount_Id(Long.parseLong(id_cate), Long.parseLong(id_brand));
+            product = productRepository.findAllByCategory_IdAndBrand_Id(Long.parseLong(id_cate), Long.parseLong(id_brand));
         }else if (!Objects.equals(id_cate, null)){
             product = productRepository.findAllByCategory_Id(Long.parseLong(id_cate));
         }else if (!Objects.equals(id_brand, null)){
-            product = productRepository.findAllByDiscount_Id(Long.parseLong(id_brand));
+            product = productRepository.findAllByBrand_Id(Long.parseLong(id_brand));
         }else {
             product = productService.getProduct();
         }

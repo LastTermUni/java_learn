@@ -70,8 +70,8 @@
 <%--                                    </form:select>--%>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="discount">discount SP:</label>
-                                    <input class="form-control" id="discount" name="discount" value="${product.discount}" type="text" placeholder="Loại sp" required="">
+                                    <label for="brand">brand SP:</label>
+                                    <input class="form-control" id="brand" name="brand" value="${product.brand}" type="text" placeholder="Loại sp" required="">
 
                                 </div>
                                 <div class="mb-3">
@@ -108,7 +108,7 @@
                                     <div class="theme-form">
                                         <div class="mb-3">
                                             <label>Mô tả:</label>
-                                            <textarea id="mota" name="mota" value="${product.mota}" name="text-box" cols="10" rows="2"></textarea>
+                                            <textarea id="mota" name="mota"  name="text-box" cols="10" rows="2">${product.mota}</textarea>
                                         </div>
                                     </div>
                                 </div>

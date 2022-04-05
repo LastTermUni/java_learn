@@ -4,34 +4,34 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @ToString
-@Table(name ="giamgia")
-public class Discount {
+@Table(name ="thuonghieu")
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
     private long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy="discount", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="brand", fetch = FetchType.LAZY)
     private List<Product> product = new ArrayList<>();
 
-    @Column(name ="tengiamgia")
-    private String tengiamgia;
+    @Column(name ="tenthuonghieu")
+    private String tenthuonghieu;
 
     @Column(name ="mota")
     private String mota;
-
-    @Column(name ="soluonggiam")
-    private long soluongiam;
 
     @Column(name ="status")
     private long status;

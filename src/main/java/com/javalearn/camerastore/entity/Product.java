@@ -39,8 +39,8 @@ public class Product {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name ="magiamgia", nullable = false)
-    private Discount discount;
+    @JoinColumn(name ="mathuonghieu", nullable = false)
+    private Brand brand;
 
     @Column(name ="slug")
     private String slug;

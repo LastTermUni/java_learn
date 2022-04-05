@@ -16,7 +16,7 @@ public class ConvertProduct {
         result.setHinh(product.getHinh());
         result.setGia(product.getGia());
         result.setCategory(product.getCategory().getId());
-        result.setDiscount(product.getDiscount().getId());
+        result.setBrand(product.getBrand().getId());
         result.setSlug(product.getSlug());
         result.setStatus(product.getStatus());
 

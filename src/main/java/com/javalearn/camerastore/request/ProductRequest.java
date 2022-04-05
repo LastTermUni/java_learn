@@ -14,7 +14,7 @@ public class ProductRequest {
     private String hinh;
     private double gia;
     private long category;
-    private long discount;
+    private long brand;
     private String slug;
     private long status;
 }
