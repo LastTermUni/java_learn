@@ -12,6 +12,7 @@ import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -99,6 +100,8 @@ public class AdminController {
     @RequestMapping(value = "/product-list", method = RequestMethod.GET)
     public ModelAndView productList() {
         ModelAndView mav = new ModelAndView("admin/product-list");
+        List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        mav.addObject("productList", productList);
         return mav;
     }
 
