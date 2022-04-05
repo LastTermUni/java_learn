@@ -41,7 +41,6 @@
                             <input id="id" name="id" style="display: none" value="${product.id}">
                             <input id="status" name="status" style="display: none" value="${product.status}">
                             <input id="slug" name="slug" style="display: none" value="${product.slug}">
-                            <input id="categoryID" name="categoryID" style="display: none" value="${product.category}">
 
                             <div class="col-sm-12">
                                 <div class="mb-3">
@@ -71,39 +70,26 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="brand">brand SP:</label>
-                                    <input class="form-control" id="brand" name="brand" value="${product.brand}" type="text" placeholder="Loại sp" required="">
+                                    <select id="brand" class="form-control">
+                                        <c:set var="brandid" value="${product.brand}"/>
+                                        <c:forEach var="brand" items="${brands}">
+                                            <c:choose>
+                                                <c:when test="${brand.key == brandid}">
+                                                    <option value="${brand.key}" selected>${brand.value}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${brand.key}">${brand.value}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach>
+                                    </select>
 
                                 </div>
                                 <div class="mb-3">
                                     <label for="gia">gia SP:</label>
                                     <input class="form-control" id="gia" name="gia" type="number" value="${product.gia}" placeholder="Loại sp" required="">
-
                                 </div>
-                                <%--                                <div class="mb-3">--%>
-                                <%--                                    <label>Loại:</label>--%>
-                                <%--                                    <div class="m-checkbox-inline">--%>
-                                <%--                                        <label for="edo-ani">--%>
-                                <%--                                            <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani" checked="" value="1">Máy ảnh--%>
-                                <%--                                        </label>--%>
-                                <%--&lt;%&ndash;                                        <label for="edo-ani1">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                            <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani">Chân máy&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        </label>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        <label for="edo-ani2">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                            <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani" checked="">Đèn flash&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        </label>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        <label for="edo-ani3">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                            <input class="radio_animated" id="edo-ani3" type="radio" name="rdo-ani">Pin&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        </label>&ndash;%&gt;--%>
-                                <%--                                    </div>--%>
-                                <%--                                </div>--%>
-                                <%--                                <div class="mb-3">--%>
-                                <%--                                    <div class="col-form-label">Category:--%>
-                                <%--                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple">--%>
-                                <%--                                            <option value="AL">Lifestyle</option>--%>
-                                <%--                                            <option value="WY">Travel</option>--%>
-                                <%--                                        </select>--%>
-                                <%--                                    </div>--%>
-                                <%--                                </div>--%>
+
                                 <div class="email-wrapper">
                                     <div class="theme-form">
                                         <div class="mb-3">
@@ -126,7 +112,7 @@
                             </div>
                         </form>
                         <div class="btn-showcase text-end">
-                            <button class="btn btn-primary" id="add" type="submit">Thêm</button>
+                            <button class="btn btn-primary" id="edit" type="submit">Chỉnh sửa</button>
                             <input class="btn btn-light" type="reset" value="Discard">
                         </div>
                     </div>
@@ -142,64 +128,86 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function () {
-        getCategory();
 
-        $('body').on('click', '#add', function (){
+
+        $('body').on('click', '#edit', function (){
             var names = $("#tensp").val();
-            var gia = $("#gia").val();
-            var cate = $("#category").val();
-            var discount = $("#discount").val();
-            var mota = $("#mota").val();
             var slug = removeAccents(names);
             var hinh = slug+ ".jpg";
-            // $("#name").val(getname);
-            // var image = $("#image").val();
-            // upload(image, getname);
-            // document.getElementById("singleFileUploads").submit();
-            // save();
 
-            upload(hinh);
+            if (window.File && window.FileReader && window.FileList && window.Blob)
+            {
+                const fileImage = $('#image')[0].files[0];
+                if(fileImage == null )
+                {
+                    const image = $("#hinh").val();
+                    save(image);
+                }
+                else {
+                    upload(hinh);
+                }
+            }
         });
     });
 
-    function save(){
+    var urlLocation = window.location.protocol +"//"+window.location.host;
+
+    function save(hinh){
         var names = $("#tensp").val();
         var slug = removeAccents(names);
-        var hinh = slug+ ".jpg";
-        var formData = {
+        var id = $("#id").val();
+        var Data = {
+            // id: id,
             tensp : names,
             mota : $("#mota").val(),
             hinh : hinh,
             gia : $("#gia").val(),
             category : $("#category").val(),
-            discount : $("#discount").val(),
+            brand : $("#brand").val(),
             slug : slug,
-            status : 1
+            status : $("#status").val()
         }
 
+        let url = urlLocation +"/admin/product/" + id;
+        let urls = new URL(url);
+
         $.ajax({
-            url:'./product',
-            type:'POST',
+            url: urls,
+            type:'PUT',
             contentType: 'application/json',
             dataType: 'json',
-            data: JSON.stringify(formData),
-            success:function (res){
+            data: JSON.stringify(Data),
+            success:function (data){
                 // upload(hinh);
-                window.location.href = "admin/product-list";
+                if(data != null)
+                {
+                    redirect();
+                }
             }
 
         })
     }
 
+    function redirect(){
+        let url = urlLocation+"/admin/product-list";
+        let urls = new URL(url);
+        window.location.href = urls;
+    }
+
     async function upload(name){
+        let url = urlLocation+"/admin/upload/13";
+        let urls = new URL(url);
         var form = $('form')[1];
         let formdata = new FormData(form);
-        formdata.append('file', $('input[type=file]')[0].files[0], name);
-        let respone = await fetch('./upload',{
-            method:'POST',
+        formdata.append('file', $('#image')[0].files[0], name);
+        let respone = await fetch(urls, {
+            method: 'POST',
             body: formdata
         });
-        save();
+
+        save(name);
+
+
         // $.ajax({
         //     url:'./upload',
         //     type:'POST',
@@ -217,16 +225,6 @@
 
     }
 
-    async function getCategory()
-    {
-        $.get("./cateLists", function (data){
-            $.each(data, function (i, category){
-                $("#category").append(
-                    " <option value='" + category.id + "'>" + category.tenloai + "</option>"
-                );
-            });
-        });
-    }
 
     function removeAccents(str) {
         var AccentsMap = [

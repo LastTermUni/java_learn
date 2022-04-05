@@ -42,13 +42,14 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="discount">discount SP:</label>
-                                    <input class="form-control" id="discount" name="discount" type="text" placeholder="Loại sp" required="">
+                                    <label for="brand">Thương hiệu:</label>
+                                    <select name="brand" id="brand" class="form-control">
+                                    </select>
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="gia">gia SP:</label>
-                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Loại sp" required="">
+                                    <label for="gia">Giá:</label>
+                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Giá" required="">
 
                                 </div>
 <%--                                <div class="mb-3">--%>
@@ -115,12 +116,13 @@
 <script>
 $(document).ready(function () {
     getCategory();
+    getBrand();
 
     $('body').on('click', '#add', function (){
         var names = $("#tensp").val();
         var gia = $("#gia").val();
         var cate = $("#category").val();
-        var discount = $("#discount").val();
+        var brand = $("#brand").val();
         var mota = $("#mota").val();
         var slug = removeAccents(names);
         var hinh = slug+ ".jpg";
@@ -144,7 +146,7 @@ function save(){
         hinh : hinh,
         gia : $("#gia").val(),
         category : $("#category").val(),
-        discount : $("#discount").val(),
+        brand : $("#brand").val(),
         slug : slug,
         status : 1
     }
@@ -172,20 +174,6 @@ async function upload(name){
        body: formdata
     });
     save();
-    // $.ajax({
-    //     url:'./upload',
-    //     type:'POST',
-    //     contentType: 'application/json',
-    //     dataType: 'json',
-    //     enctype: 'multipart/form-data',
-    //     data: {
-    //         file : image,
-    //         name : value
-    //     },
-    //     success: function (res){
-    //     }
-    //
-    // })
 
 }
 
@@ -199,6 +187,18 @@ async function getCategory()
        });
     });
 }
+
+async function getBrand()
+{
+    $.get("./brandList", function (data){
+        $.each(data, function (i, brand){
+            $("#brand").append(
+                " <option value='" + brand.id + "'>" + brand.tenthuonghieu + "</option>"
+            );
+        });
+    });
+}
+
 
 function removeAccents(str) {
     var AccentsMap = [

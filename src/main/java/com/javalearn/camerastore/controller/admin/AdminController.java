@@ -9,6 +9,7 @@ import com.javalearn.camerastore.repository.AdminRepository;
 import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.ProductRequest;
+import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,11 +38,13 @@ public class AdminController {
     CategoryService categoryService;
 
     @Autowired
+    BrandService brandService;
+
+    @Autowired
     ConvertProduct convertProduct;
 
     @Autowired
     ConvertCategory convertCategory;
-
 
     @Autowired
     private AdminRepository adminRepository;
@@ -76,6 +79,7 @@ public class AdminController {
         return mav;
     }
 
+    //Product edit
     @GetMapping("/product-edit/{id}")
     public String productUpdate(@PathVariable long id, Model model) {
         Product product = productRepository.findOneById(id);
@@ -83,13 +87,15 @@ public class AdminController {
         ProductRequest productRequest = convertProduct.toRequest(product);
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
-        String[] flowers = new String[] { "Rose", "Lily", "Tulip", "Carnation", "Hyacinth" };
+
         model.addAttribute("product",productRequest);
         model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("brands", brandService.findAll());
         return "admin/product-edit";
     }
 
 
+    //Product List
     @RequestMapping(value = "/product-list", method = RequestMethod.GET)
     public ModelAndView productList() {
         ModelAndView mav = new ModelAndView("admin/product-list");

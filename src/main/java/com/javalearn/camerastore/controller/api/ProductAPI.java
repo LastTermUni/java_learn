@@ -1,8 +1,11 @@
 package com.javalearn.camerastore.controller.api;
 
+import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
+import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.request.ProductRequest;
+import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,9 @@ public class ProductAPI {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private BrandService brandService;
 
     @Autowired
     ServletContext context;
@@ -82,27 +88,10 @@ public class ProductAPI {
         return categoryService.getCategory();
     }
 
-    @GetMapping("/cateLists")
-    public List<Category> getCates() throws URISyntaxException {
+    @GetMapping("/brandList")
+    public List<Brand> getBrand()  {
 
-//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-//        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
-//            // Chạy bằng tomcat (đã packaged)
-//            if (path.lastIndexOf("/target/") > 0) {
-//                // Chạy ở local
-//                path = path.substring(0, path.lastIndexOf("/target/"));
-//            } else {
-//                // Chạy ở server
-//                path = Paths.get(path).getParent().toString();
-//            }
-//        } else {
-//            // Chạy bằng IntellJ IDEA
-//            path = System.getProperty("user.dir");
-//        }
-
-        System.out.println(path);
-
-        return categoryService.getCategory();
+        return brandService.getBrands();
     }
 
 
@@ -116,6 +105,17 @@ public class ProductAPI {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @PutMapping(value = "/product/{id}")
+    public ResponseEntity<ProductRequest> updateProduct(@RequestBody ProductRequest productRequest, @PathVariable long id) {
+        try {
+            productRequest.setId(id);
+            productService.updateProduct(productRequest);
+            return new ResponseEntity<>(productRequest, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/upload")
@@ -148,6 +148,40 @@ public class ProductAPI {
         }
         return "product-list";
     }
+
+
+    //upload wth edit
+    @PostMapping("/upload/{id}")
+    public String uspload(@RequestParam("file") MultipartFile file) throws URISyntaxException {
+
+//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+//        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
+//            // Chạy bằng tomcat (đã packaged)
+//            if (path.lastIndexOf("/target/") > 0) {
+//                // Chạy ở local
+//                path = path.substring(0, path.lastIndexOf("/target/"));
+//            } else {
+//                // Chạy ở server
+//                path = Paths.get(path).getParent().toString();
+//            }
+//        } else {
+//            // Chạy bằng IntellJ IDEA
+//            path = System.getProperty("user.dir");
+//        }
+        String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
+
+//        String url = path + "/uploads";
+        System.out.println(url);
+        Path pathImage = Paths.get(url, file.getOriginalFilename());
+//        Path pathImages = Paths.get(url, file.getOriginalFilename());
+        try {
+            Files.copy(file.getInputStream(), pathImage, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "product-list";
+    }
+
 
 
     @GetMapping("/product")

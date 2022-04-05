@@ -45,6 +45,24 @@ public class ProductServiceImpl implements ProductService {
         return productRequest;
     }
 
+    @Override
+    public ProductRequest updateProduct(ProductRequest productRequest) {
+        Product products = new Product();
+        products = productRepository.findOneById(productRequest.getId());
+        Category category = categoryRepository.findOneById(productRequest.getCategory());
+        Brand brand = brandRepository.findOneById(productRequest.getBrand());
+        products.setTensp(productRequest.getTensp());
+        products.setMota(productRequest.getMota());
+        products.setGia(productRequest.getGia());
+        products.setHinh(productRequest.getHinh());
+        products.setSlug(productRequest.getSlug());
+        products.setStatus(productRequest.getStatus());
+        products.setBrand(brand);
+        products.setCategory(category);
+        productRepository.save(products);
+        return productRequest;
+    }
+
 //    @Override
 //    public Product saveProduct(Product product) {
 //        return productRepository.save(product);
