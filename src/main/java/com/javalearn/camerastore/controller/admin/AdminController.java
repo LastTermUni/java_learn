@@ -16,13 +16,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -135,8 +130,13 @@ public class AdminController {
     }
 
     @GetMapping("/category-add")
-    public ModelAndView categoryAdd(){
+    public ModelAndView categoryAdd(@RequestParam(value = "id_cate",required = false) Long id_cate){
         ModelAndView mav = new ModelAndView("admin/category-add");
+        Category category = new Category();
+        if(id_cate != null){
+            category = categoryRepository.findOneById(id_cate);
+        }
+        mav.addObject("category", category);
         return mav;
     }
 

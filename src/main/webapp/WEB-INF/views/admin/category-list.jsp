@@ -57,9 +57,11 @@
                                             <button class="btn btn-danger btn-xs" type="button"
                                                     data-original-title="btn btn-danger btn-xs" title="">Delete
                                             </button>
-                                            <button href="product-edit" class="btn btn-success btn-xs" type="button"
+                                            <c:set var="urlupdate" value="./category-add?id_cate=${cate.id}">
+                                            </c:set>
+                                            <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs" type="button"
                                                     data-original-title="btn btn-danger btn-xs" title="">Edit
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </c:forEach>

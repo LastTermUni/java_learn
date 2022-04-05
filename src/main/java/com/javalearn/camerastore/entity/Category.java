@@ -21,7 +21,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
-    private long id;
+    private Long id;
 
     @JsonIgnore
     @OneToMany(mappedBy="category", fetch = FetchType.LAZY)

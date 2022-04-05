@@ -24,7 +24,7 @@ public class CustomerController {
     }
 
     @PutMapping("/customer/{id}")
-    public Customer updateCustomer(@PathVariable int id ,@RequestBody Customer customer){
+    public Customer updateCustomer(@PathVariable Long id ,@RequestBody Customer customer){
         customer.setMaKH(id);
         return customerService.updateCustomer(customer);
     }

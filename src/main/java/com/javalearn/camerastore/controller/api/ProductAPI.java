@@ -3,7 +3,6 @@ package com.javalearn.camerastore.controller.api;
 import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
-import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
@@ -108,7 +107,7 @@ public class ProductAPI {
     }
 
     @PutMapping(value = "/product/{id}")
-    public ResponseEntity<ProductRequest> updateProduct(@RequestBody ProductRequest productRequest, @PathVariable long id) {
+    public ResponseEntity<ProductRequest> updateProduct(@RequestBody ProductRequest productRequest, @PathVariable Long id) {
         try {
             productRequest.setId(id);
             productService.updateProduct(productRequest);
@@ -135,7 +134,7 @@ public class ProductAPI {
 //            // Chạy bằng IntellJ IDEA
 //            path = System.getProperty("user.dir");
 //        }
-        String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
+        String url = "D:\\java project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
 
 //        String url = path + "/uploads";
         System.out.println(url);

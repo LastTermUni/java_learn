@@ -13,4 +13,5 @@ public interface CategoryService {
     List<Category> getCategory();
 
     Category saveCategory(Category category);
+
 }

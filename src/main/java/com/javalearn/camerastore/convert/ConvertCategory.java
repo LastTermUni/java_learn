@@ -1,9 +1,7 @@
 package com.javalearn.camerastore.convert;
 
 import com.javalearn.camerastore.entity.Category;
-import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.request.CategoryRequest;
-import com.javalearn.camerastore.request.ProductRequest;
 import org.springframework.stereotype.Component;
 
 @Component
