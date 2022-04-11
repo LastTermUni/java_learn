@@ -15,15 +15,25 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="basic-login">
                         <h3 class="text-center mb-60">Đăng ký</h3>
-                        <form action="#">
-                            <label for="name">Tên người dùng <span>*</span></label>
-                            <input id="name" type="text" placeholder="Tên người dùng ..." data-opacity="0.7"/>
-                            <label for="email-id">Email <span>*</span></label>
-                            <input id="email-id" type="text" placeholder="Địa chỉ email ..." />
-                            <label for="pass">Mật khẫu <span>*</span></label>
-                            <input id="pass" type="password" placeholder="Mật khẩu ..." />
+                        <form th:action="@{/register}" method="post" th:object="customer">
+
+                            <label for="Username">Tên người dùng <span>*</span></label>
+                            <input id="Username" name="Username" type="text" placeholder="Tên người dùng ..." data-opacity="0.7"/>
+
+                            <label for="Email">Email <span>*</span></label>
+                            <input id="Email" name="Email" type="text" placeholder="Địa chỉ email ..." />
+
+                            <label for="Password">Mật khẩu <span>*</span></label>
+                            <input id="Password" name="Password" type="password" placeholder="Mật khẩu ..." />
+
+                            <label for="TenKH">Tên <span>*</span></label>
+                            <input id="TenKH" name="TenKH" type="text" placeholder="Tên ..." />
+
+                            <label for="SDT">SDT <span>*</span></label>
+                            <input id="SDT" name="SDT" type="text" placeholder="SDT ..." />
+
                             <div class="mt-10"></div>
-                            <button class="s-btn s-btn-4 w-100">Đăng ký</button>
+                            <button type="submit" class="s-btn s-btn-4 w-100">Đăng ký</button>
                             <div class="or-divide"><span>hoặc</span></div>
                             <a href="login" class="s-btn s-btn-2 w-100">Đăng nhập</a>
                         </form>

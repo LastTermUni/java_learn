@@ -32,7 +32,7 @@
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label for="tensp">Tên sản phẩm:</label>
-                                    <input class="form-control" id="tensp" name="tensp" type="text" placeholder="Tên sản phẩm" required="">
+                                    <input class="form-control" id="tensp" name="tensp" type="text" placeholder="Tên sản phẩm" required="Vui lòng nhập tên sản phẩm">
 
                                 </div>
                                 <div class="mb-2">
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="gia">Giá:</label>
-                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Giá" required="">
+                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Giá" required="Vui lòng nhập giá">
 
                                 </div>
 <%--                                <div class="mb-3">--%>
@@ -81,7 +81,7 @@
                                     <div class="theme-form">
                                         <div class="mb-3">
                                             <label>Mô tả:</label>
-                                            <textarea id="mota" name="mota" name="text-box" cols="10" rows="2"></textarea>
+                                            <textarea id="mota" name="mota" name="text-box" cols="10" rows="2" required="Vui lòng nhập mô tả"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                 <div class="theme-form">
                                     <div class="mb-3">
                                         <label>ảnh:</label>
-                                        <input type="file" name="image" id="image">
+                                        <input type="file" name="image" id="image" required="Vui lòng chọn ảnh">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,6 @@ $(document).ready(function () {
         // upload(image, getname);
         // document.getElementById("singleFileUploads").submit();
         // save();
-
         upload(hinh);
     });
 });
@@ -168,12 +167,18 @@ function save(){
 async function upload(name){
     var form = $('form')[1];
     let formdata = new FormData(form);
-    formdata.append('file', $('input[type=file]')[0].files[0], name);
-    let respone = await fetch('./upload',{
-       method:'POST',
-       body: formdata
-    });
-    save();
+    if($('input[type=file]')[0].files[0] == null)
+    {
+        alert("Vui lòng chọn ảnh");
+    }
+    else {
+        formdata.append('file', $('input[type=file]')[0].files[0], name);
+        let respone = await fetch('./upload', {
+            method: 'POST',
+            body: formdata
+        });
+        save();
+    }
 
 }
 

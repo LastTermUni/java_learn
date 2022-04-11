@@ -15,11 +15,11 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="basic-login">
                         <h3 class="text-center mb-60">Đăng nhập</h3>
-                        <form action="#">
-                            <label for="name">Email <span>*</span></label>
-                            <input id="name" type="text" placeholder="Địa chỉ email ..." />
-                            <label for="pass">Mật khẩu <span>*</span></label>
-                            <input id="pass" type="password" placeholder="Mật khẩu ..." />
+                        <form action="./login" method="post">
+                            <label for="username">Tài khoản <span>*</span></label>
+                            <input id="username" name="username" type="text" placeholder="Tài khoản ..." />
+                            <label for="password">Mật khẩu <span>*</span></label>
+                            <input id="password" name="password" type="password" placeholder="Mật khẩu ..." />
 <%--                            <div class="login-action mb-20 fix">--%>
 <%--                                    <span class="log-rem f-left">--%>
 <%--                                       <input id="remember" type="checkbox" />--%>
@@ -29,7 +29,7 @@
 <%--                                       <a href="#">Quên mật khẩu?</a>--%>
 <%--                                    </span>--%>
 <%--                            </div>--%>
-                            <button class="s-btn s-btn-4 w-100">Đăng nhập</button>
+                            <button type="submit" class="s-btn s-btn-4 w-100">Đăng nhập</button>
                             <div class="or-divide"><span>hoặc</span></div>
                             <a href="register" class="s-btn s-btn-2 w-100">Đăng ký</a>
                         </form>

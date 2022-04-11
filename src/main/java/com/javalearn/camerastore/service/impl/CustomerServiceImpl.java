@@ -30,7 +30,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(int id) {
+    public void deleteCustomer(Long id) {
         ecustomerRepository.deleteById(id);
     }
 }

@@ -2,14 +2,18 @@ package com.javalearn.camerastore.controller.client;
 
 import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
+import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.entity.Product;
+import com.javalearn.camerastore.repository.CustomerRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.service.CategoryService;
+import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
 
-@RestController
+@Controller
 @RequestMapping(value = "/")
 public class HomeController {
     @Autowired
@@ -31,6 +35,10 @@ public class HomeController {
     ConvertProduct convertProduct;
     @Autowired
     ConvertCategory convertCategory;
+    @Autowired
+    CustomerService customerService;
+    @Autowired
+    CustomerRepository customerRepository;
 
 
 
@@ -44,7 +52,7 @@ public class HomeController {
         mav.addObject("cates",categoryService.getCategory());
         return mav;
     }
-//san pham
+    //sản phẩm
     @GetMapping(value = "product-detail/{slug}")
     public ModelAndView productDetail(@PathVariable String slug) {
         Product product = productRepository.findOneBySlug(slug);
@@ -55,25 +63,10 @@ public class HomeController {
     }
 
 
-//    @RequestMapping(value = "test")
-//    public String test(HttpServletRequest request)
-//    {
-//        HttpSession session = request.getSession();
-//        if(session.getAttribute("productsList") == null) {
-//            System.out.println("NULL");
-//
-//            return "redirect:home";
-//        }
-//        else {
-//            System.out.println("NOT NULL");
-//            return "redirect:product";
-//        }
-//    }
-
     @GetMapping(value = {"product" })
     public ModelAndView product(@RequestParam(required = false) String id_cate, @RequestParam(required = false) String id_brand,
                                 @RequestParam(required = false ) String page,
-                                HttpServletRequest request) {
+                                HttpServletRequest request, HttpSession session) {
         ModelAndView mav = new ModelAndView("client/product");
         List<Product> product;
 
@@ -88,21 +81,22 @@ public class HomeController {
         }
 
         PagedListHolder<Product> productList;
-        productList = new PagedListHolder<Product>();
-        HttpSession session = request.getSession();
-        if(session.getAttribute("productsList") == null)
+//        HttpSession session = request.getSession();
+        productList = (PagedListHolder<Product>) session.getAttribute("productsList");
+        if(productList == null)
         {
+            productList = new PagedListHolder<Product>();
             productList.setSource(product);
-            productList.setPageSize(4);
+            productList.setPageSize(6);
 
             session.setAttribute("productsList", productList);
         }
         if(page == null|| page.equals("0")) {
-        productList.setPage(0);
+            productList.setPage(0);
 
         }else {
             int pageNum = Integer.parseInt(page);
-            productList = (PagedListHolder<Product>) session.getAttribute("productsList");
+//            productList = (PagedListHolder<Product>) session.getAttribute("productsList");
             productList.setPage(pageNum - 1);
         }
         mav.addObject("products",productList.getPageList());
@@ -128,19 +122,59 @@ public class HomeController {
         return new ModelAndView("client/cart");
     }
 
+    //thanh toán
     @RequestMapping(value = "checkout", method = RequestMethod.GET)
     public ModelAndView checkout() {
         return new ModelAndView("client/checkout");
     }
 
+
+    //tạo tài khoản
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public ModelAndView register() {
         return new ModelAndView("client/register");
     }
 
+    @PostMapping(value = "register")
+    public String register(@ModelAttribute("customer") Customer customer)
+    {
+        Customer customerByUsername = customerRepository.findCustomerByUsername(customer.getUsername());
+        Customer customerByEmail = customerRepository.findCustomerByEmail(customer.getEmail());
+
+        if(customerByEmail != null || customerByUsername != null)
+        {
+            return "redirect:register";
+        }
+        else {
+            customerService.saveCustomer(customer);
+            return "redirect:login";
+        }
+    }
+
+    //đăng nhập
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public ModelAndView login() {
         return new ModelAndView("client/login");
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password)
+    {
+        Customer customer = customerRepository.findCustomerByUsername(username);
+        if(customer == null || password == null)
+        {
+            return "redirect:login";
+        }
+        else {
+            if(customer.getPassword().equals(password))
+            {
+                System.out.println("Login success!");
+                return "redirect:home";
+            }
+            else {
+                return "redirect:login";
+            }
+        }
     }
 
     @RequestMapping(value = "404", method = RequestMethod.GET)

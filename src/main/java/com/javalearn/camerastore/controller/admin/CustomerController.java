@@ -30,7 +30,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/customer")
-    public void deleteCustomer(@RequestParam int id)
+    public void deleteCustomer(@RequestParam Long id)
     {
         customerService.deleteCustomer(id);
     }
