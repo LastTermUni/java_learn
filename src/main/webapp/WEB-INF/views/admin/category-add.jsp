@@ -58,6 +58,7 @@
 <script>
 
     $(document).ready(function () {
+
         let result = $("#id").val().localeCompare("");
         if(result != 0)
             document.getElementById("add").innerHTML = "Cập nhật";
@@ -108,6 +109,7 @@
             success: function (res) {
                 // upload(hinh);
                 window.location.href = "./categories-list";
+
             }
         })
     }

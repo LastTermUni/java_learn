@@ -49,7 +49,7 @@ public class BrandAPI {
 
     }
 
-    @PostMapping(value = "/statusbrand")
+    @PostMapping(value = "/changeStatusBrand")
     public ResponseEntity<Integer> changeStatus(@RequestParam (value = "id") Long id) {
         try {
             int status;

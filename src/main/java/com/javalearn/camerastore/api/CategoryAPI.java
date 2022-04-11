@@ -1,5 +1,6 @@
 package com.javalearn.camerastore.api;
 
+import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.service.CategoryService;
@@ -45,15 +46,22 @@ public class CategoryAPI {
 
     }
 
-    @PutMapping(value = "/statuscate")
-    public ResponseEntity<Category> changeStatusCategory(@RequestParam (value = "id") Long id) {
+    @PostMapping (value = "/changeStatusCategory")
+    public ResponseEntity<Integer> changeStatusCategory(@RequestParam (value = "id") Long id) {
         try {
+            int status;
             Category category = categoryRepository.findOneById(id);
-            if(category.getStatus() == 1)
+            if(category.getStatus() == 1) {
                 category.setStatus(0);
-            else
+                status = 0;
+                categoryRepository.save(category);
+            }
+            else {
                 category.setStatus(1);
-            return new ResponseEntity<>(category, HttpStatus.OK);
+                status = 1;
+                categoryRepository.save(category);
+            }
+            return new ResponseEntity<>(status, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
