@@ -100,7 +100,7 @@
             const id = $(this).data('id');
             const _this = $(this);
             $.ajax({
-                url: "./statusbrand",
+                url: "./changeStatusBrand",
                 data: { id: id },
                 dataType: 'json',
                 type: 'POST',
@@ -110,7 +110,7 @@
                         toastr.success("Hiển thị thương hiệu thành công!!");
                     } else if(res === 0) {
                         _this.prop('checked', false);
-                        toastr.success("Tắt hiển thị thương hiệu thành công!!");
+                        toastr.info("Tắt hiển thị thương hiệu thành công!!");
                     }
                 }
             });

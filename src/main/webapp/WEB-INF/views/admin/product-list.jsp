@@ -29,9 +29,6 @@
             <!-- Individual column searching (text inputs) Starts-->
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Individual column searching (text inputs) </h5><span>The searching functionality provided by DataTables is useful for quickly search through the information in the table - however the search is global, and you may wish to present controls that search on specific columns.</span>
-                    </div>
                     <div class="card-body">
                         <div class="table-responsive product-table">
                             <table class="display" id="basic-1">
