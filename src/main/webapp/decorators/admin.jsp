@@ -41,6 +41,7 @@
     <link id="color" rel="stylesheet" href="<c:url value='/Front-end/admin/assets/css/color-1.css'/>" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/responsive.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/toggle.css'/>">
 </head>
 <body>
 <!-- tap on top starts-->
