@@ -122,6 +122,13 @@
                                     <li><a href="./category-add">Thêm danh mục</a></li>
                                 </ul>
                             </li>
+
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Thương hiệu</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="./brand-list">Danh sách</a></li>
+                                    <li><a href="./brand-add">Thêm thương hiệu</a></li>
+                                </ul>
+                            </li>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Users</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="user-profile.html">Users Profile</a></li>
@@ -129,6 +136,8 @@
                                     <li><a href="user-cards.html">Users Cards</a></li>
                                 </ul>
                             </li>
+
+
 
                             </ul>
                     </div>

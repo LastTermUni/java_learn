@@ -33,6 +33,9 @@ public class Brand {
     @Column(name ="mota")
     private String mota;
 
+    @Column(name ="slug")
+    private String slug;
+
     @Column(name ="status")
     private long status;
 
