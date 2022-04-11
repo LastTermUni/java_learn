@@ -32,12 +32,12 @@
                             <div class="col-sm-12">
                                 <div class="mb-3">
                                     <label for="tensp">Tên sản phẩm:</label>
-                                    <input class="form-control" id="tensp" name="tensp" type="text" placeholder="Tên sản phẩm" required="Vui lòng nhập tên sản phẩm">
+                                    <input class="form-control" id="tensp" name="tensp" type="text" placeholder="Tên sản phẩm" required="">
 
                                 </div>
                                 <div class="mb-2">
                                     <label for="category">Loại SP:</label>
-                                    <select name="category" id="category" class="form-control">
+                                    <select name="category" id="category" class="form-control" >
                                     </select>
 
                                 </div>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="gia">Giá:</label>
-                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Giá" required="Vui lòng nhập giá">
+                                    <input class="form-control" id="gia" name="gia" type="number" placeholder="Giá" required="">
 
                                 </div>
 <%--                                <div class="mb-3">--%>
@@ -81,7 +81,7 @@
                                     <div class="theme-form">
                                         <div class="mb-3">
                                             <label>Mô tả:</label>
-                                            <textarea id="mota" name="mota" name="text-box" cols="10" rows="2" required="Vui lòng nhập mô tả"></textarea>
+                                            <textarea id="mota" name="mota" name="text-box" cols="10" rows="2" required=""></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                 <div class="theme-form">
                                     <div class="mb-3">
                                         <label>ảnh:</label>
-                                        <input type="file" name="image" id="image" required="Vui lòng chọn ảnh">
+                                        <input type="file" name="image" id="image" required="">
                                     </div>
                                 </div>
                             </div>

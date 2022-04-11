@@ -18,19 +18,19 @@
                         <form th:action="@{/register}" method="post" th:object="customer">
 
                             <label for="Username">Tên người dùng <span>*</span></label>
-                            <input id="Username" name="Username" type="text" placeholder="Tên người dùng ..." data-opacity="0.7"/>
+                            <input id="Username" name="Username" type="text" placeholder="Tên người dùng ..." data-opacity="0.7" required=""/>
 
                             <label for="Email">Email <span>*</span></label>
-                            <input id="Email" name="Email" type="text" placeholder="Địa chỉ email ..." />
+                            <input id="Email" name="Email" type="text" placeholder="Địa chỉ email ..." required=""/>
 
                             <label for="Password">Mật khẩu <span>*</span></label>
-                            <input id="Password" name="Password" type="password" placeholder="Mật khẩu ..." />
+                            <input id="Password" name="Password" type="password" placeholder="Mật khẩu ..."  required=""/>
 
                             <label for="TenKH">Tên <span>*</span></label>
-                            <input id="TenKH" name="TenKH" type="text" placeholder="Tên ..." />
+                            <input id="TenKH" name="TenKH" type="text" placeholder="Tên ..." required=""/>
 
                             <label for="SDT">SDT <span>*</span></label>
-                            <input id="SDT" name="SDT" type="text" placeholder="SDT ..." />
+                            <input id="SDT" name="SDT" type="text" placeholder="SDT ..." required=""/>
 
                             <div class="mt-10"></div>
                             <button type="submit" class="s-btn s-btn-4 w-100">Đăng ký</button>

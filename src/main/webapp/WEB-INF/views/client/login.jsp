@@ -17,9 +17,9 @@
                         <h3 class="text-center mb-60">Đăng nhập</h3>
                         <form action="./login" method="post">
                             <label for="username">Tài khoản <span>*</span></label>
-                            <input id="username" name="username" type="text" placeholder="Tài khoản ..." />
+                            <input id="username" name="username" type="text" placeholder="Tài khoản ..." required="" />
                             <label for="password">Mật khẩu <span>*</span></label>
-                            <input id="password" name="password" type="password" placeholder="Mật khẩu ..." />
+                            <input id="password" name="password" type="password" placeholder="Mật khẩu ..." required="" />
 <%--                            <div class="login-action mb-20 fix">--%>
 <%--                                    <span class="log-rem f-left">--%>
 <%--                                       <input id="remember" type="checkbox" />--%>
