@@ -3,6 +3,7 @@ package com.javalearn.camerastore.api;
 import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
+import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
@@ -36,6 +37,9 @@ public class ProductAPI {
     private BrandService brandService;
 
     @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
     ServletContext context;
 
     public static String path;
@@ -59,9 +63,6 @@ public class ProductAPI {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-    }
-
-    public ProductAPI() throws URISyntaxException {
     }
 
     @GetMapping("/cateList")
@@ -164,7 +165,7 @@ public class ProductAPI {
 //                path = Paths.get(path).getParent().toString();
 //            }
 //        } else {
-//            // Chạy bằng IntellJ IDEA
+//           // Chạy bằng IntellJ IDEA
 //            path = System.getProperty("user.dir");
 //        }
         String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
@@ -195,5 +196,9 @@ public class ProductAPI {
 //        return mav;
 //    }
 
+//    @GetMapping("/Prostatus1")
+//    public List<Product> getProduct1(){
+//        return productRepository.getAllByStatus();
+//    }
 
 }
