@@ -9,4 +9,6 @@ import java.util.Map;
 public interface BrandService {
     Map<String, String> findAll();
     List<Brand> getBrands();
+
+    Brand saveBrand (Brand brand);
 }

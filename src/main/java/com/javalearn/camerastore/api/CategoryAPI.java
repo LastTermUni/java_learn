@@ -1,6 +1,7 @@
 package com.javalearn.camerastore.api;
 
 import com.javalearn.camerastore.entity.Category;
+import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,11 +17,24 @@ public class CategoryAPI {
     @Autowired
     CategoryService categoryService;
 
-
-
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @PostMapping(value = "/category")
-    public ResponseEntity<Category> addProduct(@RequestBody Category category) {
+    public ResponseEntity<Category> addCategory(@RequestBody Category category) {
+        try {
+            category.setSlug(toSlug(category.getTenloai()));
+            category.setStatus(1);
+            categoryService.saveCategory(category);
+            return new ResponseEntity<>(category, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PutMapping(value = "/category")
+    public ResponseEntity<Category> updateCategory(@RequestBody Category category) {
         try {
             category.setSlug(toSlug(category.getTenloai()));
             categoryService.saveCategory(category);
@@ -31,11 +45,14 @@ public class CategoryAPI {
 
     }
 
-    @PutMapping(value = "/category")
-    public ResponseEntity<Category> updateProduct(@RequestBody Category category) {
+    @PutMapping(value = "/statuscate")
+    public ResponseEntity<Category> changeStatusCategory(@RequestParam (value = "id") Long id) {
         try {
-            category.setSlug(toSlug(category.getTenloai()));
-            categoryService.saveCategory(category);
+            Category category = categoryRepository.findOneById(id);
+            if(category.getStatus() == 1)
+                category.setStatus(0);
+            else
+                category.setStatus(1);
             return new ResponseEntity<>(category, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

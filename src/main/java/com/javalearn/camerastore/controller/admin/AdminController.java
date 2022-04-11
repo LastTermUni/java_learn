@@ -3,9 +3,11 @@ package com.javalearn.camerastore.controller.admin;
 import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.AdminEntity;
+import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.AdminRepository;
+import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.ProductRequest;
@@ -26,6 +28,9 @@ public class AdminController {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    BrandRepository brandRepository;
 
     @Autowired
     CategoryRepository categoryRepository;
@@ -121,6 +126,8 @@ public class AdminController {
             return "redirect:login";
     }
 
+
+
     @GetMapping("/categories-list")
     public ModelAndView categoryList(){
         ModelAndView mav = new ModelAndView("admin/category-list");
@@ -137,6 +144,25 @@ public class AdminController {
             category = categoryRepository.findOneById(id_cate);
         }
         mav.addObject("category", category);
+        return mav;
+    }
+
+    @GetMapping("/brand-list")
+    public ModelAndView brandList(){
+        ModelAndView mav = new ModelAndView("admin/brand-list");
+        List<Brand> brands = brandRepository.findAll();
+        mav.addObject("brandList", brands);
+        return mav;
+    }
+
+    @GetMapping("/brand-add")
+    public ModelAndView brandAdd(@RequestParam(value = "id_brand",required = false) Long id_brand){
+        ModelAndView mav = new ModelAndView("admin/brand-add");
+        Brand brand = new Brand();
+        if(id_brand != null){
+            brand = brandRepository.findOneById(id_brand);
+        }
+        mav.addObject("brand", brand);
         return mav;
     }
 
