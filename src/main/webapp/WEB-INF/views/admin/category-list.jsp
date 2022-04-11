@@ -55,10 +55,13 @@
                                                 <%--                                            <button class="btn btn-danger btn-xs" type="button"--%>
                                                 <%--                                                    data-original-title="btn btn-danger btn-xs" title="">Delete--%>
                                                 <%--                                            </button>--%>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
+                                                    <label class="switch">
+
+                                                        <input class="changeStatus" type="checkbox" checked>
+
+                                                            <%--                                ,                        <input class="changeStatus" data-id="@item.id" data-controller="Movie" type="checkbox" unchecked>--%>
+                                                        <span class="slider round"></span>
+                                                    </label>
                                             <c:set var="urlupdate" value="./category-add?id_cate=${cate.id}">
                                             </c:set>
                                             <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"

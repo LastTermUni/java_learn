@@ -27,7 +27,6 @@
                                 </div>
                             </div>
                             <div class="form-group mb-0">
-                                <a class="link" href="forget-password.html">Quên mật khẩu?</a>
                                 <div class="text-end mt-3">
                                     <button class="btn btn-primary btn-block w-100" type="submit">Đăng nhập</button>
                                 </div>

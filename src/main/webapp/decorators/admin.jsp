@@ -42,6 +42,9 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/responsive.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/toggle.css'/>">
+
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/toast/css/toastr.css'/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/toast/css/toastr.min.css'/>">
 </head>
 <body>
 <!-- tap on top starts-->
@@ -210,6 +213,7 @@
 
 <!-- latest jquery-->
 <script src="<c:url value='/Front-end/admin/assets/js/jquery-3.5.1.min.js'/>"></script>
+<script src="<c:url value='/Front-end/toast/js/toastr.js'/>"></script>
 <!-- Bootstrap js-->
 <script src="<c:url value='/Front-end/admin/assets/js/bootstrap/bootstrap.bundle.min.js'/>"></script>
 <!-- feather icon js-->
