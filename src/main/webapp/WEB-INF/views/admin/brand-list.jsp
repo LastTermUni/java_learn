@@ -53,11 +53,23 @@
                                             <h6>${brand.tenthuonghieu}</h6>
                                         </td>
                                         <td>
+
                                                 <%--                                            <button class="btn btn-danger btn-xs" type="button"--%>
                                                 <%--                                                    data-original-title="btn btn-danger btn-xs" title="">Delete--%>
                                                 <%--                                            </button>--%>
                                             <label class="switch">
-                                                <input type="checkbox">
+                                                <c:choose >
+                                                    <c:when test="${brand.status == 1}">
+                                                        <input class="changeStatus" data-id="${brand.id}"  type="checkbox" checked>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <input class="changeStatus" data-id="${brand.id}"  type="checkbox" unchecked>
+                                                    </c:otherwise>
+
+                                                </c:choose>
+
+
+                                                    <%--                                                        <input class="changeStatus" data-id="@item.id" data-controller="Movie" type="checkbox" unchecked>--%>
                                                 <span class="slider round"></span>
                                             </label>
                                             <c:set var="urlupdate" value="./brand-add?id_brand=${brand.id}">
@@ -80,5 +92,32 @@
     </div>
 </div>
 <!-- Container-fluid Ends-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.changeStatus').click(function (e) {
+            e.preventDefault();
+            const id = $(this).data('id');
+            const _this = $(this);
+            $.ajax({
+                url: "./statusbrand",
+                data: { id: id },
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res === 1) {
+                        _this.prop('checked', true);
+                        toastr.success("Hiển thị thương hiệu thành công!!");
+                    } else if(res === 0) {
+                        _this.prop('checked', false);
+                        toastr.success("Tắt hiển thị thương hiệu thành công!!");
+                    }
+                }
+            });
+        });
+    });
+
+</script>
 </body>
 </html>
+
