@@ -36,6 +36,9 @@ public class Category {
     @Column(name ="slug")
     private String slug;
 
+    @Column(name ="status")
+    private long status;
+
     @CreationTimestamp
     @Column(name ="created_at", nullable = false, updatable = false)
     private Date created_at;

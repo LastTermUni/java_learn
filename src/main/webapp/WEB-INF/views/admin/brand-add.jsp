@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Thêm sản phẩm</title>
+    <title>Thêm thương hiệu</title>
 </head>
 <body>
 <!-- Page Sidebar Ends-->
@@ -13,7 +13,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>Thêm danh mục</h3>
+                    <h3>Thêm thương hiệu</h3>
                 </div>
                 <div class="col-6">
                 </div>
@@ -26,16 +26,16 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Thêm danh mục</h5>
+                        <h5>Thêm thương hiệu</h5>
                     </div>
                     <div class="card-body add-post">
                         <form:form class="row needs-validation" novalidate="">
-                            <input style="display: none" name="id" id="id" value="${category.id}"/>
-                            <input style="display: none" name="status" id="status" value="${category.status}"/>
+                            <input style="display: none" name="id" id="id" value="${brand.id}"/>
+                            <input style="display: none" name="status" id="status" value="${brand.status}"/>
                             <div class="col-sm-12">
                                 <div class="mb-3">
-                                    <label for="tenloai">Tên danh mục:</label>
-                                    <input class="form-control" id="tenloai" name="tenloai" type="text" value="${category.tenloai}"
+                                    <label for="tenthuonghieu">Tên thương hiệu:</label>
+                                    <input class="form-control" id="tenthuonghieu" name="tenloai" type="text" value="${brand.tenthuonghieu}"
                                            placeholder="Tên danh mục" required="">
                                 </div>
                             </div>
@@ -73,41 +73,41 @@
 
     });
     function update(id) {
-        var tenLoai = $("#tenloai").val();
+        var tenthuonghieu = $("#tenthuonghieu").val();
         var status = $("#status").val();
         var formData = {
             id: id,
-            tenloai: tenLoai,
+            tenthuonghieu: tenthuonghieu,
             status: status,
-            hinh: tenLoai + ".jpg"
+            mota: tenthuonghieu
         }
         $.ajax({
-            url: './category',
+            url: './brand',
             type: 'PUT',
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify(formData),
             success: function (res) {
                 // upload(hinh);
-                window.location.href = "./categories-list";
+                window.location.href = "./brand-list";
             }
         })
     }
     function save() {
-        var tenLoai = $("#tenloai").val();
+        var tenthuonghieu = $("#tenthuonghieu").val();
         var formData = {
-            tenloai: tenLoai,
-            hinh: tenLoai + ".jpg"
+            tenthuonghieu: tenthuonghieu,
+            mota: tenthuonghieu
         }
         $.ajax({
-            url: './category',
+            url: './brand',
             type: 'POST',
             contentType: 'application/json',
             dataType: 'json',
             data: JSON.stringify(formData),
             success: function (res) {
                 // upload(hinh);
-                window.location.href = "./categories-list";
+                window.location.href = "./brand-list";
             }
         })
     }
