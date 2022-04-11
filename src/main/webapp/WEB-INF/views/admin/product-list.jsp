@@ -53,7 +53,7 @@
                                         <c:set var="stt" value="${stt + 1}"/>
                                         <td>${stt}</td>
                                         <td>${product.tensp}</td>
-                                        <td><a href="product-detail"><img src="<c:url value='/Front-end/admin/assets/images/ecommerce/product-table-1.png'/>" alt=""></a></td>
+                                        <td><a href="product-detail"><img src="<c:url value='/Front-end/images/product/${product.hinh}'/>" style = "width: 64px; height: 64px" alt=""></a></td>
 <%--                                        <td>--%>
 <%--                                            <h6> Red Lipstick </h6><span>Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens</span>--%>
 <%--                                        </td>--%>

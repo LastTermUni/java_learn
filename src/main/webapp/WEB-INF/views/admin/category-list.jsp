@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Danh sách danh mục</title>
+
 </head>
 <body>
 <div class="page-body">
@@ -43,24 +44,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:set var = "stt" value="0"/>
+                                <c:set var="stt" value="0"/>
                                 <c:forEach var="cate" items="${categoryList}">
                                     <tr>
                                         <td>
-                                            <c:set var = "stt" value="${stt + 1}"/>
-                                            ${stt}
+                                            <c:set var="stt" value="${stt + 1}"/>
+                                                ${stt}
                                         </td>
                                         <td>
                                             <h6>${cate.tenloai}</h6>
                                         </td>
                                         <td>
-                                            <button class="btn btn-danger btn-xs" type="button"
-                                                    data-original-title="btn btn-danger btn-xs" title="">Delete
-                                            </button>
+                                                <%--                                            <button class="btn btn-danger btn-xs" type="button"--%>
+                                                <%--                                                    data-original-title="btn btn-danger btn-xs" title="">Delete--%>
+                                                <%--                                            </button>--%>
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
                                             <c:set var="urlupdate" value="./category-add?id_cate=${cate.id}">
                                             </c:set>
-                                            <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs" type="button"
-                                                    data-original-title="btn btn-danger btn-xs" title="">Edit
+                                            <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"
+                                               type="button"
+                                               data-original-title="btn btn-danger btn-xs" title="">Edit
                                             </a>
                                         </td>
                                     </tr>

@@ -1,4 +1,4 @@
-package com.javalearn.camerastore.controller.api;
+package com.javalearn.camerastore.api;
 
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.service.CategoryService;
