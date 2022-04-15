@@ -165,8 +165,8 @@
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
                                     <a href="javascript:void(0)" class="search-toggle"><i
                                             class="fal fa-search"></i></a>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i
-                                            class="fal fa-shopping-cart"></i><span>2</span></button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" id="openCartList"><i
+                                            class="fal fa-shopping-cart"></i><span id="cartNumber">0</span></button>
                                 </div>
                             </div>
                             <div class="header-bar ml-20 d-lg-none">
@@ -198,7 +198,7 @@
                         </div>
                     </div>
                     <div class="cartmini__list">
-                        <ul>
+                        <ul id="cartList">
                             <li class="cartmini__item p-rel d-flex align-items-start">
                                 <div class="cartmini__thumb mr-15">
                                     <a href="product-details.html">
@@ -374,6 +374,55 @@
     </div>
     <!-- /.copyright area end -->
 </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var urlLocation = window.location.protocol +"//"+window.location.host;
+
+    $(document).ready(function (){
+        //Lấy số sp trong giỏ hàng
+        getNumberCart();
+
+        $('body').on('click', '#openCartList', function (){
+            cartList();
+        })
+    });
+    function cartList(){
+        var html = "";
+        urls = urlLocation + "/cartList/";
+        $.ajax({
+            url : urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function(data)
+            {
+                for(let i =0 ; i<data.length ; i++)
+                {
+                    html += i + ": " + data[i].productRequest.tensp + " x " + data[i].quantity + "<br>";
+                }
+                $('#cartList').html(html);
+            }
+
+        })
+    }
+
+    function getNumberCart(){
+        urls = urlLocation + "/cartList/";
+        $.ajax({
+            url : urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function(data)
+            {
+                $('#cartNumber').html(data.length);
+            }
+
+        })
+    }
+
+</script>
+
 <!-- JS here -->
 <script>
     function toCateWBrand(idCate){

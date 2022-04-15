@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <head>
@@ -42,23 +42,23 @@
     <div id="category-area" class="category__area category__br-tp gray-bg-5">
         <div class="container-fluid">
             <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
-<%--5 ô--%>
+                <%--5 ô--%>
                 <div class="col">
-                <c:forEach var="category" items="${cates}">
-                    <div class="category__item category__br-right fix">
-                        <div class="category__thumb">
-                            <a href="">
-                                <img src="<c:url value='/Front-end/client/img/brand/img.png'/>" alt="">
-                            </a>
-                        </div>
-                        <div class="category__content text-center">
-                            <div class="category__tag mb-10">
-                                <a href=""></a>
+                    <c:forEach var="category" items="${cates}">
+                        <div class="category__item category__br-right fix">
+                            <div class="category__thumb">
+                                <a href="">
+                                    <img src="<c:url value='/Front-end/client/img/brand/img.png'/>" alt="">
+                                </a>
                             </div>
-                            <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>
+                            <div class="category__content text-center">
+                                <div class="category__tag mb-10">
+                                    <a href=""></a>
+                                </div>
+                                <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>
+                            </div>
                         </div>
-                    </div>
-                </c:forEach>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -79,27 +79,29 @@
                 <div class="row pb-20 justify-content-center">
 
                     <c:forEach var="pro" items="${products}">
-                    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp" data-wow-delay=".${pro.id}s"
-                         style="width: calc(23vw - 10px); background-color: #f6f6f6; padding: 3px; margin: 8px;">
-                        <div class="single-product single-product-6" style="border:none" >
-                            <div class="product-thumb">
-                                <a href="/product-detail/${pro.slug}">
-                                    <img src="<c:url value='/Front-end/images/product/sony1.png'/>" style="border-radius:10px " alt="">
-                                </a>
-                                <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Thêm vào giỏ</a>
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp"
+                             data-wow-delay=".${pro.id}s"
+                             style="width: calc(23vw - 10px); background-color: #f6f6f6; padding: 3px; margin: 8px;">
+                            <div class="single-product single-product-6" style="border:none">
+                                <div class="product-thumb">
+                                    <a href="/product-detail/${pro.slug}">
+                                        <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                                             style="border-radius:10px " alt="">
+                                    </a>
+                                    <div class="cart-btn cart-btn-1 p-abs">
+                                        <a type="button" class="cart-item" data-id="${pro.id}">Thêm vào giỏ</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="/product-detail/${slug}">
-                                    ${pro.tensp}
-                                </a></h4>
-                                <div class="pro-price">
-                                    <span>${pro.gia} VNĐ</span>
+                                <div class="product-content">
+                                    <h4 class="pro-title pro-title-1"><a href="/product-detail/${slug}">
+                                            ${pro.tensp}
+                                    </a></h4>
+                                    <div class="pro-price">
+                                        <span>${pro.gia} VNĐ</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
                 <div class="row">
@@ -113,10 +115,35 @@
                 </div>
             </div>
         </div>
-    <!-- border -->
-    <div class="hr-border"></div>
+        <!-- border -->
+        <div class="hr-border"></div>
     </div>
 </main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    var urlLocation = window.location.protocol + "//" + window.location.host;
+    $(document).ready(function () {
+
+        $('body').on('click', '.cart-item', function () {
+            var id = $(this).data('id');
+            addCart(id);
+        })
+    });
+
+
+    function addCart(_id) {
+        urls = urlLocation + "/Cart/" + _id;
+        $.ajax({
+            url: urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data) {
+                $('#cartNumber').html(data);
+            }
+        })
+    }
+</script>
 </body>
 
 </html>
