@@ -81,28 +81,27 @@ public class AdminController {
         return "admin/product-detail";
     }
 
-    @RequestMapping(value = "/product-add", method = RequestMethod.GET)
-    public String productAdd(HttpSession session) {
-        if(session.getAttribute("roleAdmin") == null)
-            return "redirect:login";
-        return "admin/product-add";
-    }
+
 
     //Product edit
-    @GetMapping("/product-edit/{id}")
-    public String productUpdate(@PathVariable long id, Model model, HttpSession session) {
-        if(session.getAttribute("roleAdmin") == null)
-            return "redirect:login";
-        Product product = productRepository.findOneById(id);
-        ModelAndView mav = new ModelAndView("admin/product-edit");
-        ProductRequest productRequest = convertProduct.toRequest(product);
+    @GetMapping("/product-add")
+    public String productUpdate(@RequestParam(value = "id", required = false) Long id, Model model) {
+//        ModelAndView mav = new ModelAndView("admin/product-add");
+        Product product = new Product();
+        ProductRequest productRequest = new ProductRequest();
+        if(id != null)
+        {
+            product = productRepository.findOneById(id);
+            productRequest = convertProduct.toRequest(product);
+        }
+
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
 
         model.addAttribute("product", productRequest);
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("brands", brandService.findAll());
-        return "admin/product-edit";
+        return "admin/product-add";
     }
 
 

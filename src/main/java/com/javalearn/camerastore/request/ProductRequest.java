@@ -13,6 +13,7 @@ public class ProductRequest {
     private String mota;
     private String hinh;
     private double gia;
+    private long soluong;
     private long category;
     private long brand;
     private String slug;

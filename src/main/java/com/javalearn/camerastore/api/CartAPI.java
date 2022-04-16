@@ -89,8 +89,10 @@ public class CartAPI {
         HashMap<Long, Cart> list;
         list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         List<Cart> cartList = new ArrayList<>();
-        for (Map.Entry<Long, Cart> cart : list.entrySet()) {
-            cartList.add(cart.getValue());
+        if(list != null) {
+            for (Map.Entry<Long, Cart> cart : list.entrySet()) {
+                cartList.add(cart.getValue());
+            }
         }
         System.out.println(list);
         return cartList;
