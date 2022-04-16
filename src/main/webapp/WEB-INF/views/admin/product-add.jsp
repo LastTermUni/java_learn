@@ -122,6 +122,7 @@
                             <button class="btn btn-primary" id="add" type="submit">Thêm</button>
                             <input class="btn btn-light" type="reset" value="Discard">
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.util.*;
 
-@Data
+
 @Entity
 @Getter
 @Setter
