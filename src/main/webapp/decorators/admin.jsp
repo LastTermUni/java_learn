@@ -73,7 +73,7 @@
                         </div>
                         <ul class="profile-dropdown onhover-show-div">
                             <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
-                            <li><a href="login"><i data-feather="log-in"> </i><span>Đăng nhập</span></a></li>
+                            <li><a href="./logout"><i data-feather="log-in"> </i><span>Đăng xuất</span></a></li>
                         </ul>
                     </li>
                 </ul>
