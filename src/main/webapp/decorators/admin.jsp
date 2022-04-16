@@ -67,7 +67,7 @@
                     <li class="maximize"><a class="text-dark" href="#" onclick="toggleFullScreen()"><i data-feather="maximize"></i></a></li>
                     <li class="profile-nav onhover-dropdown p-0 me-0">
                         <div class="media profile-media"><img class="b-r-10" src="<c:url value='/Front-end/admin/assets/images/dashboard/profile.jpg'/>" alt="">
-                            <div class="media-body"><span>Emay Walter</span>
+                            <div class="media-body"><span>HyperC</span>
                                 <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
                             </div>
                         </div>

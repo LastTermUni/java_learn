@@ -3,8 +3,11 @@ package com.javalearn.camerastore.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -26,6 +29,12 @@ public class Customer {
     private String SDT;
     @Column(name = "Email")
     private String Email;
+    @CreationTimestamp
+    @Column(name ="created_at", nullable = false, updatable = false)
+    private Date created_at;
 
+    @UpdateTimestamp
+    @Column(name ="updated_at")
+    private Date updated_at;
 
 }

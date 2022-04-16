@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -43,8 +43,9 @@
         <div class="container-fluid">
             <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
                 <%--5 ô--%>
-                <div class="col">
                     <c:forEach var="category" items="${cates}">
+                <div class="col">
+
                         <div class="category__item category__br-right fix">
                             <div class="category__thumb">
                                 <a href="">
@@ -58,8 +59,9 @@
                                 <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>
                             </div>
                         </div>
-                    </c:forEach>
+
                 </div>
+                    </c:forEach>
             </div>
         </div>
     </div>
@@ -85,6 +87,7 @@
                             <div class="single-product single-product-6" style="border:none">
                                 <div class="product-thumb">
                                     <a href="/product-detail/${pro.slug}">
+
                                         <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
                                              style="border-radius:10px " alt="">
                                     </a>

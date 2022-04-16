@@ -123,8 +123,8 @@
                 <div class="row align-items-center align-content-center" style="height: 100%">
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
-                            <div class="logo pl-55 pr-55 d-inline-block " >
-                                <a href="home">
+                            <div class="logo d-inline-block " >
+                                <a href="home" style="width:100%">
                                     <img height="50px " src="<c:url value='/Front-end/images/logo/CameraStore-black.png'/>" alt="#"/>
                                 </a>
                             </div>
@@ -422,8 +422,6 @@
     }
 
 </script>
-
-<!-- JS here -->
 <script>
     function toCateWBrand(idCate){
         let url = window.location.protocol +"//"+window.location.host+"/product";
