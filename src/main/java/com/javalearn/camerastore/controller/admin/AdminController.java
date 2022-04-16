@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -50,10 +51,15 @@ public class AdminController {
     @Autowired
     private AdminRepository adminRepository;
 
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public ModelAndView homePage() {
-        ModelAndView mav = new ModelAndView("admin/dashboard");
-        return mav;
+    public String homePage(HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null){
+            return "redirect:login";
+        }else {
+            return "admin/dashboard";
+        }
+
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -69,27 +75,31 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/product-detail", method = RequestMethod.GET)
-    public ModelAndView productDetail() {
-        ModelAndView mav = new ModelAndView("admin/product-detail");
-        return mav;
+    public String productDetail(HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
+        return "admin/product-detail";
     }
 
     @RequestMapping(value = "/product-add", method = RequestMethod.GET)
-    public ModelAndView productAdd() {
-        ModelAndView mav = new ModelAndView("admin/product-add");
-        return mav;
+    public String productAdd(HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
+        return "admin/product-add";
     }
 
     //Product edit
     @GetMapping("/product-edit/{id}")
-    public String productUpdate(@PathVariable long id, Model model) {
+    public String productUpdate(@PathVariable long id, Model model, HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         Product product = productRepository.findOneById(id);
         ModelAndView mav = new ModelAndView("admin/product-edit");
         ProductRequest productRequest = convertProduct.toRequest(product);
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
 
-        model.addAttribute("product",productRequest);
+        model.addAttribute("product", productRequest);
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("brands", brandService.findAll());
         return "admin/product-edit";
@@ -98,17 +108,19 @@ public class AdminController {
 
     //Product List
     @RequestMapping(value = "/product-list", method = RequestMethod.GET)
-    public ModelAndView productList() {
-        ModelAndView mav = new ModelAndView("admin/product-list");
+    public String productList(Model model, HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
-        mav.addObject("productList", productList);
-        return mav;
+        model.addAttribute("productList", productList);
+        return "admin/product-list";
     }
 
     @RequestMapping(value = "/order-history", method = RequestMethod.GET)
-    public ModelAndView orderHistory() {
-        ModelAndView mav = new ModelAndView("admin/order-history");
-        return mav;
+    public String orderHistory(HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
+        return "admin/order-history";
     }
 
     @RequestMapping(value = "/404", method = RequestMethod.GET)
@@ -118,52 +130,62 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
         AdminEntity adminEntity = adminRepository.getUserByUsername(username);
         if (adminEntity.getPassword().equals(password)) {
+            session.setAttribute("roleAdmin", adminEntity.getUsername());
             return "redirect:dashboard";
         } else
             return "redirect:login";
     }
 
 
-
     @GetMapping("/categories-list")
-    public ModelAndView categoryList(){
-        ModelAndView mav = new ModelAndView("admin/category-list");
+    public String categoryList(HttpSession session, Model model) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         List<Category> category = categoryRepository.findAll();
-        mav.addObject("categoryList", category);
-        return mav;
+        model.addAttribute("categoryList", category);
+        return "admin/category-list";
     }
 
     @GetMapping("/category-add")
-    public ModelAndView categoryAdd(@RequestParam(value = "id_cate",required = false) Long id_cate){
-        ModelAndView mav = new ModelAndView("admin/category-add");
+    public String categoryAdd(@RequestParam(value = "id_cate", required = false) Long id_cate, Model model, HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         Category category = new Category();
-        if(id_cate != null){
+        if (id_cate != null) {
             category = categoryRepository.findOneById(id_cate);
         }
-        mav.addObject("category", category);
-        return mav;
+        model.addAttribute("category", category);
+        return "admin/category-add";
     }
 
     @GetMapping("/brand-list")
-    public ModelAndView brandList(){
-        ModelAndView mav = new ModelAndView("admin/brand-list");
+    public String brandList(HttpSession session, Model model) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         List<Brand> brands = brandRepository.findAll();
-        mav.addObject("brandList", brands);
-        return mav;
+        model.addAttribute("brandList", brands);
+        return "admin/brand-list";
     }
 
     @GetMapping("/brand-add")
-    public ModelAndView brandAdd(@RequestParam(value = "id_brand",required = false) Long id_brand){
-        ModelAndView mav = new ModelAndView("admin/brand-add");
+    public String brandAdd(@RequestParam(value = "id_brand", required = false) Long id_brand, HttpSession session, Model model) {
+        if(session.getAttribute("roleAdmin") == null)
+            return "redirect:login";
         Brand brand = new Brand();
-        if(id_brand != null){
+        if (id_brand != null) {
             brand = brandRepository.findOneById(id_brand);
         }
-        mav.addObject("brand", brand);
-        return mav;
+        model.addAttribute("brand", brand);
+        return "admin/brand-add";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("roleAdmin");
+        return "redirect:login";
     }
 
 }
