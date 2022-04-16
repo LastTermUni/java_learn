@@ -74,25 +74,31 @@ public class AdminController {
         return mav;
     }
 
-    @RequestMapping(value = "/product-add", method = RequestMethod.GET)
-    public ModelAndView productAdd() {
-        ModelAndView mav = new ModelAndView("admin/product-add");
-        return mav;
-    }
+//    @RequestMapping(value = "/product-add", method = RequestMethod.GET)
+//    public ModelAndView productAdd(@RequestParam(value = "id", required = false)Long id) {
+//        ModelAndView mav = new ModelAndView("admin/product-add");
+//        return mav;
+//    }
 
     //Product edit
-    @GetMapping("/product-edit/{id}")
-    public String productUpdate(@PathVariable long id, Model model) {
-        Product product = productRepository.findOneById(id);
-        ModelAndView mav = new ModelAndView("admin/product-edit");
-        ProductRequest productRequest = convertProduct.toRequest(product);
+    @GetMapping("/product-add")
+    public String productUpdate(@RequestParam(value = "id", required = false) Long id, Model model) {
+//        ModelAndView mav = new ModelAndView("admin/product-add");
+        Product product = new Product();
+        ProductRequest productRequest = new ProductRequest();
+        if(id != null)
+        {
+            product = productRepository.findOneById(id);
+            productRequest = convertProduct.toRequest(product);
+        }
+
 //        mav.addObject("categories", categories);
 //        mav.addObject("product", productRequest);
 
         model.addAttribute("product",productRequest);
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("brands", brandService.findAll());
-        return "admin/product-edit";
+        return "admin/product-add";
     }
 
 
