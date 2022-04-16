@@ -141,12 +141,7 @@ public class ProductAPI {
         // path
         String dirName = "/Front-end/images/product";
 
-        // path mà để run app (folder target) , lấy mục resource ( /Front-end )
         String absolutePath = request.getServletContext().getRealPath(dirName);
-
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-        Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
-
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
