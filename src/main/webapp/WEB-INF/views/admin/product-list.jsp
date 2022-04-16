@@ -60,7 +60,8 @@
 <%--                                        <td>2011/04/25</td>--%>
                                         <td>
                                             <button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Delete</button>
-                                            <a href="<c:url value='./product-edit/${product.id}'/>" class="btn btn-success btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Edit</a>
+                                            <c:set var="urlupdate" value="./product-add?id=${product.id}"/>
+                                            <a href="<c:url value='${urlupdate}'/>" class="btn btn-success btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

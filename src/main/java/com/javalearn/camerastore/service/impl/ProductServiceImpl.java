@@ -33,9 +33,14 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         Category category = categoryRepository.findOneById(productRequest.getCategory());
         Brand brand = brandRepository.findOneById(productRequest.getBrand());
+        if(productRequest.getId() != 0)
+        {
+            product.setId(productRequest.getId());
+        }
         product.setTensp(productRequest.getTensp());
         product.setMota(productRequest.getMota());
         product.setGia(productRequest.getGia());
+        product.setSoluong(productRequest.getSoluong());
         product.setHinh(productRequest.getHinh());
         product.setSlug(productRequest.getSlug());
         product.setStatus(productRequest.getStatus());
@@ -54,6 +59,7 @@ public class ProductServiceImpl implements ProductService {
         products.setTensp(productRequest.getTensp());
         products.setMota(productRequest.getMota());
         products.setGia(productRequest.getGia());
+        products.setSoluong(productRequest.getSoluong());
         products.setHinh(productRequest.getHinh());
         products.setSlug(productRequest.getSlug());
         products.setStatus(productRequest.getStatus());

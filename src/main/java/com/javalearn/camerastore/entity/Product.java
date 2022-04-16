@@ -31,6 +31,9 @@ public class Product {
     @Column(name ="hinh")
     private String hinh;
 
+    @Column(name ="soluong")
+    private long soluong;
+
     @Column(name ="gia")
     private double gia;
 

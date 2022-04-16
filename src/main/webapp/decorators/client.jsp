@@ -199,29 +199,30 @@
                     </div>
                     <div class="cartmini__list">
                         <ul id="cartList">
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Walnut Base</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $70.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
+                            <li>Giỏ hàng trống</li>
+<%--                            <li class="cartmini__item p-rel d-flex align-items-start">--%>
+<%--                                <div class="cartmini__thumb mr-15">--%>
+<%--                                    <a href="product-details.html">--%>
+<%--                                        <img src="<c:url value='/Front-end/client/img/products/product-1.jpg'/>" alt="">--%>
+<%--                                    </a>--%>
+<%--                                </div>--%>
+<%--                                <div class="cartmini__content">--%>
+<%--                                    <h3 class="cartmini__title">--%>
+<%--                                        <a href="product-details.html">Form Armchair Walnut Base</a>--%>
+<%--                                    </h3>--%>
+<%--                                    <span class="cartmini__price">--%>
+<%--                                        <span class="price">1 × $70.00</span>--%>
+<%--                                    </span>--%>
+<%--                                </div>--%>
+<%--                                <a href="#" class="cartmini__remove">--%>
+<%--                                    <i class="fal fa-times"></i>--%>
+<%--                                </a>--%>
+<%--                            </li>--%>
                         </ul>
                     </div>
                     <div class="cartmini__total d-flex align-items-center justify-content-between">
                         <h5>Tổng cộng:</h5>
-                        <span>$180.00</span>
+                        <span id="ttPrice"></span>
                     </div>
                     <div class="cartmini__bottom">
                         <a href="cart" class="s-btn w-100 mb-20">Chi tiết giỏ hàng</a>
@@ -396,11 +397,32 @@
             dataType: 'json',
             success:function(data)
             {
+                var totalPrice = 0;
                 for(let i =0 ; i<data.length ; i++)
                 {
-                    html += i + ": " + data[i].productRequest.tensp + " x " + data[i].quantity + "<br>";
+                    html += "<li class='cartmini__item p-rel d-flex align-items-start'>"
+                    html += "<div class='cartmini__thumb mr-15'>"
+                    html += "<a href='product-details.html'>"
+                    html += "<img src='/Front-end/images/product/" + data[i].productRequest.hinh + "' alt=''>"
+                    html += "</a>"
+                    html += "</div>"
+                    html += "<div class='cartmini__content'>"
+                    html += "<h3 class='cartmini__title'>"
+                    html += "<a href='product-details.html'>" + data[i].productRequest.tensp + "</a>"
+                    html += "</h3>"
+                    html += "<span class='cartmini__price'>"
+                    html += "<span class='price'>" + data[i].quantity + " × " + data[i].productRequest.gia + " VNĐ</span>"
+                    html += "</span>"
+                    html += "</div>"
+                    html += "<a href='#' class='cartmini__remove'>"
+                    html += "<i class='fal fa-times'></i>"
+                    html += "</a>"
+                    html += "</li>"
+                    // html += i + ": " + data[i].productRequest.tensp + " x " + data[i].quantity + "<br>";
+                    totalPrice += data[i].quantity * data[i].productRequest.gia;
                 }
                 $('#cartList').html(html);
+                $('#ttPrice').html(totalPrice +" VNĐ")
             }
 
         })
@@ -420,6 +442,7 @@
 
         })
     }
+
 
 </script>
 <script>
