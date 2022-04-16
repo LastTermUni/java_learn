@@ -28,7 +28,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Objects;
 
-
 @RestController
 @RequestMapping("/admin")
 public class ProductAPI {
@@ -78,11 +77,10 @@ public class ProductAPI {
     }
 
     @GetMapping("/brandList")
-    public List<Brand> getBrand()  {
+    public List<Brand> getBrand() {
 
         return brandService.getBrands();
     }
-
 
     @PostMapping(value = "/product")
     public ResponseEntity<ProductRequest> addProduct(@RequestBody ProductRequest productRequest) {
@@ -97,54 +95,14 @@ public class ProductAPI {
     }
 
     @PostMapping("/upload")
-    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws URISyntaxException, IOException {
+    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request)
+            throws URISyntaxException, IOException {
 
-
-
-        //path
+        // path
         String dirName = "/Front-end/images/product";
 
-        //path mà đề run app (folder target) , lấy mục resource ( /Front-end ở trên )
+        // path mà để run app (folder target) , lấy mục resource ( /Front-end )
         String absolutePath = request.getServletContext().getRealPath(dirName);
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
-        Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
-
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-        try (InputStream inputStream = file.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            System.out.println(filePath);
-          Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ioe) {
-            throw new IOException("Could not save image file: " + fileName, ioe);
-        }
-
-//        String url = "D:\\java project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
-//
-////        String url = path + "/uploads";
-//        System.out.println(url);
-//        Path pathImage = Paths.get(url, file.getOriginalFilename());
-////        Path pathImages = Paths.get(url, file.getOriginalFilename());
-//        try {
-//            Files.copy(file.getInputStream(), pathImage, StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        return "product-list";
-    }
-
-
-    //upload wth edit
-    @PostMapping("/upload/{id}")
-    public String uspload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws URISyntaxException, IOException {
-
-        //path
-        String dirName = "/Front-end/images/product";
-
-        //path mà đề run app (folder target) , lấy mục resource ( /Front-end ở trên )
-        String absolutePath = request.getServletContext().getRealPath(dirName);
-
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
         Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
 
@@ -159,44 +117,77 @@ public class ProductAPI {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
 
-
-
-//        String path = (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-//        if (path.endsWith(".jar") || path.endsWith(".war") || path.endsWith("classes/")) {
-//            // Chạy bằng tomcat (đã packaged)
-//            if (path.lastIndexOf("/target/") > 0) {
-//                // Chạy ở local
-//                path = path.substring(0, path.lastIndexOf("/target/"));
-//            } else {
-//                // Chạy ở server
-//                path = Paths.get(path).getParent().toString();
-//            }
-//        } else {
-//           // Chạy bằng IntellJ IDEA
-//            path = System.getProperty("user.dir");
-//        }
-//        String url = "C:\\Users\\VIET TIEN\\Desktop\\Java Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
-
-//        String url = path + "/uploads";
-//        System.out.println(url);
-//        Path pathImage = Paths.get(url, file.getOriginalFilename());
-//        Path pathImages = Paths.get(url, file.getOriginalFilename());
-//        try {
-//            Files.copy(file.getInputStream(), pathImage, StandardCopyOption.REPLACE_EXISTING);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        // String url = "D:\\java
+        // project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
+        //
+        //// String url = path + "/uploads";
+        // System.out.println(url);
+        // Path pathImage = Paths.get(url, file.getOriginalFilename());
+        //// Path pathImages = Paths.get(url, file.getOriginalFilename());
+        // try {
+        // Files.copy(file.getInputStream(), pathImage,
+        // StandardCopyOption.REPLACE_EXISTING);
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
         return "product-list";
     }
 
+    // upload wth edit
+    @PostMapping("/upload/{id}")
+    public String uspload(@RequestParam("file") MultipartFile file, HttpServletRequest request)
+            throws URISyntaxException, IOException {
 
+        // path
+        String dirName = "/Front-end/images/product";
 
+        String absolutePath = request.getServletContext().getRealPath(dirName);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try (InputStream inputStream = file.getInputStream()) {
+            Path filePath = uploadPath.resolve(fileName);
+            System.out.println(filePath);
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + fileName, ioe);
+        }
+
+        // String path =
+        // (ProductAPI.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+        // if (path.endsWith(".jar") || path.endsWith(".war") ||
+        // path.endsWith("classes/")) {
+        // // Chạy bằng tomcat (đã packaged)
+        // if (path.lastIndexOf("/target/") > 0) {
+        // // Chạy ở local
+        // path = path.substring(0, path.lastIndexOf("/target/"));
+        // } else {
+        // // Chạy ở server
+        // path = Paths.get(path).getParent().toString();
+        // }
+        // } else {
+        // // Chạy bằng IntellJ IDEA
+        // path = System.getProperty("user.dir");
+        // }
+        // String url = "C:\\Users\\VIET TIEN\\Desktop\\Java
+        // Project\\java_learn\\src\\main\\webapp\\Front-end\\images\\product";
+
+        // String url = path + "/uploads";
+        // System.out.println(url);
+        // Path pathImage = Paths.get(url, file.getOriginalFilename());
+        // Path pathImages = Paths.get(url, file.getOriginalFilename());
+        // try {
+        // Files.copy(file.getInputStream(), pathImage,
+        // StandardCopyOption.REPLACE_EXISTING);
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
+        return "product-list";
+    }
 
     @GetMapping("/product")
     public List<Product> getProduct() {
         return productService.getProduct();
     }
-
-
 
 }
