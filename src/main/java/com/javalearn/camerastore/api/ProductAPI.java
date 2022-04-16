@@ -142,6 +142,9 @@ public class ProductAPI {
         String dirName = "/Front-end/images/product";
 
         String absolutePath = request.getServletContext().getRealPath(dirName);
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+        Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
+
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
