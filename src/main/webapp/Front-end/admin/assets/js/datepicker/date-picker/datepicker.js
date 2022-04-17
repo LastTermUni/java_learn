@@ -16,7 +16,7 @@
             inline: false,
             language: 'ru',
             startDate: new Date(),
-            firstDay: '',
+            firstDay: 1,
             weekends: [6, 0],
             dateFormat: '',
             altField: '',

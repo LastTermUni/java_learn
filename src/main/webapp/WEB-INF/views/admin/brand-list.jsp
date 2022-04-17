@@ -33,7 +33,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive product-table">
-                            <table class="display" id="basic-1">
+                            <table class="display" style="width: 100%;">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
