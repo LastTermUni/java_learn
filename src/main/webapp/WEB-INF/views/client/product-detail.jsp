@@ -37,7 +37,7 @@
 <%--              xuất nhiều hình--%>
               <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6 col-sm-6">
                 <div class="product-thumb-grid w-img">
-                  <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                  <img src="<c:url value='/Front-end/images/product/${products.hinh}'/>"
                        alt="">
                 </div>
               </div>

@@ -88,7 +88,7 @@
                                 <div class="product-thumb">
                                     <a href="/product-detail/${pro.slug}">
 
-                                        <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                                        <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"
                                              style="border-radius:10px " alt="">
                                     </a>
                                     <div class="cart-btn cart-btn-1 p-abs">
