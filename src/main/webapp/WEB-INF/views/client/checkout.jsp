@@ -118,7 +118,7 @@
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ <span class="required">*</span></label>
                                         <form action="./pay" method="post" id="formpay">
-                                        <input id = "address" name="address" type="text" placeholder="Địa chỉ ..." value="Ngon"/>
+                                        <input id = "address" name="address" type="text" placeholder="Địa chỉ ..." />
                                         </form>
                                     </div>
                                 </div>
@@ -220,15 +220,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function (){
-        const address = $("#address").val();
+
         $("body").on("click", "#thanhtoan", function (){
-           // if(address === ""){
-           //     alert("Vui lòng nhập địa chỉ!!");
-           // }
-           // else {
-           //     checkout(address);
-           // }
-            document.getElementById("formpay").submit();
+            var address = $("#address").val();
+           if(address !== ""){
+               document.getElementById("formpay").submit();
+           }
+           else {
+               alert("Vui lòng nhập địa chỉ!!");
+           }
         });
     });
     function checkout(address){
