@@ -90,7 +90,7 @@
     <!-- checkout-area start -->
     <section class="checkout-area pb-70">
         <div class="container">
-            <form action="#">
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkbox-form">
@@ -117,7 +117,9 @@
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Địa chỉ <span class="required">*</span></label>
-                                        <input type="text" placeholder="Địa chỉ ..." value=""/>
+                                        <form action="./pay" method="post" id="formpay">
+                                        <input id = "address" name="address" type="text" placeholder="Địa chỉ ..." value="Ngon"/>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +204,7 @@
                                     </div>
                                 </div>
                                 <div class="order-button-payment mt-20">
-                                    <button type="submit" class="s-btn s-btn-2">Thanh Toán</button>
+                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +216,37 @@
     <!-- checkout-area end -->
 
 
-
 </main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function (){
+        const address = $("#address").val();
+        $("body").on("click", "#thanhtoan", function (){
+           // if(address === ""){
+           //     alert("Vui lòng nhập địa chỉ!!");
+           // }
+           // else {
+           //     checkout(address);
+           // }
+            document.getElementById("formpay").submit();
+        });
+    });
+    function checkout(address){
+        urls = urlLocation + "/pay/";
+        var formData = {
+            address:address
+        }
+        $.ajax({
+            url:urls,
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(formData),
+            success:function (data){
+
+            }
+        })
+    }
+</script>
 </body>
 </html>

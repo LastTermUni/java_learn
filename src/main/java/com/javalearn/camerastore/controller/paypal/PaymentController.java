@@ -12,32 +12,39 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 @Controller
 public class PaymentController {
     public static final String URL_PAYPAL_SUCCESS = "pay/success";
     public static final String URL_PAYPAL_CANCEL = "pay/cancel";
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private PaypalService paypalService;
 
-    @GetMapping("/payment")
-    public String index(){
-        return "paypal/paypal";
-    }
 
     //Hàm này dùng để khởi tạo links tới server paypal
     @PostMapping("/pay")
-    public String pay(HttpServletRequest request, @RequestParam("price") String price ){
+    public String pay(HttpServletRequest request, @RequestParam("address") String address, HttpSession session){
         String cancelUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_CANCEL;
         String successUrl = Utils.getBaseURL(request) + "/" + URL_PAYPAL_SUCCESS;
-        price = price.replace(".",",");
+        double price = (double) session.getAttribute("totalPrice");
+        price = price/23000;
+        price = new BigDecimal(price).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        String priceUSD = String.valueOf(price);
+        session.setAttribute("address", address);
+
         try {
             Payment payment = paypalService.createPayment(
-                    price,
+                    priceUSD,
                     "USD",
                     "paypal",
                     "sale",
@@ -52,7 +59,7 @@ public class PaymentController {
         } catch (PayPalRESTException e) {
             log.error(e.getMessage());
         }
-        return "redirect:/payment";
+        return "redirect:/checkout";
     }
 
     //Page cancel khi thanh toán lỗi

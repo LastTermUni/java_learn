@@ -104,6 +104,8 @@ public class CartAPI {
         list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         list.remove(id);
         session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
 
         return "success";
     }
@@ -131,6 +133,8 @@ public class CartAPI {
             list.get(id).setQuantity(list.get(id).getQuantity()-1);
         }
         session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
         return "Success";
     }
 
@@ -140,6 +144,8 @@ public class CartAPI {
         HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         list.get(id).setQuantity(list.get(id).getQuantity()+1);
         session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
         return "Success";
     }
 
