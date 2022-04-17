@@ -125,8 +125,10 @@ public class ProductAPI {
             Path filePathPrj = uploadPathPrj.resolve(fileName);
             System.out.println(filePath);
             System.out.println(filePathPrj);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
             Files.copy(inputStream, filePathPrj, StandardCopyOption.REPLACE_EXISTING);
+            InputStream inputStreams = file.getInputStream();
+            Files.copy(inputStreams, filePath, StandardCopyOption.REPLACE_EXISTING);
+
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
@@ -173,8 +175,9 @@ public class ProductAPI {
             Path filePathPrj = uploadPathPrj.resolve(fileName);
             System.out.println(filePath);
             System.out.println(filePathPrj);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
             Files.copy(inputStream, filePathPrj, StandardCopyOption.REPLACE_EXISTING);
+            InputStream inputStreams = file.getInputStream();
+            Files.copy(inputStreams, filePath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }

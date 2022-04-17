@@ -68,11 +68,7 @@ public class AdminController {
 //        return mav;
 //    }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView register() {
-        ModelAndView mav = new ModelAndView("admin/register");
-        return mav;
-    }
+
 
     @RequestMapping(value = "/product-detail", method = RequestMethod.GET)
     public String productDetail(HttpSession session) {

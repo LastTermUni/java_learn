@@ -35,5 +35,10 @@ public class LoginController {
         } else
             return "redirect:loginadmin";
     }
+    @RequestMapping(value = "registeradmin", method = RequestMethod.GET)
+    public ModelAndView register() {
+        ModelAndView mav = new ModelAndView("login/register");
+        return mav;
+    }
 
 }
