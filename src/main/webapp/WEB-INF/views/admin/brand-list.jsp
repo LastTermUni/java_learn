@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a><i data-feather="home"></i></a></li>
                         <li class="breadcrumb-item">Thương hiệu</li>
                         <li class="breadcrumb-item active">Danh sách</li>
                     </ol>
@@ -34,17 +34,18 @@
                     <div class="card-body">
                         <div class="table-responsive product-table">
                             <table class="display" style="width: 100%;">
-                                <thead>
-                                <tr>
+                                <thead style="border-bottom: 1px solid black;">
+                                <tr >
                                     <th>STT</th>
                                     <th>Danh mục</th>
+                                    <th>Trạng thái</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody >
                                 <c:set var="stt" value="0"/>
                                 <c:forEach var="brand" items="${brandList}">
-                                    <tr>
+                                    <tr style="margin-top: 5px">
                                         <td>
                                             <c:set var="stt" value="${stt + 1}"/>
                                                 ${stt}
@@ -53,10 +54,6 @@
                                             <h6>${brand.tenthuonghieu}</h6>
                                         </td>
                                         <td>
-
-                                                <%--                                            <button class="btn btn-danger btn-xs" type="button"--%>
-                                                <%--                                                    data-original-title="btn btn-danger btn-xs" title="">Delete--%>
-                                                <%--                                            </button>--%>
                                             <label class="switch">
                                                 <c:choose >
                                                     <c:when test="${brand.status == 1}">
@@ -68,10 +65,16 @@
 
                                                 </c:choose>
 
-
                                                     <%--                                                        <input class="changeStatus" data-id="@item.id" data-controller="Movie" type="checkbox" unchecked>--%>
                                                 <span class="slider round"></span>
                                             </label>
+                                        </td>
+                                        <td>
+
+                                                  <button class="btn btn-danger btn-xs" type="button"
+                                                       data-original-title="btn btn-danger btn-xs" title="">Delete
+                                                    </button>
+
                                             <c:set var="urlupdate" value="./brand-add?id_brand=${brand.id}">
                                             </c:set>
                                             <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"

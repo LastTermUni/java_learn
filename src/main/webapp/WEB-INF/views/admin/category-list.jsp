@@ -16,9 +16,9 @@
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a ><i data-feather="home"></i></a></li>
                         <li class="breadcrumb-item">Danh mục</li>
-                        <li class="breadcrumb-item active">Danh sách</li>
+                        <li class="breadcrumb-item active">Danh sách loại</li>
                     </ol>
                 </div>
             </div>
@@ -37,6 +37,7 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Danh mục</th>
+                                    <th>Trạng thái</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -52,9 +53,6 @@
                                             <h6>${cate.tenloai}</h6>
                                         </td>
                                         <td>
-                                                <%--                                            <button class="btn btn-danger btn-xs" type="button"--%>
-                                                <%--                                                    data-original-title="btn btn-danger btn-xs" title="">Delete--%>
-                                                <%--                                            </button>--%>
                                             <label class="switch">
                                                 <c:choose>
                                                     <c:when test="${cate.status == 1}">
@@ -72,6 +70,12 @@
                                                     <%--                                                        <input class="changeStatus" data-id="@item.id" data-controller="Movie" type="checkbox" unchecked>--%>
                                                 <span class="slider round"></span>
                                             </label>
+                                        </td>
+                                        <td>
+                                                <button class="btn btn-danger btn-xs" type="button"
+                                                 data-original-title="btn btn-danger btn-xs" title="">Delete
+                                                 </button>
+
                                             <c:set var="urlupdate" value="./category-add?id_cate=${cate.id}">
                                             </c:set>
                                             <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"

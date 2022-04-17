@@ -198,11 +198,11 @@
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.en.js'/>"></script>
 <%--<script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.custom.js'/>"></script>--%>
-<script src="<c:url value='/Front-end/admin/assets/js/typeahead/handlebars.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/typeahead/typeahead.bundle.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/typeahead/typeahead.custom.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/typeahead-search/handlebars.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/typeahead-search/typeahead-custom.js'/>"></script>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/typeahead/handlebars.js'/>"></script>--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/typeahead/typeahead.bundle.js'/>"></script>--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/typeahead/typeahead.custom.js'/>"></script>--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/typeahead-search/handlebars.js'/>"></script>--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/typeahead-search/typeahead-custom.js'/>"></script>--%>
 <script src="<c:url value='/Front-end/admin/assets/js/tooltip-init.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/rating/jquery.barrating.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/rating/rating-script.js'/>"></script>
