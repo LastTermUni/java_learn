@@ -124,7 +124,9 @@ public class HomeController {
 
     //thanh toán
     @RequestMapping(value = "checkout", method = RequestMethod.GET)
-    public ModelAndView checkout() {
+    public ModelAndView checkout(HttpSession session) {
+
+
         return new ModelAndView("client/checkout");
     }
 

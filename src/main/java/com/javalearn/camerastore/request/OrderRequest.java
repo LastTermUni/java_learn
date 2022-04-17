@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class OrderRequest {
     private Long madh;
-    private Long MaKH;
+    private Long makh;
     private String diachi;
     private double tongtien;
     private Long status;
