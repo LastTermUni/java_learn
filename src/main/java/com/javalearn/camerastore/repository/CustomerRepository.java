@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
@@ -13,5 +14,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query("SELECT v FROM Customer v where v.Email = :email")
     Customer findCustomerByEmail(String email);
+
+//    @Query("SELECT a FROM Customer a where a.MaKH = :id")
+//    Customer findCustomerByMaKH(Long id);
 
 }

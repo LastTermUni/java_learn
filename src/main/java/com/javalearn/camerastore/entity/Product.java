@@ -1,5 +1,7 @@
 package com.javalearn.camerastore.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +46,10 @@ public class Product {
     @ManyToOne
     @JoinColumn(name ="mathuonghieu", nullable = false)
     private Brand brand;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<OrderDetails> orderDetails = new ArrayList<>();
 
     @Column(name ="slug")
     private String slug;
