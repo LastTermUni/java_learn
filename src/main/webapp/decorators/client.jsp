@@ -389,9 +389,9 @@
 
         $('body').on('click', '.cartmini__remove', function (){
             var id = $(this).data('id')
-            removeCart(id)
-            cartList()
-            getNumberCart()
+            setTimeout(removeCart(id),200)
+            setTimeout(cartList,100)
+            setTimeout(getNumberCart,100)
         })
     });
     function cartList(){
@@ -445,7 +445,6 @@
             dataType: 'json',
             success:function (data)
             {
-                cartList();
             }
 
         })
