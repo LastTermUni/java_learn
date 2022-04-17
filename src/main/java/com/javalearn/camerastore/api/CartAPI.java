@@ -104,8 +104,49 @@ public class CartAPI {
         list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         list.remove(id);
         session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
 
         return "success";
+    }
+
+
+    @GetMapping(value = "updateQuantity/{id}")
+    public String updateQuantity(HttpSession session, @RequestParam("quantity")int quantity, @PathVariable long id)
+    {
+        HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+        list.get(id).setQuantity(quantity);
+        session.setAttribute("cartList", list);
+        return "Success";
+    }
+
+
+    @GetMapping(value = "minusCart/{id}")
+    public String minusCart(HttpSession session, @PathVariable long id)
+    {
+        HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+        if(list.get(id).getQuantity() == 1)
+        {
+            list.remove(id);
+        }
+        else {
+            list.get(id).setQuantity(list.get(id).getQuantity()-1);
+        }
+        session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
+        return "Success";
+    }
+
+    @GetMapping(value = "plusCart/{id}")
+    public String plusCart(HttpSession session, @PathVariable long id)
+    {
+        HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+        list.get(id).setQuantity(list.get(id).getQuantity()+1);
+        session.setAttribute("cartList", list);
+        session.setAttribute("totalPrice", totalPrice(list));
+        session.setAttribute("cartNum", list.size());
+        return "Success";
     }
 
 

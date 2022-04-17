@@ -79,9 +79,9 @@
 <%--                                        <button class="s-btn s-btn-2" name="apply_coupon" type="submit">Apply--%>
 <%--                                            coupon</button>--%>
 <%--                                    </div>--%>
-                                    <div class="coupon2">
-                                        <button class="s-btn s-btn-2" name="update_cart" type="submit">Cập nhật </button>
-                                    </div>
+<%--                                    <div class="coupon2">--%>
+<%--                                        <button class="s-btn s-btn-2" name="update_cart" type="submit">Cập nhật </button>--%>
+<%--                                    </div>--%>
                                 </div>
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                                     <h2>Cart totals</h2>
                                     <ul class="mb-20">
 <%--                                        <li>Subtotal <span>$250.00</span></li>--%>
-                                        <li>Tổng giá: <span>$250.00</span></li>
+                                        <li>Tổng giá: <span id="totalPrice" style="font-weight: bold">0 VNĐ</span></li>
                                     </ul>
-                                    <a class="s-btn s-btn-2" href="checkout.html">Thanh toán</a>
+                                    <a class="s-btn s-btn-2" href="/checkout">Tiến hành đặt hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -108,6 +108,7 @@
 
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
     $(document).ready(function (){
@@ -118,6 +119,28 @@
             setTimeout(listInCartPage,100);
             setTimeout(getNumberCart,100);
         });
+        //
+        // $(".numberPro").change(function(){
+        //     const id = $(this).data('id');
+        //     const quantity = $(this).val();
+        //     updateCart(id, quantity);
+        //     setTimeout(listInCartPage,100);
+        //     setTimeout(getNumberCart,100);
+        // })
+
+        $('body').on('click', '.dec',function (){
+            const id = $(this).data('id');
+            setTimeout(minusCart(id),200);
+            setTimeout(listInCartPage,100);
+            setTimeout(getNumberCart,100);
+        })
+
+        $('body').on('click', '.inc',function (){
+            const id = $(this).data('id');
+            setTimeout(plusCart(id),200);
+            setTimeout(listInCartPage,100);
+            setTimeout(getNumberCart,100);
+        })
     });
 
     function listInCartPage(){
@@ -138,22 +161,74 @@
                     html += "<td class='product-name'><a href='product-details.html'> "+ data[i].productRequest.tensp +"</a></td>"
                     html += "<td class='product-price'><span class='amount'>"+ data[i].productRequest.gia +"</span></td>"
                     html += "<td class='product-quantity'>"
-                    html += "<div class='cart-plus-minus'><input type='text' value='"+ data[i].quantity +"' />" +
-                        "<div class='dec qtybutton'>-</div>" +
-                        "<div class='inc qtybutton'>+</div>" +
+                    html += "<div class='cart-plus-minus'><input type='text' data-id='"+ data[i].productRequest.id + "' class='numberPro' value='"+ data[i].quantity +"' readonly/>" +
+                        "<div class='dec qtybutton' data-id = '"+data[i].productRequest.id+"'>-</div>" +
+                        "<div class='inc qtybutton' data-id = '"+data[i].productRequest.id+"' >+</div>" +
                         "</div>"
                     html += "</td>"
                     const dongia = data[i].productRequest.gia*data[i].quantity;
-                    html += "<td class='product-subtotal'><span class='amount'>"+ dongia +"</span></td>"
+                    html += "<td class='product-subtotal'><span class='amount'>"+ dongia +" VNĐ</span></td>"
                     html += "<td  class='product-remove'><a data-id = '"+data[i].productRequest.id+"' class = 'removeCartInPage' ><i  class='fa fa-times'></i></a></td>"
-
+                    totalPrice+= dongia
                 }
 
                 $('#listCart').html(html);
+                $('#totalPrice').html(totalPrice + " VNĐ")
             }
 
         })
     }
+
+    //plus
+    function plusCart(id)
+    {
+        urls = urlLocation + "/plusCart/"+ id;
+        $.ajax({
+            url: urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function (data)
+            {
+
+            }
+        })
+    }
+
+    //minus
+    function minusCart(id)
+    {
+        urls = urlLocation + "/minusCart/"+ id;
+        $.ajax({
+            url: urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function (data)
+            {
+
+            }
+        })
+    }
+
+    // //change input
+    // function updateCart(id, quantity)
+    // {
+    //     urls = urlLocation + "/updateQuantity/"+ id;
+    //     $.ajax({
+    //         url: urls,
+    //         type: 'GET',
+    //         contentType: 'application/json',
+    //         dataType: 'json',
+    //         data:{
+    //             quantity : quantity
+    //         },
+    //         success:function (data)
+    //         {
+    //
+    //         }
+    //     })
+    // }
 
 
 

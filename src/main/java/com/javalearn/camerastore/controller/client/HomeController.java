@@ -6,11 +6,13 @@ import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.CustomerRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
+import com.javalearn.camerastore.request.Cart;
 import com.javalearn.camerastore.service.CategoryService;
 import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
@@ -19,8 +21,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/")
@@ -124,10 +125,28 @@ public class HomeController {
 
     //thanh toán
     @RequestMapping(value = "checkout", method = RequestMethod.GET)
-    public ModelAndView checkout(HttpSession session) {
+    public String checkout(HttpSession session, Model model) {
+        if(session.getAttribute("customer") == null){
+            return "redirect:login";
+        }
+        String email = (String) session.getAttribute("email");
+        Customer customer = customerRepository.findCustomerByEmail(email);
 
+        HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+        List<Cart> cartList = new ArrayList<>();
+        if(list != null) {
+            for (Map.Entry<Long, Cart> cart : list.entrySet()) {
+                cartList.add(cart.getValue());
+            }
+        }
+        double totalPrice = (double) session.getAttribute("totalPrice");
+        model.addAttribute("tenKH", customer.getTenKH());
+        model.addAttribute("SDT", customer.getSDT());
+        model.addAttribute("Email", customer.getEmail());
+        model.addAttribute("cartList", cartList);
+        model.addAttribute("totalPrice", totalPrice );
 
-        return new ModelAndView("client/checkout");
+        return "client/checkout";
     }
 
 
@@ -160,7 +179,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@RequestParam("username") String username, @RequestParam("password") String password)
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session)
     {
         Customer customer = customerRepository.findCustomerByUsername(username);
         if(customer == null || password == null)
@@ -170,6 +189,8 @@ public class HomeController {
         else {
             if(customer.getPassword().equals(password))
             {
+                session.setAttribute("customer", customer.getMaKH());
+                session.setAttribute("email", customer.getEmail());
                 System.out.println("Login success!");
                 return "redirect:home";
             }
