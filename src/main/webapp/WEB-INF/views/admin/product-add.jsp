@@ -134,30 +134,28 @@
             document.getElementById("add").innerHTML = "Cập nhật";
 
         $('body').on('click', '#add', function () {
-            required();
-            var names = $("#tensp").val();
-            var slug = removeAccents(names);
-            var hinh = slug+ ".png";
-            //check id product
-            if (result != 0){
-                //edit
-                if (window.File && window.FileReader && window.FileList && window.Blob)
-                {
-                    const fileImage = $('#image')[0].files[0];
-                    if(fileImage == null )
-                    {
-                        const image = $("#hinh").val();
-                        update(image);
+            // required()
+            if(required() == "success") {
+                var names = $("#tensp").val();
+                var slug = removeAccents(names);
+                var hinh = slug + ".png";
+                //check id product
+                if (result != 0) {
+                    //edit
+                    if (window.File && window.FileReader && window.FileList && window.Blob) {
+                        const fileImage = $('#image')[0].files[0];
+                        if (fileImage == null) {
+                            const image = $("#hinh").val();
+                            update(image);
+                        } else {
+                            editUpload(hinh);
+                        }
                     }
-                    else {
-                        editUpload(hinh);
-                    }
+                } else {
+                    //add
+                    upload(hinh)
                 }
-            }else {
-                //add
-                upload(hinh)
             }
-
         });
     });
 
@@ -237,8 +235,12 @@
         var desc = $("#mota").val();
         var gia = $("#gia").val();
         var soluong = $("#soluong").val()
-        if(names == "" || desc == "" || gia == "" || soluong == "")
+        if(names == "" || desc == "" || gia == "" || soluong == "") {
             alert("Vui lòng nhập đủ thông tin");
+            return "warning"
+        }
+        else
+            return "success"
     }
 
     //upload image with add

@@ -46,27 +46,27 @@
                                     <th class="product-remove">Loại bỏ</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="product-details.html"><img src="<c:url value='/Front-end/client/img/products/1-1.jpg'/>" alt=""></a></td>
-                                    <td class="product-name"><a href="product-details.html">T shirt for men</a></td>
-                                    <td class="product-price"><span class="amount">$130.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="cart-plus-minus"><input type="text" value="1" /></div>
-                                    </td>
-                                    <td class="product-subtotal"><span class="amount">$130.00</span></td>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="product-details.html"><img src="<c:url value='/Front-end/client/img/products/2-1.jpg'/>"  alt=""></a></td>
-                                    <td class="product-name"><a href="product-details.html">Red scart for women</a></td>
-                                    <td class="product-price"><span class="amount">$120.50</span></td>
-                                    <td class="product-quantity">
-                                        <div class="cart-plus-minus"><input type="text" value="1" /></div>
-                                    </td>
-                                    <td class="product-subtotal"><span class="amount">$120.50</span></td>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                </tr>
+                                <tbody id="listCart">
+<%--                                <tr>--%>
+<%--                                    <td class="product-thumbnail"><a href="product-details.html"><img src="<c:url value='/Front-end/client/img/products/1-1.jpg'/>" alt=""></a></td>--%>
+<%--                                    <td class="product-name"><a href="product-details.html">T shirt for men</a></td>--%>
+<%--                                    <td class="product-price"><span class="amount">$130.00</span></td>--%>
+<%--                                    <td class="product-quantity">--%>
+<%--                                        <div class="cart-plus-minus"><input type="text" value="1" /></div>--%>
+<%--                                    </td>--%>
+<%--                                    <td class="product-subtotal"><span class="amount">$130.00</span></td>--%>
+<%--                                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>--%>
+<%--                                </tr>--%>
+<%--                                <tr>--%>
+<%--                                    <td class="product-thumbnail"><a href="product-details.html"><img src="<c:url value='/Front-end/client/img/products/2-1.jpg'/>"  alt=""></a></td>--%>
+<%--                                    <td class="product-name"><a href="product-details.html">Red scart for women</a></td>--%>
+<%--                                    <td class="product-price"><span class="amount">$120.50</span></td>--%>
+<%--                                    <td class="product-quantity">--%>
+<%--                                        <div class="cart-plus-minus"><input type="text" value="1" /></div>--%>
+<%--                                    </td>--%>
+<%--                                    <td class="product-subtotal"><span class="amount">$120.50</span></td>--%>
+<%--                                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>--%>
+<%--                                </tr>--%>
                                 </tbody>
                             </table>
                         </div>
@@ -107,5 +107,56 @@
 
 
 </main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+    $(document).ready(function (){
+        listInCartPage();
+        $('body').on('click', '.removeCartInPage', function (){
+            const id = $(this).data('id');
+            setTimeout(removeCart(id),200);
+            setTimeout(listInCartPage,100);
+            setTimeout(getNumberCart,100);
+        });
+    });
+
+    function listInCartPage(){
+        var html = "";
+        urls = urlLocation + "/cartList/";
+        $.ajax({
+            url : urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function(data)
+            {
+                var totalPrice = 0;
+                for(let i =0 ; i<data.length ; i++)
+                {
+                    html += "<tr>"
+                    html += "<td class='product-thumbnail'><a href='product-details.html'><img src='/Front-end/images/product/" + data[i].productRequest.hinh + "' alt=''></a></td>"
+                    html += "<td class='product-name'><a href='product-details.html'> "+ data[i].productRequest.tensp +"</a></td>"
+                    html += "<td class='product-price'><span class='amount'>"+ data[i].productRequest.gia +"</span></td>"
+                    html += "<td class='product-quantity'>"
+                    html += "<div class='cart-plus-minus'><input type='text' value='"+ data[i].quantity +"' />" +
+                        "<div class='dec qtybutton'>-</div>" +
+                        "<div class='inc qtybutton'>+</div>" +
+                        "</div>"
+                    html += "</td>"
+                    const dongia = data[i].productRequest.gia*data[i].quantity;
+                    html += "<td class='product-subtotal'><span class='amount'>"+ dongia +"</span></td>"
+                    html += "<td  class='product-remove'><a data-id = '"+data[i].productRequest.id+"' class = 'removeCartInPage' ><i  class='fa fa-times'></i></a></td>"
+
+                }
+
+                $('#listCart').html(html);
+            }
+
+        })
+    }
+
+
+
+</script>
 </body>
 </html>
