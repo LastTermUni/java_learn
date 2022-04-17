@@ -124,7 +124,7 @@
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo d-inline-block " >
-                                <a href="home" style="width:100%">
+                                <a href="/home" style="width:100%">
                                     <img height="50px " src="<c:url value='/Front-end/images/logo/CameraStore-black.png'/>" alt="#"/>
                                 </a>
                             </div>
@@ -386,6 +386,13 @@
         $('body').on('click', '#openCartList', function (){
             cartList();
         })
+
+        $('body').on('click', '.cartmini__remove', function (){
+            var id = $(this).data('id')
+            removeCart(id)
+            cartList()
+            getNumberCart()
+        })
     });
     function cartList(){
         var html = "";
@@ -414,7 +421,7 @@
                     html += "<span class='price'>" + data[i].quantity + " × " + data[i].productRequest.gia + " VNĐ</span>"
                     html += "</span>"
                     html += "</div>"
-                    html += "<a href='#' class='cartmini__remove'>"
+                    html += "<a data-id='"+ data[i].productRequest.id +"' class='cartmini__remove'>"
                     html += "<i class='fal fa-times'></i>"
                     html += "</a>"
                     html += "</li>"
@@ -423,6 +430,22 @@
                 }
                 $('#cartList').html(html);
                 $('#ttPrice').html(totalPrice +" VNĐ")
+            }
+
+        })
+    }
+
+    function removeCart(id)
+    {
+        urls = urlLocation + "/deleteCart/" + id;
+        $.ajax({
+            url : urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function (data)
+            {
+                cartList();
             }
 
         })

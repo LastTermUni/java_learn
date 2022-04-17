@@ -98,6 +98,17 @@ public class CartAPI {
         return cartList;
     }
 
+    @GetMapping(value = "deleteCart/{id}")
+    public String deleteCart (@PathVariable long id, HttpSession session){
+        HashMap<Long, Cart> list;
+        list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+        list.remove(id);
+        session.setAttribute("cartList", list);
+
+        return "success";
+    }
+
+
     public double totalPrice(HashMap<Long, Cart> cartItems) {
         double count = 0;
         for (Map.Entry<Long, Cart> list : cartItems.entrySet()) {
