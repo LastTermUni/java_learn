@@ -11,29 +11,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head>
-    <title>Chỉnh sửa sản phẩm</title>
+    <title>Thêm/sửa sản phẩm</title>
 </head>
 <body>
 <!-- Page Sidebar Ends-->
 <div class="page-body">
-    <div class="container-fluid">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-6">
-                    <h3>Chỉnh sửa sản phẩm</h3>
-                </div>
-                <div class="col-6">
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Chỉnh sửa sản phẩm</h5>
+                        <h5>Thêm/sửa sản phẩm</h5>
                     </div>
                     <div class="card-body add-post">
                         <form class="row needs-validation" novalidate="" th:action="@{/admin/edit}" method="post" th:object="${product}">

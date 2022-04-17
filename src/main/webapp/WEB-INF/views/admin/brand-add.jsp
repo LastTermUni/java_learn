@@ -9,17 +9,6 @@
 <body>
 <!-- Page Sidebar Ends-->
 <div class="page-body">
-    <div class="container-fluid">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-6">
-                    <h3>Thêm thương hiệu</h3>
-                </div>
-                <div class="col-6">
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">

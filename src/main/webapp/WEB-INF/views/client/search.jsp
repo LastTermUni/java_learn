@@ -75,7 +75,7 @@
                                                     <a href="product-detail/${pro.slug}">
                                                             <%--                                                    <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"--%>
                                                             <%--                                                         alt="#">--%>
-                                                        <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                                                        <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"
                                                              alt="#">
                                                     </a>
                                                     <div class="cart-btn cart-btn-1 p-abs">
@@ -99,34 +99,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="shop-pagination m-auto" >
-                        <div class="basic-pagination" style="display: flex;
-    justify-content: center;">
-                            <nav>
-                                <ul style="display: flex; justify-content: center">
-                                    <li>
-                                        <a href="shop.html">
-                                            <i class="far fa-angle-left"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html" class="active">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">
-                                            <i class="far fa-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+<%--                    <div class="shop-pagination m-auto" >--%>
+<%--                        <div class="basic-pagination" style="display: flex;--%>
+<%--                            justify-content: center;">--%>
+<%--                            <nav>--%>
+<%--                                <ul style="display: flex; justify-content: center">--%>
+<%--                                    <li>--%>
+<%--                                        <a href="shop.html">--%>
+<%--                                            <i class="far fa-angle-left"></i>--%>
+<%--                                        </a>--%>
+<%--                                    </li>--%>
+<%--                                    <li>--%>
+<%--                                        <a href="shop.html">1</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li>--%>
+<%--                                        <a href="shop.html" class="active">2</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li>--%>
+<%--                                        <a href="shop.html">3</a>--%>
+<%--                                    </li>--%>
+<%--                                    <li>--%>
+<%--                                        <a href="shop.html">--%>
+<%--                                            <i class="far fa-angle-right"></i>--%>
+<%--                                        </a>--%>
+<%--                                    </li>--%>
+<%--                                </ul>--%>
+<%--                            </nav>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
             </div>
         </div>

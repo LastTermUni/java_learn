@@ -17,8 +17,8 @@
                 <div class="col-6">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="dashboard"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">ECommerce</li>
-                        <li class="breadcrumb-item active">Product Page</li>
+                        <li class="breadcrumb-item">Sản phẩm</li>
+                        <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
                     </ol>
                 </div>
             </div>
