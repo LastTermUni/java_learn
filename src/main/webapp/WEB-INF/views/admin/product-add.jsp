@@ -148,7 +148,7 @@
             required();
             var names = $("#tensp").val();
             var slug = removeAccents(names);
-            var hinh = slug+ ".jpg";
+            var hinh = slug+ ".png";
             //check id product
             if (result != 0){
                 //edit
@@ -176,7 +176,7 @@
     function save(){
         var names = $("#tensp").val();
         var slug = removeAccents(names);
-        var hinh = slug+ ".jpg";
+        var hinh = slug+ ".png";
         var formData = {
             tensp : names,
             mota : $("#mota").val(),

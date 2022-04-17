@@ -9,6 +9,8 @@ import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -46,6 +48,9 @@ public class ProductAPI {
     @Autowired
     ServletContext context;
 
+    @Autowired
+    private ResourceLoader resourceLoader;
+
     public static String path;
 
     static {
@@ -55,7 +60,7 @@ public class ProductAPI {
                 // Chạy bằng tomcat (đã packaged)
                 if (path.lastIndexOf("/target/") > 0) {
                     // Chạy ở local
-                    path = path.substring(0, path.lastIndexOf("/target/"));
+                    path = path.substring(1, path.lastIndexOf("/target/"));
                 } else {
                     // Chạy ở server
                     path = Paths.get(path).getParent().toString();
@@ -71,8 +76,8 @@ public class ProductAPI {
 
     @GetMapping("/cateList")
     public List<Category> getCate() throws URISyntaxException {
-        System.out.println(path);
 
+        System.out.println(path);
         return categoryService.getCategory();
     }
 
@@ -98,21 +103,30 @@ public class ProductAPI {
     public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request)
             throws URISyntaxException, IOException {
 
-        // path
-        String dirName = "/Front-end/images/product";
-
-        // path mà để run app (folder target) , lấy mục resource ( /Front-end )
-        String absolutePath = request.getServletContext().getRealPath(dirName);
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+
+        // path để chạy cho client
+        String dirName = "/Front-end/images/product";
+        String absolutePath = request.getServletContext().getRealPath(dirName);
         Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
+
+
+        //path để lưu vào prj, mục target sẽ bị reset khi rebuild cho nên phải add vào prj
+        String dirNamePrj = path+"/src/main/webapp/Front-end/images/product/";
+        // .....\JAVA\java_learn\src\main\webapp\Front-end\images\product
+        Path uploadPathPrj = Paths.get(dirNamePrj).toAbsolutePath();
 
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
+            Files.createDirectories(uploadPathPrj);
         }
         try (InputStream inputStream = file.getInputStream()) {
             Path filePath = uploadPath.resolve(fileName);
+            Path filePathPrj = uploadPathPrj.resolve(fileName);
             System.out.println(filePath);
+            System.out.println(filePathPrj);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(inputStream, filePathPrj, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
@@ -138,20 +152,29 @@ public class ProductAPI {
     public String uspload(@RequestParam("file") MultipartFile file, HttpServletRequest request)
             throws URISyntaxException, IOException {
 
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+
         // path
         String dirName = "/Front-end/images/product";
-
         String absolutePath = request.getServletContext().getRealPath(dirName);
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
         Path uploadPath = Paths.get(absolutePath).toAbsolutePath();
+
+        //
+        String dirNamePrj = path+"/src/main/webapp/Front-end/images/product/";
+        // .....\JAVA\java_learn\src\main\webapp\Front-end\images\product
+        Path uploadPathPrj = Paths.get(dirNamePrj).toAbsolutePath();
 
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
+            Files.createDirectories(uploadPathPrj);
         }
         try (InputStream inputStream = file.getInputStream()) {
             Path filePath = uploadPath.resolve(fileName);
+            Path filePathPrj = uploadPathPrj.resolve(fileName);
             System.out.println(filePath);
+            System.out.println(filePathPrj);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(inputStream, filePathPrj, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
