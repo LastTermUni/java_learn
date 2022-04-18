@@ -11,10 +11,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT v FROM Product v where v.status = 1")
     List<Product> getAllByStatus();
 
-    Product findOneByOrderByCreated_atDesc();
+//    Product findOneByOrderByCreated_atDesc();
     Product findOneById(Long id);
     Product findOneBySlug(String slug);
-    List<Product> findAllByOrderBy (long idBrand);
+//    List<Product> findAllByOrderBy (long idBrand);
     List<Product> findAllByCategory_IdAndBrand_Id(long idCate,long idBrand);
     List<Product> findAllByCategory_Id(long idCate);
     List<Product> findAllByBrand_Id(long idBrand);
