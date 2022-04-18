@@ -474,9 +474,9 @@
                   html +=
                     "<li class='cartmini__item p-rel d-flex align-items-start'>";
                   html += "<div class='cartmini__thumb mr-15'>";
-                  html += "<a href='product-details.html'>";
+                  html += "<a href='/product-detail/"+ data[i].productRequest.slug +"'>";
                   html +=
-                    "<img src='/Front-end/images/product/" +
+                    "<img href='/product-detail/"+ data[i].productRequest.slug +"' src='/Front-end/images/product/" +
                     data[i].productRequest.hinh +
                     "' alt=''>";
                   html += "</a>";
@@ -484,7 +484,7 @@
                   html += "<div class='cartmini__content'>";
                   html += "<h3 class='cartmini__title'>";
                   html +=
-                    "<a href='product-details.html'>" +
+                    "<a href='/product-detail/"+ data[i].productRequest.slug +"'>" +
                     data[i].productRequest.tensp +
                     "</a>";
                   html += "</h3>";
@@ -555,7 +555,7 @@
 
                           "<ul class='has-dropdown'>"+
                            " <li>"+
-                          "<a role='button' class='box-user-login' href='/profile/"+data.maKH+"'>Tài khoản</a>"+
+                          "<a role='button' class='box-user-login' href='/profile'>Tài khoản</a>"+
                            "</li>"+
                           "</ul>"+
 

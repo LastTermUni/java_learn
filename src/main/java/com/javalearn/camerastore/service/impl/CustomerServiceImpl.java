@@ -20,6 +20,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Customer getOneCustomer(long id) {
+        return ecustomerRepository.getById(id);
+    }
+
+    @Override
     public Customer saveCustomer(Customer customer) {
         return ecustomerRepository.save(customer);
     }

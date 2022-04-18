@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="breadcrumb-wrapper-2 text-center">
-                        <h1>Thanh Toán</h1>
+                        <h1>Thông tin</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="cart">Giỏ hàng</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Thanh Toán</li>
+                                <li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Thông tin khách hàng</li>
                             </ol>
                         </nav>
                     </div>
@@ -35,36 +35,42 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkbox-form">
+                            <form action="./updateProfile" method="post" id="formUpdate"></form>
                             <h3>Thông tin khách hàng</h3>
+                            <input type="text" style="display: none" placeholder="" id="maKH" name="maKH" value="${Customer.maKH}" />
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
+                                        <label>Tài khoản <span class="required">*</span></label>
+                                        <input readonly type="text" placeholder="" id="username" name="username" value="${Customer.username}" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Email <span class="required">*</span></label>
+                                        <input type="email" readonly placeholder="" id="email" name="email" value="${Customer.email}" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
                                         <label>Họ và tên <span class="required">*</span></label>
-                                        <input readonly type="text" placeholder="" value="${tenKH}" />
+                                        <input type="text" placeholder="" id="tenKH" name="tenKH" value="${Customer.tenKH}" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Số điện thoại <span class="required">*</span></label>
-                                        <input readonly type="text" placeholder="" value="${SDT}" />
+                                        <input type="text" placeholder="" id="SDT" name="SDT" value="${Customer.SDT}" />
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input readonly type="email" placeholder="" value="${Email}" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <label>Địa chỉ <span class="required">*</span></label>
-                                        <form action="./pay" method="post" id="formpay">
-                                        <input id = "address" name="address" type="text" placeholder="Địa chỉ ..." />
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
+                            </form>
+                            <button type="submit"  class="s-btn s-btn-2" id="update">Thanh toán bằng Paypal</button>
                         </div>
+
                     </div>
                     <div class="col-lg-6">
                         <div class="your-order mb-30 ">
@@ -78,31 +84,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var = "product" items = "${cartList}">
                                     <tr class="cart_item">
-                                        <td class="product-name">
-                                            ${product.productRequest.tensp} <strong class="product-quantity"> × ${product.quantity}</strong>
-                                        </td>
-                                        <c:set var="subtotal" value="${product.productRequest.gia*product.quantity}"></c:set>
-                                        <td class="product-total">
-                                            <span class="amount"><fmt:formatNumber
-                                                    type = "number"
-                                                    maxFractionDigits = "3" value = "${subtotal}" /> VNĐ</span>
-                                        </td>
-                                    </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                    <tfoot>
 
-                                    <c:set var="total" value="${totalPrice}"></c:set>
-                                    <tr class="order-total">
-                                        <th>Tổng tiền hóa đơn</th>
-                                        <td><strong><span class="amount"><fmt:formatNumber
-                                                type = "number"
-                                                maxFractionDigits = "3" value = "${total}" /> VNĐ</span></strong>
-                                        </td>
-                                    </tr>
-                                    </tfoot>
+                                    </tbody>
+
                                 </table>
                             </div>
 
@@ -159,51 +144,45 @@
             </form>
         </div>
     </section>
-    <!-- checkout-area end -->
 
 
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script>
+
     $(document).ready(function (){
-
-        $("body").on("click", "#thanhtoan", function (){
-            var address = $("#address").val();
-           if(address !== ""){
-               document.getElementById("formpay").submit();
-           }
-           else {
-               alert("Vui lòng nhập địa chỉ!!");
-           }
-        });
-
-        $("body").on("click", "#thanhtoanCOD", function (){
-            var address = $("#address").val();
-            if(address !== ""){
-                $("#formpay").attr("action", "/COD")
-                document.getElementById("formpay").submit();
+        $('body').on('click','#update',function (){
+            var formData = {
+                maKH : $("#maKH").val(),
+                tenKH: $("#tenKH").val(),
+                username : $("#username").val(),
+                sdt : $("#SDT").val(),
+                email: $("#email").val(),
             }
-            else {
-                alert("Vui lòng nhập địa chỉ!!");
-            }
-        });
-    });
-    function checkout(address){
-        urls = urlLocation + "/pay/";
-        var formData = {
-            address:address
-        }
-        $.ajax({
-            url:urls,
-            type: "POST",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(formData),
-            success:function (data){
 
-            }
+            // var formData = JSON.stringify($("#formUpdate").serializeArray());
+
+            $.ajax({
+                type: "POST",
+                url: "./updateProfile",
+                data: JSON.stringify(formData),
+                dataType: "json",
+                contentType : "application/json",
+                success:function (res){
+                    if(res.maKH !== 0)
+                    {
+                        alert("Cập nhật thành công")
+                        window.location.reload();
+                    }
+
+                }
+            });
         })
-    }
+    })
+
+
+
 </script>
 </body>
 </html>
