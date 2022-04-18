@@ -144,6 +144,8 @@
                                     <li><a href="./brand-add">Thêm thương hiệu</a></li>
                                 </ul>
                             </li>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="./order-list"><i data-feather="truck"></i><span>Đơn đặt hàng</span></a>
+                            </li>
 <%--                            <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="users"></i><span>Users</span></a>--%>
 <%--                                <ul class="sidebar-submenu">--%>
 <%--                                    <li><a href="user-profile">Users Profile</a></li>--%>

@@ -13,7 +13,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>Chi tiết sản phẩm</h3>
+                    <h3>Chi tiết đơn đặt hàng</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">
@@ -117,14 +117,30 @@
                             </div>
                             <hr>
                             <div class="m-t-15">
-                                <button class="btn btn-primary m-r-10" type="button" title=""><i
-                                        class="fa fa-shopping-basket me-1"></i>Add To Cart
-                                </button>
-                                <button class="btn btn-success m-r-10" type="button" title=""><i
-                                        class="fa fa-shopping-cart me-1"></i>Buy Now
-                                </button>
-                                <a class="btn btn-secondary" href="#"> <i class="fa fa-heart me-1"></i>Add To
-                                    WishList</a>
+                                <c:choose>
+                                    <c:when test="${order.status == 2}">
+                                        <button class="btn btn-success m-r-10" type="button" title=""><i class="fa fa-paypal" aria-hidden="true"></i> Đã thanh toán
+                                        </button>
+
+                                    </c:when>
+                                    <c:when test="${order.status == 1}">
+                                        <button id="setStatus3" data-id="${order.madh}" class="btn btn-primary m-r-10" type="button" title=""><i class="fa fa-check-circle" aria-hidden="true"></i> Xác nhận thanh toán
+                                        </button>
+                                        <button id="setStatus0" data-id="${order.madh}" class="btn btn-secondary m-r-10" type="button" title=""><i class="fa fa-minus-circle" aria-hidden="true"></i> Hủy đơn hàng
+                                        </button>
+                                    </c:when>
+                                    <c:when test="${order.status == 3}">
+                                        <button class="btn btn-success m-r-10" type="button" title=""><i class="fa fa-money" aria-hidden="true"></i> Đã thanh toán
+                                        </button>
+                                    </c:when>
+                                    <c:when test="${order.status == 0}">
+                                        <button class="btn btn-secondary m-r-10" type="button" title=""><i class="fa fa-minus-circle" aria-hidden="true"></i> Đơn hàng đã hủy
+                                        </button>
+                                    </c:when>
+                                </c:choose>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -142,12 +158,10 @@
                                                     <c:when test="${order.status == 2}">
                                                         <p>Paypal </p>
                                                     </c:when>
-                                                    <c:when test="${order.status == 1}">
+                                                    <c:otherwise >
                                                         <p>Ship COD </p>
-                                                    </c:when>
-                                                    <c:when test="${order.status == 0}">
-                                                        <p>Đã hủy</p>
-                                                    </c:when>
+                                                    </c:otherwise>
+
                                                 </c:choose>
                                             </div>
                                         </div>
@@ -198,5 +212,45 @@
     </div>
     <!-- Container-fluid Ends-->
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('body').on('click', "#setStatus3", function (){
+            const id = $(this).data('id');
+            $.ajax({
+                url: "./changeStatusOrder",
+                data: {id: id, status:3},
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res === 1) {
+                        location.reload();
+                    } else{
+                        toastr.info("Thao tác không thành công!");
+                    }
+                }
+            });
+        })
+
+        $('body').on('click', "#setStatus0", function (){
+            const id = $(this).data('id');
+            $.ajax({
+                url: "./changeStatusOrder",
+                data: {id: id, status:0},
+                dataType: 'json',
+                type: 'POST',
+                success: function (res) {
+                    if (res === 1) {
+                        location.reload();
+                    } else{
+                        toastr.info("Thao tác không thành công!");
+                    }
+                }
+            });
+        })
+    });
+</script>
 </body>
 </html>
