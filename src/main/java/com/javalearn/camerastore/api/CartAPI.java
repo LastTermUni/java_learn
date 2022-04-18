@@ -25,8 +25,6 @@ public class CartAPI {
     @Autowired
     ConvertProduct convertProduct;
 
-    @Autowired
-    CustomerRepository customerRepository;
 
 //    @GetMapping(value = "Cart/{id}")
 //    public HashMap<Long, Cart> addCart(@PathVariable long id, HttpSession session) {
@@ -132,7 +130,7 @@ public class CartAPI {
         HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         if(list.get(id).getQuantity() == 1)
         {
-            list.remove(id);
+            return "fails";
         }
         else {
             list.get(id).setQuantity(list.get(id).getQuantity()-1);
@@ -152,23 +150,6 @@ public class CartAPI {
         session.setAttribute("totalPrice", totalPrice(list));
         session.setAttribute("cartNum", list.size());
         return "Success";
-    }
-
-
-    //check login in client
-    @GetMapping("/checkLogin")
-    public Customer checkLogin(HttpSession session){
-        Customer customer = new Customer();
-        String email = (String) session.getAttribute("email");
-        if(session.getAttribute("email") == null)
-        {
-            return customer;
-        }
-        else
-        {
-            customer = customerRepository.findCustomerByEmail(email);
-            return customer;
-        }
     }
 
 

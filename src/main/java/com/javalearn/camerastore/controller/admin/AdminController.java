@@ -120,7 +120,7 @@ public class AdminController {
     public String productList(Model model, HttpSession session) {
         if(session.getAttribute("roleAdmin") == null)
             return "redirect:/loginadmin";
-        List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<Product> productList = productRepository.getAllByStatuss();
         model.addAttribute("productList", productList);
         return "admin/product-list";
     }

@@ -246,9 +246,11 @@ public class HomeController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute("customer");
-        session.removeAttribute("email");
-        session.removeAttribute("nameCustomer");
+        session.setAttribute("customer", null);
+        session.setAttribute("email", null);
+        session.setAttribute("nameCustomer", null);
+//        session.removeAttribute("email");
+//        session.removeAttribute("nameCustomer");
         return "redirect:/home";
     }
 

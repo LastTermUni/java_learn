@@ -108,7 +108,7 @@ public class ProductAPI {
 
 
         //path để lưu vào prj, mục target sẽ bị reset khi rebuild cho nên phải add vào prj
-        String dirNamePrj = path+"/src/main/webapp/Front-end/images/product/";
+        String dirNamePrj = path + "/src/main/webapp/Front-end/images/product/";
         // .....\JAVA\java_learn\src\main\webapp\Front-end\images\product
         Path uploadPathPrj = Paths.get(dirNamePrj).toAbsolutePath();
         System.out.println(uploadPathPrj);
@@ -151,4 +151,39 @@ public class ProductAPI {
         return productService.getProduct();
     }
 
+    @PostMapping(value = "/changeStatusProduct")
+    public ResponseEntity<Integer> changeStatusProduct(@RequestParam(value = "id") Long id) {
+        try {
+            int status;
+            Product product = productRepository.findOneById(id);
+            if (product.getStatus() == 1) {
+                product.setStatus(0);
+                status = 0;
+                productRepository.save(product);
+            } else {
+                product.setStatus(1);
+                status = 1;
+                productRepository.save(product);
+            }
+            return new ResponseEntity<>(status, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PostMapping(value = "/deleteProduct")
+    public ResponseEntity<Integer> deleteProduct(@RequestParam(value = "id") Long id) {
+        try {
+            int status;
+            Product product = productRepository.findOneById(id);
+            product.setStatus(2);
+            status = 2;
+            productRepository.save(product);
+            return new ResponseEntity<>(status, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }
