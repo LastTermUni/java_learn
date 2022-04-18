@@ -97,8 +97,8 @@ public class HomeController {
 
         if ( id_cate!=null && id_brand!=null) {
             product = productRepository.findAllByCategory_IdAndBrand_Id(Long.parseLong(id_cate),
-                    Long.parseLong(id_brand+"ca hai"));
-            System.out.println(id_brand);
+                    Long.parseLong(id_brand));
+            System.out.println(id_brand + "ca hai");
         } else if (id_cate!=null) {
             product = productRepository.findAllByCategory_Id(Long.parseLong(id_cate));
             System.out.println(id_cate +"Cate");
@@ -107,19 +107,20 @@ public class HomeController {
             System.out.println(id_brand +"Brand");
         } else {
             product = productService.getProduct();
-            System.out.println("Tong");
+            System.out.println("Tong werwer we");
+
         }
 
         PagedListHolder<Product> productList;
         // HttpSession session = request.getSession();
         productList = (PagedListHolder<Product>) session.getAttribute("productsList");
-        if (productList == null) {
+
             productList = new PagedListHolder<Product>();
             productList.setSource(product);
-            productList.setPageSize(6);
+            productList.setPageSize(1);
 
             session.setAttribute("productsList", productList);
-        }
+
         if (page == null || page.equals("0")) {
             productList.setPage(0);
 
