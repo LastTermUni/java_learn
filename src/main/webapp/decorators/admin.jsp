@@ -11,7 +11,6 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
     <link rel="shortcut icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
-    <title>Admin</title>
     <!-- Google font-->
     <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
@@ -48,6 +47,9 @@
 
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/toast/css/toastr.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/toast/css/toastr.min.css'/>">
+    <title>
+        <dec:title />
+    </title>
 </head>
 <body>
 <!-- tap on top starts-->
@@ -128,13 +130,13 @@
                                 <ul class="sidebar-submenu">
                                     <li><a href="./product-list">Danh sách sản phẩm</a></li>
                                     <li><a href="./product-add">Thêm sản phẩm</a></li>
-                                    <li><a href="./order-history">Lịch sử</a></li>
+<%--                                    <li><a href="./order-history">Lịch sử</a></li>--%>
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="menu"></i><span>Loại</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="./categories-list">Danh sách loại</a></li>
-                                    <li><a href="./category-add">Thêm danh loại</a></li>
+                                    <li><a href="./category-add">Thêm loại</a></li>
                                 </ul>
                             </li>
 

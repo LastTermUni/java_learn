@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Thêm danh loại</h5>
+                        <h5>Thêm loại sản phẩm</h5>
                     </div>
                     <div class="card-body add-post">
                         <form:form class="row needs-validation" novalidate="">
@@ -24,7 +24,7 @@
                             <input style="display: none" name="status" id="status" value="${category.status}"/>
                             <div class="col-sm-12">
                                 <div class="mb-3">
-                                    <label for="tenloai">Tên danh mục:</label>
+                                    <label for="tenloai">Tên loại:</label>
                                     <input class="form-control" id="tenloai" name="tenloai" type="text" value="${category.tenloai}"
                                            placeholder="Tên danh mục" required="">
                                 </div>

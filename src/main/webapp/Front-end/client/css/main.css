@@ -8509,7 +8509,7 @@ p.checkout-coupon input[type=text]:focus {
 }
 .payment-method .accordion-collapse {
   border: none;
-  border-left: 1px dotted;
+  border-left: 1px dotted #00000054;
   padding-left: 10px;
 }
 

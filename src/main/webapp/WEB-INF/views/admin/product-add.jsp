@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://thymeleaf.org">
 <head>
@@ -76,7 +77,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="gia">Giá SP:</label>
-                                    <input class="form-control" id="gia" name="gia" type="number" value="${product.gia}" placeholder="Loại sp" required="">
+                                    <input class="form-control" id="gia" name="gia" type="number"
+                                           value="${product.gia}" placeholder="Loại sp" required=""/>
                                 </div>
 
                                 <div class="mb-3">
@@ -109,7 +111,7 @@
                         </form>
                         <div class="btn-showcase text-end">
                             <button class="btn btn-primary" id="add" type="submit">Thêm</button>
-                            <input class="btn btn-light" type="reset" value="Discard">
+                            <button class="btn btn-primary"  onclick="javascript:history.back()">Hủy</button>
                         </div>
 
                     </div>
