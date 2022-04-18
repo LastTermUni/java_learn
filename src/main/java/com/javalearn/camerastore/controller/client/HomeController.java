@@ -61,9 +61,9 @@ public class HomeController {
             Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
             mav.addObject("nameUser", customer.getTenKH());
         }
-        Product productNewest = productRepository.findOneByOrderByCreated_atDesc();
+//        Product productNewest = productRepository.findOneByOrderByCreated_atDesc();
 
-        mav.addObject("productNewest", productNewest);
+//        mav.addObject("productNewest", productNewest);
         mav.addObject("products", productService.getProduct());
         mav.addObject("cates", categoryService.getCategory());
         mav.addObject("brands", brandService.getBrands());
@@ -247,9 +247,11 @@ public class HomeController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute("customer");
-        session.removeAttribute("email");
-        session.removeAttribute("nameCustomer");
+        session.setAttribute("customer", null);
+        session.setAttribute("email", null);
+        session.setAttribute("nameCustomer", null);
+//        session.removeAttribute("email");
+//        session.removeAttribute("nameCustomer");
         return "redirect:/home";
     }
 
