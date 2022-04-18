@@ -32,10 +32,10 @@ public class OrderAPI {
     }
 
 
-    @PostMapping("/AddOrder")
-    public OrderRequest saveOrder(@RequestBody OrderRequest orderRequest)
-    {
-        return orderService.save(orderRequest);
-    }
+//    @PostMapping("/AddOrder")
+//    public OrderRequest saveOrder(@RequestBody OrderRequest orderRequest)
+//    {
+//        return orderService.save(orderRequest);
+//    }
 
 }
