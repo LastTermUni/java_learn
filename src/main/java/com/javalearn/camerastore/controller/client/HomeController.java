@@ -2,13 +2,11 @@ package com.javalearn.camerastore.controller.client;
 
 import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
+import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.entity.Order;
 import com.javalearn.camerastore.entity.Product;
-import com.javalearn.camerastore.repository.BrandRepository;
-import com.javalearn.camerastore.repository.CustomerRepository;
-import com.javalearn.camerastore.repository.OrderRepository;
-import com.javalearn.camerastore.repository.ProductRepository;
+import com.javalearn.camerastore.repository.*;
 import com.javalearn.camerastore.request.Cart;
 import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
@@ -40,6 +38,8 @@ public class HomeController {
 
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @Autowired
     BrandRepository brandRepository;
@@ -100,14 +100,14 @@ public class HomeController {
         List<Product> product;
 
         if ( id_cate!=null && id_brand!=null) {
-            product = productRepository.findAllByCategory_IdAndBrand_Id(Long.parseLong(id_cate),
-                    Long.parseLong(id_brand));
+            product = productRepository.findAllByCategory_IdAndBrand_IdAndStatusEqualsOrderByIdDesc(Long.parseLong(id_cate),
+                    Long.parseLong(id_brand),1);
         } else if (id_cate!=null) {
-            product = productRepository.findAllByCategory_Id(Long.parseLong(id_cate));
+            product = productRepository.findAllByCategory_IdAndStatusEqualsOrderByIdDesc(Long.parseLong(id_cate),1);
         } else if (id_brand!=null) {
-            product = productRepository.findAllByBrandId(Long.parseLong(id_brand));
+            product = productRepository.findAllByBrandIdAndStatusEqualsOrderByIdDesc(Long.parseLong(id_brand),1);
         } else {
-            product = productService.getProduct();
+            product = productRepository.getAllByStatus();
         }
 
         PagedListHolder<Product> productList;
@@ -129,6 +129,8 @@ public class HomeController {
             mav.addObject("nameUser", customer.getTenKH());
         }
         mav.addObject("products", productList.getPageList());
+        mav.addObject("brands", brandRepository.getAllByStatus());
+        mav.addObject("cates", categoryRepository.getAllByStatus());
         mav.addObject("paging", productList);
         return mav;
     }
@@ -143,7 +145,7 @@ public class HomeController {
 
         String searchText = request.getParameter("searchTextf");
 
-        List<Product> products = productRepository.findAllByTenspContains(searchText);
+        List<Product> products = productRepository.findAllByTenspContainsAndStatusEqualsOrderByIdDesc(searchText,1);
 
         mav.addObject("searchText", searchText);
         mav.addObject("searchResults", products);

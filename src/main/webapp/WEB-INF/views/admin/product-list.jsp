@@ -54,7 +54,7 @@
                                         <c:set var="stt" value="${stt + 1}"/>
                                         <td>${stt}</td>
                                         <td>${product.tensp}</td>
-                                        <td><a href="product-detail"><img
+                                        <td><a href="/product-detail"><img
                                                 src="<c:url value='/Front-end/images/product/${product.hinh}'/>"
                                                 style="width: 64px; height: 64px" alt=""></a></td>
                                             <%--                                        <td>--%>

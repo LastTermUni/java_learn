@@ -37,7 +37,7 @@
                         <div class="table-responsive product-table">
                             <table class="display" style="width: 100%;" id="basic-10">
                                 <thead>
-                                <tr>
+                                <tr style="    text-align: center;">
                                     <th>STT</th>
                                     <th>Khách hàng</th>
                                     <th>Địa chỉ</th>
@@ -50,7 +50,7 @@
                                 <tbody>
                                 <c:set var="stt" value="0"/>
                                 <c:forEach var="order" items="${orderList}">
-                                    <tr>
+                                    <tr style="    text-align: center;">
                                         <c:set var="stt" value="${stt + 1}"/>
                                         <td>${stt}</td>
                                         <td>${order.customer.tenKH}</td>
@@ -62,29 +62,51 @@
                                                 type="number"
                                                 maxFractionDigits="3" value="${order.tongtien}"/> VNĐ
                                         </td>
-                                        <td>${order.ngaydathang}</td>
+                                        <td><fmt:formatDate value="${order.ngaydathang}" type="date" pattern="dd-MM-yyyy"/></td>
                                         <c:choose>
                                             <c:when test="${order.status == 0}">
                                                 <td class="font-danger">Đã hủy</td>
                                             </c:when>
                                             <c:when test="${order.status == 1}">
-                                                <td class="font-info">Ship COD</td>
+                                                <td class="font-info">Chờ xác nhận <br> (Ship COD)</td>
                                             </c:when>
                                             <c:when test="${order.status == 2}">
-                                                <td class="font-success">Thanh toán PayPal</td>
+                                                <td class="font-success">Đã thanh toán <br> (PayPal)</td>
                                             </c:when>
                                             <c:when test="${order.status == 3}">
-                                                <td class="font-success">Đã giao hàng</td>
+                                                <td class="font-success">Đã thanh toán <br> (COD)</td>
                                             </c:when>
 
                                         </c:choose>
                                         <td>
+                                            <c:choose>
+                                            <c:when test="${order.status == 0}">
+                                        <a href="./order-detail?id=${order.madh}">
+                                            <button class="btn btn-danger btn-xs"
+                                                    data-original-title="btn btn-danger btn-xs" title="">
+                                                Xem chi tiết
+                                            </button>
+                                        </a>
+                                        </c:when>
+                                        <c:when test="${order.status == 1}">
+                                            <a href="./order-detail?id=${order.madh}">
+                                                <button class="btn btn-primary btn-xs"
+                                                        data-original-title="btn btn-danger btn-xs" title="">
+                                                    Xác nhận
+                                                </button>
+                                            </a>
+                                        </c:when>
+                                        <c:otherwise>
                                             <a href="./order-detail?id=${order.madh}">
                                                 <button class="btn btn-success btn-xs"
                                                         data-original-title="btn btn-danger btn-xs" title="">
                                                     Xem chi tiết
                                                 </button>
                                             </a>
+                                        </c:otherwise>
+
+                                        </c:choose>
+
                                         </td>
 
                                     </tr>

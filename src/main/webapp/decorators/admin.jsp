@@ -199,7 +199,7 @@
 <script src="<c:url value='/Front-end/admin/assets/js/chart/apex-chart/stock-prices.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/notify/bootstrap-notify.min.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/dashboard/default.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>--%>
 <script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/datatable.custom.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/jquery.dataTables.min.js'/>"></script>
 

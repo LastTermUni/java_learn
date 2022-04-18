@@ -158,27 +158,9 @@
                   <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                     <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                       <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu">
-                        <div id="profile">
-                          <%--                        <c:choose>--%>
-                          <%--                          <c:when test="${nameUser !=null}">--%>
-                          <%--                            <ul>--%>
-                          <%--                              <li class="static">--%>
-                          <%--                                <a href="#" class="user-btn-login"><i class="fas fa-user"></i> ${nameUser}</a>--%>
-                          <%--                                <ul class="drop-login">--%>
-                          <%--                                  <li>--%>
-                          <%--                                    <a class="box-user-login" href="/logout">Đăng xuất</a>--%>
-                          <%--                                  </li>--%>
-                          <%--                                </ul>--%>
-                          <%--                              </li>--%>
-                          <%--                            </ul>--%>
-                          <%--                          </c:when>--%>
-                          <%--                          <c:otherwise>--%>
-                          <a href="login" style="font-family: system-ui" class="d-none d-xxl-inline-block">Đăng nhập /
-                            Đăng ký</a>
-                          <%--                          </c:otherwise>--%>
-                          <%--                        </c:choose>--%>
-                        </div>
 
+                        <div id="profile">
+                        </div>
                         <div class="header-icon header-icon-2 d-inline-block ml-30">
                           <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
                           <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"
@@ -569,6 +551,9 @@
 
                   $("#profile").html(htmls);
                   // $("#login").attr("href", "#");
+                }else {
+                  htmls += " <a href='/login' style='font-family: system-ui' class='d-xxl-inline-block'>Đăng nhập</a>"
+                  $("#profile").html(htmls);
                 }
               },
             });
