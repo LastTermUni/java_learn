@@ -4,9 +4,11 @@ import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.entity.Product;
+import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.repository.CustomerRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.Cart;
+import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
@@ -30,12 +32,20 @@ public class HomeController {
     ProductRepository productRepository;
     @Autowired
     ProductService productService;
+
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    BrandRepository brandRepository;
+    @Autowired
+    BrandService brandService;
+
     @Autowired
     ConvertProduct convertProduct;
     @Autowired
     ConvertCategory convertCategory;
+
     @Autowired
     CustomerService customerService;
     @Autowired
@@ -47,10 +57,19 @@ public class HomeController {
     ServletContext context;
 
     @GetMapping("home")
-    public ModelAndView homePage() {
+    public ModelAndView homePage( HttpSession session) {
         ModelAndView mav = new ModelAndView("client/home");
+        if(session.getAttribute("customer") != null){
+            Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+            mav.addObject("nameUser",customer.getTenKH());
+        }
+
+
         mav.addObject("products", productService.getProduct());
         mav.addObject("cates",categoryService.getCategory());
+        mav.addObject("brands",brandService.getBrands());
+
+
         return mav;
     }
     //sản phẩm
@@ -60,6 +79,7 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("client/product-detail");
         mav.addObject("products",product);
         mav.addObject("cates",categoryService.getCategory());
+        mav.addObject("brands",brandService.getBrands());
         return mav;
     }
 
@@ -103,6 +123,7 @@ public class HomeController {
         mav.addObject("products",productList.getPageList());
         mav.addObject("paging",productList);
         mav.addObject("cates",categoryService.getCategory());
+        mav.addObject("brands",brandService.getBrands());
         return mav;
     }
     @RequestMapping(value = "search", method=RequestMethod.POST)
@@ -114,6 +135,7 @@ public class HomeController {
         mav.addObject("searchText",searchText);
         mav.addObject("searchResults",products);
         mav.addObject("cates",categoryService.getCategory());
+        mav.addObject("brands",brandService.getBrands());
         return mav ;
     }
 
@@ -134,12 +156,15 @@ public class HomeController {
 
         HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         List<Cart> cartList = new ArrayList<>();
+        double totalPrice = 0;
         if(list != null) {
             for (Map.Entry<Long, Cart> cart : list.entrySet()) {
                 cartList.add(cart.getValue());
             }
         }
-        double totalPrice = (double) session.getAttribute("totalPrice");
+        if(session.getAttribute("totalPrice") !=null) {
+            totalPrice = (double) session.getAttribute("totalPrice");
+        }
         model.addAttribute("tenKH", customer.getTenKH());
         model.addAttribute("SDT", customer.getSDT());
         model.addAttribute("Email", customer.getEmail());
@@ -191,6 +216,7 @@ public class HomeController {
             {
                 session.setAttribute("customer", customer.getMaKH());
                 session.setAttribute("email", customer.getEmail());
+                session.setAttribute("nameCustomer", customer.getTenKH());
                 System.out.println("Login success!");
                 return "redirect:home";
             }
@@ -198,6 +224,14 @@ public class HomeController {
                 return "redirect:login";
             }
         }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("customer");
+        session.removeAttribute("email");
+        session.removeAttribute("nameCustomer");
+        return "redirect:/home";
     }
 
     @RequestMapping(value = "404", method = RequestMethod.GET)

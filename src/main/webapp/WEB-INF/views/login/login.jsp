@@ -35,7 +35,7 @@
                                 <div class="btn-showcase">
                                    <a class="btn btn-light" href="https://www.facebook.com/" target="_blank"><i class="txt-fb" data-feather="facebook"></i>facebook</a></div>
                             </div>
-                            <p class="mt-4 mb-0 text-center">Don't have account?<a class="ms-2" href="./registeradmin">Tạo tài khoản</a></p>
+                            <p class="mt-4 mb-0 text-center"><a class="ms-2" href="./registeradmin">Tạo tài khoản</a></p>
                         </form>
                     </div>
                 </div>

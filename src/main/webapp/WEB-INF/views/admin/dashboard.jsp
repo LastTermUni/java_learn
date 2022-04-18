@@ -22,18 +22,20 @@
     <div class="container-fluid">
         <div class="row second-chart-list third-news-update">
             <div class="col-xl-4 col-lg-12 xl-50 morning-sec box-col-12">
-                <div class="card o-hidden profile-greeting" style="background-image: url(/Front-end/images/avatar/backgroud-1.jpg)">
+                <div class="card o-hidden profile-greeting"
+                     style="background-image: url(/Front-end/images/avatar/bg-white-tech-1.jpg)">
                     <div class="card-body">
                         <div class="media">
                             <div class="badge-groups w-100">
-                                <div class="badge f-12"><i class="me-1" data-feather="clock"></i><span id="txt"></span></div>
+                                <div class="badge f-12"><i class="me-1" data-feather="clock">
+
+                                </i><span id="txt"></span></div>
                                 <div class="badge f-12"><i class="fa fa-spin fa-cog f-14"></i></div>
                             </div>
                         </div>
                         <div class="greeting-user text-center">
                             <div class="profile-vector"><img class="img-fluid" style="height: 100px; width: 100px" src="<c:url value='/Front-end/images/avatar/admin.png'/>" alt=""></div>
                             <h4 class="f-w-600">
-                                <span id="">Xin chào !</span>
                                 <span class="right-circle"><i class="fa fa-check-circle f-14 middle"></i></span></h4>
                             <div class="left-icon"><i class="fa fa-bell"> </i></div>
                         </div>

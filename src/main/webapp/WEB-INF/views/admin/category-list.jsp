@@ -33,12 +33,12 @@
                     <div class="card-body">
                         <div class="table-responsive product-table">
                             <table class="display" style="width: 100%;">
-                                <thead>
+                                <thead style="border-bottom: 1px solid black;">
                                 <tr>
                                     <th>STT</th>
                                     <th>Danh mục</th>
                                     <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>Tùy chọn</th>
                                 </tr>
                                 </thead>
                                 <tbody>
