@@ -33,7 +33,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive product-table">
-                            <table class="display" style="width: 100%;">
+                            <table class="display" style="width: 100%;" id="basic-10">
                                 <thead style="border-bottom: 1px solid black;">
                                 <tr >
                                     <th>STT</th>
@@ -71,16 +71,21 @@
                                         </td>
                                         <td>
 
-                                                  <button class="btn btn-danger btn-xs" type="button"
-                                                       data-original-title="btn btn-danger btn-xs" title="">Delete
-                                                    </button>
+                                            <a href="#">
+                                                <button class="btn btn-danger btn-xs" type="button"
+                                                        data-original-title="btn btn-danger btn-xs" title="">Delete
+                                                </button>
+                                            </a>
+
 
                                             <c:set var="urlupdate" value="./brand-add?id_brand=${brand.id}">
                                             </c:set>
-                                            <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"
-                                               type="button"
-                                               data-original-title="btn btn-danger btn-xs" title="">Edit
+                                            <a href="<c:url value="${urlupdate}"/>">
+                                                <button  class="btn btn-success btn-xs"
+                                                         data-original-title="btn btn-danger btn-xs" title="">Edit
+                                                </button>
                                             </a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>

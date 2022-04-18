@@ -83,7 +83,7 @@
                                                 <a href="product-detail/${pro.slug}">
 <%--                                                    <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"--%>
 <%--                                                         alt="#">--%>
-                                                    <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                                                    <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"
                                                          alt="#">
                                                 </a>
                                                 </div>

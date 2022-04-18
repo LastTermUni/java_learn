@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive product-table">
-                            <table class="display" style="width: 100%;">
+                            <table class="display" style="width: 100%;" id="basic-10">
                                 <thead>
                                 <tr>
                                     <th>STT</th>
@@ -59,13 +59,17 @@
                                         <td class="font-success">${product.category.tenloai}</td>
 <%--                                        <td>2011/04/25</td>--%>
                                         <td>
-                                            <button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Delete</button>
+                                            <a >
+                                            <button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Xóa</button>
+                                            </a>
                                             <c:set var="urlupdate" value="./product-add?id=${product.id}"/>
-                                            <a href="<c:url value='${urlupdate}'/>" class="btn btn-success btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="">Edit</a>
+                                            <a href="<c:url value='${urlupdate}'/>" >
+                                                <button class="btn btn-success btn-xs" data-original-title="btn btn-danger btn-xs" title="">Chỉnh</button>
+                                            </a >
+
                                         </td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>

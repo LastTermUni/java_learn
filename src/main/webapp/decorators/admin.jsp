@@ -26,6 +26,7 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/feather-icon.css'/>'/>">
     <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/datatables.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/scrollbar.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/animate.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/chartist.css'/>">
@@ -197,6 +198,9 @@
 <script src="<c:url value='/Front-end/admin/assets/js/notify/bootstrap-notify.min.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/dashboard/default.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>
+<script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/datatable.custom.js'/>"></script>
+<script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/jquery.dataTables.min.js'/>"></script>
+
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.en.js'/>"></script>
 <%--<script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.custom.js'/>"></script>--%>
