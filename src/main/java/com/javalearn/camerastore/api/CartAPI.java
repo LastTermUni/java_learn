@@ -2,6 +2,8 @@ package com.javalearn.camerastore.api;
 
 
 import com.javalearn.camerastore.convert.ConvertProduct;
+import com.javalearn.camerastore.entity.Customer;
+import com.javalearn.camerastore.repository.CustomerRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.Cart;
 import com.javalearn.camerastore.request.ProductRequest;
@@ -22,6 +24,9 @@ public class CartAPI {
 
     @Autowired
     ConvertProduct convertProduct;
+
+    @Autowired
+    CustomerRepository customerRepository;
 
 //    @GetMapping(value = "Cart/{id}")
 //    public HashMap<Long, Cart> addCart(@PathVariable long id, HttpSession session) {
@@ -147,6 +152,23 @@ public class CartAPI {
         session.setAttribute("totalPrice", totalPrice(list));
         session.setAttribute("cartNum", list.size());
         return "Success";
+    }
+
+
+    //check login in client
+    @GetMapping("/checkLogin")
+    public Customer checkLogin(HttpSession session){
+        Customer customer = new Customer();
+        String email = (String) session.getAttribute("email");
+        if(session.getAttribute("email") == null)
+        {
+            return customer;
+        }
+        else
+        {
+            customer = customerRepository.findCustomerByEmail(email);
+            return customer;
+        }
     }
 
 

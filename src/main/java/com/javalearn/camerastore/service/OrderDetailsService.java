@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface OrderDetailsService {
     List<OrderDetails> getOrderDetails();
+
+    OrderDetails save(OrderDetails orderDetails);
 }

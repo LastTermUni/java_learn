@@ -2,12 +2,9 @@ package com.javalearn.camerastore.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,7 +15,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name ="dondathang")
 public class Order {
     @Id

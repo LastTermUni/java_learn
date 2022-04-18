@@ -1,6 +1,5 @@
 package com.javalearn.camerastore.api;
 
-import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.repository.CategoryRepository;
 import com.javalearn.camerastore.service.CategoryService;
