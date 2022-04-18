@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <head>
@@ -106,7 +107,9 @@
                                             ${pro.tensp}
                                     </a></h4>
                                     <div class="pro-price">
-                                        <span>${pro.gia} VNĐ</span>
+                                        <span><fmt:formatNumber
+                                                type = "number"
+                                                maxFractionDigits = "3" value = "${pro.gia}" /> VNĐ</span>
                                     </div>
                                 </div>
                             </div>

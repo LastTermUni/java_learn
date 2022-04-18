@@ -149,19 +149,7 @@
                           <li class="static">
                             <a href="/product">Sản phẩm</a>
                             <ul class="mega-menu mega-full mega-menu-5-col" id="brand_cate">
-                              <c:forEach items="${brands}" var="brand">
-                                <li class="has-dropdown">
-                                  <a onclick="toBrand(${brand.id});" >${brand.tenthuonghieu}</a>
-                                  <ul class="has-dropdown">
-                                    <c:forEach items="${cates}" var="cate">
-                                      <li>
-                                        <a role="button" onclick="toCateWBrand(${cate.id},${brand.id});">
-                                          ${cate.tenloai}</a>
-                                      </li>
-                                    </c:forEach>
-                                  </ul>
-                                </li>
-                              </c:forEach>
+
                             </ul>
                           </li>
                         </ul>
@@ -170,25 +158,29 @@
                   </div>
                   <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                     <div class="header-right-wrapper d-flex align-items-center justify-content-end">
-                      <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu" id="profile">
-<%--                        <c:choose>--%>
-<%--                          <c:when test="${nameUser !=null}">--%>
-<%--                            <ul>--%>
-<%--                              <li class="static">--%>
-<%--                                <a href="#" class="user-btn-login"><i class="fas fa-user"></i> ${nameUser}</a>--%>
-<%--                                <ul class="drop-login">--%>
-<%--                                  <li>--%>
-<%--                                    <a class="box-user-login" href="/logout">Đăng xuất</a>--%>
-<%--                                  </li>--%>
-<%--                                </ul>--%>
-<%--                              </li>--%>
-<%--                            </ul>--%>
-<%--                          </c:when>--%>
-<%--                          <c:otherwise>--%>
-                            <a href="login" style="font-family: system-ui" class="d-none d-xxl-inline-block">Đăng nhập /
-                              Đăng ký</a>
-<%--                          </c:otherwise>--%>
-<%--                        </c:choose>--%>
+                      <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu"
+                           >
+                        <div id="profile">
+                          <%--                        <c:choose>--%>
+                          <%--                          <c:when test="${nameUser !=null}">--%>
+                          <%--                            <ul>--%>
+                          <%--                              <li class="static">--%>
+                          <%--                                <a href="#" class="user-btn-login"><i class="fas fa-user"></i> ${nameUser}</a>--%>
+                          <%--                                <ul class="drop-login">--%>
+                          <%--                                  <li>--%>
+                          <%--                                    <a class="box-user-login" href="/logout">Đăng xuất</a>--%>
+                          <%--                                  </li>--%>
+                          <%--                                </ul>--%>
+                          <%--                              </li>--%>
+                          <%--                            </ul>--%>
+                          <%--                          </c:when>--%>
+                          <%--                          <c:otherwise>--%>
+                          <a href="login" style="font-family: system-ui" class="d-none d-xxl-inline-block">Đăng nhập /
+                            Đăng ký</a>
+                          <%--                          </c:otherwise>--%>
+                          <%--                        </c:choose>--%>
+                        </div>
+
                         <div class="header-icon header-icon-2 d-inline-block ml-30">
                           <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
                           <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"
@@ -424,14 +416,22 @@
               contentType: 'application/json',
               dataType:'json',
               success:function (data){
-                var brands = data[brands];
-                var categories = data[categories];
+                var brands = data.brands;
+                var categories = data.categories;
                 var html = "";
                 for(let i =0; i< brands.length; i++)
                 {
-                  html+= "<li class='has-dropdown'>"
-                  html+= " <a onclick='toBrand("+ brands.id +");' >" + brands.tenthuonghieu + "</a>"
-                  html+= "<li/>"
+                  html+= "<li class='has-dropdown'> " +
+                          " <a onclick='toBrand("+ brands[i].id +");' >" + brands[i].tenthuonghieu + "</a> " +
+                          "<ul class='has-dropdown'>"
+                  for(let y =0; y< categories.length; y++)
+                  {
+                    html+= " <li>"+
+                       "<a role='button' onclick='toCateWBrand("+categories[y].id+","+brands[i].id+");'>"+ categories[y].tenloai +"</a>"+
+                          "</li>"
+                  }
+                  html+= "</ul>"+
+                          " <li/>"
                 }
                 $("#brand_cate").html(html)
               }
@@ -459,6 +459,7 @@
             });
           });
           function cartList() {
+            var nf = Intl.NumberFormat();
             var html = "";
             urls = urlLocation + "/cartList/";
             $.ajax({
@@ -491,7 +492,8 @@
                     "<span class='price'>" +
                     data[i].quantity +
                     " × " +
-                    data[i].productRequest.gia +
+                          nf.format(data[i].productRequest.gia)
+                     +
                     " VNĐ</span>";
                   html += "</span>";
                   html += "</div>";
@@ -506,7 +508,7 @@
                   totalPrice += data[i].quantity * data[i].productRequest.gia;
                 }
                 $("#cartList").html(html);
-                $("#ttPrice").html(totalPrice + " VNĐ");
+                $("#ttPrice").html(nf.format(totalPrice) + " VNĐ");
               },
             });
           }
@@ -546,10 +548,22 @@
                 htmls=""
                 if (data.maKH !== null) {
                   htmls+=" <ul> <li class='static'>"
-                  htmls+="<a href='/profile/"+data.maKH+"' class='user-btn-login'><i class='fas fa-user'></i>"+ data.tenKH +"</a>"
-                  htmls+="<ul class='drop-login'>"
-                  htmls+="<li>"
-                  htmls+="<a class='box-user-login' href='/logout'>Đăng xuất</a>"
+                  htmls+="<a href='#' class='user-btn-login'><i class='fas fa-user'></i>"+ data.tenKH +"</a>"
+                  htmls+="<ul class='drop-login '>"
+                  htmls+="<li class='has-dropdown'>"+
+
+                          "<ul class='has-dropdown'>"+
+                           " <li>"+
+                          "<a role='button' class='box-user-login' href='/profile/"+data.maKH+"'>Tài khoản</a>"+
+                           "</li>"+
+                          "</ul>"+
+
+                          "<ul class='has-dropdown'>"+
+                          " <li>"+
+                          "<a role='button' class='box-user-login' href='/logout'>Đăng xuất</a>"+
+                          "</li>"+
+                          "</ul>"
+
                   htmls+="</li> </ul> </li></ul>"
 
                   $("#profile").html(htmls);

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Giỏ hàng</title>
@@ -14,7 +15,7 @@
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="breadcrumb-wrapper-2 text-center">
-                        <h3>Giỏ hàng</h3>
+                        <h1>Giỏ hàng</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="home">Trang chủ</a></li>
@@ -153,13 +154,14 @@
             dataType: 'json',
             success:function(data)
             {
+                var nf = Intl.NumberFormat();
                 var totalPrice = 0;
                 for(let i =0 ; i<data.length ; i++)
                 {
                     html += "<tr>"
                     html += "<td class='product-thumbnail'><a href='product-details.html'><img src='/Front-end/images/product/" + data[i].productRequest.hinh + "' alt=''></a></td>"
                     html += "<td class='product-name'><a href='product-details.html'> "+ data[i].productRequest.tensp +"</a></td>"
-                    html += "<td class='product-price'><span class='amount'>"+ data[i].productRequest.gia +"</span></td>"
+                    html += "<td class='product-price'><span class='amount'>"+ nf.format(data[i].productRequest.gia)  +"</span></td>"
                     html += "<td class='product-quantity'>"
                     html += "<div class='cart-plus-minus'><input type='text' data-id='"+ data[i].productRequest.id + "' class='numberPro' value='"+ data[i].quantity +"' readonly/>" +
                         "<div class='dec qtybutton' data-id = '"+data[i].productRequest.id+"'>-</div>" +
@@ -167,13 +169,13 @@
                         "</div>"
                     html += "</td>"
                     const dongia = data[i].productRequest.gia*data[i].quantity;
-                    html += "<td class='product-subtotal'><span class='amount'>"+ dongia +" VNĐ</span></td>"
+                    html += "<td class='product-subtotal'><span class='amount'>"+nf.format(dongia)  +" VNĐ</span></td>"
                     html += "<td  class='product-remove'><a data-id = '"+data[i].productRequest.id+"' class = 'removeCartInPage' ><i  class='fa fa-times'></i></a></td>"
                     totalPrice+= dongia
                 }
 
                 $('#listCart').html(html);
-                $('#totalPrice').html(totalPrice + " VNĐ")
+                $('#totalPrice').html(nf.format(totalPrice) + " VNĐ")
             }
 
         })
