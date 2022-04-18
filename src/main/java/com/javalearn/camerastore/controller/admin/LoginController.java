@@ -1,15 +1,12 @@
 package com.javalearn.camerastore.controller.admin;
 
 import com.javalearn.camerastore.entity.AdminEntity;
-import com.javalearn.camerastore.entity.Customer;
 import com.javalearn.camerastore.repository.AdminRepository;
-import com.javalearn.camerastore.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;

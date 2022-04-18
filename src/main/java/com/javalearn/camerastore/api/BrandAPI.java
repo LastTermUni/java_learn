@@ -1,16 +1,12 @@
 package com.javalearn.camerastore.api;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.javalearn.camerastore.entity.Brand;
-import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 import static com.javalearn.camerastore.library.ConvertToSlug.toSlug;
 
