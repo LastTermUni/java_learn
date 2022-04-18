@@ -71,9 +71,14 @@ public class HomeController {
 
     // sản phẩm
     @GetMapping(value = "product-detail/{slug}")
-    public ModelAndView productDetail(@PathVariable String slug) {
+    public ModelAndView productDetail(@PathVariable String slug, HttpSession session) {
         Product product = productRepository.findOneBySlug(slug);
         ModelAndView mav = new ModelAndView("client/product-detail");
+
+        if (session.getAttribute("customer") != null) {
+            Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+            mav.addObject("nameUser", customer.getTenKH());
+        }
         mav.addObject("products", product);
         mav.addObject("cates", categoryService.getCategory());
         mav.addObject("brands", brandService.getBrands());
@@ -85,18 +90,24 @@ public class HomeController {
             @RequestParam(required = false) String id_brand,
             @RequestParam(required = false) String page,
             HttpServletRequest request, HttpSession session) {
+
         ModelAndView mav = new ModelAndView("client/product");
+
         List<Product> product;
 
-        if (!Objects.equals(id_cate, null) && !Objects.equals(id_brand, null)) {
+        if ( id_cate!=null && id_brand!=null) {
             product = productRepository.findAllByCategory_IdAndBrand_Id(Long.parseLong(id_cate),
-                    Long.parseLong(id_brand));
-        } else if (!Objects.equals(id_cate, null)) {
+                    Long.parseLong(id_brand+"ca hai"));
+            System.out.println(id_brand);
+        } else if (id_cate!=null) {
             product = productRepository.findAllByCategory_Id(Long.parseLong(id_cate));
-        } else if (!Objects.equals(id_brand, null)) {
-            product = productRepository.findAllByBrand_Id(Long.parseLong(id_brand));
+            System.out.println(id_cate +"Cate");
+        } else if (id_brand!=null) {
+            product = productRepository.findAllByBrandId(Long.parseLong(id_brand));
+            System.out.println(id_brand +"Brand");
         } else {
             product = productService.getProduct();
+            System.out.println("Tong");
         }
 
         PagedListHolder<Product> productList;
@@ -114,9 +125,11 @@ public class HomeController {
 
         } else {
             int pageNum = Integer.parseInt(page);
-            // productList = (PagedListHolder<Product>)
-            // session.getAttribute("productsList");
             productList.setPage(pageNum - 1);
+        }
+        if (session.getAttribute("customer") != null) {
+            Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+            mav.addObject("nameUser", customer.getTenKH());
         }
         mav.addObject("products", productList.getPageList());
         mav.addObject("paging", productList);
@@ -126,11 +139,17 @@ public class HomeController {
     }
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
-    public ModelAndView search(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView search(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+        ModelAndView mav = new ModelAndView("client/search");
+        if (session.getAttribute("customer") != null) {
+            Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+            mav.addObject("nameUser", customer.getTenKH());
+        }
+
         String searchText = request.getParameter("searchTextf");
 
         List<Product> products = productRepository.findAllByTenspContains(searchText);
-        ModelAndView mav = new ModelAndView("client/search");
+
         mav.addObject("searchText", searchText);
         mav.addObject("searchResults", products);
         mav.addObject("cates", categoryService.getCategory());
@@ -141,6 +160,8 @@ public class HomeController {
     // giỏ hàng
     @RequestMapping(value = "cart", method = RequestMethod.GET)
     public ModelAndView cart() {
+
+
         return new ModelAndView("client/cart");
     }
 
@@ -156,7 +177,7 @@ public class HomeController {
 
         String email = (String) session.getAttribute("email");
         Customer customer = customerRepository.findCustomerByEmail(email);
-
+        model.addAttribute("nameUser", customer.getTenKH());
         HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
         List<Cart> cartList = new ArrayList<>();
         double totalPrice = 0;
@@ -168,18 +189,24 @@ public class HomeController {
         if (session.getAttribute("totalPrice") != null) {
             totalPrice = (double) session.getAttribute("totalPrice");
         }
+
+
         model.addAttribute("tenKH", customer.getTenKH());
         model.addAttribute("SDT", customer.getSDT());
         model.addAttribute("Email", customer.getEmail());
         model.addAttribute("cartList", cartList);
         model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("cates", categoryService.getCategory());
+        model.addAttribute("brands", brandService.getBrands());
 
         return "client/checkout";
     }
 
     // tạo tài khoản
     @RequestMapping(value = "register", method = RequestMethod.GET)
-    public ModelAndView register() {
+    public ModelAndView register(Model model) {
+        model.addAttribute("cates", categoryService.getCategory());
+        model.addAttribute("brands", brandService.getBrands());
         return new ModelAndView("client/register");
     }
 
@@ -198,7 +225,9 @@ public class HomeController {
 
     // đăng nhập
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public ModelAndView login() {
+    public ModelAndView login(Model model) {
+        model.addAttribute("cates", categoryService.getCategory());
+        model.addAttribute("brands", brandService.getBrands());
         return new ModelAndView("client/login");
     }
 
@@ -230,7 +259,10 @@ public class HomeController {
     }
 
     @RequestMapping(value = "404", method = RequestMethod.GET)
-    public ModelAndView error() {
-        return new ModelAndView("client/error");
+    public ModelAndView error( Model model) {
+           ModelAndView mav = new ModelAndView("client/error");
+        mav.addObject("cates", categoryService.getCategory());
+        mav.addObject("brands", brandService.getBrands());
+        return mav ;
     }
 }

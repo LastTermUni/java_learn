@@ -16,5 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByCategory_IdAndBrand_Id(long idCate,long idBrand);
     List<Product> findAllByCategory_Id(long idCate);
     List<Product> findAllByBrand_Id(long idBrand);
+    List<Product> findAllByBrandId(long idBrand);
     List<Product> findAllByTenspContains(String searchText);
 }

@@ -43,7 +43,7 @@
                                 <div class="btn-showcase">
                                    <a class="btn btn-light" href="https://www.facebook.com/" target="_blank"><i class="txt-fb" data-feather="facebook"></i>facebook</a></div>
                             </div>
-                            <p class="mt-4 mb-0">Đã có tài khoản ?<a class="ms-2" href="./loginadmin">Đăng nhập</a></p>
+                            <p class="mt-4 mb-0">Đã có tài khoản ?<a class="ms-2" href="/loginadmin">Đăng nhập</a></p>
                         </form>
                     </div>
                 </div>

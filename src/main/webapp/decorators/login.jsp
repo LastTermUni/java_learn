@@ -90,7 +90,8 @@
 <script src="<c:url value='/Front-end/admin/assets/js/config.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/notify/bootstrap-notify.min.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/dashboard/default.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>
+<%--inner data--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>--%>
 <script src="<c:url value='/Front-end/admin/assets/js/product-list-custom.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/email-app.js'/>"></script>
 <!-- Plugins JS Ends-->
