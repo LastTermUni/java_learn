@@ -2,7 +2,6 @@ package com.javalearn.camerastore.controller.admin;
 
 import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
-import com.javalearn.camerastore.entity.AdminEntity;
 import com.javalearn.camerastore.entity.Brand;
 import com.javalearn.camerastore.entity.Category;
 import com.javalearn.camerastore.entity.Product;
@@ -17,7 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;

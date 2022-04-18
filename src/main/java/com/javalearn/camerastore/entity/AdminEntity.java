@@ -1,6 +1,7 @@
 package com.javalearn.camerastore.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,7 +12,6 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name ="admin")
 public class AdminEntity {
     @Id

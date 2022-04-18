@@ -3,7 +3,6 @@ package com.javalearn.camerastore.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,7 +14,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@ToString
 @Table(name ="loaisanpham")
 public class Category {
     @Id

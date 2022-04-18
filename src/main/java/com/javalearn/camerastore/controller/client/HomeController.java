@@ -14,10 +14,10 @@ import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -151,6 +151,11 @@ public class HomeController {
         if(session.getAttribute("customer") == null){
             return "redirect:login";
         }
+        if (session.getAttribute("cartList") == null)
+        {
+            return "redirect:home";
+        }
+
         String email = (String) session.getAttribute("email");
         Customer customer = customerRepository.findCustomerByEmail(email);
 
@@ -233,7 +238,6 @@ public class HomeController {
         session.removeAttribute("nameCustomer");
         return "redirect:/home";
     }
-
     @RequestMapping(value = "404", method = RequestMethod.GET)
     public ModelAndView error() {
         return new ModelAndView("client/error");

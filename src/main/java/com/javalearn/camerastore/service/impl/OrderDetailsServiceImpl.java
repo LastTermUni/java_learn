@@ -17,4 +17,9 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     public List<OrderDetails> getOrderDetails() {
         return orderDetailsRepository.findAll();
     }
+
+    @Override
+    public OrderDetails save(OrderDetails orderDetails) {
+        return orderDetailsRepository.save(orderDetails);
+    }
 }

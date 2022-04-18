@@ -1,5 +1,12 @@
 package com.javalearn.camerastore.controller.paypal;
 
+import com.javalearn.camerastore.entity.Order;
+import com.javalearn.camerastore.entity.OrderDetails;
+import com.javalearn.camerastore.repository.ProductRepository;
+import com.javalearn.camerastore.request.Cart;
+import com.javalearn.camerastore.request.OrderRequest;
+import com.javalearn.camerastore.service.OrderDetailsService;
+import com.javalearn.camerastore.service.OrderService;
 import com.javalearn.camerastore.service.impl.PaypalService;
 import com.javalearn.camerastore.utils.Utils;
 import com.paypal.api.payments.Links;
@@ -19,6 +26,8 @@ import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class PaymentController {
@@ -30,6 +39,14 @@ public class PaymentController {
     @Autowired
     private PaypalService paypalService;
 
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private OrderDetailsService orderDetailsService;
 
     //Hàm này dùng để khởi tạo links tới server paypal
     @PostMapping("/pay")
@@ -70,10 +87,23 @@ public class PaymentController {
 
     //Page cancel khi thanh toán thành công
     @GetMapping(URL_PAYPAL_SUCCESS)
-    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId){
+    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId, HttpSession session){
         try {
+
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if(payment.getState().equals("approved")){
+                HashMap<Long, Cart> list = (HashMap<Long, Cart>) session.getAttribute("cartList");
+                OrderRequest orderRequest = new OrderRequest();
+                orderRequest.setMakh((Long) session.getAttribute("customer"));
+                orderRequest.setDiachi((String) session.getAttribute("address"));
+                orderRequest.setTongtien((Double) session.getAttribute("totalPrice"));
+                orderRequest.setStatus(2L);
+                orderService.save(orderRequest, list);
+
+                list = null;
+                session.setAttribute("cartList", list);
+                session.setAttribute("totalPrice", null);
+                session.setAttribute("cartNum", null);
                 return "paypal/success";
             }
         } catch (PayPalRESTException e) {
