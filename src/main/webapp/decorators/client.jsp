@@ -549,7 +549,7 @@
                 htmls=""
                 if (data.maKH !== null) {
                   htmls+=" <ul> <li class='static'>"
-                  htmls+="<a href='#' class='user-btn-login'><i class='fas fa-user'></i>"+ data.tenKH +"</a>"
+                  htmls+="<a href='#' class='user-btn-login'><i class='fas fa-user'></i>  "+ data.tenKH +"</a>"
                   htmls+="<ul class='drop-login '>"
                   htmls+="<li class='has-dropdown'>"+
 
