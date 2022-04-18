@@ -100,6 +100,10 @@ public class PaymentController {
                 orderRequest.setStatus(2L);
                 orderService.save(orderRequest, list);
 
+                list = null;
+                session.setAttribute("cartList", list);
+                session.setAttribute("totalPrice", null);
+                session.setAttribute("cartNum", null);
                 return "paypal/success";
             }
         } catch (PayPalRESTException e) {
