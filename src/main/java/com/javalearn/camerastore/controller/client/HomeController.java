@@ -61,7 +61,9 @@ public class HomeController {
             Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
             mav.addObject("nameUser", customer.getTenKH());
         }
+        Product productNewest = productRepository.findOneByOrderByCreated_atDesc();
 
+        mav.addObject("productNewest", productNewest);
         mav.addObject("products", productService.getProduct());
         mav.addObject("cates", categoryService.getCategory());
         mav.addObject("brands", brandService.getBrands());
@@ -98,27 +100,19 @@ public class HomeController {
         if ( id_cate!=null && id_brand!=null) {
             product = productRepository.findAllByCategory_IdAndBrand_Id(Long.parseLong(id_cate),
                     Long.parseLong(id_brand));
-            System.out.println(id_brand + "ca hai");
         } else if (id_cate!=null) {
             product = productRepository.findAllByCategory_Id(Long.parseLong(id_cate));
-            System.out.println(id_cate +"Cate");
         } else if (id_brand!=null) {
             product = productRepository.findAllByBrandId(Long.parseLong(id_brand));
-            System.out.println(id_brand +"Brand");
         } else {
             product = productService.getProduct();
-            System.out.println("Tong werwer we");
-
         }
 
         PagedListHolder<Product> productList;
         // HttpSession session = request.getSession();
-        productList = (PagedListHolder<Product>) session.getAttribute("productsList");
-
             productList = new PagedListHolder<Product>();
             productList.setSource(product);
-            productList.setPageSize(1);
-
+            productList.setPageSize(6);
             session.setAttribute("productsList", productList);
 
         if (page == null || page.equals("0")) {

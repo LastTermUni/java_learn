@@ -74,8 +74,6 @@ public class ProductAPI {
 
     @GetMapping("/cateList")
     public List<Category> getCate() throws URISyntaxException {
-
-        System.out.println(path);
         return categoryService.getCategory();
     }
 
