@@ -13,17 +13,17 @@
     <!-- slider area start -->
     <section class="slider-area-rel">
         <div class="slider-active slider-active-6 s-dot-style dot-style dot-style-1 dot-bottom-left-2 ">
-            <div class="single-slider single-slider-3 slider-height-4 d-flex align-items-center light-green-bg">
+            <div style="background: white" class="single-slider single-slider-3 slider-height-4 d-flex align-items-center light-green-bg">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-6 pt-60 pb-10">
                             <div class="slider-content-6">
                                 <span class="s-subtitle s-subtitle-3 s-subtitle-6 pb-25"> Sản phẩm mới</span>
-                                <h2 class="s-title s-title-2 s-title-6 pb-28">name</h2>
+                                <h2 class="s-title s-title-2 s-title-6 pb-28">${productNewest.tensp}</h2>
                                 <p class="s-desc pb-75 slider-p-6">
-                                    Hãng: </p>
+                                    Hãng: ${productNewest.brand.tenthuonghieu} </p>
                                 <div class="p-btn p-btn-5 slider-btn-6">
-                                    <a href="">Chi tiết</a>
+                                    <a href="/product/${productNewest.slug}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -38,34 +38,34 @@
         </div>
     </section>
     <!-- slider area end -->
-    <!-- category area start -->
-    <div id="category-area" class="category__area category__br-tp gray-bg-5">
-        <div class="container-fluid">
-            <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
-                <%--5 ô--%>
-                    <c:forEach var="category" items="${cates}">
-                <div class="col">
+<%--    <!-- category area start -->--%>
+<%--    <div id="category-area" class="category__area category__br-tp gray-bg-5">--%>
+<%--        <div class="container-fluid">--%>
+<%--            <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">--%>
+<%--                &lt;%&ndash;5 ô&ndash;%&gt;--%>
+<%--                    <c:forEach var="category" items="${cates}">--%>
+<%--                <div class="col">--%>
 
-                        <div class="category__item category__br-right fix">
-                            <div class="category__thumb">
-                                <a href="">
-                                    <img src="<c:url value='/Front-end/client/img/brand/img.png'/>" alt="">
-                                </a>
-                            </div>
-                            <div class="category__content text-center">
-                                <div class="category__tag mb-10">
-                                    <a href=""></a>
-                                </div>
-                                <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>
-                            </div>
-                        </div>
+<%--                        <div class="category__item category__br-right fix">--%>
+<%--                            <div class="category__thumb">--%>
+<%--                                <a href="">--%>
+<%--                                    <img src="<c:url value='/Front-end/client/img/brand/img.png'/>" alt="">--%>
+<%--                                </a>--%>
+<%--                            </div>--%>
+<%--                            <div class="category__content text-center">--%>
+<%--                                <div class="category__tag mb-10">--%>
+<%--                                    <a href=""></a>--%>
+<%--                                </div>--%>
+<%--                                <a href="" class="link-btn">Sản phẩm ${category.tenloai}</a>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
 
-                </div>
-                    </c:forEach>
-            </div>
-        </div>
-    </div>
-    <!-- category area end -->
+<%--                </div>--%>
+<%--                    </c:forEach>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <!-- category area end -->--%>
     <div class="top-selling-area pb-100 pt-95 gray-bg-4 ">
         <div class="container ">
             <div class="row">
