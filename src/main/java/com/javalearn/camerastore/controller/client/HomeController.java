@@ -14,6 +14,7 @@ import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -61,9 +62,7 @@ public class HomeController {
             Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
             mav.addObject("nameUser", customer.getTenKH());
         }
-        Product productNewest = productRepository.findOneByOrderByCreated_atDesc();
-
-        mav.addObject("productNewest", productNewest);
+        mav.addObject("productNewest",  productRepository.findFirstByOrderByIdDesc());
         mav.addObject("products", productService.getProduct());
         mav.addObject("cates", categoryService.getCategory());
         mav.addObject("brands", brandService.getBrands());
