@@ -20,4 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByBrand_Id(long idBrand);
     List<Product> findAllByBrandId(long idBrand);
     List<Product> findAllByTenspContains(String searchText);
+
+    @Query("SELECT v FROM Product v where v.status = 1 or v.status = 0 order by v.id desc")
+    List<Product> getAllByStatuss();
 }
