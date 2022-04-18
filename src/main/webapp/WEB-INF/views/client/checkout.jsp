@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Thanh toán</title>
@@ -14,7 +15,7 @@
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="breadcrumb-wrapper-2 text-center">
-                        <h3>Thanh Toán</h3>
+                        <h1>Thanh Toán</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html">Giỏ hàng</a></li>
@@ -84,7 +85,9 @@
                                         </td>
                                         <c:set var="subtotal" value="${product.productRequest.gia*product.quantity}"></c:set>
                                         <td class="product-total">
-                                            <span class="amount">${subtotal}</span>
+                                            <span class="amount"><fmt:formatNumber
+                                                    type = "number"
+                                                    maxFractionDigits = "3" value = "${subtotal}" /> VNĐ</span>
                                         </td>
                                     </tr>
                                     </c:forEach>
@@ -94,7 +97,9 @@
                                     <c:set var="total" value="${totalPrice}"></c:set>
                                     <tr class="order-total">
                                         <th>Tổng tiền hóa đơn</th>
-                                        <td><strong><span class="amount">${total} VNĐ</span></strong>
+                                        <td><strong><span class="amount"><fmt:formatNumber
+                                                type = "number"
+                                                maxFractionDigits = "3" value = "${total}" /> VNĐ</span></strong>
                                         </td>
                                     </tr>
                                     </tfoot>
@@ -113,7 +118,7 @@
                                         <div id="bankOne" class="accordion-collapse collapse" aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
                                                 <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanCOD">Thanh bằng COD</button>
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanCOD">Thanh toán bằng COD</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +132,7 @@
                                         <div id="payment" class="accordion-collapse collapse" aria-labelledby="paymentTwo" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
                                                 <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanMomo">Thanh bằng Momo</button>
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanMomo">Thanh toán bằng Momo</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -141,7 +146,7 @@
                                         <div id="paypal" class="accordion-collapse collapse" aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
                                                 <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh bằng Paypal</button>
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh toán bằng Paypal</button>
                                                 </div>
                                             </div>
                                         </div>
