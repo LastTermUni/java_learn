@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <title>${searchText}</title>
 <body>
@@ -16,10 +17,6 @@
 
             <div class="breadcrumb-title text-center">
                 <h3>Tìm kiếm: ${searchText}</h3>
-            </div>
-            <div class="breadcrumb-list">
-                <a href="home">Trang chủ</a>
-                <span>Tìm kiếm</span>
             </div>
         </div>
     </div>
@@ -85,7 +82,7 @@
                                                     </a>
                                                     </div>
                                                     <div class="cart-btn cart-btn-1 p-abs">
-                                                        <a href="#">Add to cart</a>
+                                                        <a href="#">Thêm vào giỏ</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-content ml-15">
@@ -95,7 +92,9 @@
                                                     </a>
                                                     </h4>
                                                     <div class="pro-price">
-                                                        <span>${pro.gia} VNĐ</span>
+                                                        <span><fmt:formatNumber
+                                                                type = "number"
+                                                                maxFractionDigits = "3" value = "${pro.gia}" /> VNĐ</span>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <head>
@@ -23,13 +24,13 @@
                                 <p class="s-desc pb-75 slider-p-6">
                                     Hãng: ${productNewest.brand.tenthuonghieu} </p>
                                 <div class="p-btn p-btn-5 slider-btn-6">
-                                    <a href="/product/${productNewest.slug}">Chi tiết</a>
+                                    <a href="/product-detail/${productNewest.slug}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-6">
                             <div class="slider-thumb-6">
-                                <img src="" alt="">
+                                <img src="<c:url value='/Front-end/images/product/${productNewest.hinh}'/>" alt="">
                             </div>
                         </div>
                     </div>
@@ -106,7 +107,9 @@
                                             ${pro.tensp}
                                     </a></h4>
                                     <div class="pro-price">
-                                        <span>${pro.gia} VNĐ</span>
+                                        <span><fmt:formatNumber
+                                                type = "number"
+                                                maxFractionDigits = "3" value = "${pro.gia}" /> VNĐ</span>
                                     </div>
                                 </div>
                             </div>

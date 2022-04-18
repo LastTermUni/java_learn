@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Danh sách sản phẩm</title>
@@ -17,7 +18,7 @@
             background-repeat: no-repeat; ">
         <div class="container">
             <div class="breadcrumb-title text-center">
-                <h3>Tất cả sản phẩm</h3>
+                <h1>Tất cả sản phẩm</h1>
             </div>
             <div class="breadcrumb-list">
                 <a href="home">Trang chủ</a>
@@ -87,8 +88,8 @@
                                                          alt="#">
                                                 </a>
                                                 </div>
-                                                <div class="cart-btn cart-btn-1 p-abs">
-                                                    <a href="#">Add to cart</a>
+                                                <div class="cart-btn cart-btn-1 p-abs addtoCart"  data-id="${pro.id}">
+                                                    <a>Thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                             <div class="product-content ml-15">
@@ -98,7 +99,10 @@
                                                 </a>
                                                 </h4>
                                                 <div class="pro-price">
-                                                    <span>${pro.gia} VNĐ</span>
+
+                                                    <span><fmt:formatNumber
+                                                            type = "number"
+                                                            maxFractionDigits = "3" value = "${pro.gia}" /> VNĐ</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -176,6 +180,31 @@
            let urlParams = new URL(window.location.href);
            urlParams.searchParams.set('page', page);
             window.location.href=(urlParams);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        var urlLocation = window.location.protocol + "//" + window.location.host;
+        $(document).ready(function () {
+
+            $('body').on('click', '.addtoCart', function () {
+                var id = $(this).data('id');
+                addCart(id);
+            })
+        });
+
+        function addCart(_id) {
+            urls = urlLocation + "/Cart/" + _id;
+            $.ajax({
+                url: urls,
+                type: 'GET',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data) {
+                    $('#cartNumber').html(data);
+                }
+            })
         }
     </script>
 </main>

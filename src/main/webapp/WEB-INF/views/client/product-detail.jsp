@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Chi tiết sản phẩm</title>
@@ -50,7 +51,9 @@
               <a >${products.tensp}</a>
             </h3>
             <div class="product__details-price">
-              <span class="price">${products.gia} VNĐ</span>
+              <span class="price"><fmt:formatNumber
+                      type = "number"
+                      maxFractionDigits = "3" value = "${products.gia}" /> VNĐ</span>
             </div>
             <div class="product__details-meta mb-25">
               <ul>
@@ -85,10 +88,10 @@
               <form action="#">
                 <div class="product__details-quantity d-sm-flex align-items-center">
                   <div class="product-quantity mb-20 mr-15">
-                    <div class="cart-plus-minus"><input type="text" value="1" /></div>
+                    <div class="cart-plus-minus"><input type="text" value="1" id="quantityDetails" /></div>
                   </div>
                   <div class="product-add-cart  product-add-cart-2 mb-20">
-                    <button class="s-btn s-btn-2 s-btn-big">Thêm vào giỏ</button>
+                    <button class="s-btn s-btn-2 s-btn-big" id="add_cart_details" data-id="${products.id}">Thêm vào giỏ</button>
                   </div>
                 </div>
               </form>
@@ -122,8 +125,31 @@
   </section>
   <!-- product details area end -->
   <div class="product-line"></div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
 
+  $(document).ready(function () {
 
+    $('body').on('click', '#add_cart_details', function () {
+      var id = $(this).data('id');
+      var quantity = $("#quantityDetails").val();
+      addCartDetails(id, quantity);
+    })
+  });
+
+  function addCartDetails(_id, quantity) {
+    urls = urlLocation + "/Cart/" + _id +"?num=" + quantity;
+    $.ajax({
+      url: urls,
+      type: 'GET',
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data) {
+        $('#cartNumber').html(data);
+      }
+    })
+  }
+</script>
 
 </main>
 </body>
