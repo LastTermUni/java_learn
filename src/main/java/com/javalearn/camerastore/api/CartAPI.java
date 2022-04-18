@@ -57,23 +57,41 @@ public class CartAPI {
 
 
     @GetMapping(value = "Cart/{id}")
-    public int addCart(@PathVariable long id, HttpSession session) {
+    public int addCart(@PathVariable long id, HttpSession session,
+                       @RequestParam(value = "num", required = false) Integer num) {
         HashMap<Long, Cart> cartItems = (HashMap<Long, Cart>) session.getAttribute("cartList");
         System.out.println(cartItems);
         if (cartItems == null) {
             cartItems = new HashMap<>();
         }
+
+        if(num != null)
+            if (num==0)
+                return cartItems.size();
+
         ProductRequest productRequest = convertProduct.toRequest(productRepository.findOneById(id));
         if (productRequest != null) {
             if (cartItems.containsKey(id)) {
                 Cart item = cartItems.get(id);
                 item.setProductRequest(productRequest);
-                item.setQuantity(item.getQuantity() + 1);
+                if(num == null)
+                {
+                    item.setQuantity(item.getQuantity() + 1);
+                }
+                else {
+                    item.setQuantity(item.getQuantity() + num);
+                }
                 cartItems.put(id, item);
             } else {
                 Cart item = new Cart();
                 item.setProductRequest(productRequest);
-                item.setQuantity(1);
+                if(num == null)
+                {
+                    item.setQuantity(1);
+                }
+                else {
+                    item.setQuantity(num);
+                }
                 cartItems.put(id, item);
                 System.out.println( "Mới thêm: " + cartItems);
             }
@@ -84,6 +102,7 @@ public class CartAPI {
         session.setAttribute("cartNum", cartItems.size());
         return cartItems.size();
     }
+
 
 
     @GetMapping(value = "cartList")

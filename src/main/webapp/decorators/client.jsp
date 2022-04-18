@@ -157,8 +157,7 @@
                   </div>
                   <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                     <div class="header-right-wrapper d-flex align-items-center justify-content-end">
-                      <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu"
-                           >
+                      <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu">
                         <div id="profile">
                           <%--                        <c:choose>--%>
                           <%--                          <c:when test="${nameUser !=null}">--%>
