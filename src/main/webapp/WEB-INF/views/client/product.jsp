@@ -36,11 +36,26 @@
                             <h4 class="widget-title">Thương hiệu</h4>
                             <div class="widget-category-list">
                                 <form action="#">
-                                    <c:forEach items="${cates}" var="cate">
+                                    <c:forEach items="${brands}" var="brand">
                                     <div class="single-widget-category">
-                                        <input type="checkbox" id="brand-item-${cate.id}" name="brand-item" value="${cate.slug}">
-                                        <label for="brand-item-${cate.id}">${cate.tenloai}<span></span></label>
+                                        <input type="checkbox" id="brand-item-${brand.id}" name="brand-item" value="${brand.slug}">
+                                        <label for="brand-item-${brand.id}"><a role="button" href="/product?id_brand=${brand.id}">
+                                                ${brand.tenthuonghieu}
+                                        </a><span></span></label>
                                     </div>
+                                    </c:forEach>
+                                </form>
+                            </div>
+                            <h4 class="widget-title">Loại</h4>
+                            <div class="widget-category-list">
+                                <form action="#">
+                                    <c:forEach items="${cates}" var="cate">
+                                        <div class="single-widget-category">
+                                            <input type="checkbox" id="brand-item-${cate.id}" name="brand-item" value="${cate.slug}">
+                                            <label for="brand-item-${cate.id}"><a role="button" href="/product?id_cate=${cate.id}">
+                                                    ${cate.tenloai}
+                                            </a><span></span></label>
+                                        </div>
                                     </c:forEach>
                                 </form>
                             </div>
@@ -120,12 +135,6 @@
                     <c:choose>
                         <%-- Show Prev as link if not on first page --%>
                         <c:when test="${paging.firstPage}">
-                            <li>
-                                <a>
-                                    <i class="far fa-angle-left"></i>
-                                </a>
-                            </li>
-
                         </c:when>
                         <c:otherwise>
                             <li>
@@ -153,11 +162,6 @@
                     <c:choose>
                         <%-- Show Next as link if not on last page --%>
                         <c:when test="${paging.lastPage}">
-                            <li>
-                                <a>
-                                    <i class="far fa-angle-right"></i>
-                                </a>
-                            </li>
                         </c:when>
                         <c:otherwise>
                             <li>

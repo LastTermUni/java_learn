@@ -18,10 +18,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Product findFirstByOrderByIdDesc();
     Product findOneById(Long id);
     Product findOneBySlug(String slug);
-    List<Product> findAllByCategory_IdAndBrand_Id(long idCate,long idBrand);
-    List<Product> findAllByCategory_Id(long idCate);
-    List<Product> findAllByBrandId(long idBrand);
-    List<Product> findAllByTenspContains(String searchText);
+
+    List<Product> findAllByCategory_IdAndBrand_IdAndStatusEqualsOrderByIdDesc(long idCate,long idBrand,long status);
+    List<Product> findAllByCategory_IdAndStatusEqualsOrderByIdDesc(long idCate,long status);
+    List<Product> findAllByBrandIdAndStatusEqualsOrderByIdDesc(Long brand_id, long status);
+    List<Product> findAllByTenspContainsAndStatusEqualsOrderByIdDesc(String searchText,long status);
 
     @Query("SELECT v FROM Product v where v.status = 1 or v.status = 0 order by v.id desc")
     List<Product> getAllByStatuss();

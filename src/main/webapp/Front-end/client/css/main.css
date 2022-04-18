@@ -8504,11 +8504,13 @@ p.checkout-coupon input[type=text]:focus {
   content: "\f068";
 }
 .payment-method .accordion-body {
-  padding: 8px 0;
-  padding-bottom: 40px;
+  padding: 2px 0;
+  padding-bottom: 24px;
 }
 .payment-method .accordion-collapse {
   border: none;
+  border-left: 1px dotted;
+  padding-left: 10px;
 }
 
 .panel-title > a {

@@ -12,9 +12,8 @@
             <div class="login-card">
                 <div>
                    <div class="login-main">
-                        <form th:action="@{/login}" method="post" class="theme-form">
-                            <h4>Đăng nhập</h4>
-                            <p>Hãy nhập iii</p>
+                        <form th:action="@{/login}" method="post" class="theme-form" style="font-family: system-ui;">
+                            <h4 style="text-align: center">Đăng nhập</h4>
                             <div class="form-group">
                                 <label class="col-form-label">Địa chỉ email</label>
                                 <input class="form-control" type="text" id="username" name="username" placeholder="Email ...">

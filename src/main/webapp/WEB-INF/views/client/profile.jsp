@@ -78,64 +78,69 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="your-order mb-30 ">
-                        <h3>Thông tin hóa đơn</h3>
-                        <div class="your-order-table table-responsive">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-total">Total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="cart_item">
+                        <h3>Lịch sử hóa đơn</h3>
+<%--                        <div class="your-order-table table-responsive">--%>
+<%--                            <table>--%>
+<%--                                <thead>--%>
+<%--                                <tr>--%>
+<%--                                    <th class="product-name">Product</th>--%>
+<%--                                    <th class="product-total">Total</th>--%>
+<%--                                </tr>--%>
+<%--                                </thead>--%>
+<%--                                <tbody>--%>
+<%--                                <tr class="cart_item">--%>
 
-                                </tbody>
+<%--                                </tbody>--%>
 
-                            </table>
-                        </div>
+<%--                            </table>--%>
+<%--                        </div>--%>
 
                         <div class="payment-method">
                             <div class="accordion" id="checkoutAccordion">
-                                <div>Phương thức thanh toán:</div>
+                                <div>Đơn hàng:</div>
                                 <c:forEach var="order" items="${listOrder}">
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="paypalThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false"
-                                                aria-controls="paypal">
-                                            Ngày đặt : ${order.ngaydathang} - Tổng tiền <fmt:formatNumber
+                                    <h2 class="accordion-header" id="check${order.madh}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#order${order.madh}" aria-expanded="false" aria-controls="order${order.madh} ">
+              Ngày đặt : <fmt:formatDate value="${order.ngaydathang}" type="date" pattern="dd-MM-yyyy"/> --- Tổng tiền <fmt:formatNumber
                                                 type="number"
                                                 maxFractionDigits="3" value="${order.tongtien}"/> VNĐ
-
-                                            - Địa chỉ: ${order.diachi}
-                                            - Trạng thái : <c:choose>
-                                            <c:when test="${order.status == 1}">
-                                                SHIP COD
-                                            </c:when>
-                                            <c:when test="${order.status == 2}">
-                                                Đã thanh toán bằng PayPal
-                                            </c:when>
-                                            <c:when test="${order.status == 3}">
-                                                Đã thanh toán
-                                            </c:when>
-                                            <c:when test="${order.status == 0}">
-                                                Đơn hàng đã hủy
-                                            </c:when>
-                                        </c:choose>
                                         </button>
-
                                     </h2>
-                                        <%--                                        <div id="paypal" class="accordion-collapse collapse" aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">--%>
-                                        <%--                                            <div class="accordion-body">--%>
-                                        <%--                                                <div class="order-button-payment mt-20">--%>
-                                        <%--                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh toán bằng Paypal</button>--%>
-                                        <%--                                                </div>--%>
-                                        <%--                                            </div>--%>
-                                        <%--                                        </div>--%>
-                                        <%--                                    </div>--%>
-                                    </c:forEach>
+                                    <div id="order${order.madh}" class="accordion-collapse collapse" aria-labelledby="check${order.madh}" data-bs-parent="#checkoutAccordion">
+                                        <div class="accordion-body">
+                                            <div class="order-button-payment ">
+                                                <p style="margin-bottom: unset !important;font-size: 16px !important;
+                                                            font-weight: normal !important;
+                                                            line-height: 24px !important;
+                                                            color: #272a2c !important;">
+                                                    - Địa chỉ: ${order.diachi} </p>
+                                                <p style="margin-bottom: unset !important;font-size: 16px !important;
+                                                            font-weight: normal !important;
+                                                            line-height: 24px !important;
+                                                            color: #272a2c !important;">
+                                                    - Trạng thái :
+                                                    <c:choose>
+                                                    <c:when test="${order.status == 1}">
+                                                        SHIP COD
+                                                    </c:when>
+                                                    <c:when test="${order.status == 2}">
+                                                        Đã thanh toán bằng PayPal
+                                                    </c:when>
+                                                    <c:when test="${order.status == 3}">
+                                                        Đã thanh toán
+                                                    </c:when>
+                                                    <c:when test="${order.status == 0}">
+                                                        Đơn hàng đã hủy
+                                                    </c:when>
+                                                </c:choose>
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                          </c:forEach>
                             </div>
                         </div>
 

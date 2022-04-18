@@ -12,7 +12,7 @@
             <div class="login-card">
                 <div>
                      <div class="login-main">
-                        <form class="theme-form">
+                        <form class="theme-form" style="font-family: system-ui;">
                             <h4>Tạo tài khoản</h4>
                             <div class="form-group">
                                 <label class="col-form-label pt-0">Tên</label>
