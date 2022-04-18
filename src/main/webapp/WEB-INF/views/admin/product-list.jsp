@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Danh sách sản phẩm</title>
@@ -61,7 +62,10 @@
                                             <%--                                            <h6> Red Lipstick </h6><span>Interchargebla lens Digital Camera with APS-C-X Trans CMOS Sens</span>--%>
                                             <%--                                        </td>--%>
                                         <td>${product.brand.tenthuonghieu}</td>
-                                        <td>${product.gia}</td>
+
+                                        <td><fmt:formatNumber
+                                                type="number"
+                                                maxFractionDigits="3" value="${product.gia}"/></td>
                                         <td class="font-success">${product.category.tenloai}</td>
 
                                             <%--                                        <td>2011/04/25</td>--%>

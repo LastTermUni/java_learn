@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Chi tiết sản phẩm</title>
+
 </head>
 <body>
 <main>
@@ -111,7 +112,10 @@
                        data-bs-parent="#productDetailsAccordion">
                     <div class="accordion-body">
                       <div class="product-description-wrapper">
-                          ${products.mota}
+
+                          <textarea style="width: 100%" rows="40" disabled> ${products.mota}</textarea>
+
+
                       </div>
                     </div>
                   </div>
