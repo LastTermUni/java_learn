@@ -32,13 +32,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive product-table">
-                            <table class="display" style="width: 100%;">
-                                <thead>
+                            <table class="display" style="width: 100%;" id="basic-10">
+                                <thead style="border-bottom: 1px solid black;">
                                 <tr>
                                     <th>STT</th>
                                     <th>Danh mục</th>
                                     <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>Tùy chọn</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,16 +72,21 @@
                                             </label>
                                         </td>
                                         <td>
+                                            <a >
                                                 <button class="btn btn-danger btn-xs" type="button"
-                                                 data-original-title="btn btn-danger btn-xs" title="">Delete
-                                                 </button>
+                                                        data-original-title="btn btn-danger btn-xs" title="">Xóa
+                                                </button>
+                                            </a>
+
 
                                             <c:set var="urlupdate" value="./category-add?id_cate=${cate.id}">
                                             </c:set>
-                                            <a href="<c:url value="${urlupdate}"/>" class="btn btn-success btn-xs"
-                                               type="button"
-                                               data-original-title="btn btn-danger btn-xs" title="">Edit
+                                            <a href="<c:url value="${urlupdate}"/>">
+                                                <button  class="btn btn-success btn-xs"
+                                                         data-original-title="btn btn-danger btn-xs" title="">Chỉnh
+                                                </button>
                                             </a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>

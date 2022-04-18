@@ -54,6 +54,16 @@ public class AdminController {
     private AdminRepository adminRepository;
 
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(HttpSession session) {
+        if(session.getAttribute("roleAdmin") == null){
+            return "redirect:/loginadmin";
+        }else {
+            return "admin/dashboard";
+        }
+
+    }
+
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String homePage(HttpSession session) {
         if(session.getAttribute("roleAdmin") == null){

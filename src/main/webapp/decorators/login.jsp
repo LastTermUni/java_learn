@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
     <title>Đăng nhập</title>
     <!-- Google font-->
+    <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/font-awesome.css'/>'/>">
@@ -89,7 +90,8 @@
 <script src="<c:url value='/Front-end/admin/assets/js/config.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/notify/bootstrap-notify.min.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/dashboard/default.js'/>"></script>
-<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>
+<%--inner data--%>
+<%--<script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>--%>
 <script src="<c:url value='/Front-end/admin/assets/js/product-list-custom.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/email-app.js'/>"></script>
 <!-- Plugins JS Ends-->

@@ -1,5 +1,5 @@
 'use strict';
-var notify = $.notify('<i class="fa fa-bell-o"></i><strong>Loading</strong> page Do not close this page...', {
+var notify = $.notify('<i class="fa fa-bell-o"></i><strong>Loading</strong> Đang cập nhật dữ liệu...', {
     type: 'theme',
     allow_dismiss: true,
     delay: 2000,
@@ -12,5 +12,5 @@ var notify = $.notify('<i class="fa fa-bell-o"></i><strong>Loading</strong> page
 });
 
 setTimeout(function() {
-    notify.update('message', '<i class="fa fa-bell-o"></i><strong>Loading</strong> Inner Data.');
-}, 1000);
+    notify.update('message', '<i class="fa fa-bell-o"></i><strong>Loading</strong> Hoàn tất.');
+}, 500);

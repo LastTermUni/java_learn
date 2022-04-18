@@ -75,12 +75,18 @@
                                          data-wow-delay=".${pro.id}s">
                                         <div class="single-product" >
                                             <div class="product-thumb" style="border-radius: 10px">
+                                                <div style="height: 280px;
+                                                           display: flex;
+                                                            justify-content: center;
+                                                            align-items: center;
+                                                            background: white;">
                                                 <a href="product-detail/${pro.slug}">
 <%--                                                    <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"--%>
 <%--                                                         alt="#">--%>
-                                                    <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
+                                                    <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"
                                                          alt="#">
                                                 </a>
+                                                </div>
                                                 <div class="cart-btn cart-btn-1 p-abs">
                                                     <a href="#">Add to cart</a>
                                                 </div>

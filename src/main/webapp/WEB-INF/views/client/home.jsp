@@ -86,11 +86,17 @@
                              style="width: calc(23vw - 10px); background-color: #f6f6f6; padding: 3px; margin: 8px;">
                             <div class="single-product single-product-6" style="border:none">
                                 <div class="product-thumb">
+                                    <div style="height: 280px;
+                                               display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                background: white;">
                                     <a href="/product-detail/${pro.slug}">
 
                                         <img src="<c:url value='/Front-end/images/product/${pro.hinh}'/>"
                                              style="border-radius:10px " alt="">
                                     </a>
+                                    </div>
                                     <div class="cart-btn cart-btn-1 p-abs">
                                         <a type="button" class="cart-item" data-id="${pro.id}">Thêm vào giỏ</a>
                                     </div>

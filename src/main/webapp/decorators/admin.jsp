@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
     <title>Admin</title>
     <!-- Google font-->
+    <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/font-awesome.css'/>'/>">
@@ -25,6 +26,7 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/feather-icon.css'/>'/>">
     <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/datatables.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/scrollbar.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/animate.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/chartist.css'/>">
@@ -37,6 +39,7 @@
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/vendors/bootstrap.css'/>">
     <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/main.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/Front-end/admin/assets/css/style.css'/>">
     <link id="color" rel="stylesheet" href="<c:url value='/Front-end/admin/assets/css/color-1.css'/>" media="screen">
     <!-- Responsive css-->
@@ -195,6 +198,9 @@
 <script src="<c:url value='/Front-end/admin/assets/js/notify/bootstrap-notify.min.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/dashboard/default.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/notify/index.js'/>"></script>
+<script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/datatable.custom.js'/>"></script>
+<script src="<c:url value='/Front-end/admin/assets/js/datatable/datatables/jquery.dataTables.min.js'/>"></script>
+
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.js'/>"></script>
 <script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.en.js'/>"></script>
 <%--<script src="<c:url value='/Front-end/admin/assets/js/datepicker/date-picker/datepicker.custom.js'/>"></script>--%>
