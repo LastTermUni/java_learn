@@ -7,12 +7,14 @@ import com.javalearn.camerastore.entity.Order;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.repository.CustomerRepository;
+import com.javalearn.camerastore.repository.OrderRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.Cart;
 import com.javalearn.camerastore.service.BrandService;
 import com.javalearn.camerastore.service.CategoryService;
 import com.javalearn.camerastore.service.CustomerService;
 import com.javalearn.camerastore.service.ProductService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.Sort;
@@ -55,6 +57,9 @@ public class HomeController {
     CustomerRepository customerRepository;
 
     @Autowired
+    OrderRepository orderRepository;
+
+    @Autowired
     ServletContext context;
 
     @GetMapping("home")
@@ -65,9 +70,7 @@ public class HomeController {
             mav.addObject("nameUser", customer.getTenKH());
         }
         mav.addObject("productNewest",  productRepository.findFirstByOrderByIdDesc());
-        mav.addObject("products", productService.getProduct());
-        mav.addObject("cates", categoryService.getCategory());
-        mav.addObject("brands", brandService.getBrands());
+        mav.addObject("products", productRepository.getAllByStatus());
 
         return mav;
     }
@@ -83,8 +86,6 @@ public class HomeController {
             mav.addObject("nameUser", customer.getTenKH());
         }
         mav.addObject("products", product);
-        mav.addObject("cates", categoryService.getCategory());
-        mav.addObject("brands", brandService.getBrands());
         return mav;
     }
 
@@ -129,8 +130,6 @@ public class HomeController {
         }
         mav.addObject("products", productList.getPageList());
         mav.addObject("paging", productList);
-        mav.addObject("cates", categoryService.getCategory());
-        mav.addObject("brands", brandService.getBrands());
         return mav;
     }
 
@@ -148,8 +147,6 @@ public class HomeController {
 
         mav.addObject("searchText", searchText);
         mav.addObject("searchResults", products);
-        mav.addObject("cates", categoryService.getCategory());
-        mav.addObject("brands", brandService.getBrands());
         return mav;
     }
 
@@ -192,17 +189,12 @@ public class HomeController {
         model.addAttribute("Email", customer.getEmail());
         model.addAttribute("cartList", cartList);
         model.addAttribute("totalPrice", totalPrice);
-        model.addAttribute("cates", categoryService.getCategory());
-        model.addAttribute("brands", brandService.getBrands());
-
         return "client/checkout";
     }
 
     // tạo tài khoản
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public ModelAndView register(Model model) {
-        model.addAttribute("cates", categoryService.getCategory());
-        model.addAttribute("brands", brandService.getBrands());
         return new ModelAndView("client/register");
     }
 
@@ -222,8 +214,6 @@ public class HomeController {
     // đăng nhập
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public ModelAndView login(Model model) {
-        model.addAttribute("cates", categoryService.getCategory());
-        model.addAttribute("brands", brandService.getBrands());
         return new ModelAndView("client/login");
     }
 
@@ -266,27 +256,21 @@ public class HomeController {
         ModelAndView mav = new ModelAndView();
         Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
 
-
-//        model.addAttribute("Email", customer.getEmail());
-//        model.addAttribute("TenKH", customer.getTenKH());
-//        model.addAttribute("SDT", customer.getSDT());
-//        model.addAttribute("Username", customer.getUsername());
-//        model.addAttribute("MaKH", customer.getMaKH());
-
+        List<Order> list = new ArrayList<>();
+        list = orderRepository.findAllByMaKH((Long) session.getAttribute("customer"));
 
         model.addAttribute("Customer", customer);
-
+        model.addAttribute("listOrder", list);
         return new ModelAndView("client/profile");
     }
 
     @ResponseBody
     @PostMapping("/updateProfile")
-    public Customer updateProfile(@RequestBody Customer customer, HttpSession session)
+    public int updateProfile(@RequestBody Customer customer, HttpSession session)
     {
         if(session.getAttribute("customer") == null)
         {
-            customer.setMaKH(0L);
-            return customer;
+            return 0;
         }
         Customer cus = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
         cus.setTenKH(customer.getTenKH());
@@ -294,14 +278,12 @@ public class HomeController {
         cus.setSDT(customer.getSDT());
 
         customerService.saveCustomer(cus);
-        return cus;
+        return 1;
     }
 
     @RequestMapping(value = "404", method = RequestMethod.GET)
     public ModelAndView error( Model model) {
            ModelAndView mav = new ModelAndView("client/error");
-        mav.addObject("cates", categoryService.getCategory());
-        mav.addObject("brands", brandService.getBrands());
         return mav ;
     }
 }

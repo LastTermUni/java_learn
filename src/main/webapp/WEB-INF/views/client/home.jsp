@@ -80,7 +80,6 @@
             </div>
             <div class="single-product-6-wrapper border-none">
                 <div class="row pb-20 justify-content-center">
-
                     <c:forEach var="pro" items="${products}">
                         <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 box-shadow-12  wow fadeInUp"
                              data-wow-delay=".${pro.id}s"
