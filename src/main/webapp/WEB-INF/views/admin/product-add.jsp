@@ -137,8 +137,8 @@
             // required()
             if(required() == "success") {
                 var names = $("#tensp").val();
-                var slug = removeAccents(names);
-                var hinh = slug + ".png";
+                var slug = slugify(names);
+                var hinh = slugify((new Date()).toJSON()) + ".png";
                 //check id product
                 if (result != 0) {
                     //edit
@@ -160,15 +160,16 @@
     });
 
     //add sp
-    function save(){
+    function save(name){
         var names = $("#tensp").val();
-        var slug = removeAccents(names);
-        var hinh = slug+ ".png";
+        var slug = slugify(names);
+        // var hinh = slugify((new Date()).toJSON()) + ".png";
         var formData = {
             tensp : names,
             mota : $("#mota").val(),
-            hinh : hinh,
+            hinh : name,
             gia : $("#gia").val(),
+            soluong : $("#soluong").val(),
             category : $("#category").val(),
             brand : $("#brand").val(),
             slug : slug,
@@ -192,7 +193,7 @@
     //edit
     function update(hinh){
         var names = $("#tensp").val();
-        var slug = removeAccents(names);
+        var slug = slugify(names);
         var id = $("#id").val();
         var Data = {
             id: id,
@@ -257,7 +258,7 @@
                 method: 'POST',
                 body: formdata
             });
-            save();
+            save(name);
         }
 
     }
@@ -276,30 +277,49 @@
     }
 
 
-    function removeAccents(str) {
-        var AccentsMap = [
-            "aàảãáạăằẳẵắặâầẩẫấậ",
-            "AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬ",
-            "dđ", "DĐ",
-            "eèẻẽéẹêềểễếệ",
-            "EÈẺẼÉẸÊỀỂỄẾỆ",
-            "iìỉĩíị",
-            "IÌỈĨÍỊ",
-            "oòỏõóọôồổỗốộơờởỡớợ",
-            "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢ",
-            "uùủũúụưừửữứự",
-            "UÙỦŨÚỤƯỪỬỮỨỰ",
-            "yỳỷỹýỵ",
-            "YỲỶỸÝỴ"
-        ];
-        for (var i=0; i<AccentsMap.length; i++) {
-            var re = new RegExp('[' + AccentsMap[i].substr(1) + ']', 'g');
-            var char = AccentsMap[i][0];
-            str = str.replace(re, char);
-        }
-        str = str.replace(" ", "");
-        return str;
+    // function removeAccents(str) {
+    //     var AccentsMap = [
+    //         "aàảãáạăằẳẵắặâầẩẫấậ",
+    //         "AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬ",
+    //         "dđ", "DĐ",
+    //         "eèẻẽéẹêềểễếệ",
+    //         "EÈẺẼÉẸÊỀỂỄẾỆ",
+    //         "iìỉĩíị",
+    //         "IÌỈĨÍỊ",
+    //         "oòỏõóọôồổỗốộơờởỡớợ",
+    //         "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢ",
+    //         "uùủũúụưừửữứự",
+    //         "UÙỦŨÚỤƯỪỬỮỨỰ",
+    //         "yỳỷỹýỵ",
+    //         "YỲỶỸÝỴ"
+    //     ];
+    //     for (var i=0; i<AccentsMap.length; i++) {
+    //         var re = new RegExp('[' + AccentsMap[i].substr(1) + ']', 'g');
+    //         var char = AccentsMap[i][0];
+    //         str = str.replace(re, char);
+    //     }
+    //     str = str.replace(" ", "");
+    //     return str;
+    // }
+    //create slug
+    function slugify(text) {
+        const from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;"
+        const to = "aaaaaeeeeeiiiiooooouuuunc------"
+
+        const newText = text.split('').map(
+            (letter, i) => letter.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i)))
+
+        return newText
+            .toString()                     // Cast to string
+            .toLowerCase()                  // Convert the string to lowercase letters
+            .trim()                         // Remove whitespace from both sides of a string
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/&/g, '-y-')           // Replace & with 'and'
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-');        // Replace multiple - with single -
     }
+
+
 </script>
 </body>
 </html>

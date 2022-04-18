@@ -161,7 +161,7 @@
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                         <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                <a href="login" class="d-none d-xxl-inline-block">Đăng nhập / Đăng ký</a>
+                                <a href="login" class="d-none d-xxl-inline-block" id="login">Đăng nhập / Đăng ký</a>
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
                                     <a href="javascript:void(0)" class="search-toggle"><i
                                             class="fal fa-search"></i></a>
@@ -382,6 +382,7 @@
     $(document).ready(function (){
         //Lấy số sp trong giỏ hàng
         getNumberCart();
+        checkLogin()
 
         $('body').on('click', '#openCartList', function (){
             cartList();
@@ -460,6 +461,27 @@
             success:function(data)
             {
                 $('#cartNumber').html(data.length);
+            }
+
+        })
+    }
+
+
+    function checkLogin()
+    {
+        urls = urlLocation + "/checkLogin/";
+        $.ajax({
+            url : urls,
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success:function(data) {
+                if(data.MaKH !==null)
+                {
+                    $('#login').html(data.tenKH)
+                    $("#login").attr("href", "#")
+                }
+
             }
 
         })

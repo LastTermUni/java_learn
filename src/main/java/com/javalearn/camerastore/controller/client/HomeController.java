@@ -129,6 +129,11 @@ public class HomeController {
         if(session.getAttribute("customer") == null){
             return "redirect:login";
         }
+        if (session.getAttribute("cartList") == null)
+        {
+            return "redirect:home";
+        }
+
         String email = (String) session.getAttribute("email");
         Customer customer = customerRepository.findCustomerByEmail(email);
 
@@ -199,6 +204,8 @@ public class HomeController {
             }
         }
     }
+
+
 
     @RequestMapping(value = "404", method = RequestMethod.GET)
     public ModelAndView error() {
