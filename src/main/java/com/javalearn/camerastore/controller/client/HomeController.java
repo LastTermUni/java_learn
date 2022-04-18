@@ -3,6 +3,7 @@ package com.javalearn.camerastore.controller.client;
 import com.javalearn.camerastore.convert.ConvertCategory;
 import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.Customer;
+import com.javalearn.camerastore.entity.Order;
 import com.javalearn.camerastore.entity.Product;
 import com.javalearn.camerastore.repository.BrandRepository;
 import com.javalearn.camerastore.repository.CustomerRepository;
@@ -15,6 +16,7 @@ import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -252,6 +254,47 @@ public class HomeController {
 //        session.removeAttribute("email");
 //        session.removeAttribute("nameCustomer");
         return "redirect:/home";
+    }
+
+    @GetMapping("profile")
+    public ModelAndView Profile(HttpSession session, Model model) {
+
+        if(session.getAttribute("customer") == null)
+        {
+            return new ModelAndView("client/login");
+        }
+        ModelAndView mav = new ModelAndView();
+        Customer customer = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+
+
+//        model.addAttribute("Email", customer.getEmail());
+//        model.addAttribute("TenKH", customer.getTenKH());
+//        model.addAttribute("SDT", customer.getSDT());
+//        model.addAttribute("Username", customer.getUsername());
+//        model.addAttribute("MaKH", customer.getMaKH());
+
+
+        model.addAttribute("Customer", customer);
+
+        return new ModelAndView("client/profile");
+    }
+
+    @ResponseBody
+    @PostMapping("/updateProfile")
+    public Customer updateProfile(@RequestBody Customer customer, HttpSession session)
+    {
+        if(session.getAttribute("customer") == null)
+        {
+            customer.setMaKH(0L);
+            return customer;
+        }
+        Customer cus = customerRepository.findOneByMaKH((Long) session.getAttribute("customer"));
+        cus.setTenKH(customer.getTenKH());
+//        cus.setEmail(customer.getEmail());
+        cus.setSDT(customer.getSDT());
+
+        customerService.saveCustomer(cus);
+        return cus;
     }
 
     @RequestMapping(value = "404", method = RequestMethod.GET)

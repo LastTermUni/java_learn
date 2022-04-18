@@ -159,8 +159,8 @@
                 for(let i =0 ; i<data.length ; i++)
                 {
                     html += "<tr>"
-                    html += "<td class='product-thumbnail'><a href='product-details.html'><img src='/Front-end/images/product/" + data[i].productRequest.hinh + "' alt=''></a></td>"
-                    html += "<td class='product-name'><a href='product-details.html'> "+ data[i].productRequest.tensp +"</a></td>"
+                    html += "<td class='product-thumbnail'><a href='/product-detail/"+ data[i].productRequest.slug +"'><img href='/product-detail/"+ data[i].productRequest.slug +"' src='/Front-end/images/product/" + data[i].productRequest.hinh + "' alt=''></a></td>"
+                    html += "<td class='product-name'><a href='/product-detail/"+ data[i].productRequest.slug +"'> "+ data[i].productRequest.tensp +"</a></td>"
                     html += "<td class='product-price'><span class='amount'>"+ nf.format(data[i].productRequest.gia)  +" VNĐ</span></td>"
                     html += "<td class='product-quantity'>"
                     html += "<div class='cart-plus-minus'><input type='text' data-id='"+ data[i].productRequest.id + "' class='numberPro' value='"+ data[i].quantity +"' readonly/>" +
