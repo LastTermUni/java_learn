@@ -9,5 +9,4 @@ public interface ProductService {
     List<Product> getProduct();
     ProductRequest saveProduct(ProductRequest productRequest);
 
-    ProductRequest updateProduct(ProductRequest productRequest);
 }
