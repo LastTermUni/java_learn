@@ -70,7 +70,7 @@ public class HomeController {
             mav.addObject("nameUser", customer.getTenKH());
         }
         mav.addObject("productNewest",  productRepository.findFirstByOrderByIdDesc());
-        mav.addObject("products", productRepository.getAllByStatus());
+        mav.addObject("products", productRepository.get9ByStatus());
 
         return mav;
     }

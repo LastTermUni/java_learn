@@ -9,9 +9,10 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT v FROM Product v where v.status = 1  order by v.id desc")
+//    @Query(nativeQuery = true, value = "SELECT * FROM sanpham  where status = 1  order by id desc LIMIT 9")
     List<Product> getAllByStatus();
 
-    @Query("SELECT v FROM Product v where v.status = 1 order by v.id desc")
+    @Query(nativeQuery = true, value = "SELECT * FROM sanpham  where status = 1  order by id desc LIMIT 9")
     List<Product> get9ByStatus();
 
     Product findFirstByOrderByIdDesc();

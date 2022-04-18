@@ -85,7 +85,6 @@
               </ul>
             </div>
             <div class="product__details-action mb-20">
-              <form action="#">
                 <div class="product__details-quantity d-sm-flex align-items-center">
                   <div class="product-quantity mb-20 mr-15">
                     <div class="cart-plus-minus"><input type="text" value="1" id="quantityDetails" /></div>
@@ -94,7 +93,6 @@
                     <button class="s-btn s-btn-2 s-btn-big" id="add_cart_details" data-id="${products.id}">Thêm vào giỏ</button>
                   </div>
                 </div>
-              </form>
             </div>
             <div class="product__details-accordion">
               <div class="accordion" id="productDetailsAccordion">
