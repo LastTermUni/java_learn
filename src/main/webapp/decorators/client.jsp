@@ -7,9 +7,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" type="image/x-icon" href="<c:url value='/Front-end/client/img/favicon.ico'/>">
+    <link rel="icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
+    <link rel="shortcut icon" href="<c:url value='/Front-end/images/logo/Camera-white.ico'/>" type="image/x-icon">
     <!-- CSS here -->
+    <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'>
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/preloader.css'/>">
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/owl.carousel.min.css'/> ">
     <link rel="stylesheet" href="<c:url value='/Front-end/client/css/animate.min.css'/> ">
@@ -159,9 +160,28 @@
                         </div>
                     </div>
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
-                        <div class="header-right-wrapper d-flex align-items-center justify-content-end">
-                            <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                <a href="login" class="d-none d-xxl-inline-block" id="login">Đăng nhập / Đăng ký</a>
+
+                        <div class="header-right-wrapper d-flex align-items-center justify-content-end ">
+                            <div class="header-right header-right-2 d-flex align-items-center justify-content-end main-menu">
+
+                                <c:choose>
+                                    <c:when  test="${nameUser !=null    }" >
+                                        <ul>
+                                    <li class="static ">
+                                        <a href="#" class="user-btn-login"><i class="fas fa-user"></i>  ${nameUser}</a>
+                                        <ul class="drop-login ">
+                                             <li >
+                                                <a class="box-user-login" href="/logout">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="login" style="font-family: system-ui" class="d-none d-xxl-inline-block">Đăng nhập / Đăng ký</a>
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
                                     <a href="javascript:void(0)" class="search-toggle"><i
                                             class="fal fa-search"></i></a>

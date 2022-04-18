@@ -9,7 +9,7 @@
 <main>
 
     <!-- breadcrumb area start -->
-    <div class="breadcrumb-area-3 pt-215 pb-20">
+    <div class="breadcrumb-area-3 pt-10 pb-20">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-12">
@@ -27,66 +27,6 @@
         </div>
     </div>
     <!-- breadcrumb area end -->
-
-    <!-- coupon-area start -->
-    <section class="coupon-area pt-100 pb-30">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="coupon-accordion">
-                        <!-- ACCORDION START -->
-                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
-                        <div id="checkout-login" class="coupon-content">
-                            <div class="coupon-info">
-                                <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
-                                    sit amet ipsum luctus.</p>
-                                <form action="#">
-                                    <p class="form-row-first">
-                                        <label>Username or email <span class="required">*</span></label>
-                                        <input type="text" />
-                                    </p>
-                                    <p class="form-row-last">
-                                        <label>Password <span class="required">*</span></label>
-                                        <input type="text" />
-                                    </p>
-                                    <p class="form-row">
-                                        <button class="s-btn s-btn-2" type="submit">Login</button>
-                                        <label>
-                                            <input type="checkbox" />
-                                            Remember me
-                                        </label>
-                                    </p>
-                                    <p class="lost-password">
-                                        <a href="#">Lost your password?</a>
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- ACCORDION END -->
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="coupon-accordion">
-                        <!-- ACCORDION START -->
-                        <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
-                        <div id="checkout_coupon" class="coupon-checkout-content">
-                            <div class="coupon-info">
-                                <form action="#">
-                                    <p class="checkout-coupon">
-                                        <input type="text" placeholder="Coupon Code" />
-                                        <button class="s-btn s-btn-2" type="submit">Apply Coupon</button>
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- ACCORDION END -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- coupon-area end -->
-
     <!-- checkout-area start -->
     <section class="checkout-area pb-70">
         <div class="container">
@@ -163,48 +103,49 @@
 
                             <div class="payment-method">
                                 <div class="accordion" id="checkoutAccordion">
+                                    <div>Phương thức thanh toán:</div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="checkoutOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#bankOne" aria-expanded="true" aria-controls="bankOne">
-                                                Direct Bank Transfer
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bankOne" aria-expanded="false" aria-controls="bankOne">
+                                                COD
                                             </button>
                                         </h2>
-                                        <div id="bankOne" class="accordion-collapse collapse show" aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
+                                        <div id="bankOne" class="accordion-collapse collapse" aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
-                                                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.
+                                                <div class="order-button-payment mt-20">
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanCOD">Thanh bằng COD</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="paymentTwo">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#payment" aria-expanded="false" aria-controls="payment">
-                                                Cheque Payment
+                                                Momo
                                             </button>
                                         </h2>
                                         <div id="payment" class="accordion-collapse collapse" aria-labelledby="paymentTwo" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
-                                                Please send your cheque to Store Name, Store Street, Store Town, Store
-                                                State / County, Store
-                                                Postcode.
+                                                <div class="order-button-payment mt-20">
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanMomo">Thanh bằng Momo</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="paypalThree">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false" aria-controls="paypal">
-                                                PayPal
+                                               PayPal
                                             </button>
                                         </h2>
                                         <div id="paypal" class="accordion-collapse collapse" aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">
                                             <div class="accordion-body">
-                                                Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                PayPal account.
+                                                <div class="order-button-payment mt-20">
+                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh bằng Paypal</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="order-button-payment mt-20">
-                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>

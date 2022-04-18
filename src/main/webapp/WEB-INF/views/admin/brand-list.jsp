@@ -39,7 +39,7 @@
                                     <th>STT</th>
                                     <th>Danh mục</th>
                                     <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>Tùy chọn</th>
                                 </tr>
                                 </thead>
                                 <tbody >

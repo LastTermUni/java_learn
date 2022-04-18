@@ -41,25 +41,6 @@
                        alt="">
                 </div>
               </div>
-  <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6 col-sm-6">
-    <div class="product-thumb-grid w-img">
-      <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
-           alt="">
-    </div>
-  </div>
-  <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6 col-sm-6">
-    <div class="product-thumb-grid w-img">
-      <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
-           alt="">
-    </div>
-  </div><div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6 col-sm-6">
-  <div class="product-thumb-grid w-img">
-    <img src="<c:url value='/Front-end/images/product/sony1.png'/>"
-         alt="">
-  </div>
-</div>
-
-
             </div>
           </div>
         </div>
@@ -69,7 +50,7 @@
               <a >${products.tensp}</a>
             </h3>
             <div class="product__details-price">
-              <span class="price">${pro.gia} VNĐ</span>
+              <span class="price">${products.gia} VNĐ</span>
             </div>
             <div class="product__details-meta mb-25">
               <ul>
@@ -86,7 +67,7 @@
 
                     <span>Thương hiệu: </span>
                     <p>
-                      <span>chưa có</span>
+                      <span>${products.brand.tenthuonghieu}</span>
                     </p>
                   </div>
                 </li>
