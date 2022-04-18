@@ -88,8 +88,8 @@
                                                          alt="#">
                                                 </a>
                                                 </div>
-                                                <div class="cart-btn cart-btn-1 p-abs">
-                                                    <a href="#">Thêm vào giỏ</a>
+                                                <div class="cart-btn cart-btn-1 p-abs addtoCart"  data-id="${pro.id}">
+                                                    <a>Thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                             <div class="product-content ml-15">
@@ -180,6 +180,31 @@
            let urlParams = new URL(window.location.href);
            urlParams.searchParams.set('page', page);
             window.location.href=(urlParams);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        var urlLocation = window.location.protocol + "//" + window.location.host;
+        $(document).ready(function () {
+
+            $('body').on('click', '.addtoCart', function () {
+                var id = $(this).data('id');
+                addCart(id);
+            })
+        });
+
+        function addCart(_id) {
+            urls = urlLocation + "/Cart/" + _id;
+            $.ajax({
+                url: urls,
+                type: 'GET',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data) {
+                    $('#cartNumber').html(data);
+                }
+            })
         }
     </script>
 </main>
