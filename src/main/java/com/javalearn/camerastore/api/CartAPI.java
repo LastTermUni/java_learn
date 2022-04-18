@@ -3,7 +3,9 @@ package com.javalearn.camerastore.api;
 
 import com.javalearn.camerastore.convert.ConvertProduct;
 import com.javalearn.camerastore.entity.Customer;
+import com.javalearn.camerastore.entity.Order;
 import com.javalearn.camerastore.repository.CustomerRepository;
+import com.javalearn.camerastore.repository.OrderRepository;
 import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.Cart;
 import com.javalearn.camerastore.request.ProductRequest;
@@ -21,6 +23,8 @@ import java.util.Map;
 public class CartAPI {
     @Autowired
     ProductRepository productRepository;
+
+
 
     @Autowired
     ConvertProduct convertProduct;
@@ -170,6 +174,8 @@ public class CartAPI {
         session.setAttribute("cartNum", list.size());
         return "Success";
     }
+
+
 
 
     public double totalPrice(HashMap<Long, Cart> cartItems) {
