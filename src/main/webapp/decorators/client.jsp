@@ -424,14 +424,25 @@
               contentType: 'application/json',
               dataType:'json',
               success:function (data){
-                var brands = data[brands];
-                var categories = data[categories];
+                const map = new Map(Object.entries(data));
+                var brands = map.get("brands");
+                var categories = map.get("categories");
                 var html = "";
                 for(let i =0; i< brands.length; i++)
                 {
                   html+= "<li class='has-dropdown'>"
-                  html+= " <a onclick='toBrand("+ brands.id +");' >" + brands.tenthuonghieu + "</a>"
-                  html+= "<li/>"
+                  html+= " <a onclick='toBrand("+ brands[i].id +");' >" + brands[i].tenthuonghieu + "</a>"
+                  html+= "<ul class='has-dropdown'>"
+                  for (let j=0; j<categories.length; j++)
+                  {
+                    html+= "<li>"
+                    html+= "<a role='button' onclick='toCateWBrand("+ categories[j].id+","+brands[i].id+");'>"
+                    html+= categories[j].tenloai + "</a>"
+                    html+= "</li>"
+                  }
+
+                  html +="</ul>"
+                  html+= "</li>"
                 }
                 $("#brand_cate").html(html)
               }
