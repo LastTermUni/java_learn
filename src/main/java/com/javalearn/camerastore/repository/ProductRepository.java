@@ -8,8 +8,12 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("SELECT v FROM Product v where v.status = 1")
+    @Query("SELECT v FROM Product v where v.status = 1  order by v.id desc")
     List<Product> getAllByStatus();
+
+    @Query("SELECT v FROM Product v where v.status = 1 order by v.id desc")
+    List<Product> get9ByStatus();
+
     Product findFirstByOrderByIdDesc();
     Product findOneById(Long id);
     Product findOneBySlug(String slug);

@@ -162,7 +162,7 @@
     //add sp
     function save(name){
         var names = $("#tensp").val();
-        var slug = slugify(names);
+        var slug = slugify(names + slugify((new Date()).toJSON()));
         // var hinh = slugify((new Date()).toJSON()) + ".png";
         var formData = {
             tensp : names,
@@ -193,7 +193,7 @@
     //edit
     function update(hinh){
         var names = $("#tensp").val();
-        var slug = slugify(names);
+        var slug = slugify(names + slugify((new Date()).toJSON()));
         var id = $("#id").val();
         var Data = {
             id: id,

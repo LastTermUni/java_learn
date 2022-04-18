@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Thanh toán</title>
@@ -32,116 +32,117 @@
     <section class="checkout-area pb-70">
         <div class="container">
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="checkbox-form">
-                            <form action="./updateProfile" method="post" id="formUpdate"></form>
-                            <h3>Thông tin khách hàng</h3>
-                            <input type="text" style="display: none" placeholder="" id="maKH" name="maKH" value="${Customer.maKH}" />
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Tài khoản <span class="required">*</span></label>
-                                        <input readonly type="text" placeholder="" id="username" name="username" value="${Customer.username}" />
-                                    </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="checkbox-form">
+                        <form action="./updateProfile" method="post" id="formUpdate"></form>
+                        <h3>Thông tin khách hàng</h3>
+                        <input type="text" style="display: none" placeholder="" id="maKH" name="maKH"
+                               value="${Customer.maKH}"/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Tài khoản <span class="required">*</span></label>
+                                    <input readonly type="text" placeholder="" id="username" name="username"
+                                           value="${Customer.username}"/>
                                 </div>
-
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email" readonly placeholder="" id="email" name="email" value="${Customer.email}" />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Họ và tên <span class="required">*</span></label>
-                                        <input type="text" placeholder="" id="tenKH" name="tenKH" value="${Customer.tenKH}" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label>Số điện thoại <span class="required">*</span></label>
-                                        <input type="text" placeholder="" id="SDT" name="SDT" value="${Customer.SDT}" />
-                                    </div>
-                                </div>
-
                             </div>
-                            </form>
-                            <button type="submit"  class="s-btn s-btn-2" id="update">Thanh toán bằng Paypal</button>
-                        </div>
 
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Email <span class="required">*</span></label>
+                                    <input type="email" readonly placeholder="" id="email" name="email"
+                                           value="${Customer.email}"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Họ và tên <span class="required">*</span></label>
+                                    <input type="text" placeholder="" id="tenKH" name="tenKH"
+                                           value="${Customer.tenKH}"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="checkout-form-list">
+                                    <label>Số điện thoại <span class="required">*</span></label>
+                                    <input type="text" placeholder="" id="SDT" name="SDT" value="${Customer.SDT}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        </form>
+                        <button type="submit" class="s-btn s-btn-2" id="update">Cập nhật</button>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="your-order mb-30 ">
-                            <h3>Thông tin hóa đơn</h3>
-                            <div class="your-order-table table-responsive">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th class="product-name">Product</th>
-                                        <th class="product-total">Total</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="cart_item">
 
-                                    </tbody>
+                </div>
+                <div class="col-lg-6">
+                    <div class="your-order mb-30 ">
+                        <h3>Thông tin hóa đơn</h3>
+                        <div class="your-order-table table-responsive">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-total">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="cart_item">
 
-                                </table>
-                            </div>
+                                </tbody>
 
-                            <div class="payment-method">
-                                <div class="accordion" id="checkoutAccordion">
-                                    <div>Phương thức thanh toán:</div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="checkoutOne">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bankOne" aria-expanded="false" aria-controls="bankOne">
-                                                COD
-                                            </button>
-                                        </h2>
-                                        <div id="bankOne" class="accordion-collapse collapse" aria-labelledby="checkoutOne" data-bs-parent="#checkoutAccordion">
-                                            <div class="accordion-body">
-                                                <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanCOD">Thanh toán bằng COD</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="paymentTwo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#payment" aria-expanded="false" aria-controls="payment">
-                                                Momo
-                                            </button>
-                                        </h2>
-                                        <div id="payment" class="accordion-collapse collapse" aria-labelledby="paymentTwo" data-bs-parent="#checkoutAccordion">
-                                            <div class="accordion-body">
-                                                <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoanMomo">Thanh toán bằng Momo</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="paypalThree">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false" aria-controls="paypal">
-                                               PayPal
-                                            </button>
-                                        </h2>
-                                        <div id="paypal" class="accordion-collapse collapse" aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">
-                                            <div class="accordion-body">
-                                                <div class="order-button-payment mt-20">
-                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh toán bằng Paypal</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            </table>
+                        </div>
+
+                        <div class="payment-method">
+                            <div class="accordion" id="checkoutAccordion">
+                                <div>Phương thức thanh toán:</div>
+                                <c:forEach var="order" items="${listOrder}">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="paypalThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#paypal" aria-expanded="false"
+                                                aria-controls="paypal">
+                                            Ngày đặt : ${order.ngaydathang} - Tổng tiền <fmt:formatNumber
+                                                type="number"
+                                                maxFractionDigits="3" value="${order.tongtien}"/> VNĐ
+
+                                            - Địa chỉ: ${order.diachi}
+                                            - Trạng thái : <c:choose>
+                                            <c:when test="${order.status == 1}">
+                                                SHIP COD
+                                            </c:when>
+                                            <c:when test="${order.status == 2}">
+                                                Đã thanh toán bằng PayPal
+                                            </c:when>
+                                            <c:when test="${order.status == 3}">
+                                                Đã thanh toán
+                                            </c:when>
+                                            <c:when test="${order.status == 0}">
+                                                Đơn hàng đã hủy
+                                            </c:when>
+                                        </c:choose>
+                                        </button>
+
+                                    </h2>
+                                        <%--                                        <div id="paypal" class="accordion-collapse collapse" aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">--%>
+                                        <%--                                            <div class="accordion-body">--%>
+                                        <%--                                                <div class="order-button-payment mt-20">--%>
+                                        <%--                                                    <button type="submit"  class="s-btn s-btn-2" id="thanhtoan">Thanh toán bằng Paypal</button>--%>
+                                        <%--                                                </div>--%>
+                                        <%--                                            </div>--%>
+                                        <%--                                        </div>--%>
+                                        <%--                                    </div>--%>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-            </form>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -151,13 +152,13 @@
 
 <script>
 
-    $(document).ready(function (){
-        $('body').on('click','#update',function (){
+    $(document).ready(function () {
+        $('body').on('click', '#update', function () {
             var formData = {
-                maKH : $("#maKH").val(),
+                maKH: $("#maKH").val(),
                 tenKH: $("#tenKH").val(),
-                username : $("#username").val(),
-                sdt : $("#SDT").val(),
+                username: $("#username").val(),
+                sdt: $("#SDT").val(),
                 email: $("#email").val(),
             }
 
@@ -168,19 +169,19 @@
                 url: "./updateProfile",
                 data: JSON.stringify(formData),
                 dataType: "json",
-                contentType : "application/json",
-                success:function (res){
-                    if(res.maKH !== 0)
-                    {
+                contentType: "application/json",
+                success: function (res) {
+                    if (res == 1) {
                         alert("Cập nhật thành công")
                         window.location.reload();
+                    } else {
+                        alert("Cập nhật thất bại")
                     }
 
                 }
             });
         })
     })
-
 
 
 </script>

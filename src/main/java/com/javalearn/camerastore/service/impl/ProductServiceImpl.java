@@ -11,6 +11,7 @@ import com.javalearn.camerastore.repository.ProductRepository;
 import com.javalearn.camerastore.request.ProductRequest;
 import com.javalearn.camerastore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProduct() {
-        return productRepository.findAll();
+        return productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
     @Override
     public ProductRequest saveProduct(ProductRequest productRequest) {
