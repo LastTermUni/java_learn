@@ -149,19 +149,19 @@
                           <li class="static">
                             <a href="/product">Sản phẩm</a>
                             <ul class="mega-menu mega-full mega-menu-5-col" id="brand_cate">
-                              <c:forEach items="${brands}" var="brand">
-                                <li class="has-dropdown">
-                                  <a onclick="toBrand(${brand.id});" >${brand.tenthuonghieu}</a>
-                                  <ul class="has-dropdown">
-                                    <c:forEach items="${cates}" var="cate">
-                                      <li>
-                                        <a role="button" onclick="toCateWBrand(${cate.id},${brand.id});">
-                                          ${cate.tenloai}</a>
-                                      </li>
-                                    </c:forEach>
-                                  </ul>
-                                </li>
-                              </c:forEach>
+<%--                              <c:forEach items="${brands}" var="brand">--%>
+<%--                                <li class="has-dropdown">--%>
+<%--                                  <a onclick="toBrand(${brand.id});" >${brand.tenthuonghieu}</a>--%>
+<%--                                  <ul class="has-dropdown">--%>
+<%--                                    <c:forEach items="${cates}" var="cate">--%>
+<%--                                      <li>--%>
+<%--                                        <a role="button" onclick="toCateWBrand(${cate.id},${brand.id});">--%>
+<%--                                          ${cate.tenloai}</a>--%>
+<%--                                      </li>--%>
+<%--                                    </c:forEach>--%>
+<%--                                  </ul>--%>
+<%--                                </li>--%>
+<%--                              </c:forEach>--%>
                             </ul>
                           </li>
                         </ul>
